@@ -263,7 +263,7 @@
     if (!el) return;
 
     if (location.hostname === 'next.shoelace.style') el.textContent = 'Next';
-    if (location.hostname === 'localhost') el.textContent = 'Development';
+    if (location.hostname === 'localhost') el.textContent = 'Development SMART';
   }
 
   updateVersion();
