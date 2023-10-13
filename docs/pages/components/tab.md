@@ -10,6 +10,11 @@ layout: component
 <sl-tab active>Active</sl-tab>
 <sl-tab closable>Closable</sl-tab>
 <sl-tab disabled>Disabled</sl-tab>
+<sl-tab variant='wizard'>
+  <span slot="step">nº</span>
+  <span slot='label'>wizard</span>
+</sl-tab>
+
 ```
 
 ```jsx:react
@@ -21,6 +26,10 @@ const App = () => (
     <SlTab active>Active</SlTab>
     <SlTab closable>Closable</SlTab>
     <SlTab disabled>Disabled</SlTab>
+    <SlTab variant='wizard'>
+      <span slot="step">nº</span>
+      <span slot='label'>wizard</span>
+    </SlTab>
   </>
 );
 ```

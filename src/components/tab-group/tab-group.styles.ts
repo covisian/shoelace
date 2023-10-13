@@ -103,6 +103,10 @@ export default css`
     border-bottom: solid var(--track-width) var(--indicator-color);
   }
 
+  .tab-group--wizard .tab-group__tabs, .tab-group__indicator  {
+    border:none!important;
+  }
+  
   .tab-group--top .tab-group__body {
     order: 2;
   }
@@ -230,4 +234,11 @@ export default css`
   .tab-group--end ::slotted(sl-tab-panel) {
     --padding: 0 var(--sl-spacing-medium);
   }
+
+  .tab-group--wizard .tab-group__tabs::part(nav){
+    color:red;
+  }
+
+}
+
 `;
