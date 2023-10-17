@@ -214,8 +214,8 @@ export default class SlTreeItem extends ShoelaceElement {
   getChildrenItems({ includeDisabled = true }: { includeDisabled?: boolean } = {}): SlTreeItem[] {
     return this.childrenSlot
       ? ([...this.childrenSlot.assignedElements({ flatten: true })].filter(
-          (item: SlTreeItem) => SlTreeItem.isTreeItem(item) && (includeDisabled || !item.disabled)
-        ) as SlTreeItem[])
+        (item: SlTreeItem) => SlTreeItem.isTreeItem(item) && (includeDisabled || !item.disabled)
+      ) as SlTreeItem[])
       : [];
   }
 
@@ -227,14 +227,14 @@ export default class SlTreeItem extends ShoelaceElement {
       <div
         part="base"
         class="${classMap({
-          'tree-item': true,
-          'tree-item--expanded': this.expanded,
-          'tree-item--selected': this.selected,
-          'tree-item--disabled': this.disabled,
-          'tree-item--leaf': this.isLeaf,
-          'tree-item--has-expand-button': showExpandButton,
-          'tree-item--rtl': this.localize.dir() === 'rtl'
-        })}"
+      'tree-item': true,
+      'tree-item--expanded': this.expanded,
+      'tree-item--selected': this.selected,
+      'tree-item--disabled': this.disabled,
+      'tree-item--leaf': this.isLeaf,
+      'tree-item--has-expand-button': showExpandButton,
+      'tree-item--rtl': this.localize.dir() === 'rtl'
+    })}"
       >
         <div
           class="tree-item__item"
@@ -251,24 +251,24 @@ export default class SlTreeItem extends ShoelaceElement {
           <div
             part="expand-button"
             class=${classMap({
-              'tree-item__expand-button': true,
-              'tree-item__expand-button--visible': showExpandButton
-            })}
+      'tree-item__expand-button': true,
+      'tree-item__expand-button--visible': showExpandButton
+    })}
             aria-hidden="true"
           >
             ${when(this.loading, () => html` <sl-spinner></sl-spinner> `)}
             <slot class="tree-item__expand-icon-slot" name="expand-icon">
-              <sl-icon library="system" name=${isRtl ? 'chevron-left' : 'chevron-right'}></sl-icon>
+              <sl-icon name=${isRtl ? 'cv-caret-left' : 'cv-caret-right'}></sl-icon>
             </slot>
             <slot class="tree-item__expand-icon-slot" name="collapse-icon">
-              <sl-icon library="system" name=${isRtl ? 'chevron-left' : 'chevron-right'}></sl-icon>
+              <sl-icon name=${isRtl ? 'cv-caret-left' : 'cv-caret-right'}></sl-icon>
             </slot>
           </div>
 
           ${when(
-            this.selectable,
-            () =>
-              html`
+      this.selectable,
+      () =>
+        html`
                 <sl-checkbox
                   part="checkbox"
                   exportparts="
@@ -287,7 +287,7 @@ export default class SlTreeItem extends ShoelaceElement {
                   tabindex="-1"
                 ></sl-checkbox>
               `
-          )}
+    )}
 
           <slot class="tree-item__label" part="label"></slot>
         </div>

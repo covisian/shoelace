@@ -94,7 +94,6 @@ export default css`
   .tree-item__item {
     display: flex;
     align-items: center;
-    border-inline-start: solid 3px transparent;
   }
 
   .tree-item--disabled .tree-item__item {
@@ -110,8 +109,8 @@ export default css`
   }
 
   :host(:not([aria-disabled='true'])) .tree-item--selected .tree-item__item {
-    background-color: var(--sl-color-neutral-100);
-    border-inline-start-color: var(--sl-color-primary-600);
+    background-color: #e8e8e9;
+    border-inline-start-color: none;
   }
 
   :host(:not([aria-disabled='true'])) .tree-item__expand-button {

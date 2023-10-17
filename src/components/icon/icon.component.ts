@@ -92,7 +92,7 @@ export default class SlIcon extends ShoelaceElement {
   @property() label = '';
 
   /** The name of a registered custom icon library. */
-  @property({ reflect: true }) library = 'default';
+  @property({ reflect: true }) library = 'smart';
 
   connectedCallback() {
     super.connectedCallback();

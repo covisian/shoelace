@@ -388,15 +388,15 @@ Decorative icons can be used before labels to provide hints for each node.
 ```html:preview
 <sl-tree class="tree-with-icons">
   <sl-tree-item expanded>
-    <sl-icon name="folder"></sl-icon>
+    <sl-icon name="cv-archive"></sl-icon>
     Documents
 
     <sl-tree-item>
       <sl-icon name="folder"> </sl-icon>
       Photos
       <sl-tree-item>
-        <sl-icon name="image"></sl-icon>
-        birds.jpg
+        <sl-icon name="cv-curriculum-stroke"></sl-icon>
+        Curriculum.pdf
       </sl-tree-item>
       <sl-tree-item>
         <sl-icon name="image"></sl-icon>
