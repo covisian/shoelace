@@ -266,12 +266,11 @@ export default class SlTreeItem extends ShoelaceElement {
           </div>
 
           ${when(
-      this.selectable,
-      () =>
-        html`
-                <sl-checkbox
-                  part="checkbox"
-                  exportparts="
+            this.selectable,
+            () => html`
+              <sl-checkbox
+                part="checkbox"
+                exportparts="
                     base:checkbox__base,
                     control:checkbox__control,
                     control--checked:checkbox__control--checked,
@@ -280,14 +279,14 @@ export default class SlTreeItem extends ShoelaceElement {
                     indeterminate-icon:checkbox__indeterminate-icon,
                     label:checkbox__label
                   "
-                  class="tree-item__checkbox"
-                  ?disabled="${this.disabled}"
-                  ?checked="${live(this.selected)}"
-                  ?indeterminate="${this.indeterminate}"
-                  tabindex="-1"
-                ></sl-checkbox>
-              `
-    )}
+                class="tree-item__checkbox"
+                ?disabled="${this.disabled}"
+                ?checked="${live(this.selected)}"
+                ?indeterminate="${this.indeterminate}"
+                tabindex="-1"
+              ></sl-checkbox>
+            `
+          )}
 
           <slot class="tree-item__label" part="label"></slot>
         </div>
