@@ -5,7 +5,7 @@ const smartLibrary: IconLibrary = {
   name: 'smart',
   resolver: name => {
     if (name.includes('cv-')) {
-      return `http://localhost:8080/${name}.svg`
+      return `https://smart-cdn.app.covisian.com/web/v1/svg/${name}.svg`
     } else {
       return getBasePath(`assets/icons/${name}.svg`)
     }

@@ -94,4 +94,43 @@ export default css`
     font-size: var(--sl-font-size-medium);
     padding-inline-end: var(--sl-spacing-medium);
   }
+
+  .sl-top-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  .sl-top-center {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sl-top-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .sl-bottom-right {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+
+  .sl-bottom-center {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sl-bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
 `;

@@ -12,7 +12,7 @@ import SlIconButton from '../icon-button/icon-button.component.js';
 import styles from './alert.styles.js';
 import type { CSSResultGroup } from 'lit';
 
-const toastStack = Object.assign(document.createElement('div'), { className: 'sl-toast-stack' });
+const toastStack = Object.assign(document.createElement('div'), { className: 'sl-toast-stack' })
 
 /**
  * @summary Alerts are used to display important messages inline or as toast notifications.
@@ -61,6 +61,9 @@ export default class SlAlert extends ShoelaceElement {
   /** The alert's theme variant. */
   @property({ reflect: true }) variant: 'primary' | 'success' | 'neutral' | 'warning' | 'danger' = 'primary';
 
+  /** The alert's position. */
+  @property({ reflect: true }) position: 'relative' | 'top-right' | 'top-center' | 'top-left' | 'bottom-right' | 'bottom-center' | 'bottom-left' = 'relative';
+
   /**
    * The length of time, in milliseconds, the alert will show before closing itself. If the user interacts with
    * the alert before it closes (e.g. moves the mouse over it), the timer will restart. Defaults to `Infinity`, meaning
@@ -87,6 +90,26 @@ export default class SlAlert extends ShoelaceElement {
     this.restartAutoHide();
   }
 
+  private calculatePosition(): string {
+    switch (this.position) {
+      case 'top-right':
+        return 'sl-top-right';
+      case 'top-center':
+        return 'sl-top-center';
+      case 'top-left':
+        return 'sl-top-left';
+      case 'bottom-right':
+        return 'sl-bottom-right';
+      case 'bottom-center':
+        return 'sl-bottom-center';
+      case 'bottom-left':
+        return 'sl-bottom-left';
+      default:
+        return '';
+    }
+  }
+
+
   @watch('open', { waitUntilFirstUpdate: true })
   async handleOpenChange() {
     if (this.open) {
@@ -99,9 +122,10 @@ export default class SlAlert extends ShoelaceElement {
 
       await stopAnimations(this.base);
       this.base.hidden = false;
-      const { keyframes, options } = getAnimation(this, 'alert.show', { dir: this.localize.dir() });
+      const { keyframes, options } = getAnimation(
+        this, `alert.show`, { dir: this.localize.dir() }
+      );
       await animateTo(this.base, keyframes, options);
-
       this.emit('sl-after-show');
     } else {
       // Hide
@@ -110,11 +134,16 @@ export default class SlAlert extends ShoelaceElement {
       clearTimeout(this.autoHideTimeout);
 
       await stopAnimations(this.base);
-      const { keyframes, options } = getAnimation(this, 'alert.hide', { dir: this.localize.dir() });
+
+      const { keyframes, options } = getAnimation(
+        this, `alert.hide`, { dir: this.localize.dir() }
+
+      );
       await animateTo(this.base, keyframes, options);
+      this.emit('sl-after-hide');
+
       this.base.hidden = true;
 
-      this.emit('sl-after-hide');
     }
   }
 
@@ -180,20 +209,24 @@ export default class SlAlert extends ShoelaceElement {
   }
 
   render() {
+
+    const position = this.calculatePosition();
+
     return html`
       <div
         part="base"
         class=${classMap({
-          alert: true,
-          'alert--open': this.open,
-          'alert--closable': this.closable,
-          'alert--has-icon': this.hasSlotController.test('icon'),
-          'alert--primary': this.variant === 'primary',
-          'alert--success': this.variant === 'success',
-          'alert--neutral': this.variant === 'neutral',
-          'alert--warning': this.variant === 'warning',
-          'alert--danger': this.variant === 'danger'
-        })}
+      alert: true,
+      'alert--open': this.open,
+      'alert--closable': this.closable,
+      'alert--has-icon': this.hasSlotController.test('icon'),
+      'alert--primary': this.variant === 'primary',
+      'alert--success': this.variant === 'success',
+      'alert--neutral': this.variant === 'neutral',
+      'alert--warning': this.variant === 'warning',
+      'alert--danger': this.variant === 'danger',
+      [position]: true
+    })}
         role="alert"
         aria-hidden=${this.open ? 'false' : 'true'}
         @mousemove=${this.handleMouseMove}
@@ -207,7 +240,7 @@ export default class SlAlert extends ShoelaceElement {
         </div>
 
         ${this.closable
-          ? html`
+        ? html`
               <sl-icon-button
                 part="close-button"
                 exportparts="base:close-button__base"
@@ -218,7 +251,7 @@ export default class SlAlert extends ShoelaceElement {
                 @click=${this.handleCloseClick}
               ></sl-icon-button>
             `
-          : ''}
+        : ''}
       </div>
     `;
   }
@@ -232,6 +265,7 @@ setDefaultAnimation('alert.show', {
   options: { duration: 250, easing: 'ease' }
 });
 
+
 setDefaultAnimation('alert.hide', {
   keyframes: [
     { opacity: 1, scale: 1 },
@@ -239,3 +273,5 @@ setDefaultAnimation('alert.hide', {
   ],
   options: { duration: 250, easing: 'ease' }
 });
+
+

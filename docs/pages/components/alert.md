@@ -126,6 +126,61 @@ const App = () => (
 );
 ```
 
+### Position
+Set the `position` attribute to change the alert's generated position.
+
+```html:preview
+<div class="alert-toast">
+  <sl-button variant="primary">top right</sl-button>
+  <sl-button variant="primary">top center</sl-button>
+  <sl-button variant="primary">top left</sl-button>
+  <sl-button variant="primary">bottom right</sl-button>
+  <sl-button variant="primary">bottom center</sl-button>
+  <sl-button variant="primary">bottom left</sl-button>
+
+  <sl-alert variant="primary" duration="3000" closable position='top-right'>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>top right</strong>
+  </sl-alert>
+
+   <sl-alert variant="primary" duration="3000" closable position='top-center'>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>top center</strong>
+  </sl-alert>
+
+  <sl-alert variant="primary" duration="3000" closable position='top-left'>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>top left</strong>
+  </sl-alert>
+
+   <sl-alert variant="primary" duration="3000" closable position='bottom-right'>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>bottom right</strong>
+  </sl-alert>
+
+   <sl-alert variant="primary" duration="3000" closable position='bottom-center'>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>bottom center</strong>
+  </sl-alert>
+
+  <sl-alert variant="primary" duration="3000" closable position='bottom-left'>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>bottom left</strong>
+  </sl-alert>
+</div>
+
+<script>
+  const container = document.querySelector('.alert-toast');
+  const buttons = container.querySelectorAll('sl-button');
+  const alerts = container.querySelectorAll('sl-alert');
+
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => alerts[index].toast());
+  });
+</script>
+
+```
+
 ### Closable
 
 Add the `closable` attribute to show a close button that will hide the alert.
@@ -404,24 +459,29 @@ For convenience, you can create a utility that emits toast notifications with a 
   }
 
   // Custom function to emit toast notifications
-  function notify(message, variant = 'primary', icon = 'info-circle', duration = 3000) {
-    const alert = Object.assign(document.createElement('sl-alert'), {
-      variant,
-      closable: true,
-      duration: duration,
-      innerHTML: `
-        <sl-icon name="${icon}" slot="icon"></sl-icon>
-        ${escapeHtml(message)}
-      `
-    });
+  function notify(message, variant = 'primary', icon = 'info-circle', duration = 3000,
+    position='bottom-center'
+  ) {
+  const alert = Object.assign(document.createElement('sl-alert'), {
+    variant,
+    closable: true,
+    duration: duration,
+    position: position,
+    innerHTML: `
+      <sl-icon name="${icon}" slot="icon"></sl-icon>
+      ${escapeHtml(message)}
+    `
+  });
 
-    document.body.append(alert);
-    return alert.toast();
-  }
+  document.body.append(alert);
+  return alert.toast();
+}
+
 
   button.addEventListener('click', () => {
-    notify(`This is custom toast #${++count}`);
-  });
+  notify(`This is custom toast #${++count}`);
+});
+
 </script>
 ```
 
