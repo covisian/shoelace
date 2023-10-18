@@ -309,7 +309,7 @@ To display an alert as a toast notification, or "toast", create the alert and ca
 You should always use the `closable` attribute so users can dismiss the notification. It's also common to set a reasonable `duration` when the notification doesn't require acknowledgement.
 
 ```html:preview
-<div class="alert-toast">
+<div class="alert-toast-notification">
   <sl-button variant="primary">Primary</sl-button>
   <sl-button variant="success">Success</sl-button>
   <sl-button variant="neutral">Neutral</sl-button>
@@ -348,7 +348,7 @@ You should always use the `closable` attribute so users can dismiss the notifica
 </div>
 
 <script>
-  const container = document.querySelector('.alert-toast');
+  const container = document.querySelector('.alert-toast-notification');
 
   ['primary', 'success', 'neutral', 'warning', 'danger'].map(variant => {
     const button = container.querySelector(`sl-button[variant="${variant}"]`);
@@ -460,13 +460,12 @@ For convenience, you can create a utility that emits toast notifications with a 
 
   // Custom function to emit toast notifications
   function notify(message, variant = 'primary', icon = 'info-circle', duration = 3000,
-    position='bottom-center'
+    position='relative'
   ) {
   const alert = Object.assign(document.createElement('sl-alert'), {
     variant,
     closable: true,
     duration: duration,
-    position: position,
     innerHTML: `
       <sl-icon name="${icon}" slot="icon"></sl-icon>
       ${escapeHtml(message)}

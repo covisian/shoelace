@@ -123,8 +123,9 @@ export default class SlAlert extends ShoelaceElement {
       await stopAnimations(this.base);
       this.base.hidden = false;
       const { keyframes, options } = getAnimation(
-        this, `alert.show`, { dir: this.localize.dir() }
+        this, `alert.show.${this.position}`, { dir: this.localize.dir() }
       );
+      console.log(`alert.show.${this.position}`)
       await animateTo(this.base, keyframes, options);
       this.emit('sl-after-show');
     } else {
@@ -136,7 +137,7 @@ export default class SlAlert extends ShoelaceElement {
       await stopAnimations(this.base);
 
       const { keyframes, options } = getAnimation(
-        this, `alert.hide`, { dir: this.localize.dir() }
+        this, `alert.hide.${this.position}`, { dir: this.localize.dir() }
 
       );
       await animateTo(this.base, keyframes, options);
@@ -257,7 +258,7 @@ export default class SlAlert extends ShoelaceElement {
   }
 }
 
-setDefaultAnimation('alert.show', {
+setDefaultAnimation('alert.show.relative', {
   keyframes: [
     { opacity: 0, scale: 0.8 },
     { opacity: 1, scale: 1 }
@@ -265,13 +266,88 @@ setDefaultAnimation('alert.show', {
   options: { duration: 250, easing: 'ease' }
 });
 
-
-setDefaultAnimation('alert.hide', {
+setDefaultAnimation('alert.hide.relative', {
   keyframes: [
     { opacity: 1, scale: 1 },
     { opacity: 0, scale: 0.8 }
   ],
   options: { duration: 250, easing: 'ease' }
 });
+
+setDefaultAnimation('alert.show.top-center', {
+  keyframes: [
+    { transform: 'translate3d(-50%, -100%, 0)' },
+    { transform: 'translate3d(-50%, 0 , 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-in' }
+});
+
+setDefaultAnimation('alert.hide.top-center', {
+  keyframes: [
+    { transform: 'translate3d(-50%, 0 , 0)' },
+    { transform: 'translate3d(-50%, -100%, 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-out' }
+});
+
+setDefaultAnimation('alert.show.bottom-center', {
+  keyframes: [
+    { transform: 'translate3d(-50%, 100%, 0)' },
+    { transform: 'translate3d(-50%, 0 , 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-in' }
+});
+
+setDefaultAnimation('alert.hide.bottom-center', {
+  keyframes: [
+    { transform: 'translate3d(-50%, 0 , 0)' },
+    { transform: 'translate3d(-50%, 100%, 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-out' }
+});
+
+const topRightTopLeftAnimationShow = {
+  keyframes: [
+    { transform: 'translate3d(0, -100%, 0)' },
+    { transform: 'translate3d(0, 0 , 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-in' }
+};
+
+setDefaultAnimation('alert.show.top-right', topRightTopLeftAnimationShow);
+setDefaultAnimation('alert.show.top-left', topRightTopLeftAnimationShow);
+
+const topRightTopLeftAnimationHide = {
+  keyframes: [
+    { transform: 'translate3d(0, 0 , 0)' },
+    { transform: 'translate3d(0, -100%, 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-out' }
+};
+
+setDefaultAnimation('alert.hide.top-right', topRightTopLeftAnimationHide);
+setDefaultAnimation('alert.hide.top-left', topRightTopLeftAnimationHide);
+
+const bottomRightBottomLeftAnimationShow = {
+  keyframes: [
+    { transform: 'translate3d(0, 100%, 0)' },
+    { transform: 'translate3d(0, 0 , 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-in' }
+};
+
+setDefaultAnimation('alert.show.bottom-right', bottomRightBottomLeftAnimationShow);
+setDefaultAnimation('alert.show.bottom-left', bottomRightBottomLeftAnimationShow);
+
+const bottomRightBottomLeftAnimationHide = {
+  keyframes: [
+    { transform: 'translate3d(0, 0 , 0)' },
+    { transform: 'translate3d(0, 100%, 0)' }
+  ],
+  options: { duration: 250, easing: 'ease-out' }
+};
+
+setDefaultAnimation('alert.hide.bottom-right', bottomRightBottomLeftAnimationHide);
+setDefaultAnimation('alert.hide.bottom-left', bottomRightBottomLeftAnimationHide);
 
 
