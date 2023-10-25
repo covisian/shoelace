@@ -33,3 +33,19 @@
   left: 0;
   right: auto;
 } */
+
+  sl-icon.small {
+    font-size: 16px;
+  }
+
+  sl-icon.medium {
+    font-size: 24px;
+  }
+
+  sl-icon.large {
+    font-size: 32px;
+  }
+
+  sl-icon.extra {
+    font-size:64px;
+  }

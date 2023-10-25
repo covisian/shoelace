@@ -156,7 +156,63 @@ const App = () => (
 );
 ```
 
-{% endraw %}
+### Empty states
+
+Empty states icons, packed with extra default font-size.
+
+```html:preview
+<div>
+  <sl-icon name="cv-es-generic" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-config" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-steps" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-details" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-node" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-actions" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-fields" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-users-to-show" class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-filter-selected	
+" class='extra'></sl-icon>
+  <sl-icon name="cv-es-messages" class='extra'></sl-icon>
+  <sl-icon name="cv-es-remote" class='extra'></sl-icon>
+  <sl-icon name="cv-es-remote-no-agents"class='extra'></sl-icon>
+  <sl-icon name="cv-es-rooms"class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-dashboards"class='extra'></sl-icon>
+  <sl-icon name="cv-es-external-app"class='extra'></sl-icon>
+  <sl-icon name="cv-es-badge"class='extra'></sl-icon>
+  <sl-icon name="cv-es-badge-break"class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-tasks"class='extra'></sl-icon>
+  <sl-icon name="cv-es-no-contacts"class='extra'></sl-icon>
+</div>
+```
+
+```jsx:react
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+  <>
+  <SlIcon name="cv-es-generic" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-config" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-steps" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-details" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-node" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-actions" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-fields" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-users-to-show" class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-filter-selected	
+" class='extra'></SlIcon>
+  <SlIcon name="cv-es-messages" class='extra'></SlIcon>
+  <SlIcon name="cv-es-remote" class='extra'></SlIcon>
+  <SlIcon name="cv-es-remote-no-agents"class='extra'></SlIcon>
+  <SlIcon name="cv-es-rooms"class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-dashboards"class='extra'></SlIcon>
+  <SlIcon name="cv-es-external-app"class='extra'></SlIcon>
+  <SlIcon name="cv-es-badge"class='extra'></SlIcon>
+  <SlIcon name="cv-es-badge-break"class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-tasks"class='extra'></SlIcon>
+  <SlIcon name="cv-es-no-contacts"class='extra'></SlIcon>
+</div>
+);
+```
 
 ### Labels
 
@@ -697,7 +753,7 @@ If you want to change the icons Shoelace uses internally, you can register an ic
     requestAnimationFrame(() => tooltip.dispatchEvent(new MouseEvent('mouseover')));
   }
 
-  fetch('/dist/assets/icons/icons.json')
+  fetch('http://localhost:8080/icons.json')
     .then(res => res.json())
     .then(icons => {
       const container = document.querySelector('.icon-search');
@@ -716,9 +772,7 @@ If you want to change the icons Shoelace uses internally, you can register an ic
         item.setAttribute('data-name', i.name);
         item.setAttribute('data-terms', [i.name, i.title, ...(i.tags || []), ...(i.categories || [])].join(' '));
         item.innerHTML = `
-          <svg width="1em" height="1em" fill="currentColor">
-            <use href="/assets/images/sprite.svg#${i.name}"></use>
-          </svg>
+          <sl-icon name=${i.name}></sl-icon>
         `;
         list.appendChild(item);
 
