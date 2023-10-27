@@ -236,15 +236,11 @@ Custom icons can be loaded individually with the `src` attribute. Only SVGs on a
 <sl-icon src="https://shoelace.style/assets/images/shoe.svg" style="font-size: 8rem;"></sl-icon>
 ```
 
-{% raw %}
-
 ```jsx:react
 import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => <SlIcon src="https://shoelace.style/assets/images/shoe.svg" style={{ fontSize: '8rem' }}></SlIcon>;
 ```
-
-{% endraw %}
 
 ## Icon Libraries
 
@@ -753,7 +749,7 @@ If you want to change the icons Shoelace uses internally, you can register an ic
     requestAnimationFrame(() => tooltip.dispatchEvent(new MouseEvent('mouseover')));
   }
 
-  fetch('http://localhost:8080/icons.json')
+  fetch('https://smart-cdn.app.covisian.com/web/v1/svg/icons.json')
     .then(res => res.json())
     .then(icons => {
       const container = document.querySelector('.icon-search');
