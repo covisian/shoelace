@@ -156,6 +156,8 @@ const App = () => (
 );
 ```
 
+{% endraw %}
+
 ### Empty states
 
 Empty states icons, packed with extra default font-size.
@@ -236,11 +238,15 @@ Custom icons can be loaded individually with the `src` attribute. Only SVGs on a
 <sl-icon src="https://shoelace.style/assets/images/shoe.svg" style="font-size: 8rem;"></sl-icon>
 ```
 
+{% raw %}
+
 ```jsx:react
 import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => <SlIcon src="https://shoelace.style/assets/images/shoe.svg" style={{ fontSize: '8rem' }}></SlIcon>;
 ```
+
+{% endraw %}
 
 ## Icon Libraries
 
