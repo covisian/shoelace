@@ -1,8 +1,7 @@
 {
-  "name": "@shoelace-style/shoelace",
+  "name": "@covisian/shoelace",
   "description": "A forward-thinking library of web components.",
   "version": "2.10.0",
-  "homepage": "https://github.com/shoelace-style/shoelace",
   "author": "Cory LaViska",
   "license": "MIT",
   "customElements": "dist/custom-elements.json",
@@ -36,14 +35,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shoelace-style/shoelace.git"
-  },
-  "bugs": {
-    "url": "https://github.com/shoelace-style/shoelace/issues"
-  },
-  "funding": {
-    "type": "individual",
-    "url": "https://github.com/sponsors/claviska"
+    "url": "git+https://github.com/covisian/shoelace.git"
   },
   "scripts": {
     "start": "node scripts/build.js --serve",
