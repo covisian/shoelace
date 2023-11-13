@@ -23,9 +23,7 @@ jobs:
       - name: Run  install 🔧
         run:  npm install
       - run: npx playwright install-deps
-      - name: Run  build 🔧
-        run:  npm run build
+      - name: Authenticate with private NPM package
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - name: Publish package on NPM 📦
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
