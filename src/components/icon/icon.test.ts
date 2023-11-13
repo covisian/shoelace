@@ -43,7 +43,7 @@ describe('<sl-icon>', () => {
       expect(el.name).to.be.undefined;
       expect(el.src).to.be.undefined;
       expect(el.label).to.equal('');
-      expect(el.library).to.equal('default');
+      expect(el.library).to.equal('smart');
     });
 
     it('renders pre-loaded system icons and emits sl-load event', async () => {
