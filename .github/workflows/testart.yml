@@ -20,10 +20,11 @@ jobs:
       - run: npx playwright install-deps
     #  - name: Build
     #    run: npm run build
+      - name: stampa commit message 
+        run: echo github.event.head_commit.message
       - name: Avvia se nel commit è presente la parola testdevops
         if: contains(github.event.head_commit.message, '[testdevops]')
         run: |
-          echo github.event.head_commit.message
           - name: Create artifact
             uses: actions/upload-artifact@v2
             with:
