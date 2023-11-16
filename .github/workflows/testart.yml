@@ -18,12 +18,12 @@ jobs:
       - name: Run  install 🔧
         run:  npm install
       - run: npx playwright install-deps
-      - name: Build
-        run: npm run build
+    #  - name: Build
+    #    run: npm run build
       - name: Avvia se nel commit è presente la parola testdevops
-        if: contains(github.event.head_commit.message, 'testdevops')
+        if: contains(github.event.head_commit.message, '[testdevops]')
         run: |
-          
+          echo github.event.head_commit.message
           - name: Create artifact
             uses: actions/upload-artifact@v2
             with:
