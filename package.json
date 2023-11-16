@@ -1,7 +1,7 @@
 {
   "name": "@covisian/shoelace",
   "description": "A forward-thinking library of web components.",
-  "version": "2.10.9",
+  "version": "2.10.10",
   "homepage": "https://github.com/covisian/shoelace",
   "author": "Cory LaViska",
   "license": "MIT",
@@ -25,8 +25,15 @@
     "./dist/react/*": "./dist/react/*",
     "./dist/translations/*": "./dist/translations/*"
   },
-  "files": ["dist", "cdn"],
-  "keywords": ["web components", "custom elements", "components"],
+  "files": [
+    "dist",
+    "cdn"
+  ],
+  "keywords": [
+    "web components",
+    "custom elements",
+    "components"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/covisian/shoelace.git"
@@ -60,11 +67,13 @@
     "node": ">=14.17.0"
   },
   "dependencies": {
+    "@changesets/cli": "^2.26.2",
     "@ctrl/tinycolor": "^4.0.2",
     "@floating-ui/dom": "^1.5.3",
     "@lit/react": "^1.0.0",
     "@shoelace-style/animations": "^1.1.0",
     "@shoelace-style/localize": "^3.1.2",
+    "changeset": "^0.2.6",
     "composed-offset-position": "^0.0.4",
     "lit": "^3.0.0",
     "qr-creator": "^1.0.0"
@@ -133,6 +142,9 @@
     "user-agent-data-types": "^0.3.1"
   },
   "lint-staged": {
-    "*.{ts,js}": ["eslint --max-warnings 0 --cache --fix", "prettier --write"]
+    "*.{ts,js}": [
+      "eslint --max-warnings 0 --cache --fix",
+      "prettier --write"
+    ]
   }
 }
