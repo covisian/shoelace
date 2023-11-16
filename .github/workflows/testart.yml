@@ -26,5 +26,5 @@ jobs:
           - name: Create artifact
             uses: actions/upload-artifact@v2
             with:
-            name: doc
-            path: _site
+              name: doc
+              path: _site
