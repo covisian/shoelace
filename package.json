@@ -1,7 +1,7 @@
 {
   "name": "@covisian/shoelace",
   "description": "A forward-thinking library of web components.",
-  "version": "2.11.1",
+  "version": "2.11.2",
   "homepage": "https://github.com/covisian/shoelace",
   "author": "Cory LaViska",
   "license": "MIT",
@@ -49,7 +49,7 @@
     "start": "node scripts/build.js --serve",
     "build": "node scripts/build.js",
     "verify": "npm run prettier && npm run lint && npm run build",
-    "prepublishOnly": "npm run verify",
+    "_prepublishOnly": "npm run verify",
     "prettier": "prettier --write --log-level=error .",
     "prettier:check": "prettier --check --log-level=error .",
     "lint": "eslint src --max-warnings 0",
