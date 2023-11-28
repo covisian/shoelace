@@ -1,7 +1,7 @@
 {
   "name": "@covisian/shoelace",
   "description": "A forward-thinking library of web components.",
-  "version": "2.11.3",
+  "version": "2.11.7",
   "homepage": "https://github.com/covisian/shoelace",
   "author": "Cory LaViska",
   "license": "MIT",
@@ -61,7 +61,8 @@
     "test:watch": "web-test-runner --watch --group default",
     "spellcheck": "cspell \"**/*.{js,ts,json,html,css,md}\" --no-progress",
     "list-outdated-dependencies": "npm-check-updates --format repo --peer",
-    "update-dependencies": "npm-check-updates --peer -u && npm install"
+    "update-dependencies": "npm-check-updates --peer -u && npm install",
+    "launch-release": "node release.js"
   },
   "engines": {
     "node": ">=14.17.0"
