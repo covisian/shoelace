@@ -107,6 +107,7 @@ export default css`
 
   .tab-group--wizard .tab-group__indicator  {
     border:none;
+  }
   
   .tab-group--top .tab-group__body {
     order: 2;
