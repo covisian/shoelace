@@ -1,5 +1,12 @@
 # @covisian/shoelace
 
+## 2.11.11
+
+### Patch Changes
+
+- 79742f4: trigger the build for test release
+- update version and restore default tab-group style
+
 ## 2.11.10
 
 ### Patch Changes
