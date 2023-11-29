@@ -214,8 +214,8 @@ export default class SlTreeItem extends ShoelaceElement {
   getChildrenItems({ includeDisabled = true }: { includeDisabled?: boolean } = {}): SlTreeItem[] {
     return this.childrenSlot
       ? ([...this.childrenSlot.assignedElements({ flatten: true })].filter(
-        (item: SlTreeItem) => SlTreeItem.isTreeItem(item) && (includeDisabled || !item.disabled)
-      ) as SlTreeItem[])
+          (item: SlTreeItem) => SlTreeItem.isTreeItem(item) && (includeDisabled || !item.disabled)
+        ) as SlTreeItem[])
       : [];
   }
 
@@ -227,14 +227,14 @@ export default class SlTreeItem extends ShoelaceElement {
       <div
         part="base"
         class="${classMap({
-      'tree-item': true,
-      'tree-item--expanded': this.expanded,
-      'tree-item--selected': this.selected,
-      'tree-item--disabled': this.disabled,
-      'tree-item--leaf': this.isLeaf,
-      'tree-item--has-expand-button': showExpandButton,
-      'tree-item--rtl': this.localize.dir() === 'rtl'
-    })}"
+          'tree-item': true,
+          'tree-item--expanded': this.expanded,
+          'tree-item--selected': this.selected,
+          'tree-item--disabled': this.disabled,
+          'tree-item--leaf': this.isLeaf,
+          'tree-item--has-expand-button': showExpandButton,
+          'tree-item--rtl': this.localize.dir() === 'rtl'
+        })}"
       >
         <div
           class="tree-item__item"
@@ -251,9 +251,9 @@ export default class SlTreeItem extends ShoelaceElement {
           <div
             part="expand-button"
             class=${classMap({
-      'tree-item__expand-button': true,
-      'tree-item__expand-button--visible': showExpandButton
-    })}
+              'tree-item__expand-button': true,
+              'tree-item__expand-button--visible': showExpandButton
+            })}
             aria-hidden="true"
           >
             ${when(this.loading, () => html` <sl-spinner></sl-spinner> `)}

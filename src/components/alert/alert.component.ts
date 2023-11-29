@@ -12,7 +12,7 @@ import SlIconButton from '../icon-button/icon-button.component.js';
 import styles from './alert.styles.js';
 import type { CSSResultGroup } from 'lit';
 
-const toastStack = Object.assign(document.createElement('div'), { className: 'sl-toast-stack' })
+const toastStack = Object.assign(document.createElement('div'), { className: 'sl-toast-stack' });
 
 /**
  * @summary Alerts are used to display important messages inline or as toast notifications.
@@ -62,7 +62,14 @@ export default class SlAlert extends ShoelaceElement {
   @property({ reflect: true }) variant: 'primary' | 'success' | 'neutral' | 'warning' | 'danger' = 'primary';
 
   /** The alert's position. */
-  @property({ reflect: true }) position: 'relative' | 'top-right' | 'top-center' | 'top-left' | 'bottom-right' | 'bottom-center' | 'bottom-left' = 'relative';
+  @property({ reflect: true }) position:
+    | 'relative'
+    | 'top-right'
+    | 'top-center'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-center'
+    | 'bottom-left' = 'relative';
 
   /**
    * The length of time, in milliseconds, the alert will show before closing itself. If the user interacts with
@@ -109,7 +116,6 @@ export default class SlAlert extends ShoelaceElement {
     }
   }
 
-
   @watch('open', { waitUntilFirstUpdate: true })
   async handleOpenChange() {
     if (this.open) {
@@ -122,10 +128,8 @@ export default class SlAlert extends ShoelaceElement {
 
       await stopAnimations(this.base);
       this.base.hidden = false;
-      const { keyframes, options } = getAnimation(
-        this, `alert.show.${this.position}`, { dir: this.localize.dir() }
-      );
-      console.log(`alert.show.${this.position}`)
+      const { keyframes, options } = getAnimation(this, `alert.show.${this.position}`, { dir: this.localize.dir() });
+      console.log(`alert.show.${this.position}`);
       await animateTo(this.base, keyframes, options);
       this.emit('sl-after-show');
     } else {
@@ -136,15 +140,11 @@ export default class SlAlert extends ShoelaceElement {
 
       await stopAnimations(this.base);
 
-      const { keyframes, options } = getAnimation(
-        this, `alert.hide.${this.position}`, { dir: this.localize.dir() }
-
-      );
+      const { keyframes, options } = getAnimation(this, `alert.hide.${this.position}`, { dir: this.localize.dir() });
       await animateTo(this.base, keyframes, options);
       this.emit('sl-after-hide');
 
       this.base.hidden = true;
-
     }
   }
 
@@ -210,24 +210,23 @@ export default class SlAlert extends ShoelaceElement {
   }
 
   render() {
-
     const position = this.calculatePosition();
 
     return html`
       <div
         part="base"
         class=${classMap({
-      alert: true,
-      'alert--open': this.open,
-      'alert--closable': this.closable,
-      'alert--has-icon': this.hasSlotController.test('icon'),
-      'alert--primary': this.variant === 'primary',
-      'alert--success': this.variant === 'success',
-      'alert--neutral': this.variant === 'neutral',
-      'alert--warning': this.variant === 'warning',
-      'alert--danger': this.variant === 'danger',
-      [position]: true
-    })}
+          alert: true,
+          'alert--open': this.open,
+          'alert--closable': this.closable,
+          'alert--has-icon': this.hasSlotController.test('icon'),
+          'alert--primary': this.variant === 'primary',
+          'alert--success': this.variant === 'success',
+          'alert--neutral': this.variant === 'neutral',
+          'alert--warning': this.variant === 'warning',
+          'alert--danger': this.variant === 'danger',
+          [position]: true
+        })}
         role="alert"
         aria-hidden=${this.open ? 'false' : 'true'}
         @mousemove=${this.handleMouseMove}
@@ -241,7 +240,7 @@ export default class SlAlert extends ShoelaceElement {
         </div>
 
         ${this.closable
-        ? html`
+          ? html`
               <sl-icon-button
                 part="close-button"
                 exportparts="base:close-button__base"
@@ -252,7 +251,7 @@ export default class SlAlert extends ShoelaceElement {
                 @click=${this.handleCloseClick}
               ></sl-icon-button>
             `
-        : ''}
+          : ''}
       </div>
     `;
   }
@@ -275,42 +274,27 @@ setDefaultAnimation('alert.hide.relative', {
 });
 
 setDefaultAnimation('alert.show.top-center', {
-  keyframes: [
-    { transform: 'translate3d(-50%, -100%, 0)' },
-    { transform: 'translate3d(-50%, 0 , 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(-50%, -100%, 0)' }, { transform: 'translate3d(-50%, 0 , 0)' }],
   options: { duration: 250, easing: 'ease-in' }
 });
 
 setDefaultAnimation('alert.hide.top-center', {
-  keyframes: [
-    { transform: 'translate3d(-50%, 0 , 0)' },
-    { transform: 'translate3d(-50%, -100%, 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(-50%, 0 , 0)' }, { transform: 'translate3d(-50%, -100%, 0)' }],
   options: { duration: 250, easing: 'ease-out' }
 });
 
 setDefaultAnimation('alert.show.bottom-center', {
-  keyframes: [
-    { transform: 'translate3d(-50%, 100%, 0)' },
-    { transform: 'translate3d(-50%, 0 , 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(-50%, 100%, 0)' }, { transform: 'translate3d(-50%, 0 , 0)' }],
   options: { duration: 250, easing: 'ease-in' }
 });
 
 setDefaultAnimation('alert.hide.bottom-center', {
-  keyframes: [
-    { transform: 'translate3d(-50%, 0 , 0)' },
-    { transform: 'translate3d(-50%, 100%, 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(-50%, 0 , 0)' }, { transform: 'translate3d(-50%, 100%, 0)' }],
   options: { duration: 250, easing: 'ease-out' }
 });
 
 const topRightTopLeftAnimationShow = {
-  keyframes: [
-    { transform: 'translate3d(0, -100%, 0)' },
-    { transform: 'translate3d(0, 0 , 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(0, -100%, 0)' }, { transform: 'translate3d(0, 0 , 0)' }],
   options: { duration: 250, easing: 'ease-in' }
 };
 
@@ -318,10 +302,7 @@ setDefaultAnimation('alert.show.top-right', topRightTopLeftAnimationShow);
 setDefaultAnimation('alert.show.top-left', topRightTopLeftAnimationShow);
 
 const topRightTopLeftAnimationHide = {
-  keyframes: [
-    { transform: 'translate3d(0, 0 , 0)' },
-    { transform: 'translate3d(0, -100%, 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(0, 0 , 0)' }, { transform: 'translate3d(0, -100%, 0)' }],
   options: { duration: 250, easing: 'ease-out' }
 };
 
@@ -329,10 +310,7 @@ setDefaultAnimation('alert.hide.top-right', topRightTopLeftAnimationHide);
 setDefaultAnimation('alert.hide.top-left', topRightTopLeftAnimationHide);
 
 const bottomRightBottomLeftAnimationShow = {
-  keyframes: [
-    { transform: 'translate3d(0, 100%, 0)' },
-    { transform: 'translate3d(0, 0 , 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(0, 100%, 0)' }, { transform: 'translate3d(0, 0 , 0)' }],
   options: { duration: 250, easing: 'ease-in' }
 };
 
@@ -340,14 +318,9 @@ setDefaultAnimation('alert.show.bottom-right', bottomRightBottomLeftAnimationSho
 setDefaultAnimation('alert.show.bottom-left', bottomRightBottomLeftAnimationShow);
 
 const bottomRightBottomLeftAnimationHide = {
-  keyframes: [
-    { transform: 'translate3d(0, 0 , 0)' },
-    { transform: 'translate3d(0, 100%, 0)' }
-  ],
+  keyframes: [{ transform: 'translate3d(0, 0 , 0)' }, { transform: 'translate3d(0, 100%, 0)' }],
   options: { duration: 250, easing: 'ease-out' }
 };
 
 setDefaultAnimation('alert.hide.bottom-right', bottomRightBottomLeftAnimationHide);
 setDefaultAnimation('alert.hide.bottom-left', bottomRightBottomLeftAnimationHide);
-
-

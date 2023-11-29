@@ -51,19 +51,18 @@ export default class SlTab extends ShoelaceElement {
   @property({ type: Boolean, reflect: true }) disabled = false;
 
   /** Inherits variant=wizard if set on Sl-Tab-Group */
-  @property({ type: String, reflect: true }) variant: 'default' | 'wizard' = 'default'
-
+  @property({ type: String, reflect: true }) variant: 'default' | 'wizard' = 'default';
 
   connectedCallback() {
     super.connectedCallback();
     this.setAttribute('role', 'tab');
-    this.setVariant()
+    this.setVariant();
   }
 
   private handleCloseClick(event: Event) {
     event.stopPropagation();
     this.emit('sl-close');
-    this.setVariant()
+    this.setVariant();
   }
 
   private setVariant() {
@@ -76,13 +75,13 @@ export default class SlTab extends ShoelaceElement {
   @watch('active')
   handleActiveChange() {
     this.setAttribute('aria-selected', this.active ? 'true' : 'false');
-    this.setVariant()
+    this.setVariant();
   }
 
   @watch('disabled')
   handleDisabledChange() {
     this.setAttribute('aria-disabled', this.disabled ? 'true' : 'false');
-    this.setVariant()
+    this.setVariant();
   }
 
   /** Sets focus to the tab. */
@@ -103,26 +102,24 @@ export default class SlTab extends ShoelaceElement {
       <div
         part="base"
         class=${classMap({
-      tab: true,
-      'tab--active': this.active,
-      'tab--closable': this.closable,
-      'tab--disabled': this.disabled,
-      'tab--wizard': this.variant === 'wizard'
-    })}
+          tab: true,
+          'tab--active': this.active,
+          'tab--closable': this.closable,
+          'tab--disabled': this.disabled,
+          'tab--wizard': this.variant === 'wizard'
+        })}
         tabindex=${this.disabled ? '-1' : '0'}
       >
-       ${this.variant !== 'wizard' ?
-        html`
-              <slot></slot>
-            `
-        : this.variant === 'wizard' ? html`
-              <span class='circle'><slot name='step'></slot></span>
-              <span class='label'><slot></slot></span>
-            `
-          : ''}        
-
+        ${this.variant !== 'wizard'
+          ? html` <slot></slot> `
+          : this.variant === 'wizard'
+            ? html`
+                <span class="circle"><slot name="step"></slot></span>
+                <span class="label"><slot></slot></span>
+              `
+            : ''}
         ${this.closable
-        ? html`
+          ? html`
               <sl-icon-button
                 part="close-button"
                 exportparts="base:close-button__base"
@@ -134,8 +131,7 @@ export default class SlTab extends ShoelaceElement {
                 tabindex="-1"
               ></sl-icon-button>
             `
-        : ''}
-          
+          : ''}
       </div>
     `;
   }

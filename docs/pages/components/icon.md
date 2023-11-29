@@ -172,7 +172,7 @@ Empty states icons, packed with extra default font-size.
   <sl-icon name="cv-es-no-actions" class='extra'></sl-icon>
   <sl-icon name="cv-es-no-fields" class='extra'></sl-icon>
   <sl-icon name="cv-es-no-users-to-show" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-filter-selected	
+  <sl-icon name="cv-es-no-filter-selected
 " class='extra'></sl-icon>
   <sl-icon name="cv-es-messages" class='extra'></sl-icon>
   <sl-icon name="cv-es-remote" class='extra'></sl-icon>
@@ -200,7 +200,7 @@ const App = () => (
   <SlIcon name="cv-es-no-actions" class='extra'></SlIcon>
   <SlIcon name="cv-es-no-fields" class='extra'></SlIcon>
   <SlIcon name="cv-es-no-users-to-show" class='extra'></SlIcon>
-  <SlIcon name="cv-es-no-filter-selected	
+  <SlIcon name="cv-es-no-filter-selected
 " class='extra'></SlIcon>
   <SlIcon name="cv-es-messages" class='extra'></SlIcon>
   <SlIcon name="cv-es-remote" class='extra'></SlIcon>
@@ -281,7 +281,6 @@ To display an icon, set the `library` and `name` attributes of an `<sl-icon>` el
 If an icon is used before registration occurs, it will be empty initially but shown when registered.
 
 The following examples demonstrate how to register a number of popular, open source icon libraries via CDN. Feel free to adapt the code as you see fit to use your own origin or naming conventions.
-
 
 ### Boxicons
 

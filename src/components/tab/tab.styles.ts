@@ -27,40 +27,38 @@ export default css`
   }
 
   .tab.tab--wizard {
-      background:transparent;
-      width:auto;
-      .circle{
-          display: flex;
-          width: 32px;
-          height: 32px;
-          margin-right: 8px;
-          color: #282828;
-          background: #f1f3f7;
-          border-radius: 9999px;
-          align-items: center;
-          justify-content: center;
-          font-size: 14px; 
-      }
-      &:hover {
-        color:#282828;
-      }
+    background: transparent;
+    width: auto;
+    .circle {
+      display: flex;
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+      color: #282828;
+      background: #f1f3f7;
+      border-radius: 9999px;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    &:hover {
+      color: #282828;
+    }
   }
 
-  .tab.tab--wizard:hover:not(.tab--disabled){
-       color:#282828;
+  .tab.tab--wizard:hover:not(.tab--disabled) {
+    color: #282828;
   }
 
   .tab.tab--wizard.tab--active {
     .circle {
-          background: #282828;
-          color: white;
+      background: #282828;
+      color: white;
     }
     .label {
-      color: #282828
+      color: #282828;
     }
   }
-
-  
 
   .tab:hover:not(.tab--disabled) {
     color: var(--sl-color-primary-600);
@@ -81,7 +79,7 @@ export default css`
 
   .tab.tab--active:not(.tab--disabled) {
     color: var(--sl-color-primary-600);
-    border-radius:9999px;
+    border-radius: 9999px;
   }
 
   .tab.tab--closable {

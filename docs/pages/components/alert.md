@@ -127,6 +127,7 @@ const App = () => (
 ```
 
 ### Position
+
 Set the `position` attribute to change the alert's generated position.
 
 ```html:preview

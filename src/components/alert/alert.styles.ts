@@ -132,5 +132,4 @@ export default css`
     bottom: 0;
     left: 0;
   }
-
 `;

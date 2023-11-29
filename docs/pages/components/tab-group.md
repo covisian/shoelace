@@ -51,12 +51,13 @@ const App = () => (
 
 ## Examples
 
-###  Wizard variant
+### Wizard variant
+
 Tabs are displayed in an alternate style, suitable for step-by-step forms and similar use cases.
 
 ```html:preview
 <sl-tab-group variant='wizard'>
-  <sl-tab slot="nav" panel="1"> 
+  <sl-tab slot="nav" panel="1">
     <span slot="step">1</span>
       first step
   </sl-tab>
@@ -68,8 +69,8 @@ Tabs are displayed in an alternate style, suitable for step-by-step forms and si
      <span slot="step">3</span>
        third step
   </sl-tab>
-  
-  
+
+
 
   <sl-tab-panel name="1">This is the first tab panel.</sl-tab-panel>
   <sl-tab-panel name="2">This is the second tab panel.</sl-tab-panel>

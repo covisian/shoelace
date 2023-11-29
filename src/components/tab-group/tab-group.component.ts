@@ -62,7 +62,7 @@ export default class SlTabGroup extends ShoelaceElement {
   @property() placement: 'top' | 'bottom' | 'start' | 'end' = 'top';
 
   /** An alternative custom design for displaying tabs */
-  @property() variant: 'default' | 'wizard' = 'default'
+  @property() variant: 'default' | 'wizard' = 'default';
 
   /**
    * When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
@@ -373,21 +373,21 @@ export default class SlTabGroup extends ShoelaceElement {
       <div
         part="base"
         class=${classMap({
-      'tab-group': true,
-      'tab-group--top': this.placement === 'top',
-      'tab-group--bottom': this.placement === 'bottom',
-      'tab-group--start': this.placement === 'start',
-      'tab-group--end': this.placement === 'end',
-      'tab-group--rtl': this.localize.dir() === 'rtl',
-      'tab-group--has-scroll-controls': this.hasScrollControls,
-      'tab-group--wizard': this.variant === 'wizard'
-    })}
+          'tab-group': true,
+          'tab-group--top': this.placement === 'top',
+          'tab-group--bottom': this.placement === 'bottom',
+          'tab-group--start': this.placement === 'start',
+          'tab-group--end': this.placement === 'end',
+          'tab-group--rtl': this.localize.dir() === 'rtl',
+          'tab-group--has-scroll-controls': this.hasScrollControls,
+          'tab-group--wizard': this.variant === 'wizard'
+        })}
         @click=${this.handleClick}
         @keydown=${this.handleKeyDown}
       >
         <div class="tab-group__nav-container" part="nav">
           ${this.hasScrollControls
-        ? html`
+            ? html`
                 <sl-icon-button
                   part="scroll-button scroll-button--start"
                   exportparts="base:scroll-button__base"
@@ -398,7 +398,7 @@ export default class SlTabGroup extends ShoelaceElement {
                   @click=${this.handleScrollToStart}
                 ></sl-icon-button>
               `
-        : ''}
+            : ''}
 
           <div class="tab-group__nav">
             <div part="tabs" class="tab-group__tabs" role="tablist">
@@ -408,7 +408,7 @@ export default class SlTabGroup extends ShoelaceElement {
           </div>
 
           ${this.hasScrollControls
-        ? html`
+            ? html`
                 <sl-icon-button
                   part="scroll-button scroll-button--end"
                   exportparts="base:scroll-button__base"
@@ -419,8 +419,7 @@ export default class SlTabGroup extends ShoelaceElement {
                   @click=${this.handleScrollToEnd}
                 ></sl-icon-button>
               `
-        : ''}
-
+            : ''}
         </div>
 
         <slot part="body" class="tab-group__body" @slotchange=${this.syncTabsAndPanels}></slot>
