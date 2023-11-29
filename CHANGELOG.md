@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.11.10
+
+### Patch Changes
+
+- 79742f47: trigger the build for test release
+
 ## 2.11.9
 
 ### Patch Changes
