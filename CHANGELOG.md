@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.11.14
+
+### Patch Changes
+
+- add property name and backgroundColor
+
 ## 2.11.13
 
 ### Patch Changes
