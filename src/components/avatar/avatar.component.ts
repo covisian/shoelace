@@ -38,6 +38,9 @@ export default class SlAvatar extends ShoelaceElement {
   /** A label to use to describe the avatar to assistive devices. */
   @property() label = '';
 
+  /** Name and surname from which the initials will be taken. */
+  @property() name = '';
+
   /** Initials to use as a fallback when no image is available (1-2 characters max recommended). */
   @property() initials = '';
 
@@ -53,6 +56,38 @@ export default class SlAvatar extends ShoelaceElement {
     this.hasError = false;
   }
 
+  getInitials(fullName: string) {
+    const names = fullName.split(' ');
+    const initials = names.map(elem => elem.charAt(0));
+    return initials.join('').toUpperCase();
+  }
+
+  getRandomColor() {
+    const colors = [
+      '#1abc9c',
+      '#2ecc71',
+      '#3498db',
+      '#9b59b6',
+      '#4551b6',
+      '#16a085',
+      '#98a085',
+      '#27ae60',
+      '#2980b9',
+      '#8e44ad',
+      '#f1c40f',
+      '#e67e22',
+      '#e74c3c',
+      '#95a5a6',
+      '#f39c12',
+      '#d35400',
+      '#c0392b',
+      '#bdc3c7',
+      '#7f8c8d'
+    ];
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+  }
+
   render() {
     const avatarWithImage = html`
       <img
@@ -64,11 +99,17 @@ export default class SlAvatar extends ShoelaceElement {
         @error="${() => (this.hasError = true)}"
       />
     `;
-
+    let randomBackgroundColor = 'var(--sl-color-neutral-400)';
     let avatarWithoutImage = html``;
 
-    if (this.initials) {
-      avatarWithoutImage = html`<div part="initials" class="avatar__initials">${this.initials}</div>`;
+    let initialsToShow = this.initials;
+
+    if (this.name && !this.initials) {
+      initialsToShow = this.getInitials(this.name);
+    }
+    if (initialsToShow) {
+      randomBackgroundColor = this.getRandomColor();
+      avatarWithoutImage = html` <div part="initials" class="avatar__initials">${initialsToShow}</div> `;
     } else {
       avatarWithoutImage = html`
         <div part="icon" class="avatar__icon" aria-hidden="true">
@@ -81,6 +122,7 @@ export default class SlAvatar extends ShoelaceElement {
 
     return html`
       <div
+        style="background-color: ${randomBackgroundColor}"
         part="base"
         class=${classMap({
           avatar: true,
