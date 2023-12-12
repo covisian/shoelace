@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.11.15
+
+### Patch Changes
+
+- edit avatar component
+
 ## 2.11.14
 
 ### Patch Changes
