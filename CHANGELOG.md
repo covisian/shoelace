@@ -1,5 +1,15 @@
 # @covisian/shoelace
 
+## 2.12.0
+
+### Minor Changes
+
+- add smart color primitives and edit theme tokens
+
+### Patch Changes
+
+- 79742f4: trigger the build for test release
+
 ## 2.11.15
 
 ### Patch Changes
