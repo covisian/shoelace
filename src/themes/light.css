@@ -4,7 +4,7 @@
   color-scheme: light;
 
   /*
-   * Color Primitives
+   * Color Primitives Shoelace
    */
 
   /* Gray */
@@ -242,73 +242,155 @@
   --sl-color-rose-950: hsl(341.3 70.1% 17.1%);
 
   /*
+   * Color Primitives Smart
+   */
+
+  /* Blue */
+  --smart-color-blue-50: #e5ebf6;
+  --smart-color-blue-100: #e6ebfd;
+  --smart-color-blue-200: #a3c6ff;
+  --smart-color-blue-300: #7aadff;
+  --smart-color-blue-400: #428bff;
+  --smart-color-blue-500: #0063ff;
+  --smart-color-blue-600: #0058e5;
+  --smart-color-blue-700: #004ecc;
+  --smart-color-blue-800: #0042ad;
+  --smart-color-blue-900: #003994;
+  --smart-color-blue-950: #003180;
+
+  /* Green */
+  --smart-color-green-50: #fafff5;
+  --smart-color-green-100: #ddfbc1;
+  --smart-color-green-200: #d4f8af;
+  --smart-color-green-300: #c4f098;
+  --smart-color-green-400: #b0e27e;
+  --smart-color-green-500: #94cb5d;
+  --smart-color-green-600: #7db941;
+  --smart-color-green-700: #69aa27;
+  --smart-color-green-800: #5ca117;
+  --smart-color-green-900: #458208;
+  --smart-color-green-950: #366803;
+
+  /* Yellow */
+  --smart-color-yellow-50: #fff9f0;
+  --smart-color-yellow-100: #fdf4e0;
+  --smart-color-yellow-200: #fbe5b8;
+  --smart-color-yellow-300: #ffdf61;
+  --smart-color-yellow-400: #ffd11a;
+  --smart-color-yellow-500: #f5b83a;
+  --smart-color-yellow-600: #e8ae37;
+  --smart-color-yellow-700: #ba9908;
+  --smart-color-yellow-800: #a78a06;
+  --smart-color-yellow-900: #8b7109;
+  --smart-color-yellow-950: #604e06;
+
+  /* Red */
+  --smart-color-red-50: #ffefeb;
+  --smart-color-red-100: #ecb5a7;
+  --smart-color-red-200: #ed8f78;
+  --smart-color-red-300: #e06648;
+  --smart-color-red-400: #dd4822;
+  --smart-color-red-500: #c43108;
+  --smart-color-red-600: #b72c06;
+  --smart-color-red-700: #a22402;
+  --smart-color-red-800: #8f1f00;
+  --smart-color-red-900: #7a1800;
+  --smart-color-red-950: #611300;
+
+  /* Gray */
+  --smart-color-gray-50: #f1f3f7;
+  --smart-color-gray-100: #e8e8e9;
+  --smart-color-gray-200: #d0d0d0;
+  --smart-color-gray-300: #bababa;
+  --smart-color-gray-400: #a6a6a6;
+  --smart-color-gray-500: #909090;
+  --smart-color-gray-600: #7c7c7c;
+  --smart-color-gray-700: #666666;
+  --smart-color-gray-800: #525252;
+  --smart-color-gray-900: #3c3c3c;
+  --smart-color-gray-950: #282828;
+
+  /* Neutral */
+  --smart-color-neutral-50: var(--smart-color-gray-50);
+  --smart-color-neutral-100: #eceff4;
+  --smart-color-neutral-200: #e4e4e7;
+  --smart-color-neutral-300: #d4d4d8;
+  --smart-color-neutral-400: #a1a1aa;
+  --smart-color-neutral-500: #71717a;
+  --smart-color-neutral-600: #52525b;
+  --smart-color-neutral-700: #3f3f46;
+  --smart-color-neutral-800: #343439;
+  --smart-color-neutral-900: #2a2a2d;
+  --smart-color-neutral-950: var(--smart-color-gray-950);
+
+  /*
    * Theme Tokens
    */
 
   /* Primary */
-  --sl-color-primary-50: var(--sl-color-sky-50);
-  --sl-color-primary-100: var(--sl-color-sky-100);
-  --sl-color-primary-200: var(--sl-color-sky-200);
-  --sl-color-primary-300: var(--sl-color-sky-300);
-  --sl-color-primary-400: var(--sl-color-sky-400);
-  --sl-color-primary-500: var(--sl-color-sky-500);
-  --sl-color-primary-600: var(--sl-color-sky-600);
-  --sl-color-primary-700: var(--sl-color-sky-700);
-  --sl-color-primary-800: var(--sl-color-sky-800);
-  --sl-color-primary-900: var(--sl-color-sky-900);
-  --sl-color-primary-950: var(--sl-color-sky-950);
+  --sl-color-primary-50: var(--smart-color-blue-50);
+  --sl-color-primary-100: var(--smart-color-blue-100);
+  --sl-color-primary-200: var(--smart-color-blue-200);
+  --sl-color-primary-300: var(--smart-color-blue-300);
+  --sl-color-primary-400: var(--smart-color-blue-400);
+  --sl-color-primary-500: var(--smart-color-blue-500);
+  --sl-color-primary-600: var(--smart-color-blue-600);
+  --sl-color-primary-700: var(--smart-color-blue-700);
+  --sl-color-primary-800: var(--smart-color-blue-800);
+  --sl-color-primary-900: var(--smart-color-blue-900);
+  --sl-color-primary-950: var(--smart-color-blue-950);
 
   /* Success */
-  --sl-color-success-50: var(--sl-color-green-50);
-  --sl-color-success-100: var(--sl-color-green-100);
-  --sl-color-success-200: var(--sl-color-green-200);
-  --sl-color-success-300: var(--sl-color-green-300);
-  --sl-color-success-400: var(--sl-color-green-400);
-  --sl-color-success-500: var(--sl-color-green-500);
-  --sl-color-success-600: var(--sl-color-green-600);
-  --sl-color-success-700: var(--sl-color-green-700);
-  --sl-color-success-800: var(--sl-color-green-800);
-  --sl-color-success-900: var(--sl-color-green-900);
-  --sl-color-success-950: var(--sl-color-green-950);
+  --sl-color-success-50: var(--smart-color-green-50);
+  --sl-color-success-100: var(--smart-color-green-100);
+  --sl-color-success-200: var(--smart-color-green-200);
+  --sl-color-success-300: var(--smart-color-green-300);
+  --sl-color-success-400: var(--smart-color-green-400);
+  --sl-color-success-500: var(--smart-color-green-500);
+  --sl-color-success-600: var(--smart-color-green-600);
+  --sl-color-success-700: var(--smart-color-green-700);
+  --sl-color-success-800: var(--smart-color-green-800);
+  --sl-color-success-900: var(--smart-color-green-900);
+  --sl-color-success-950: var(--smart-color-green-950);
 
   /* Warning */
-  --sl-color-warning-50: var(--sl-color-amber-50);
-  --sl-color-warning-100: var(--sl-color-amber-100);
-  --sl-color-warning-200: var(--sl-color-amber-200);
-  --sl-color-warning-300: var(--sl-color-amber-300);
-  --sl-color-warning-400: var(--sl-color-amber-400);
-  --sl-color-warning-500: var(--sl-color-amber-500);
-  --sl-color-warning-600: var(--sl-color-amber-600);
-  --sl-color-warning-700: var(--sl-color-amber-700);
-  --sl-color-warning-800: var(--sl-color-amber-800);
-  --sl-color-warning-900: var(--sl-color-amber-900);
-  --sl-color-warning-950: var(--sl-color-amber-950);
+  --sl-color-warning-50: var(--smart-color-yellow-50);
+  --sl-color-warning-100: var(--smart-color-yellow-100);
+  --sl-color-warning-200: var(--smart-color-yellow-200);
+  --sl-color-warning-300: var(--smart-color-yellow-300);
+  --sl-color-warning-400: var(--smart-color-yellow-400);
+  --sl-color-warning-500: var(--smart-color-yellow-500);
+  --sl-color-warning-600: var(--smart-color-yellow-600);
+  --sl-color-warning-700: var(--smart-color-yellow-700);
+  --sl-color-warning-800: var(--smart-color-yellow-800);
+  --sl-color-warning-900: var(--smart-color-yellow-900);
+  --sl-color-warning-950: var(--smart-color-yellow-950);
 
   /* Danger */
-  --sl-color-danger-50: var(--sl-color-red-50);
-  --sl-color-danger-100: var(--sl-color-red-100);
-  --sl-color-danger-200: var(--sl-color-red-200);
-  --sl-color-danger-300: var(--sl-color-red-300);
-  --sl-color-danger-400: var(--sl-color-red-400);
-  --sl-color-danger-500: var(--sl-color-red-500);
-  --sl-color-danger-600: var(--sl-color-red-600);
-  --sl-color-danger-700: var(--sl-color-red-700);
-  --sl-color-danger-800: var(--sl-color-red-800);
-  --sl-color-danger-900: var(--sl-color-red-900);
-  --sl-color-danger-950: var(--sl-color-red-950);
+  --sl-color-danger-50: var(--smart-color-red-50);
+  --sl-color-danger-100: var(--smart-color-red-100);
+  --sl-color-danger-200: var(--smart-color-red-200);
+  --sl-color-danger-300: var(--smart-color-red-300);
+  --sl-color-danger-400: var(--smart-color-red-400);
+  --sl-color-danger-500: var(--smart-color-red-500);
+  --sl-color-danger-600: var(--smart-color-red-600);
+  --sl-color-danger-700: var(--smart-color-red-700);
+  --sl-color-danger-800: var(--smart-color-red-800);
+  --sl-color-danger-900: var(--smart-color-red-900);
+  --sl-color-danger-950: var(--smart-color-red-950);
 
   /* Neutral */
-  --sl-color-neutral-50: var(--sl-color-gray-50);
-  --sl-color-neutral-100: var(--sl-color-gray-100);
-  --sl-color-neutral-200: var(--sl-color-gray-200);
-  --sl-color-neutral-300: var(--sl-color-gray-300);
-  --sl-color-neutral-400: var(--sl-color-gray-400);
-  --sl-color-neutral-500: var(--sl-color-gray-500);
-  --sl-color-neutral-600: var(--sl-color-gray-600);
-  --sl-color-neutral-700: var(--sl-color-gray-700);
-  --sl-color-neutral-800: var(--sl-color-gray-800);
-  --sl-color-neutral-900: var(--sl-color-gray-900);
-  --sl-color-neutral-950: var(--sl-color-gray-950);
+  --sl-color-neutral-50: var(--smart-color-neutral-50);
+  --sl-color-neutral-100: var(--smart-color-neutral-100);
+  --sl-color-neutral-200: var(--smart-color-neutral-200);
+  --sl-color-neutral-300: var(--smart-color-neutral-300);
+  --sl-color-neutral-400: var(--smart-color-neutral-400);
+  --sl-color-neutral-500: var(--smart-color-neutral-500);
+  --sl-color-neutral-600: var(--smart-color-neutral-600);
+  --sl-color-neutral-700: var(--smart-color-neutral-700);
+  --sl-color-neutral-800: var(--smart-color-neutral-800);
+  --sl-color-neutral-900: var(--smart-color-neutral-900);
+  --sl-color-neutral-950: var(--smart-color-neutral-950);
 
   /* Neutral one-offs */
   --sl-color-neutral-0: hsl(0, 0%, 100%);
@@ -318,10 +400,14 @@
    * Border radii
    */
 
-  --sl-border-radius-small: 0.1875rem; /* 3px */
-  --sl-border-radius-medium: 0.25rem; /* 4px */
-  --sl-border-radius-large: 0.5rem; /* 8px */
-  --sl-border-radius-x-large: 1rem; /* 16px */
+  --sl-border-radius-small: 0.1875rem;
+  /* 3px */
+  --sl-border-radius-medium: 0.25rem;
+  /* 4px */
+  --sl-border-radius-large: 0.5rem;
+  /* 8px */
+  --sl-border-radius-x-large: 1rem;
+  /* 16px */
 
   --sl-border-radius-circle: 50%;
   --sl-border-radius-pill: 9999px;
@@ -340,16 +426,26 @@
    * Spacings
    */
 
-  --sl-spacing-3x-small: 0.125rem; /* 2px */
-  --sl-spacing-2x-small: 0.25rem; /* 4px */
-  --sl-spacing-x-small: 0.5rem; /* 8px */
-  --sl-spacing-small: 0.75rem; /* 12px */
-  --sl-spacing-medium: 1rem; /* 16px */
-  --sl-spacing-large: 1.25rem; /* 20px */
-  --sl-spacing-x-large: 1.75rem; /* 28px */
-  --sl-spacing-2x-large: 2.25rem; /* 36px */
-  --sl-spacing-3x-large: 3rem; /* 48px */
-  --sl-spacing-4x-large: 4.5rem; /* 72px */
+  --sl-spacing-3x-small: 0.125rem;
+  /* 2px */
+  --sl-spacing-2x-small: 0.25rem;
+  /* 4px */
+  --sl-spacing-x-small: 0.5rem;
+  /* 8px */
+  --sl-spacing-small: 0.75rem;
+  /* 12px */
+  --sl-spacing-medium: 1rem;
+  /* 16px */
+  --sl-spacing-large: 1.25rem;
+  /* 20px */
+  --sl-spacing-x-large: 1.75rem;
+  /* 28px */
+  --sl-spacing-2x-large: 2.25rem;
+  /* 36px */
+  --sl-spacing-3x-large: 3rem;
+  /* 48px */
+  --sl-spacing-4x-large: 4.5rem;
+  /* 72px */
 
   /*
    * Transitions
@@ -372,15 +468,24 @@
   --sl-font-serif: Georgia, 'Times New Roman', serif;
 
   /* Font sizes */
-  --sl-font-size-2x-small: 0.625rem; /* 10px */
-  --sl-font-size-x-small: 0.75rem; /* 12px */
-  --sl-font-size-small: 0.875rem; /* 14px */
-  --sl-font-size-medium: 1rem; /* 16px */
-  --sl-font-size-large: 1.25rem; /* 20px */
-  --sl-font-size-x-large: 1.5rem; /* 24px */
-  --sl-font-size-2x-large: 2.25rem; /* 36px */
-  --sl-font-size-3x-large: 3rem; /* 48px */
-  --sl-font-size-4x-large: 4.5rem; /* 72px */
+  --sl-font-size-2x-small: 0.625rem;
+  /* 10px */
+  --sl-font-size-x-small: 0.75rem;
+  /* 12px */
+  --sl-font-size-small: 0.875rem;
+  /* 14px */
+  --sl-font-size-medium: 1rem;
+  /* 16px */
+  --sl-font-size-large: 1.25rem;
+  /* 20px */
+  --sl-font-size-x-large: 1.5rem;
+  /* 24px */
+  --sl-font-size-2x-large: 2.25rem;
+  /* 36px */
+  --sl-font-size-3x-large: 3rem;
+  /* 48px */
+  --sl-font-size-4x-large: 4.5rem;
+  /* 72px */
 
   /* Font weights */
   --sl-font-weight-light: 300;
@@ -419,9 +524,12 @@
   --sl-button-font-size-large: var(--sl-font-size-medium);
 
   /* Inputs */
-  --sl-input-height-small: 1.875rem; /* 30px */
-  --sl-input-height-medium: 2.5rem; /* 40px */
-  --sl-input-height-large: 3.125rem; /* 50px */
+  --sl-input-height-small: 1.875rem;
+  /* 30px */
+  --sl-input-height-medium: 2.5rem;
+  /* 40px */
+  --sl-input-height-large: 3.125rem;
+  /* 50px */
 
   --sl-input-background-color: var(--sl-color-neutral-0);
   --sl-input-background-color-hover: var(--sl-input-background-color);
@@ -485,9 +593,12 @@
   --sl-input-help-text-color: var(--sl-color-neutral-500);
 
   /* Toggles (checkboxes, radios, switches) */
-  --sl-toggle-size-small: 0.875rem; /* 14px */
-  --sl-toggle-size-medium: 1.125rem; /* 18px */
-  --sl-toggle-size-large: 1.375rem; /* 22px */
+  --sl-toggle-size-small: 0.875rem;
+  /* 14px */
+  --sl-toggle-size-medium: 1.125rem;
+  /* 18px */
+  --sl-toggle-size-large: 1.375rem;
+  /* 22px */
 
   /*
    * Overlays

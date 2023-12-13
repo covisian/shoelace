@@ -117,6 +117,118 @@ Theme tokens give you a semantic way to reference colors in your app. The primar
 Looking for an easy way to customize your theme? [Try the color token generator!](https://codepen.io/claviska/full/QWveRgL)
 :::
 
+## Smart Primitives
+
+Smart color primitives. These are default for theme tokens.
+
+<div class="color-palette">
+  <div class="color-palette__name">
+    Gray<br>
+    <code>--smart-color-gray-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-50);"></div>50</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-100);"></div>100</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-200);"></div>200</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-300);"></div>300</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-400);"></div>400</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-500);"></div>500</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-600);"></div>600</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-700);"></div>700</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-800);"></div>800</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-900);"></div>900</div>  
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-gray-950);"></div>950</div>  
+</div>
+
+<div class="color-palette">
+  <div class="color-palette__name">
+    Neutral<br>
+    <code>--smart-color-neutral-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-50);"></div>50</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-100);"></div>100</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-200);"></div>200</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-300);"></div>300</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-400);"></div>400</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-500);"></div>500</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-600);"></div>600</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-700);"></div>700</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-800);"></div>800</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-900);"></div>900</div>  
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-neutral-950);"></div>950</div>  
+</div>
+
+<div class="color-palette">
+  <div class="color-palette__name">
+    Red<br>
+    <code>--smart-color-red-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-50);"></div>50</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-100);"></div>100</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-200);"></div>200</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-300);"></div>300</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-400);"></div>400</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-500);"></div>500</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-600);"></div>600</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-700);"></div>700</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-800);"></div>800</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-900);"></div>900</div>  
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-red-950);"></div>950</div>  
+</div>
+
+<div class="color-palette">
+  <div class="color-palette__name">
+    Yellow<br>
+    <code>--smart-color-yellow-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-50);"></div>50</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-100);"></div>100</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-200);"></div>200</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-300);"></div>300</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-400);"></div>400</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-500);"></div>500</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-600);"></div>600</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-700);"></div>700</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-800);"></div>800</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-900);"></div>900</div>  
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-yellow-950);"></div>950</div>  
+</div>
+
+<div class="color-palette">
+  <div class="color-palette__name">
+    Green<br>
+    <code>--smart-color-green-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-50);"></div>50</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-100);"></div>100</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-200);"></div>200</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-300);"></div>300</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-400);"></div>400</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-500);"></div>500</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-600);"></div>600</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-700);"></div>700</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-800);"></div>800</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-900);"></div>900</div>  
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-green-950);"></div>950</div>  
+</div>
+
+<div class="color-palette">
+  <div class="color-palette__name">
+    Blue<br>
+    <code>--smart-color-blue-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-50);"></div>50</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-100);"></div>100</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-200);"></div>200</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-300);"></div>300</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-400);"></div>400</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-500);"></div>500</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-600);"></div>600</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-700);"></div>700</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-800);"></div>800</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-900);"></div>900</div>  
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-950);"></div>950</div>  
+</div>
+
 ## Primitives
 
 Additional palettes are provided in the form of color primitives. Use these when you need arbitrary colors that don't have semantic meaning. Color primitives are derived from the fantastic [Tailwind color palette](https://tailwindcss.com/docs/customizing-colors).
