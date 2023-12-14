@@ -57,6 +57,32 @@ export default css`
     text-transform: uppercase;
   }
 
+  .avatar--micro {
+    height: 16px;
+    width: 16px;
+    font-size: 8px;
+  }
+  .avatar--x-small {
+    height: 24px;
+    width: 24px;
+    font-size: 12px;
+  }
+  .avatar--small {
+    height: 32px;
+    width: 32px;
+    font-size: 16px;
+  }
+  .avatar--medium {
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+  }
+  .avatar--large {
+    height: 64px;
+    width: 64px;
+    font-size: 30px;
+  }
+
   .avatar__image {
     position: absolute;
     top: 0;

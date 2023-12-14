@@ -21,7 +21,7 @@ describe('<sl-avatar>', () => {
     it('should default to circle styling', () => {
       const part = el.shadowRoot!.querySelector('[part~="base"]')!;
       expect(el.getAttribute('shape')).to.eq('circle');
-      expect(part.classList.value.trim()).to.eq('avatar avatar--circle');
+      expect(part.classList.value.trim()).to.eq('avatar avatar--circle avatar--small');
     });
   });
 
@@ -127,7 +127,7 @@ describe('<sl-avatar>', () => {
         const part = el.shadowRoot!.querySelector('[part~="base"]')!;
 
         expect(el.getAttribute('shape')).to.eq(shape);
-        expect(part.classList.value.trim()).to.eq(`avatar avatar--${shape}`);
+        expect(part.classList.value.trim()).to.eq(`avatar avatar--${shape} avatar--small`);
       });
     });
   });
