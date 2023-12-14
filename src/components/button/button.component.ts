@@ -59,7 +59,7 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
 
   /** The button's theme variant. */
   @property({ reflect: true }) variant: 'default' | 'primary' | 'success' | 'neutral' | 'warning' | 'danger' | 'text' =
-    'default';
+    'primary';
 
   /** The button's size. */
   @property({ reflect: true }) size: 'small' | 'medium' | 'large' = 'medium';
@@ -282,6 +282,7 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
           'button--standard': !this.outline,
           'button--outline': this.outline,
           'button--pill': this.pill,
+          'button--link': isLink,
           'button--rtl': this.localize.dir() === 'rtl',
           'button--has-label': this.hasSlotController.test('[default]'),
           'button--has-prefix': this.hasSlotController.test('prefix'),
