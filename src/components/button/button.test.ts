@@ -26,7 +26,7 @@ describe('<sl-button>', () => {
       const el = await fixture<SlButton>(html` <sl-button>Button Label</sl-button> `);
 
       expect(el.title).to.equal('');
-      expect(el.variant).to.equal('default');
+      expect(el.variant).to.equal('primary');
       expect(el.size).to.equal('medium');
       expect(el.disabled).to.equal(false);
       expect(el.caret).to.equal(false);

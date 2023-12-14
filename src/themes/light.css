@@ -523,6 +523,12 @@
   --sl-button-font-size-medium: var(--sl-font-size-small);
   --sl-button-font-size-large: var(--sl-font-size-medium);
 
+  --sl-button-border-color-primary: var(--sl-color-primary-500);
+  --sl-button-border-color-success: var(--sl-color-success-500);
+  --sl-button-border-color-neutral: var(--sl-color-neutral-500);
+  --sl-button-border-color-warning: var(--sl-color-warning-500);
+  --sl-button-border-color-danger: var(--sl-color-danger-500);
+
   /* Inputs */
   --sl-input-height-small: 1.875rem;
   /* 30px */
