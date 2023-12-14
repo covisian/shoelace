@@ -22,7 +22,6 @@ const App = () => <SlButton>Button</SlButton>;
 Use the `variant` attribute to set the button's variant.
 
 ```html:preview
-<sl-button variant="default">Default</sl-button>
 <sl-button variant="primary">Primary</sl-button>
 <sl-button variant="success">Success</sl-button>
 <sl-button variant="neutral">Neutral</sl-button>
@@ -35,7 +34,6 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
-    <SlButton variant="default">Default</SlButton>
     <SlButton variant="primary">Primary</SlButton>
     <SlButton variant="success">Success</SlButton>
     <SlButton variant="neutral">Neutral</SlButton>
@@ -72,7 +70,6 @@ const App = () => (
 Use the `outline` attribute to draw outlined buttons with transparent backgrounds.
 
 ```html:preview
-<sl-button variant="default" outline>Default</sl-button>
 <sl-button variant="primary" outline>Primary</sl-button>
 <sl-button variant="success" outline>Success</sl-button>
 <sl-button variant="neutral" outline>Neutral</sl-button>
@@ -85,9 +82,6 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
-    <SlButton variant="default" outline>
-      Default
-    </SlButton>
     <SlButton variant="primary" outline>
       Primary
     </SlButton>
@@ -140,15 +134,15 @@ const App = () => (
 Use the `circle` attribute to create circular icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
 
 ```html:preview
-<sl-button variant="default" size="small" circle>
+<sl-button size="small" circle>
   <sl-icon name="gear" label="Settings"></sl-icon>
 </sl-button>
 
-<sl-button variant="default" size="medium" circle>
+<sl-button size="medium" circle>
   <sl-icon name="gear" label="Settings"></sl-icon>
 </sl-button>
 
-<sl-button variant="default" size="large" circle>
+<sl-button size="large" circle>
   <sl-icon name="gear" label="Settings"></sl-icon>
 </sl-button>
 ```
@@ -159,13 +153,13 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
   <>
-    <SlButton variant="default" size="small" circle>
+    <SlButton size="small" circle>
       <SlIcon name="gear" />
     </SlButton>
-    <SlButton variant="default" size="medium" circle>
+    <SlButton size="medium" circle>
       <SlIcon name="gear" />
     </SlButton>
-    <SlButton variant="default" size="large" circle>
+    <SlButton size="large" circle>
       <SlIcon name="gear" />
     </SlButton>
   </>
@@ -239,9 +233,9 @@ When a `target` is set, the link will receive `rel="noreferrer noopener"` for [s
 As expected, buttons can be given a custom width by setting the `width` attribute. This is useful for making buttons span the full width of their container on smaller screens.
 
 ```html:preview
-<sl-button variant="default" size="small" style="width: 100%; margin-bottom: 1rem;">Small</sl-button>
-<sl-button variant="default" size="medium" style="width: 100%; margin-bottom: 1rem;">Medium</sl-button>
-<sl-button variant="default" size="large" style="width: 100%;">Large</sl-button>
+<sl-button  size="small" style="width: 100%; margin-bottom: 1rem;">Small</sl-button>
+<sl-button  size="medium" style="width: 100%; margin-bottom: 1rem;">Medium</sl-button>
+<sl-button  size="large" style="width: 100%;">Large</sl-button>
 ```
 
 {% raw %}
@@ -251,13 +245,13 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
-    <SlButton variant="default" size="small" style={{ width: '100%', marginBottom: '1rem' }}>
+    <SlButton size="small" style={{ width: '100%', marginBottom: '1rem' }}>
       Small
     </SlButton>
-    <SlButton variant="default" size="medium" style={{ width: '100%', marginBottom: '1rem' }}>
+    <SlButton size="medium" style={{ width: '100%', marginBottom: '1rem' }}>
       Medium
     </SlButton>
-    <SlButton variant="default" size="large" style={{ width: '100%' }}>
+    <SlButton size="large" style={{ width: '100%' }}>
       Large
     </SlButton>
   </>
@@ -271,17 +265,17 @@ const App = () => (
 Use the `prefix` and `suffix` slots to add icons.
 
 ```html:preview
-<sl-button variant="default" size="small">
+<sl-button size="small">
   <sl-icon slot="prefix" name="gear"></sl-icon>
   Settings
 </sl-button>
 
-<sl-button variant="default" size="small">
+<sl-button size="small">
   <sl-icon slot="suffix" name="arrow-counterclockwise"></sl-icon>
   Refresh
 </sl-button>
 
-<sl-button variant="default" size="small">
+<sl-button size="small">
   <sl-icon slot="prefix" name="link-45deg"></sl-icon>
   <sl-icon slot="suffix" name="box-arrow-up-right"></sl-icon>
   Open
@@ -289,17 +283,17 @@ Use the `prefix` and `suffix` slots to add icons.
 
 <br /><br />
 
-<sl-button variant="default">
+<sl-button>
   <sl-icon slot="prefix" name="gear"></sl-icon>
   Settings
 </sl-button>
 
-<sl-button variant="default">
+<sl-button>
   <sl-icon slot="suffix" name="arrow-counterclockwise"></sl-icon>
   Refresh
 </sl-button>
 
-<sl-button variant="default">
+<sl-button>
   <sl-icon slot="prefix" name="link-45deg"></sl-icon>
   <sl-icon slot="suffix" name="box-arrow-up-right"></sl-icon>
   Open
@@ -307,17 +301,17 @@ Use the `prefix` and `suffix` slots to add icons.
 
 <br /><br />
 
-<sl-button variant="default" size="large">
+<sl-button size="large">
   <sl-icon slot="prefix" name="gear"></sl-icon>
   Settings
 </sl-button>
 
-<sl-button variant="default" size="large">
+<sl-button size="large">
   <sl-icon slot="suffix" name="arrow-counterclockwise"></sl-icon>
   Refresh
 </sl-button>
 
-<sl-button variant="default" size="large">
+<sl-button size="large">
   <sl-icon slot="prefix" name="link-45deg"></sl-icon>
   <sl-icon slot="suffix" name="box-arrow-up-right"></sl-icon>
   Open
@@ -330,17 +324,17 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
   <>
-    <SlButton variant="default" size="small">
+    <SlButton size="small">
       <SlIcon slot="prefix" name="gear"></SlIcon>
       Settings
     </SlButton>
 
-    <SlButton variant="default" size="small">
+    <SlButton size="small">
       <SlIcon slot="suffix" name="arrow-counterclockwise"></SlIcon>
       Refresh
     </SlButton>
 
-    <SlButton variant="default" size="small">
+    <SlButton size="small">
       <SlIcon slot="prefix" name="link-45deg"></SlIcon>
       <SlIcon slot="suffix" name="box-arrow-up-right"></SlIcon>
       Open
@@ -349,17 +343,17 @@ const App = () => (
     <br />
     <br />
 
-    <SlButton variant="default">
+    <SlButton>
       <SlIcon slot="prefix" name="gear"></SlIcon>
       Settings
     </SlButton>
 
-    <SlButton variant="default">
+    <SlButton>
       <SlIcon slot="suffix" name="arrow-counterclockwise"></SlIcon>
       Refresh
     </SlButton>
 
-    <SlButton variant="default">
+    <SlButton>
       <SlIcon slot="prefix" name="link-45deg"></SlIcon>
       <SlIcon slot="suffix" name="box-arrow-up-right"></SlIcon>
       Open
@@ -368,17 +362,17 @@ const App = () => (
     <br />
     <br />
 
-    <SlButton variant="default" size="large">
+    <SlButton size="large">
       <SlIcon slot="prefix" name="gear"></SlIcon>
       Settings
     </SlButton>
 
-    <SlButton variant="default" size="large">
+    <SlButton size="large">
       <SlIcon slot="suffix" name="arrow-counterclockwise"></SlIcon>
       Refresh
     </SlButton>
 
-    <SlButton variant="default" size="large">
+    <SlButton size="large">
       <SlIcon slot="prefix" name="link-45deg"></SlIcon>
       <SlIcon slot="suffix" name="box-arrow-up-right"></SlIcon>
       Open
@@ -420,7 +414,6 @@ const App = () => (
 Use the `loading` attribute to make a button busy. The width will remain the same as before, preventing adjacent elements from moving around. Clicks will be suppressed until the loading state is removed.
 
 ```html:preview
-<sl-button variant="default" loading>Default</sl-button>
 <sl-button variant="primary" loading>Primary</sl-button>
 <sl-button variant="success" loading>Success</sl-button>
 <sl-button variant="neutral" loading>Neutral</sl-button>
@@ -433,9 +426,6 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
-    <SlButton variant="default" loading>
-      Default
-    </SlButton>
     <SlButton variant="primary" loading>
       Primary
     </SlButton>
@@ -460,7 +450,6 @@ const App = () => (
 Use the `disabled` attribute to disable a button.
 
 ```html:preview
-<sl-button variant="default" disabled>Default</sl-button>
 <sl-button variant="primary" disabled>Primary</sl-button>
 <sl-button variant="success" disabled>Success</sl-button>
 <sl-button variant="neutral" disabled>Neutral</sl-button>
@@ -473,10 +462,6 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
-    <SlButton variant="default" disabled>
-      Default
-    </SlButton>
-
     <SlButton variant="primary" disabled>
       Primary
     </SlButton>
