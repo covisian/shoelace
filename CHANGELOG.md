@@ -1,5 +1,12 @@
 # @covisian/shoelace
 
+## 2.12.2
+
+### Patch Changes
+
+- 79742f4: trigger the build for test release
+- add cv-button features to sl-button
+
 ## 2.12.1
 
 ### Patch Changes
