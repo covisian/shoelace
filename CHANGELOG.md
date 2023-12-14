@@ -1,5 +1,12 @@
 # @covisian/shoelace
 
+## 2.12.3
+
+### Patch Changes
+
+- dump shoelace
+- 79742f4: trigger the build for test release
+
 ## 2.12.2
 
 ### Patch Changes
