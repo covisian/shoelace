@@ -44,11 +44,35 @@ export default class SlAvatar extends ShoelaceElement {
   /** Initials to use as a fallback when no image is available (1-2 characters max recommended). */
   @property() initials = '';
 
+  /** size of the avatar */
+  @property() size: 'micro' | 'x-small' | 'small' | 'medium' | 'large' = 'small';
+
   /** Indicates how the browser should load the image. */
   @property() loading: 'eager' | 'lazy' = 'eager';
 
   /** The shape of the avatar. */
   @property({ reflect: true }) shape: 'circle' | 'square' | 'rounded' = 'circle';
+
+  colors = [
+    '#1abc9c',
+    '#2ecc71',
+    '#3498db',
+    '#9b59b6',
+    '#4551b6',
+    '#16a085',
+    '#98a085',
+    '#27ae60',
+    '#2980b9',
+    '#8e44ad',
+    '#f1c40f',
+    '#e67e22',
+    '#e74c3c',
+    '#f39c12',
+    '#d35400',
+    '#972bff',
+    '#89392b',
+    '#c0392b'
+  ];
 
   @watch('image')
   handleImageChange() {
@@ -57,35 +81,20 @@ export default class SlAvatar extends ShoelaceElement {
   }
 
   getInitials(fullName: string) {
-    const names = fullName.split(' ');
-    const initials = names.map(elem => elem.charAt(0));
-    return initials.join('').toUpperCase();
+    const chunks = fullName.split(' ');
+    const hasFirstLetter = chunks[0];
+    const hasSecondLetter = chunks[chunks.length - 1];
+    const firstLetter = hasFirstLetter && chunks[0].charAt(0).toUpperCase();
+    const secondLetter = hasSecondLetter
+      ? chunks[chunks.length - 1].charAt(0).toUpperCase()
+      : chunks[0].charAt(1).toUpperCase();
+    this.initials = firstLetter + secondLetter;
+    return this.initials;
   }
-
-  getRandomColor() {
-    const colors = [
-      '#1abc9c',
-      '#2ecc71',
-      '#3498db',
-      '#9b59b6',
-      '#4551b6',
-      '#16a085',
-      '#98a085',
-      '#27ae60',
-      '#2980b9',
-      '#8e44ad',
-      '#f1c40f',
-      '#e67e22',
-      '#e74c3c',
-      '#95a5a6',
-      '#f39c12',
-      '#d35400',
-      '#c0392b',
-      '#bdc3c7',
-      '#7f8c8d'
-    ];
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    return colors[randomIndex];
+  getStyleForInitials() {
+    const charIndex = this.initials.charCodeAt(0) - 65;
+    const colorIndex = charIndex % this.colors.length;
+    return this.colors[colorIndex];
   }
 
   render() {
@@ -108,7 +117,7 @@ export default class SlAvatar extends ShoelaceElement {
       initialsToShow = this.getInitials(this.name);
     }
     if (initialsToShow) {
-      randomBackgroundColor = this.getRandomColor();
+      randomBackgroundColor = this.getStyleForInitials();
       avatarWithoutImage = html` <div part="initials" class="avatar__initials">${initialsToShow}</div> `;
     } else {
       avatarWithoutImage = html`

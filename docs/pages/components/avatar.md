@@ -54,7 +54,7 @@ const App = () => (
 
 ### Name
 
-When you don't have an image to use, you can set the `name` attribute to show something more personalized than an icon, the initials will be taken from this name and inserted into the avatar. If both the name and initials are entered, the initials have priority
+When you don't have an image to use, you can set the `name` attribute to show something more personalized than an icon, the initials will be taken from this name and inserted into the avatar.
 
 ```html:preview
 <sl-avatar name='name surname' label="Avatar with name: name surname"></sl-avatar>
@@ -68,10 +68,10 @@ const App = () => <SlAvatar name='name surname' label="Avatar with name: name su
 
 ### Initials
 
-When you don't have an image and a name to use, you can set the `initials` attribute to show something more personalized than an icon.
+When you don't have an image and a name to use, you can set the `initials` attribute to show something more personalized than an icon. If both the name and initials are entered, the initials have priority.
 
 ```html:preview
-<sl-avatar initials="SL" label="Avatar with initials: SL"></sl-avatar>
+<sl-avatar initials="sl" label="Avatar with initials: sl"></sl-avatar>
 ```
 
 ```jsx:react
