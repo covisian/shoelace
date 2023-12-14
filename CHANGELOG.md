@@ -1,5 +1,12 @@
 # @covisian/shoelace
 
+## 2.12.1
+
+### Patch Changes
+
+- edit avatar component
+- 79742f4: trigger the build for test release
+
 ## 2.12.0
 
 ### Minor Changes
