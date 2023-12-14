@@ -88,7 +88,6 @@ export default class SlAvatar extends ShoelaceElement {
     const secondLetter = hasSecondLetter
       ? chunks[chunks.length - 1].charAt(0).toUpperCase()
       : chunks[0].charAt(1).toUpperCase();
-
     this.initials = firstLetter + secondLetter;
     return this.initials;
   }
@@ -136,15 +135,8 @@ export default class SlAvatar extends ShoelaceElement {
         part="base"
         class=${classMap({
           avatar: true,
-          'avatar--circle': this.shape === 'circle',
-          'avatar--rounded': this.shape === 'rounded',
-          'avatar--square': this.shape === 'square',
-
-          'avatar--micro': this.size === 'micro',
-          'avatar--x-small': this.size === 'x-small',
-          'avatar--small': this.size === 'small',
-          'avatar--medium': this.size === 'medium',
-          'avatar--large': this.size === 'large'
+          [`avatar--${this.shape}`]: true,
+          [`avatar--${this.size}`]: true
         })}
         role="img"
         aria-label=${this.label}
