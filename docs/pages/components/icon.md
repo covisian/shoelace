@@ -104,6 +104,107 @@ const App = () => (
 
 {% endraw %}
 
+### Animation
+
+A property animation is available to pass animation to the component. In the current implementation only the spin animation is available.
+
+```html:preview
+
+  <sl-icon name="star" animation></sl-icon>
+  <sl-icon name="star"></sl-icon>
+
+```
+
+{% raw %}
+
+```jsx:react
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+
+ <sl-icon name="star" animation></sl-icon>
+ <sl-icon name="star"></sl-icon>
+
+
+);
+```
+
+{% endraw %}
+
+### Color
+
+This component can display avatars in 9 different colors: `primary`,`secondary`,`tertiary`,`success`,`warning`,`danger`,`light`,`medium`,`dark`. When no color is set, the `default` color will be computed.
+
+```html:preview
+
+  <sl-icon name="cv-set-color" color="primary"></sl-icon>
+  <sl-icon name="cv-set-color" color="secondary"></sl-icon>
+  <sl-icon name="cv-set-color" color="tertiary"></sl-icon>
+  <sl-icon name="cv-set-color" color="success"></sl-icon>
+  <sl-icon name="cv-set-color" color="warning"></sl-icon>
+  <sl-icon name="cv-set-color" color="danger"></sl-icon>
+  <sl-icon name="cv-set-color" color="light"></sl-icon>
+  <sl-icon name="cv-set-color" color="medium"></sl-icon>
+  <sl-icon name="cv-set-color" color="dark"></sl-icon>
+
+```
+
+{% raw %}
+
+```jsx:react
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+
+ <sl-icon name="cv-set-color" color="primary"></sl-icon>
+  <sl-icon name="cv-set-color" color="secondary"></sl-icon>
+  <sl-icon name="cv-set-color" color="tertiary"></sl-icon>
+  <sl-icon name="cv-set-color" color="success"></sl-icon>
+  <sl-icon name="cv-set-color" color="warning"></sl-icon>
+  <sl-icon name="cv-set-color" color="danger"></sl-icon>
+  <sl-icon name="cv-set-color" color="light"></sl-icon>
+  <sl-icon name="cv-set-color" color="medium"></sl-icon>
+  <sl-icon name="cv-set-color" color="dark"></sl-icon>
+
+
+);
+```
+
+{% endraw %}
+
+### Size
+
+This component can display avatars in 5 different size: `custom`, `small`, `medium`, `large`, `extra`. When no size is set, the `medium` size will be computed as default.
+
+```html:preview
+
+  <sl-icon name="search" size="custom"></sl-icon>
+  <sl-icon name="search" size="small"></sl-icon>
+  <sl-icon name="search" size="medium"></sl-icon>
+  <sl-icon name="search" size="large"></sl-icon>
+  <sl-icon name="search" size="extra"></sl-icon>
+
+```
+
+{% raw %}
+
+```jsx:react
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+
+  <sl-icon name="search" size="custom"></sl-icon>
+  <sl-icon name="search" size="small"></sl-icon>
+  <sl-icon name="search" size="medium"></sl-icon>
+  <sl-icon name="search" size="large"></sl-icon>
+  <sl-icon name="search" size="extra"></sl-icon>
+
+
+);
+```
+
+{% endraw %}
+
 ### Sizing
 
 Icons are sized relative to the current font size. To change their size, set the `font-size` property on the icon itself or on a parent element as shown below.
