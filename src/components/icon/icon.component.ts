@@ -108,7 +108,7 @@ export default class SlIcon extends ShoelaceElement {
   /** The name of a registered custom icon library. */
   @property({ reflect: true }) library = 'smart';
 
-  /** The name of a registered custom icon library. */
+  /** Animation spin to use in the component */
   @property() animation: boolean = false;
 
   connectedCallback() {
