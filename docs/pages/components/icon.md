@@ -178,11 +178,11 @@ This component can display avatars in 5 different size: `custom`, `small`, `medi
 
 ```html:preview
 
-  <sl-icon name="search" size="custom"></sl-icon>
-  <sl-icon name="search" size="small"></sl-icon>
-  <sl-icon name="search" size="medium"></sl-icon>
-  <sl-icon name="search" size="large"></sl-icon>
-  <sl-icon name="search" size="extra"></sl-icon>
+  <sl-icon name="cv-maximize" size="custom"></sl-icon>
+  <sl-icon name="cv-maximize" size="small"></sl-icon>
+  <sl-icon name="cv-maximize" size="medium"></sl-icon>
+  <sl-icon name="cv-maximize" size="large"></sl-icon>
+  <sl-icon name="cv-maximize" size="extra"></sl-icon>
 
 ```
 
@@ -193,11 +193,11 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
 
-  <sl-icon name="search" size="custom"></sl-icon>
-  <sl-icon name="search" size="small"></sl-icon>
-  <sl-icon name="search" size="medium"></sl-icon>
-  <sl-icon name="search" size="large"></sl-icon>
-  <sl-icon name="search" size="extra"></sl-icon>
+  <sl-icon name="cv-maximize" size="custom"></sl-icon>
+  <sl-icon name="cv-maximize" size="small"></sl-icon>
+  <sl-icon name="cv-maximize" size="medium"></sl-icon>
+  <sl-icon name="cv-maximize" size="large"></sl-icon>
+  <sl-icon name="cv-maximize" size="extra"></sl-icon>
 
 
 );
