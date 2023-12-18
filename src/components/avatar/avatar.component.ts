@@ -54,24 +54,25 @@ export default class SlAvatar extends ShoelaceElement {
   @property({ reflect: true }) shape: 'circle' | 'square' | 'rounded' = 'circle';
 
   colors = [
-    '#1abc9c',
-    '#2ecc71',
-    '#3498db',
-    '#9b59b6',
-    '#4551b6',
-    '#16a085',
-    '#98a085',
-    '#27ae60',
-    '#2980b9',
-    '#8e44ad',
-    '#f1c40f',
-    '#e67e22',
-    '#e74c3c',
-    '#f39c12',
-    '#d35400',
-    '#972bff',
-    '#89392b',
-    '#c0392b'
+    { color: '#282828', backgroundColor: '#1abc9c' },
+    { color: '#282828', backgroundColor: '#2ecc71' },
+    { color: '#282828', backgroundColor: '#3498db' },
+    { color: '#fff', backgroundColor: '#9b59b6 ' },
+    { color: '#fff', backgroundColor: '#34495e' },
+    { color: '#fff', backgroundColor: '#16a085 ' },
+    { color: '#282828', backgroundColor: '#27ae60' },
+    { color: '#fff', backgroundColor: '#2980b9' },
+    { color: '#fff', backgroundColor: '#8e44ad' },
+    { color: '#fff', backgroundColor: '#2c3e50' },
+    { color: '#282828', backgroundColor: '#f1c40f' },
+    { color: '#282828', backgroundColor: '#e67e22' },
+    { color: '#fff', backgroundColor: '#e74c3c' },
+    { color: '#282828', backgroundColor: '#95a5a6' },
+    { color: '#282828', backgroundColor: '#f39c12' },
+    { color: '#fff', backgroundColor: '#d35400' },
+    { color: '#fff', backgroundColor: '#c0392b' },
+    { color: '#282828', backgroundColor: '#bdc3c7' },
+    { color: '#fff', backgroundColor: '#7f8c8d' }
   ];
 
   @watch('image')
@@ -109,15 +110,17 @@ export default class SlAvatar extends ShoelaceElement {
       />
     `;
     let randomBackgroundColor = 'var(--sl-color-neutral-400)';
+    let randomColor = 'color: var(--sl-color-neutral-0)';
     let avatarWithoutImage = html``;
 
-    let initialsToShow = this.initials;
+    let initialsToShow = this.initials.length >= 2 ? this.initials[0] + this.initials[1] : this.initials[0];
 
     if (this.name && !this.initials) {
       initialsToShow = this.getInitials(this.name);
     }
     if (initialsToShow) {
-      randomBackgroundColor = this.getStyleForInitials();
+      randomBackgroundColor = this.getStyleForInitials().backgroundColor;
+      randomColor = this.getStyleForInitials().color;
       avatarWithoutImage = html` <div part="initials" class="avatar__initials">${initialsToShow}</div> `;
     } else {
       avatarWithoutImage = html`
@@ -131,7 +134,7 @@ export default class SlAvatar extends ShoelaceElement {
 
     return html`
       <div
-        style="background-color: ${randomBackgroundColor}"
+        style="background-color: ${randomBackgroundColor}; color:${randomColor}"
         part="base"
         class=${classMap({
           avatar: true,

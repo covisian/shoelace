@@ -73,16 +73,20 @@ const App = () => <SlAvatar  name='first and last name' label="Avatar with name:
 
 ### Initials
 
-When you don't have an image and a name to use, you can set the `initials` attribute to show something more personalized than an icon. If both the name and initials are entered, the initials have priority.
+When you don't have an image and a name to use, you can set the `initials` attribute to show something more personalized than an icon (1-2 characters max recommended). If both the name and initials are entered, the initials have priority.
 
 ```html:preview
-<sl-avatar initials="sl" label="Avatar with initials: sl"></sl-avatar>
+<sl-avatar initials="a" label="Avatar with initials: sl"></sl-avatar>
+<sl-avatar initials="ab" label="Avatar with initials: sl"></sl-avatar>
+<sl-avatar initials="abc" label="Avatar with initials: sl"></sl-avatar>
 ```
 
 ```jsx:react
 import SlAvatar from '@shoelace-style/shoelace/dist/react/avatar';
 
-const App = () => <SlAvatar  initials="SL" label="Avatar with initials: SL" />;
+const App = () => <SlAvatar  initials="a" label="Avatar with initials: SL" />;
+const App = () => <SlAvatar  initials="ab" label="Avatar with initials: SL" />;
+const App = () => <SlAvatar  initials="abc" label="Avatar with initials: SL" />;
 ```
 
 ### Size
@@ -90,21 +94,21 @@ const App = () => <SlAvatar  initials="SL" label="Avatar with initials: SL" />;
 This component can display avatars in 5 different size: `micro`, `x-small`, `small`, `medium`, `large`. When no size is set, the small size will be computed as default.
 
 ```html:preview
-<sl-avatar size="micro" name='name surname' label="Avatar in micro size"></sl-avatar>
-<sl-avatar size="x-small" name='name surname' label="Avatar in x-small size"></sl-avatar>
-<sl-avatar size="small" name='name surname' label="Avatar in small size"></sl-avatar>
-<sl-avatar size="medium" name='name surname' label="Avatar in medium size"></sl-avatar>
-<sl-avatar size="large" name='name surname' label="Avatar in large size"></sl-avatar>
+<sl-avatar size="micro" initials='mi' label="Avatar in micro size"></sl-avatar>
+<sl-avatar size="x-small" initials='xs' label="Avatar in x-small size"></sl-avatar>
+<sl-avatar size="small" initials='sm' label="Avatar in small size"></sl-avatar>
+<sl-avatar size="medium" initials='md' label="Avatar in medium size"></sl-avatar>
+<sl-avatar size="large" initials='lg' label="Avatar in large size"></sl-avatar>
 ```
 
 ```jsx:react
 import SlAvatar from '@shoelace-style/shoelace/dist/react/avatar';
 
-const App = () => <SlAvatar size="micro"  name='name surname' label="Avatar in micro size" />;
-const App = () => <SlAvatar size="x-small" name='name surname' label="Avatar in in x-small size" />;
-const App = () => <SlAvatar size="small"  name='name surname' label="Avatar in small size" />;
-const App = () => <SlAvatar size="medium" name='name surname' label="Avatar in medium size" />;
-const App = () => <SlAvatar size="large"  name='name surname' label="Avatar in large size" />;
+const App = () => <SlAvatar size="micro"  initials='mi' label="Avatar in micro size" />;
+const App = () => <SlAvatar size="x-small" initials='xs' label="Avatar in in x-small size" />;
+const App = () => <SlAvatar size="small"  initials='sm' label="Avatar in small size" />;
+const App = () => <SlAvatar size="medium" initials='me' label="Avatar in medium size" />;
+const App = () => <SlAvatar size="large"  initials='la' label="Avatar in large size" />;
 ```
 
 ### Custom Icons

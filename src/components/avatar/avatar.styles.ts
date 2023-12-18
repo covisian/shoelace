@@ -14,14 +14,13 @@ export default css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     position: relative;
     width: var(--size);
     height: var(--size);
-    background-color: var(--sl-color-neutral-400);
     font-family: var(--sl-font-sans);
     font-size: calc(var(--size) * 0.5);
     font-weight: var(--sl-font-weight-normal);
-    color: var(--sl-color-neutral-0);
     user-select: none;
     -webkit-user-select: none;
     vertical-align: middle;
@@ -55,6 +54,12 @@ export default css`
   .avatar__initials {
     line-height: 1;
     text-transform: uppercase;
+    text-align: center;
+    leading-trim: both;
+    text-edge: cap;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 
   .avatar--micro {
