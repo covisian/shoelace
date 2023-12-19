@@ -8,6 +8,7 @@ export default css`
     display: inline-block;
     width: 1em;
     height: 1em;
+    contain: strict;
     box-sizing: content-box !important;
     font-size: var(--icon-font-size, 24px);
   }
