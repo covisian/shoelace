@@ -40,7 +40,6 @@ export default class SlIcon extends ShoelaceElement {
   /** Given a URL, this function returns the resulting SVG element or an appropriate error symbol. */
   private async resolveIcon(url: string, library?: IconLibrary): Promise<SVGResult> {
     let fileData: Response;
-
     if (library?.spriteSheet) {
       return html`<svg part="svg">
         <use part="use" href="${url}"></use>
@@ -91,8 +90,26 @@ export default class SlIcon extends ShoelaceElement {
    */
   @property() label = '';
 
+  /** Color of the icon, if not set will inherit from container */
+  @property() color?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'light'
+    | 'medium'
+    | 'dark';
+
+  /** size of the avatar */
+  @property() size?: 'custom' | 'small' | 'medium' | 'large' | 'extra' = 'medium';
+
   /** The name of a registered custom icon library. */
   @property({ reflect: true }) library = 'smart';
+
+  /** Animation spin to use in the component */
+  @property() animation: boolean = false;
 
   connectedCallback() {
     super.connectedCallback();
@@ -173,6 +190,7 @@ export default class SlIcon extends ShoelaceElement {
 
     if (isTemplateResult(svg)) {
       this.svg = svg;
+
       return;
     }
 
