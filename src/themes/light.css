@@ -410,6 +410,7 @@
   /* 16px */
 
   --sl-border-radius-circle: 50%;
+  
   --sl-border-radius-pill: 9999px;
 
   /*
@@ -442,6 +443,12 @@
   /* 28px */
   --sl-spacing-2x-large: 2.25rem;
   /* 36px */
+
+
+  --sl-spacing-2-25x-large: 2.5rem;
+  /* 40px */
+
+  
   --sl-spacing-3x-large: 3rem;
   /* 48px */
   --sl-spacing-4x-large: 4.5rem;
