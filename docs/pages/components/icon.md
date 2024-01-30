@@ -172,7 +172,6 @@ const App = () => (
 
 {% endraw %}
 
-
 ### Sizing
 
 Icons are sized relative to the current font size. To change their size, set the `font-size` property on the icon itself or on a parent element as shown below.

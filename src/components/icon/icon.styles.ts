@@ -18,7 +18,7 @@ export default css`
     font-size: var(--sl-font-size-medium);
   }
   :host([size='medium']) {
-    font-size: var(--sl-font-size-x-large)
+    font-size: var(--sl-font-size-x-large);
   }
   :host([size='large']) {
     font-size: 32px;
