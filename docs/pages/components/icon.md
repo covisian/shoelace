@@ -59,7 +59,7 @@ Icons inherit their color from the current text color. Thus, you can set the `co
   <sl-icon name="image"></sl-icon>
   <sl-icon name="lightning"></sl-icon>
 </div>
-<div style="color: #f5a623;">
+<div >
   <sl-icon name="mic"></sl-icon>
   <sl-icon name="search"></sl-icon>
   <sl-icon name="star"></sl-icon>
@@ -104,36 +104,9 @@ const App = () => (
 
 {% endraw %}
 
-### Animation
+### Color property
 
-A property animation is available to pass animation to the component. In the current implementation only the spin animation is available.
-
-```html:preview
-
-  <sl-icon name="star" animation></sl-icon>
-  <sl-icon name="star"></sl-icon>
-
-```
-
-{% raw %}
-
-```jsx:react
-import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
-
-const App = () => (
-
- <sl-icon name="star" animation></sl-icon>
- <sl-icon name="star"></sl-icon>
-
-
-);
-```
-
-{% endraw %}
-
-### Color
-
-This component can display avatars in 9 different colors: `primary`,`secondary`,`tertiary`,`success`,`warning`,`danger`,`light`,`medium`,`dark`. When no color is set, the `default` color will be computed.
+This component can also, in addition to inline color, have a color property: `primary`,`secondary`,`tertiary`,`success`,`warning`,`danger`,`light`,`medium`,`dark`.
 
 ```html:preview
 
@@ -252,6 +225,33 @@ const App = () => (
   <sl-icon name="cv-maximize" size="medium"></sl-icon>
   <sl-icon name="cv-maximize" size="large"></sl-icon>
   <sl-icon name="cv-maximize" size="extra"></sl-icon>
+
+
+);
+```
+
+{% endraw %}
+
+### Animation
+
+A property animation is available to pass animation to the component. In the current implementation only the spin animation is available.
+
+```html:preview
+
+  <sl-icon name="star" animation></sl-icon>
+  <sl-icon name="star"></sl-icon>
+
+```
+
+{% raw %}
+
+```jsx:react
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+
+ <sl-icon name="star" animation></sl-icon>
+ <sl-icon name="star"></sl-icon>
 
 
 );
