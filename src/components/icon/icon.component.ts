@@ -103,7 +103,7 @@ export default class SlIcon extends ShoelaceElement {
     | 'dark';
 
   /** size of the avatar */
-  @property() size?: 'custom' | 'small' | 'medium' | 'large' | 'extra' = 'medium';
+  @property() size?: 'custom' | 'small' | 'medium' | 'large' | 'extra';
 
   /** The name of a registered custom icon library. */
   @property({ reflect: true }) library = 'smart';

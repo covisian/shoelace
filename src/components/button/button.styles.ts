@@ -66,7 +66,9 @@ export default css`
   }
 
   .button__label {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .button__label::slotted(sl-icon) {

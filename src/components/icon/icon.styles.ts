@@ -10,16 +10,15 @@ export default css`
     height: 1em;
     contain: strict;
     box-sizing: content-box !important;
-    font-size: var(--icon-font-size, 24px);
   }
   :host([size='custom']) {
-    font-size: 12px;
+    font-size: var(--icon-size, 12px);
   }
   :host([size='small']) {
-    font-size: 16px;
+    font-size: var(--sl-font-size-medium);
   }
   :host([size='medium']) {
-    font-size: 24px;
+    font-size: var(--sl-font-size-x-large)
   }
   :host([size='large']) {
     font-size: 32px;

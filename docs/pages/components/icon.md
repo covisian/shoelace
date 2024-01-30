@@ -172,38 +172,6 @@ const App = () => (
 
 {% endraw %}
 
-### Size
-
-This component can display avatars in 5 different size: `custom`, `small`, `medium`, `large`, `extra`. When no size is set, the `medium` size will be computed as default.
-
-```html:preview
-
-  <sl-icon name="cv-maximize" size="custom"></sl-icon>
-  <sl-icon name="cv-maximize" size="small"></sl-icon>
-  <sl-icon name="cv-maximize" size="medium"></sl-icon>
-  <sl-icon name="cv-maximize" size="large"></sl-icon>
-  <sl-icon name="cv-maximize" size="extra"></sl-icon>
-
-```
-
-{% raw %}
-
-```jsx:react
-import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
-
-const App = () => (
-
-  <sl-icon name="cv-maximize" size="custom"></sl-icon>
-  <sl-icon name="cv-maximize" size="small"></sl-icon>
-  <sl-icon name="cv-maximize" size="medium"></sl-icon>
-  <sl-icon name="cv-maximize" size="large"></sl-icon>
-  <sl-icon name="cv-maximize" size="extra"></sl-icon>
-
-
-);
-```
-
-{% endraw %}
 
 ### Sizing
 
@@ -254,6 +222,39 @@ const App = () => (
     <SlIcon name="star" />
     <SlIcon name="trash" />
   </div>
+);
+```
+
+{% endraw %}
+
+### Size property
+
+This component can also, in addition to inline sizing, have a size property: `custom`, `small`, `medium`, `large`, `extra`.
+
+```html:preview
+
+  <sl-icon name="cv-maximize" size='custom'></sl-icon>
+  <sl-icon name="cv-maximize" size="small"></sl-icon>
+  <sl-icon name="cv-maximize" size="medium"></sl-icon>
+  <sl-icon name="cv-maximize" size="large"></sl-icon>
+  <sl-icon name="cv-maximize" size="extra"></sl-icon>
+
+```
+
+{% raw %}
+
+```jsx:react
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+
+  <sl-icon name="cv-maximize" size="custom"></sl-icon>
+  <sl-icon name="cv-maximize" size="small"></sl-icon>
+  <sl-icon name="cv-maximize" size="medium"></sl-icon>
+  <sl-icon name="cv-maximize" size="large"></sl-icon>
+  <sl-icon name="cv-maximize" size="extra"></sl-icon>
+
+
 );
 ```
 
