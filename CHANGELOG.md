@@ -1,5 +1,12 @@
 # @covisian/shoelace
 
+## 2.13.1
+
+### Patch Changes
+
+- add basic dark theme
+- 79742f4: trigger the build for test release
+
 ## 2.13.0
 
 ### Minor Changes
