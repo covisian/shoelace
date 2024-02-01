@@ -315,8 +315,8 @@
   --smart-color-neutral-100: #eceff4;
   --smart-color-neutral-200: #e4e4e7;
   --smart-color-neutral-300: #d4d4d8;
-  --smart-color-neutral-400: #a1a1aa;
-  --smart-color-neutral-500: #71717a;
+  --smart-color-neutral-400: #52525b;
+  --smart-color-neutral-500: var(--smart-color-gray-950);
   --smart-color-neutral-600: #52525b;
   --smart-color-neutral-700: #3f3f46;
   --smart-color-neutral-800: #343439;
