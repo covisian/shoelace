@@ -112,8 +112,8 @@ export default css`
 
   :host(:focus-visible) .menu-item {
     outline: none;
-    background-color: var(--sl-color-primary-600);
-    color: var(--sl-color-neutral-0);
+    background-color: var(--sl-color-neutral-100);
+    color: var(--sl-color-neutral-1000);
     opacity: 1;
   }
 

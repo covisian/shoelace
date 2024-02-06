@@ -462,12 +462,18 @@
    */
 
   /* Fonts */
-  --sl-font-mono: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  --sl-font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --sl-font-serif: Georgia, 'Times New Roman', serif;
+  --sl-font-mono: var(--smart-font-mono);
+  --sl-font-sans: var(--smart-font-sans);
+  --sl-font-serif: var(--smart-font-serif);
+
+  --smart-font-mono: SFMono-Regular, Consolas, 'Roboto Mono', Menlo, monospace;
+  --smart-font-sans: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  --smart-font-serif: Georgia, 'Times New Roman', serif;
 
   /* Font sizes */
+  --sl-font-size-3x-small: 0.5rem;
+  /* 8px */
   --sl-font-size-2x-small: 0.625rem;
   /* 10px */
   --sl-font-size-x-small: 0.75rem;
@@ -480,6 +486,8 @@
   /* 20px */
   --sl-font-size-x-large: 1.5rem;
   /* 24px */
+  --sl-font-size-1x-large: 2rem;
+  /* 32px */
   --sl-font-size-2x-large: 2.25rem;
   /* 36px */
   --sl-font-size-3x-large: 3rem;
