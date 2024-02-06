@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.13.2
+
+### Patch Changes
+
+- add smart fonts, fix sl-menu-item active focus bg
+
 ## 2.13.1
 
 ### Patch Changes
