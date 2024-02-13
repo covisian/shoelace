@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.13.3
+
+### Patch Changes
+
+- fix sl-icon size and color prop, remove bugged animation prop
+
 ## 2.13.2
 
 ### Patch Changes
