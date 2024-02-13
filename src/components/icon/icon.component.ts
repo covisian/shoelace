@@ -25,14 +25,14 @@ interface IconSource {
  * @documentation https://shoelace.style/components/icon
  * @status stable
  * @since 2.0
- * 
+ *
  *
  * @event sl-load - Emitted when the icon has loaded. When using `spriteSheet: true` this will not emit.
  * @event sl-error - Emitted when the icon fails to load due to an error. When using `spriteSheet: true` this will not emit.
  *
  * @csspart svg - The internal SVG element.
  * @csspart use - The <use> element generated when using `spriteSheet: true`
- * 
+ *
  * @cssproperty --icon-size - The size of the icon.
  */
 export default class SlIcon extends ShoelaceElement {
@@ -104,7 +104,15 @@ export default class SlIcon extends ShoelaceElement {
   @property({ reflect: true }) size?: 'custom' | 'small' | 'medium' | 'large' | 'extra';
 
   /** Color property */
-  @property({ reflect: true }) color?: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
+  @property({ reflect: true }) color?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'light'
+    | 'dark';
 
   connectedCallback() {
     super.connectedCallback();
@@ -252,13 +260,12 @@ export default class SlIcon extends ShoelaceElement {
         this.emit('sl-load');
     }
 
-
     if (this.svg) {
       if (this.size) {
-        this.getSize()
+        this.getSize();
       }
       if (this.color) {
-        this.getColor()
+        this.getColor();
       }
     }
   }
@@ -266,5 +273,4 @@ export default class SlIcon extends ShoelaceElement {
   render() {
     return this.svg;
   }
-
 }
