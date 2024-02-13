@@ -25,17 +25,24 @@ interface IconSource {
  * @documentation https://shoelace.style/components/icon
  * @status stable
  * @since 2.0
+ * 
  *
  * @event sl-load - Emitted when the icon has loaded. When using `spriteSheet: true` this will not emit.
  * @event sl-error - Emitted when the icon fails to load due to an error. When using `spriteSheet: true` this will not emit.
  *
  * @csspart svg - The internal SVG element.
  * @csspart use - The <use> element generated when using `spriteSheet: true`
+ * 
+ * @cssproperty --icon-size - The size of the icon.
  */
 export default class SlIcon extends ShoelaceElement {
   static styles: CSSResultGroup = styles;
 
   private initialRender = false;
+
+  private _size: string;
+
+  private _color: string;
 
   /** Given a URL, this function returns the resulting SVG element or an appropriate error symbol. */
   private async resolveIcon(url: string, library?: IconLibrary): Promise<SVGResult> {
@@ -90,26 +97,14 @@ export default class SlIcon extends ShoelaceElement {
    */
   @property() label = '';
 
-  /** Color of the icon, if not set will inherit from container */
-  @property() color?:
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'light'
-    | 'medium'
-    | 'dark';
-
-  /** size of the avatar */
-  @property() size?: 'custom' | 'small' | 'medium' | 'large' | 'extra';
-
   /** The name of a registered custom icon library. */
   @property({ reflect: true }) library = 'smart';
 
-  /** Animation spin to use in the component */
-  @property() animation: boolean = false;
+  /** Size property */
+  @property({ reflect: true }) size?: 'custom' | 'small' | 'medium' | 'large' | 'extra';
+
+  /** Color property */
+  @property({ reflect: true }) color?: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' | 'light' | 'dark';
 
   connectedCallback() {
     super.connectedCallback();
@@ -139,6 +134,57 @@ export default class SlIcon extends ShoelaceElement {
       url: this.src,
       fromLibrary: false
     };
+  }
+
+  private getSize() {
+    switch (this.size) {
+      case 'custom':
+        this._size = 'var(--icon-size, --sl-font-size-medium)';
+        break;
+      case 'small':
+        this._size = 'var(--sl-font-size-medium)';
+        break;
+      case 'medium':
+        this._size = 'var(--sl-font-size-x-large)';
+        break;
+      case 'large':
+        this._size = '32px';
+        break;
+      case 'extra':
+        this._size = '64px';
+        break;
+    }
+    this.style.fontSize = this._size;
+  }
+
+  private getColor() {
+    switch (this.color) {
+      case 'primary':
+        this._color = 'var(--sl-color-primary-500)';
+        break;
+      case 'secondary':
+        this._color = '#0cd1e8';
+        break;
+      case 'tertiary':
+        this._color = '#f4a942';
+        break;
+      case 'success':
+        this._color = 'var(--sl-color-success-500)';
+        break;
+      case 'warning':
+        this._color = 'var(--sl-color-warning-500)';
+        break;
+      case 'danger':
+        this._color = 'var(--sl-color-danger-500)';
+        break;
+      case 'light':
+        this._color = '#f4f5f8';
+        break;
+      case 'dark':
+        this._color = '#222428';
+        break;
+    }
+    this.style.color = this._color;
   }
 
   @watch('label')
@@ -205,9 +251,20 @@ export default class SlIcon extends ShoelaceElement {
         library?.mutator?.(this.svg);
         this.emit('sl-load');
     }
+
+
+    if (this.svg) {
+      if (this.size) {
+        this.getSize()
+      }
+      if (this.color) {
+        this.getColor()
+      }
+    }
   }
 
   render() {
     return this.svg;
   }
+
 }

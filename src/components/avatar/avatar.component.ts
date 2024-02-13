@@ -109,7 +109,7 @@ export default class SlAvatar extends ShoelaceElement {
         @error="${() => (this.hasError = true)}"
       />
     `;
-    let randomBackgroundColor = 'var(--sl-color-neutral-400)';
+    let randomBackgroundColor = 'var(--sl-color-neutral-100)';
     let randomColor = 'color: var(--sl-color-neutral-0)';
     let avatarWithoutImage = html``;
 

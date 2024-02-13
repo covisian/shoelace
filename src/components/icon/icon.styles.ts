@@ -11,48 +11,6 @@ export default css`
     contain: strict;
     box-sizing: content-box !important;
   }
-  :host([size='custom']) {
-    font-size: var(--icon-size, 12px);
-  }
-  :host([size='small']) {
-    font-size: var(--sl-font-size-medium);
-  }
-  :host([size='medium']) {
-    font-size: var(--sl-font-size-x-large);
-  }
-  :host([size='large']) {
-    font-size: 32px;
-  }
-  :host([size='extra']) {
-    font-size: 64px;
-  }
-  :host([color='primary']) {
-    color: #3880ff;
-  }
-  :host([color='secondary']) {
-    color: #0cd1e8;
-  }
-  :host([color='tertiary']) {
-    color: #f4a942;
-  }
-  :host([color='success']) {
-    color: #10dc60;
-  }
-  :host([color='warning']) {
-    color: #ffce00;
-  }
-  :host([color='danger']) {
-    color: #f14141;
-  }
-  :host([color='light']) {
-    color: #f4f5f8;
-  }
-  :host([color='medium']) {
-    color: #989aa2;
-  }
-  :host([color='dark']) {
-    color: #222428;
-  }
   svg {
     display: block;
     height: 100%;

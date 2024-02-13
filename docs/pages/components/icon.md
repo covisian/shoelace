@@ -41,30 +41,33 @@ All available icons in the `default` icon library are shown below. Click or tap 
 Icons inherit their color from the current text color. Thus, you can set the `color` property on the `<sl-icon>` element or an ancestor to change the color.
 
 ```html:preview
+<div style="font-size:32px;">
 <div style="color: #4a90e2;">
-  <sl-icon name="exclamation-triangle"></sl-icon>
+  <sl-icon name="exclamation-triangle" color="primary"></sl-icon>
   <sl-icon name="archive"></sl-icon>
   <sl-icon name="battery-charging"></sl-icon>
   <sl-icon name="bell"></sl-icon>
 </div>
 <div style="color: #9013fe;">
-  <sl-icon name="clock"></sl-icon>
+  <sl-icon name="clock" color='secondary'></sl-icon>
   <sl-icon name="cloud"></sl-icon>
   <sl-icon name="download"></sl-icon>
   <sl-icon name="file-earmark"></sl-icon>
 </div>
 <div style="color: #417505;">
-  <sl-icon name="flag"></sl-icon>
+  <sl-icon name="flag" color='tertiary'></sl-icon>
   <sl-icon name="heart"></sl-icon>
   <sl-icon name="image"></sl-icon>
   <sl-icon name="lightning"></sl-icon>
 </div>
 <div >
-  <sl-icon name="mic"></sl-icon>
+  <sl-icon name="mic" color='danger'></sl-icon>
   <sl-icon name="search"></sl-icon>
   <sl-icon name="star"></sl-icon>
   <sl-icon name="trash"></sl-icon>
 </div>
+</div>
+
 ```
 
 {% raw %}
@@ -106,10 +109,11 @@ const App = () => (
 
 ### Color property
 
-This component can also, in addition to inline color, have a color property: `primary`,`secondary`,`tertiary`,`success`,`warning`,`danger`,`light`,`medium`,`dark`.
+This component can also, in addition to inline color, have a presetted color property: `primary`,`secondary`,`tertiary`,`success`,`warning`,`danger`,`light`,`dark`.
 
 ```html:preview
 
+<div style="font-size:32px;">
   <sl-icon name="cv-set-color" color="primary"></sl-icon>
   <sl-icon name="cv-set-color" color="secondary"></sl-icon>
   <sl-icon name="cv-set-color" color="tertiary"></sl-icon>
@@ -117,8 +121,9 @@ This component can also, in addition to inline color, have a color property: `pr
   <sl-icon name="cv-set-color" color="warning"></sl-icon>
   <sl-icon name="cv-set-color" color="danger"></sl-icon>
   <sl-icon name="cv-set-color" color="light"></sl-icon>
-  <sl-icon name="cv-set-color" color="medium"></sl-icon>
   <sl-icon name="cv-set-color" color="dark"></sl-icon>
+</div>
+
 
 ```
 
@@ -147,12 +152,12 @@ const App = () => (
 
 ### Sizing
 
-Icons are sized relative to the current font size. To change their size, set the `font-size` property on the icon itself or on a parent element as shown below.
+Icons are sized relative to the current font size. To change their size, set the `font-size` or `size` property on the icon itself, or the `font-size` property a parent element as shown below.
 
 ```html:preview
 <div style="font-size: 32px;">
-  <sl-icon name="exclamation-triangle"></sl-icon>
-  <sl-icon name="archive"></sl-icon>
+  <sl-icon name="exclamation-triangle" style="font-size: 64px;"></sl-icon>
+  <sl-icon name="archive" size="extra"></sl-icon>
   <sl-icon name="battery-charging"></sl-icon>
   <sl-icon name="bell"></sl-icon>
   <sl-icon name="clock"></sl-icon>
@@ -177,8 +182,8 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
   <div style={{ fontSize: '32px' }}>
-    <SlIcon name="exclamation-triangle" />
-    <SlIcon name="archive" />
+  <SlIcon name="exclamation-triangle" style={{ fontSize: '32px' }}/>
+   <SlIcon name="archive-triangle" size="extra"/>
     <SlIcon name="battery-charging" />
     <SlIcon name="bell" />
     <SlIcon name="clock" />
@@ -201,10 +206,10 @@ const App = () => (
 
 ### Size property
 
-This component can also, in addition to inline sizing, have a size property: `custom`, `small`, `medium`, `large`, `extra`.
+This component can also, in addition to inline sizing, have a presetted `size` property: `custom`, `small`, `medium`, `large`, `extra`.
 
 ```html:preview
-
+  <sl-icon name="cv-maximize"></sl-icon>
   <sl-icon name="cv-maximize" size='custom'></sl-icon>
   <sl-icon name="cv-maximize" size="small"></sl-icon>
   <sl-icon name="cv-maximize" size="medium"></sl-icon>
@@ -219,14 +224,11 @@ This component can also, in addition to inline sizing, have a size property: `cu
 import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
-
   <sl-icon name="cv-maximize" size="custom"></sl-icon>
   <sl-icon name="cv-maximize" size="small"></sl-icon>
   <sl-icon name="cv-maximize" size="medium"></sl-icon>
   <sl-icon name="cv-maximize" size="large"></sl-icon>
   <sl-icon name="cv-maximize" size="extra"></sl-icon>
-
-
 );
 ```
 
@@ -237,9 +239,10 @@ const App = () => (
 A property animation is available to pass animation to the component. In the current implementation only the spin animation is available.
 
 ```html:preview
-
-  <sl-icon name="star" animation></sl-icon>
-  <sl-icon name="star"></sl-icon>
+   <div style="font-size: 32px;">
+    <sl-icon name="cv-spinner01" animation></sl-icon>
+    <sl-icon name="cv-spinner01"></sl-icon>
+  </div>
 
 ```
 
@@ -265,26 +268,26 @@ Empty states icons, packed with extra default font-size.
 
 ```html:preview
 <div>
-  <sl-icon name="cv-es-generic" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-config" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-steps" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-details" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-node" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-actions" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-fields" class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-users-to-show" class='extra'></sl-icon>
+  <sl-icon name="cv-es-generic" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-config" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-steps" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-details" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-node" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-actions" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-fields" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-users-to-show" size='extra'></sl-icon>
   <sl-icon name="cv-es-no-filter-selected
-" class='extra'></sl-icon>
-  <sl-icon name="cv-es-messages" class='extra'></sl-icon>
-  <sl-icon name="cv-es-remote" class='extra'></sl-icon>
-  <sl-icon name="cv-es-remote-no-agents"class='extra'></sl-icon>
-  <sl-icon name="cv-es-rooms"class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-dashboards"class='extra'></sl-icon>
-  <sl-icon name="cv-es-external-app"class='extra'></sl-icon>
-  <sl-icon name="cv-es-badge"class='extra'></sl-icon>
-  <sl-icon name="cv-es-badge-break"class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-tasks"class='extra'></sl-icon>
-  <sl-icon name="cv-es-no-contacts"class='extra'></sl-icon>
+" size='extra'></sl-icon>
+  <sl-icon name="cv-es-messages" size='extra'></sl-icon>
+  <sl-icon name="cv-es-remote" size='extra'></sl-icon>
+  <sl-icon name="cv-es-remote-no-agents"size='extra'></sl-icon>
+  <sl-icon name="cv-es-rooms"size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-dashboards"size='extra'></sl-icon>
+  <sl-icon name="cv-es-external-app"size='extra'></sl-icon>
+  <sl-icon name="cv-es-badge"size='extra'></sl-icon>
+  <sl-icon name="cv-es-badge-break"size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-tasks"size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-contacts"size='extra'></sl-icon>
 </div>
 ```
 
