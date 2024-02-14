@@ -240,7 +240,7 @@ A property animation is available to pass animation to the component. In the cur
 
 ```html:preview
    <div style="font-size: 32px;">
-    <sl-icon name="cv-spinner01" animation></sl-icon>
+    <sl-icon name="cv-spinner01" loading></sl-icon>
     <sl-icon name="cv-spinner01"></sl-icon>
   </div>
 

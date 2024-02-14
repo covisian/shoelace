@@ -114,6 +114,8 @@ export default class SlIcon extends ShoelaceElement {
     | 'light'
     | 'dark';
 
+  @property({ type: Boolean }) loading = false;
+
   connectedCallback() {
     super.connectedCallback();
     watchIcon(this);
@@ -266,6 +268,9 @@ export default class SlIcon extends ShoelaceElement {
       }
       if (this.color) {
         this.getColor();
+      }
+      if (this.loading) {
+        this.style.animation = '1s infinite linear spin';
       }
     }
   }
