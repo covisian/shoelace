@@ -84,11 +84,13 @@ Whether you're building Shoelace or building something _with_ Shoelace — have 
 ## Smart contributing
 
 ### SYNC SHOELACE
+
 Posizionarsi su branch CURRENT LOCALE.
 SYNC con BRANCH CURRENT REMOTO di Shoelace.
 Merge di CURRENT LOCALE su SMART LOCALE.
 
 ### RELEASE SHOELACE (dopo sync o dopo modifiche)
+
 NPM RUN PRETTIER..
 NPM RUN VERIFY.
 commit e push.
@@ -96,11 +98,12 @@ Merge dell’eventuale branch su SMART.
 SMART: NPM LAUNCH-RELEASE.
 
 ### RELEASE FRONTEND MONOREPO
+
 SMART-DESIGN-SYSTEM
 MAIN: modifica del package.json con la versione di shoelace generata.
 Add, commit e push.
 NPM LAUNCH-RELEASE → smart-design-system.
 
-### BACKEND MONOREPO 
-compose.json: “SDS_VERS": aggiornare alla versione generata dalla release dello smart-design-system.
+### BACKEND MONOREPO
 
+compose.json: “SDS_VERS": aggiornare alla versione generata dalla release dello smart-design-system.
