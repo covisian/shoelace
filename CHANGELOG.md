@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.13.5
+
+### Patch Changes
+
+- remove animation prop from icon
+
 ## 2.13.4
 
 ### Patch Changes
