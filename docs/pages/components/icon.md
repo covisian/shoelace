@@ -144,7 +144,6 @@ const App = () => (
   <sl-icon name="cv-set-color" color="medium"></sl-icon>
   <sl-icon name="cv-set-color" color="dark"></sl-icon>
 
-
 );
 ```
 
@@ -229,34 +228,6 @@ const App = () => (
   <sl-icon name="cv-maximize" size="medium"></sl-icon>
   <sl-icon name="cv-maximize" size="large"></sl-icon>
   <sl-icon name="cv-maximize" size="extra"></sl-icon>
-);
-```
-
-{% endraw %}
-
-### Animation
-
-A property animation is available to pass animation to the component. In the current implementation only the spin animation is available.
-
-```html:preview
-   <div style="font-size: 32px;">
-    <sl-icon name="cv-spinner01" loading></sl-icon>
-    <sl-icon name="cv-spinner01"></sl-icon>
-  </div>
-
-```
-
-{% raw %}
-
-```jsx:react
-import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
-
-const App = () => (
-
- <sl-icon name="star" animation></sl-icon>
- <sl-icon name="star"></sl-icon>
-
-
 );
 ```
 
