@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.13.4
+
+### Patch Changes
+
+- add propr loading to icon
+
 ## 2.13.3
 
 ### Patch Changes
