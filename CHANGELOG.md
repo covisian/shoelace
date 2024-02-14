@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.13.6
+
+### Patch Changes
+
+- readme markup prettier
+
 ## 2.13.5
 
 ### Patch Changes
