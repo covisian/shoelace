@@ -323,6 +323,12 @@
   --smart-color-neutral-900: #eceff4;
   --smart-color-neutral-950: var(--smart-color-gray-950);
 
+  /* Background */
+
+  --smart-color-bg0: #141414;
+  --smart-color-bg1: #1f1f1f;
+  --smart-color-bg2: var(--smart-color-neutral-300);
+
   /*
    * Theme Tokens
    */
@@ -395,6 +401,12 @@
   /* Neutral one-offs */
   --sl-color-neutral-0: hsl(0, 0%, 0%);
   --sl-color-neutral-1000: hsl(0, 0%, 100%);
+
+  /* Background */
+
+  --sl-color-bg0: var(--smart-color-bg0);
+  --sl-color-bg1: var(--smart-color-bg1);
+  --sl-color-bg2: var(--smart-color-bg2);
 
   /*
    * Border radii
