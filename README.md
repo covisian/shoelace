@@ -83,27 +83,46 @@ Whether you're building Shoelace or building something _with_ Shoelace — have 
 
 ## Smart contributing
 
-### SYNC SHOELACE
+### Sync a new shoelace version
 
-Posizionarsi su branch CURRENT LOCALE.
-SYNC con BRANCH CURRENT REMOTO di Shoelace.
-Merge di CURRENT LOCALE su SMART LOCALE.
+Sync between `current` remote and local branch.
+Merge `current` into `smart`.
 
-### RELEASE SHOELACE (dopo sync o dopo modifiche)
+### Covisian shoelace release
 
-NPM RUN PRETTIER..
-NPM RUN VERIFY.
-commit e push.
-Merge dell’eventuale branch su SMART.
-SMART: NPM LAUNCH-RELEASE.
+- `Npm run prettier`.
+- `Npm prepare`.
+- `Npm run verify`.
+- Commit changes.
+- If not on `smart`, merge your branch into `smart`.
+- From branch `smart` → `npm launch release`
 
-### RELEASE FRONTEND MONOREPO
+`@covisian/shoelace` output version example: `3.0.0`
 
-SMART-DESIGN-SYSTEM
-MAIN: modifica del package.json con la versione di shoelace generata.
-Add, commit e push.
-NPM LAUNCH-RELEASE → smart-design-system.
+### Release smart-design-system from frontend monorepo
 
-### BACKEND MONOREPO
+- From `main` branch edit the `package.json` file with the customized shoelace version generated.
 
-compose.json: “SDS_VERS": aggiornare alla versione generata dalla release dello smart-design-system.
+```
+"dependencies": {
+   "@covisian/shoelace": 3.0.0,
+ }
+```
+
+- Commit changes.
+- `npm launch release` → `smart-design-system`.
+
+`smart-design-system` output version example: `1.0.0`
+
+### Update design system on backend monorepo
+
+Edit your generated smart-design-system version in `compose.json`:
+
+```
+"smart-static": {
+    "mode": "dev",
+    "env": {
+      "SDS_VERS": "1.0.0/smart-design-system"
+    }
+  },
+```
