@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.1
+
+### Patch Changes
+
+- add border tokens
+
 ## 2.14.0
 
 ### Minor Changes
