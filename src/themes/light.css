@@ -324,10 +324,12 @@
   --smart-color-neutral-950: var(--smart-color-gray-950);
 
   /* Background */
-
   --smart-color-bg0: var(--smart-color-gray-50);
   --smart-color-bg1: #ffffff;
   --smart-color-bg2: var(--smart-color-gray-50);
+
+  /* Border */
+  --smart-border-color-base: #dee2e7;
 
   /*
    * Theme Tokens
@@ -409,6 +411,12 @@
   --sl-color-bg2: var(--smart-color-bg2);
 
   /*
+  * BORDER
+  */
+
+  --sl-border-base: 1px solid var(--sl-border-color-base);
+
+  /*
    * Border radii
    */
 
@@ -422,8 +430,13 @@
   /* 16px */
 
   --sl-border-radius-circle: 50%;
-
   --sl-border-radius-pill: 9999px;
+
+  /*
+   * Border color
+   */
+
+  --sl-border-color-base: var(--smart-border-color-base);
 
   /*
    * Elevations
