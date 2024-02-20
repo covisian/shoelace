@@ -40,18 +40,15 @@ export default css`
     vertical-align: -2px;
   }
 
-
-
   /*
    * Badge spacing
    */
 
-
-   .badge--has-prefix {
+  .badge--has-prefix {
     padding-inline-start: var(--sl-spacing-x-small);
   }
 
-   .badge--has-prefix .badge__label {
+  .badge--has-prefix .badge__label {
     padding-inline-start: var(--sl-spacing-x-small);
   }
 
@@ -63,12 +60,10 @@ export default css`
     padding-inline-end: var(--sl-spacing-x-small);
   }
 
-
-
   /* Variant modifiers */
   .badge--primary {
     background-color: var(--sl-color-primary-600);
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .badge--success {
@@ -91,24 +86,24 @@ export default css`
     color: var(--sl-color-neutral-0);
   }
 
-   .badge--neutral-0 {
+  .badge--neutral-0 {
     background-color: var(--sl-color-neutral-0);
     color: var(--sl-color-neutral-950);
-    border:var(--sl-border-base);
+    border: var(--sl-border-base);
   }
 
-   .badge--neutral-1000 {
+  .badge--neutral-1000 {
     background-color: var(--sl-color-neutral-1000);
     color: var(--sl-color-neutral-50);
   }
 
-   /* Soft modifier */
+  /* Soft modifier */
   .badge--soft.badge--primary {
     background-color: var(--sl-color-primary-50);
     color: var(--sl-color-blue-600);
   }
 
-   .badge--soft.badge--success {
+  .badge--soft.badge--success {
     background-color: var(--sl-color-success-50);
     color: var(--sl-color-success-600);
   }
@@ -118,11 +113,10 @@ export default css`
     color: var(--sl-color-warning-600);
   }
 
-   .badge--soft.badge--danger {
+  .badge--soft.badge--danger {
     background-color: var(--sl-color-danger-50);
     color: var(--sl-color-danger-600);
   }
-
 
   /* Pill modifier */
   .badge--pill {
@@ -143,7 +137,7 @@ export default css`
   }
 
   .badge--pulse.badge--neutral {
-   --pulse-color: var(--sl-color-neutral-50);
+    --pulse-color: var(--sl-color-neutral-50);
   }
 
   .badge--pulse.badge--warning {
@@ -157,7 +151,7 @@ export default css`
   .badge--pulse.badge--neutral-0 {
     --pulse-color: var(--sl-color-neutral-50);
   }
-  
+
   .badge--pulse.badge--neutral-1000 {
     --pulse-color: var(--sl-color-neutral-1000);
   }

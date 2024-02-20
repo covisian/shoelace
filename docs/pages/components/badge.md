@@ -91,7 +91,6 @@ const App = () => (
 );
 ```
 
-
 ### Pulsating Badges
 
 Use the `pulse` attribute to draw attention to the badge with a subtle animation.
@@ -193,7 +192,7 @@ const App = () => (
     </SlBadge>
     <SlBadge variant="neutral-1000" soft>
       Neutral soft
-    </SlBadge> 
+    </SlBadge>
   </>
 );
 ```
