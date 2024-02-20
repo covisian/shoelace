@@ -27,7 +27,7 @@ describe('<sl-badge>', () => {
 
     it('should default to square styling, with the primary color', () => {
       const part = el.shadowRoot!.querySelector('[part~="base"]')!;
-      expect(part.classList.value.trim()).to.eq('badge badge--primary');
+      expect(part.classList.value.trim()).to.eq('badge badge--primary badge--has-label');
     });
   });
 
@@ -42,7 +42,7 @@ describe('<sl-badge>', () => {
 
     it('should append the pill class to the classlist to render a pill', () => {
       const part = el.shadowRoot!.querySelector('[part~="base"]')!;
-      expect(part.classList.value.trim()).to.eq('badge badge--primary badge--pill');
+      expect(part.classList.value.trim()).to.eq('badge badge--primary badge--pill badge--has-label');
     });
   });
 
@@ -57,7 +57,7 @@ describe('<sl-badge>', () => {
 
     it('should append the pulse class to the classlist to render a pulse', () => {
       const part = el.shadowRoot!.querySelector('[part~="base"]')!;
-      expect(part.classList.value.trim()).to.eq('badge badge--primary badge--pulse');
+      expect(part.classList.value.trim()).to.eq('badge badge--primary badge--pulse badge--has-label');
     });
   });
 
@@ -73,7 +73,7 @@ describe('<sl-badge>', () => {
 
       it('should default to square styling, with the primary color', () => {
         const part = el.shadowRoot!.querySelector('[part~="base"]')!;
-        expect(part.classList.value.trim()).to.eq(`badge badge--${variant}`);
+        expect(part.classList.value.trim()).to.eq(`badge badge--${variant} badge--has-label`);
       });
     });
   });

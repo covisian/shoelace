@@ -7,7 +7,6 @@ export default css`
 
   .badge {
     display: inline-flex;
-    // align-items: center;
     justify-content: center;
     font-size: max(12px, 0.75em);
     font-weight: var(--sl-font-weight-semibold);
