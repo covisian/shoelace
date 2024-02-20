@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.2
+
+### Patch Changes
+
+- edit badge to reflect smart ui and props
+
 ## 2.14.1
 
 ### Patch Changes
