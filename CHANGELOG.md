@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.3
+
+### Patch Changes
+
+- add foreground tokens and edit doc
+
 ## 2.14.2
 
 ### Patch Changes
