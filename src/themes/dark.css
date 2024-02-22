@@ -311,7 +311,7 @@
   --smart-color-gray-950: #f1f3f7;
 
   /* Neutral */
-  --smart-color-neutral-50: var(--smart-color-gray-50);
+  --smart-color-neutral-50: #282828;
   --smart-color-neutral-100: #2a2a2d;
   --smart-color-neutral-200: #343439;
   --smart-color-neutral-300: #3f3f46;
@@ -321,12 +321,17 @@
   --smart-color-neutral-700: #d4d4d8;
   --smart-color-neutral-800: #e4e4e7;
   --smart-color-neutral-900: #eceff4;
-  --smart-color-neutral-950: var(--smart-color-gray-950);
+  --smart-color-neutral-950: #f1f3f7;
 
   /* Background */
   --smart-color-bg0: #141414;
   --smart-color-bg1: #1f1f1f;
-  --smart-color-bg2: var(--smart-color-neutral-300);
+  --smart-color-bg2: #282828;
+
+  /* Foreground */
+  --smart-color-fg0: #ffffff;
+  --smart-color-fg1: #71717a;
+  --smart-color-fg2: #a1a1aa;
 
   /* Border color */
   --smart-border-color-base: #404040;
@@ -408,13 +413,16 @@
   --sl-color-neutral-1000: hsl(0, 0%, 100%);
 
   /* Background */
-
   --sl-color-bg0: var(--smart-color-bg0);
   --sl-color-bg1: var(--smart-color-bg1);
   --sl-color-bg2: var(--smart-color-bg2);
 
-  /* Border color */
+  /* Foreground */
+  --sl-color-fg0: var(--smart-color-fg0);
+  --sl-color-fg1: var(--smart-color-fg1);
+  --sl-color-fg2: var(--smart-color-fg2);
 
+  /* Border color */
   --sl-border-color-base: var(--smart-border-color-base);
   --sl-border-color-neutral-soft: var(--smart-border-color-neutral-soft);
   --sl-border-color-neutral: var(--smart-border-color-neutral);

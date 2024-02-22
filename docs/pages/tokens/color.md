@@ -113,6 +113,26 @@ Theme tokens give you a semantic way to reference colors in your app. The primar
   <div class="color-palette__example"><div class="color-palette__swatch " style="background-color: var(--sl-color-neutral-1000);"></div>1000</div>
 </div>
 
+<div class="color-palette">
+  <div class="color-palette__name">
+    Background<br>
+    <code>--sl-color-bg<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-bg0);"></div>0</div>
+  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-bg1);"></div>1</div>
+    <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-bg2);"></div>2</div>
+</div>
+
+<div class="color-palette">
+  <div class="color-palette__name">
+    Foreground<br>
+    <code>--sl-color-fg<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-fg0);"></div>0</div>
+  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-fg1);"></div>1</div>
+    <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-fg2);"></div>2</div>
+</div>
+
 :::tip
 Looking for an easy way to customize your theme? [Try the color token generator!](https://codepen.io/claviska/full/QWveRgL)
 :::

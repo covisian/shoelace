@@ -311,22 +311,27 @@
   --smart-color-gray-950: #282828;
 
   /* Neutral */
-  --smart-color-neutral-50: var(--smart-color-gray-50);
+  --smart-color-neutral-50: #f1f3f7;
   --smart-color-neutral-100: #eceff4;
   --smart-color-neutral-200: #e4e4e7;
   --smart-color-neutral-300: #d4d4d8;
   --smart-color-neutral-400: #52525b;
-  --smart-color-neutral-500: var(--smart-color-gray-950);
+  --smart-color-neutral-500: #282828;
   --smart-color-neutral-600: #52525b;
   --smart-color-neutral-700: #3f3f46;
   --smart-color-neutral-800: #343439;
   --smart-color-neutral-900: #2a2a2d;
-  --smart-color-neutral-950: var(--smart-color-gray-950);
+  --smart-color-neutral-950: #282828;
 
   /* Background */
-  --smart-color-bg0: var(--smart-color-gray-50);
+  --smart-color-bg0: #f1f3f7;
   --smart-color-bg1: #ffffff;
-  --smart-color-bg2: var(--smart-color-gray-50);
+  --smart-color-bg2: #f1f3f7;
+
+  /* Foreground */
+  --smart-color-fg0: #282828;
+  --smart-color-fg1: #71717a;
+  --smart-color-fg2: #a1a1aa;
 
   /* Border color */
   --smart-border-color-base: #dee2e7;
@@ -408,13 +413,16 @@
   --sl-color-neutral-1000: hsl(0, 0%, 0%);
 
   /* Background */
-
   --sl-color-bg0: var(--smart-color-bg0);
   --sl-color-bg1: var(--smart-color-bg1);
   --sl-color-bg2: var(--smart-color-bg2);
 
-  /* Border color */
+  /* Foreground */
+  --sl-color-fg0: var(--smart-color-fg0);
+  --sl-color-fg1: var(--smart-color-fg1);
+  --sl-color-fg2: var(--smart-color-fg2);
 
+  /* Border color */
   --sl-border-color-base: var(--smart-border-color-base);
   --sl-border-color-neutral-soft: var(--smart-border-color-neutral-soft);
   --sl-border-color-neutral: var(--smart-border-color-neutral);
@@ -447,7 +455,7 @@
 
   --sl-shadow-x-small: 0 1px 2px hsl(240 3.8% 46.1% / 6%);
   --sl-shadow-small: 0 1px 2px hsl(240 3.8% 46.1% / 12%);
-  --sl-shadow-medium: 0 2px 4px hsl(240 3.8% 46.1% / 12%);
+  --sl-shadow-medium: 0 2px 4px hsl(240 3.8% 46.1% / 12 %);
   --sl-shadow-large: 0 2px 8px hsl(240 3.8% 46.1% / 12%);
   --sl-shadow-x-large: 0 4px 16px hsl(240 3.8% 46.1% / 12%);
 
