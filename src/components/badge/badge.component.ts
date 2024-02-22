@@ -30,12 +30,12 @@ export default class SlBadge extends ShoelaceElement {
   @property({ reflect: true }) variant:
     | 'primary'
     | 'success'
-    | 'neutral'
     | 'warning'
     | 'danger'
     | 'soft'
-    | 'neutral-0'
-    | 'neutral-1000' = 'primary';
+    | 'neutral-soft'
+    | 'default'
+    | 'neutral' = 'primary';
 
   /** Draws a pill-style badge with rounded edges. */
   @property({ type: Boolean, reflect: true }) pill = false;
@@ -54,11 +54,11 @@ export default class SlBadge extends ShoelaceElement {
           badge: true,
           'badge--primary': this.variant === 'primary',
           'badge--success': this.variant === 'success',
-          'badge--neutral': this.variant === 'neutral',
           'badge--warning': this.variant === 'warning',
           'badge--danger': this.variant === 'danger',
-          'badge--neutral-0': this.variant === 'neutral-0',
-          'badge--neutral-1000': this.variant === 'neutral-1000',
+          'badge--neutral-soft': this.variant === 'neutral-soft',
+          'badge--default': this.variant === 'default',
+          'badge--neutral': this.variant === 'neutral',
           'badge--pill': this.pill,
           'badge--pulse': this.pulse,
           'badge--soft': this.soft,

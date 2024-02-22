@@ -13,7 +13,7 @@ export default css`
     letter-spacing: var(--sl-letter-spacing-normal);
     line-height: 1;
     border-radius: var(--sl-border-radius-small);
-    border: solid 1px var(--sl-color-neutral-0);
+    border: solid 1px transparent;
     white-space: nowrap;
     padding: 0.65em 0.9em;
     user-select: none;
@@ -70,9 +70,10 @@ export default css`
     color: #282828;
   }
 
-  .badge--neutral {
-    background-color: var(--sl-color-neutral-50);
+  .badge--neutral-soft {
+    background-color: var(--sl-color-bg0);
     color: var(--sl-color-neutral-950);
+    border: var(--sl-border-neutral-soft);
   }
 
   .badge--warning {
@@ -85,14 +86,14 @@ export default css`
     color: var(--sl-color-neutral-0);
   }
 
-  .badge--neutral-0 {
-    background-color: var(--sl-color-neutral-0);
+  .badge--default {
+    background-color: var(--sl-color-bg1);
     color: var(--sl-color-neutral-950);
-    border: var(--sl-border-base);
+    border: var(--sl-border-default);
   }
 
-  .badge--neutral-1000 {
-    background-color: var(--sl-color-neutral-1000);
+  .badge--neutral {
+    background-color: var(--sl-color-neutral-950);
     color: var(--sl-color-neutral-50);
   }
 
@@ -135,7 +136,7 @@ export default css`
     --pulse-color: var(--sl-color-success-600);
   }
 
-  .badge--pulse.badge--neutral {
+  .badge--pulse.badge--neutral-soft {
     --pulse-color: var(--sl-color-neutral-50);
   }
 
@@ -147,11 +148,11 @@ export default css`
     --pulse-color: var(--sl-color-danger-600);
   }
 
-  .badge--pulse.badge--neutral-0 {
+  .badge--pulse.badge--default {
     --pulse-color: var(--sl-color-neutral-50);
   }
 
-  .badge--pulse.badge--neutral-1000 {
+  .badge--pulse.badge--neutral {
     --pulse-color: var(--sl-color-neutral-1000);
   }
 

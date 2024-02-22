@@ -328,8 +328,11 @@
   --smart-color-bg1: #ffffff;
   --smart-color-bg2: var(--smart-color-gray-50);
 
-  /* Border */
+  /* Border color */
   --smart-border-color-base: #dee2e7;
+  --smart-border-color-neutral-soft: #f1f3f7;
+  --smart-border-color-neutral: transparent;
+  --smart-border-color-default: #dee2e7;
 
   /*
    * Theme Tokens
@@ -410,15 +413,14 @@
   --sl-color-bg1: var(--smart-color-bg1);
   --sl-color-bg2: var(--smart-color-bg2);
 
-  /*
-  * BORDER
-  */
+  /* Border color */
 
-  --sl-border-base: 1px solid var(--sl-border-color-base);
+  --sl-border-color-base: var(--smart-border-color-base);
+  --sl-border-color-neutral-soft: var(--smart-border-color-neutral-soft);
+  --sl-border-color-neutral: var(--smart-border-color-neutral);
+  --sl-border-color-default: var(--smart-border-color-default);
 
-  /*
-   * Border radii
-   */
+  /* Border radii */
 
   --sl-border-radius-small: 0.1875rem;
   /* 3px */
@@ -432,11 +434,12 @@
   --sl-border-radius-circle: 50%;
   --sl-border-radius-pill: 9999px;
 
-  /*
-   * Border color
-   */
+  /* Border */
 
-  --sl-border-color-base: var(--smart-border-color-base);
+  --sl-border-base: 1px solid var(--sl-border-color-base);
+  --sl-border-neutral-soft: 1px solid var(--sl-border-color-neutral-soft);
+  --sl-border-neutral: 1px solid var(--sl-border-color-neutral);
+  --sl-border-default: 1px solid var(--sl-border-color-default);
 
   /*
    * Elevations
