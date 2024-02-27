@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.4
+
+### Patch Changes
+
+- add more button variants
+
 ## 2.14.3
 
 ### Patch Changes
