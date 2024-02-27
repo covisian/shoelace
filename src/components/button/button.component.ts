@@ -59,8 +59,15 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
   @property() title = ''; // make reactive to pass through
 
   /** The button's theme variant. */
-  @property({ reflect: true }) variant: 'default' | 'primary' | 'success' | 'neutral' | 'warning' | 'danger' | 'text' =
-    'primary';
+  @property({ reflect: true }) variant:
+    | 'default'
+    | 'primary'
+    | 'success'
+    | 'neutral'
+    | 'warning'
+    | 'danger'
+    | 'text'
+    | 'neutral-soft' = 'primary';
 
   /** The button's size. */
   @property({ reflect: true }) size: 'small' | 'medium' | 'large' = 'medium';
@@ -85,6 +92,12 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
    * default slot.
    */
   @property({ type: Boolean, reflect: true }) circle = false;
+
+  /**
+   * Draws a squared icon button. When this attribute is present, the button expects a single `<sl-icon>` in the
+   * default slot.
+   */
+  @property({ type: Boolean, reflect: true }) square = false;
 
   /**
    * The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
@@ -271,12 +284,14 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
           'button--neutral': this.variant === 'neutral',
           'button--warning': this.variant === 'warning',
           'button--danger': this.variant === 'danger',
+          'button--neutral-soft': this.variant === 'neutral-soft',
           'button--text': this.variant === 'text',
           'button--small': this.size === 'small',
           'button--medium': this.size === 'medium',
           'button--large': this.size === 'large',
           'button--caret': this.caret,
           'button--circle': this.circle,
+          'button--square': this.square,
           'button--disabled': this.disabled,
           'button--focused': this.hasFocus,
           'button--loading': this.loading,

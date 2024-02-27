@@ -24,9 +24,11 @@ Use the `variant` attribute to set the button's variant.
 ```html:preview
 <sl-button variant="primary">Primary</sl-button>
 <sl-button variant="success">Success</sl-button>
-<sl-button variant="neutral">Neutral</sl-button>
 <sl-button variant="warning">Warning</sl-button>
 <sl-button variant="danger">Danger</sl-button>
+<sl-button variant="default">Default</sl-button>
+<sl-button variant="neutral">Neutral</sl-button>
+<sl-button variant="neutral-soft">Neutral Soft</sl-button>
 ```
 
 ```jsx:react
@@ -36,9 +38,11 @@ const App = () => (
   <>
     <SlButton variant="primary">Primary</SlButton>
     <SlButton variant="success">Success</SlButton>
-    <SlButton variant="neutral">Neutral</SlButton>
     <SlButton variant="warning">Warning</SlButton>
     <SlButton variant="danger">Danger</SlButton>
+    <SlButton variant="default">Default</SlButton>
+    <SlButton variant="neutral">Neutral</SlButton>
+    <SlButton variant="neutral-soft">Neutral Soft</SlButton>
   </>
 );
 ```
@@ -72,9 +76,11 @@ Use the `outline` attribute to draw outlined buttons with transparent background
 ```html:preview
 <sl-button variant="primary" outline>Primary</sl-button>
 <sl-button variant="success" outline>Success</sl-button>
-<sl-button variant="neutral" outline>Neutral</sl-button>
 <sl-button variant="warning" outline>Warning</sl-button>
 <sl-button variant="danger" outline>Danger</sl-button>
+<sl-button variant="default" outline>Default</sl-button>
+<sl-button variant="neutral" outline>Neutral</sl-button>
+<sl-button variant="neutral-soft" outline>Neutral Soft</sl-button>
 ```
 
 ```jsx:react
@@ -88,14 +94,20 @@ const App = () => (
     <SlButton variant="success" outline>
       Success
     </SlButton>
-    <SlButton variant="neutral" outline>
-      Neutral
-    </SlButton>
     <SlButton variant="warning" outline>
       Warning
     </SlButton>
     <SlButton variant="danger" outline>
       Danger
+    </SlButton>
+     <SlButton variant="default" outline>
+      Default
+    </SlButton>
+    <SlButton variant="neutral" outline>
+      Neutral
+    </SlButton>
+    <SlButton variant="neutral-soft" outline>
+      Neutral Soft
     </SlButton>
   </>
 );
@@ -160,6 +172,43 @@ const App = () => (
       <SlIcon name="gear" />
     </SlButton>
     <SlButton size="large" circle>
+      <SlIcon name="gear" />
+    </SlButton>
+  </>
+);
+```
+
+### Square Buttons
+
+Use the `square` attribute to create circular icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
+
+```html:preview
+<sl-button size="small" square>
+  <sl-icon name="gear" label="Settings"></sl-icon>
+</sl-button>
+
+<sl-button size="medium" square>
+  <sl-icon name="gear" label="Settings"></sl-icon>
+</sl-button>
+
+<sl-button size="large" square>
+  <sl-icon name="gear" label="Settings"></sl-icon>
+</sl-button>
+```
+
+```jsx:react
+import SlButton from '@shoelace-style/shoelace/dist/react/button';
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+  <>
+    <SlButton size="small" square>
+      <SlIcon name="gear" />
+    </SlButton>
+    <SlButton size="medium" square>
+      <SlIcon name="gear" />
+    </SlButton>
+    <SlButton size="large" square>
       <SlIcon name="gear" />
     </SlButton>
   </>
@@ -414,11 +463,13 @@ const App = () => (
 Use the `loading` attribute to make a button busy. The width will remain the same as before, preventing adjacent elements from moving around.
 
 ```html:preview
-<sl-button variant="primary" loading>Primary</sl-button>
-<sl-button variant="success" loading>Success</sl-button>
-<sl-button variant="neutral" loading>Neutral</sl-button>
-<sl-button variant="warning" loading>Warning</sl-button>
-<sl-button variant="danger" loading>Danger</sl-button>
+<sl-button variant="primary" loading>Label</sl-button>
+<sl-button variant="success" loading>Label</sl-button>
+<sl-button variant="warning" loading>Label</sl-button>
+<sl-button variant="danger" loading>Label</sl-button>
+<sl-button variant="default" loading>Label</sl-button>
+<sl-button variant="neutral" loading>Label</sl-button>
+<sl-button variant="neutral-soft" loading>Label</sl-button>
 ```
 
 ```jsx:react
@@ -427,19 +478,25 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 const App = () => (
   <>
     <SlButton variant="primary" loading>
-      Primary
+      Label
     </SlButton>
     <SlButton variant="success" loading>
-      Success
-    </SlButton>
-    <SlButton variant="neutral" loading>
-      Neutral
+      Label
     </SlButton>
     <SlButton variant="warning" loading>
-      Warning
+      Label
     </SlButton>
     <SlButton variant="danger" loading>
-      Danger
+      Label
+    </SlButton>
+    <SlButton variant="default" loading>
+      Label
+    </SlButton>
+    <SlButton variant="neutral" loading>
+      Label
+    </SlButton>
+     <SlButton variant="neutral-soft" loading>
+      Label
     </SlButton>
   </>
 );
@@ -452,9 +509,11 @@ Use the `disabled` attribute to disable a button.
 ```html:preview
 <sl-button variant="primary" disabled>Primary</sl-button>
 <sl-button variant="success" disabled>Success</sl-button>
-<sl-button variant="neutral" disabled>Neutral</sl-button>
 <sl-button variant="warning" disabled>Warning</sl-button>
 <sl-button variant="danger" disabled>Danger</sl-button>
+<sl-button variant="default" disabled>Default</sl-button>
+<sl-button variant="neutral" disabled>Neutral</sl-button>
+<sl-button variant="neutral-soft" disabled>Neutral Soft</sl-button>
 ```
 
 ```jsx:react
@@ -470,9 +529,6 @@ const App = () => (
       Success
     </SlButton>
 
-    <SlButton variant="neutral" disabled>
-      Neutral
-    </SlButton>
 
     <SlButton variant="warning" disabled>
       Warning
@@ -480,6 +536,18 @@ const App = () => (
 
     <SlButton variant="danger" disabled>
       Danger
+    </SlButton>
+
+    <SlButton variant="default" disabled>
+      Default
+    </SlButton>
+
+    <SlButton variant="neutral" disabled>
+      Neutral
+    </SlButton>
+
+    <SlButton variant="neutral-soft" disabled>
+      Neutral Soft
     </SlButton>
   </>
 );

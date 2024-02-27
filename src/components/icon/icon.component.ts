@@ -186,10 +186,10 @@ export default class SlIcon extends ShoelaceElement {
         this._color = 'var(--sl-color-danger-500)';
         break;
       case 'light':
-        this._color = '#f4f5f8';
+        this._color = 'var(--sl-color-bg0)';
         break;
       case 'dark':
-        this._color = '#222428';
+        this._color = 'var(--sl-color-fg0)';
         break;
     }
     this.style.color = this._color;
