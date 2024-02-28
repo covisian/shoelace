@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.5
+
+### Patch Changes
+
+- add block attribute to button
+
 ## 2.14.4
 
 ### Patch Changes
