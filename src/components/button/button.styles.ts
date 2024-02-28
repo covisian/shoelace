@@ -8,6 +8,10 @@ export default css`
     cursor: pointer;
   }
 
+  :host(sl-button[block]) {
+    display: block;
+  }
+
   .button {
     display: inline-flex;
     align-items: stretch;
@@ -494,6 +498,16 @@ export default css`
   .button--square.button--has-label.button--large {
     width: 50px;
     height: 50px;
+  }
+
+  /*
+   * Block modifier
+   */
+
+  .button--square.button--block.button--has-label.button--small,
+  .button--square.button--block.button--has-label.button--medium,
+  .button--square.button--block.button--has-label.button--large {
+    width: 100%;
   }
 
   /*

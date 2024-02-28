@@ -100,6 +100,11 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
   @property({ type: Boolean, reflect: true }) square = false;
 
   /**
+   * Sets the button's width to fill its container.
+   */
+  @property({ type: Boolean, reflect: true }) block = false;
+
+  /**
    * The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
    * `<button>` elements behave. When the type is `submit`, the button will submit the surrounding form.
    */
@@ -298,6 +303,7 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
           'button--standard': !this.outline,
           'button--outline': this.outline,
           'button--pill': this.pill,
+          'button--block': this.block,
           'button--link': isLink,
           'button--rtl': this.localize.dir() === 'rtl',
           'button--has-label': this.hasSlotController.test('[default]'),

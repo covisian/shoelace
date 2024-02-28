@@ -47,6 +47,24 @@ const App = () => (
 );
 ```
 
+### Block
+
+Use the `block` attribute to set the button's width to fill its container.
+
+```html:preview
+  <sl-button block >Block button</sl-button>
+```
+
+```jsx:react
+import SlButton from '@shoelace-style/shoelace/dist/react/button';
+
+const App = () => (
+  <>
+    <SlButton block>Block button</SlButton>
+  </>
+);
+```
+
 ### Sizes
 
 Use the `size` attribute to change a button's size.
@@ -180,19 +198,19 @@ const App = () => (
 
 ### Square Buttons
 
-Use the `square` attribute to create circular icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
+Use the `square` attribute to create squared icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
 
 ```html:preview
 <sl-button size="small" square>
-  <sl-icon name="gear" label="Settings"></sl-icon>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
 </sl-button>
 
 <sl-button size="medium" square>
-  <sl-icon name="gear" label="Settings"></sl-icon>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
 </sl-button>
 
 <sl-button size="large" square>
-  <sl-icon name="gear" label="Settings"></sl-icon>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
 </sl-button>
 ```
 
@@ -308,6 +326,26 @@ const App = () => (
 ```
 
 {% endraw %}
+
+### Block
+
+Alternatively use the `block` attribute to set the button's width to fill its container.
+
+```html:preview
+  <sl-button block size='medium'>
+    Block button
+  </sl-button>
+```
+
+```jsx:react
+import SlButton from '@shoelace-style/shoelace/dist/react/button';
+
+const App = () => (
+  <>
+    <SlButton block>Block button</SlButton>
+  </>
+);
+```
 
 ### Prefix and Suffix Icons
 
