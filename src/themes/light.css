@@ -335,7 +335,7 @@
 
   /* Border color */
   --smart-border-color-base: #dee2e7;
-  --smart-border-color-neutral-soft: #f1f3f7;
+  --smart-border-color-light: #f1f3f7;
   --smart-border-color-neutral: transparent;
   --smart-border-color-default: #dee2e7;
 
@@ -424,7 +424,7 @@
 
   /* Border color */
   --sl-border-color-base: var(--smart-border-color-base);
-  --sl-border-color-neutral-soft: var(--smart-border-color-neutral-soft);
+  --sl-border-color-light: var(--smart-border-color-light);
   --sl-border-color-neutral: var(--smart-border-color-neutral);
   --sl-border-color-default: var(--smart-border-color-default);
 
@@ -445,7 +445,7 @@
   /* Border */
 
   --sl-border-base: 1px solid var(--sl-border-color-base);
-  --sl-border-neutral-soft: 1px solid var(--sl-border-color-neutral-soft);
+  --sl-border-light: 1px solid var(--sl-border-color-light);
   --sl-border-neutral: 1px solid var(--sl-border-color-neutral);
   --sl-border-default: 1px solid var(--sl-border-color-default);
 
@@ -508,7 +508,7 @@
   --sl-font-serif: var(--smart-font-serif);
 
   --smart-font-mono: SFMono-Regular, Consolas, 'Roboto Mono', Menlo, monospace;
-  --smart-font-sans: -apple-system, BlinkMacSystemFont, 'Roboto', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+  --smart-font-sans: 'Roboto', Helvetica, Arial, sans-serif, -apple-system, BlinkMacSystemFont, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
   --smart-font-serif: Georgia, 'Times New Roman', serif;
 
@@ -541,6 +541,7 @@
   --sl-font-weight-normal: 400;
   --sl-font-weight-semibold: 500;
   --sl-font-weight-bold: 700;
+  --sl-font-weight-italic: italic;
 
   /* Letter spacings */
   --sl-letter-spacing-denser: -0.03em;
@@ -568,9 +569,12 @@
    */
 
   /* Buttons */
-  --sl-button-font-size-small: var(--sl-font-size-x-small);
-  --sl-button-font-size-medium: var(--sl-font-size-small);
-  --sl-button-font-size-large: var(--sl-font-size-medium);
+  --sl-button-font-size-3x-small: var(--sl-font-size-3x-small);
+  --sl-button-font-size-2x-small: var(--sl-font-size-2x-small);
+  --sl-button-font-size-x-small: var(--sl-font-size-x-small);
+  --sl-button-font-size-small: var(--sl-font-size-small);
+  --sl-button-font-size-medium: var(--sl-font-size-medium);
+  --sl-button-font-size-large: var(--sl-font-size-large);
 
   --sl-button-border-color-primary: var(--sl-color-primary-500);
   --sl-button-border-color-success: var(--sl-color-success-500);
@@ -579,6 +583,8 @@
   --sl-button-border-color-danger: var(--sl-color-danger-500);
 
   /* Inputs */
+  --sl-input-height-x-small: 1.25rem;
+  /* 20 */
   --sl-input-height-small: 1.875rem;
   /* 30px */
   --sl-input-height-medium: 2.5rem;
@@ -599,6 +605,7 @@
   --sl-input-required-content-offset: -2px;
   --sl-input-required-content-color: var(--sl-input-label-color);
 
+  --sl-input-border-radius-x-small: var(--sl-border-radius-medium);
   --sl-input-border-radius-small: var(--sl-border-radius-medium);
   --sl-input-border-radius-medium: var(--sl-border-radius-medium);
   --sl-input-border-radius-large: var(--sl-border-radius-medium);

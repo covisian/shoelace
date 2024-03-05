@@ -67,10 +67,10 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
     | 'warning'
     | 'danger'
     | 'text'
-    | 'neutral-soft' = 'primary';
+    | 'light' = 'primary';
 
   /** The button's size. */
-  @property({ reflect: true }) size: 'small' | 'medium' | 'large' = 'medium';
+  @property({ reflect: true }) size: 'x-small' | 'small' | 'medium' | 'large' = 'medium';
 
   /** Draws the button with a caret. Used to indicate that the button triggers a dropdown menu or similar behavior. */
   @property({ type: Boolean, reflect: true }) caret = false;
@@ -289,8 +289,9 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
           'button--neutral': this.variant === 'neutral',
           'button--warning': this.variant === 'warning',
           'button--danger': this.variant === 'danger',
-          'button--neutral-soft': this.variant === 'neutral-soft',
+          'button--light': this.variant === 'light',
           'button--text': this.variant === 'text',
+          'button--x-small': this.size === 'x-small',
           'button--small': this.size === 'small',
           'button--medium': this.size === 'medium',
           'button--large': this.size === 'large',

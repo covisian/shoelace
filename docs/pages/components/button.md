@@ -15,8 +15,6 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 const App = () => <SlButton>Button</SlButton>;
 ```
 
-## Examples
-
 ### Variants
 
 Use the `variant` attribute to set the button's variant.
@@ -28,7 +26,7 @@ Use the `variant` attribute to set the button's variant.
 <sl-button variant="danger">Danger</sl-button>
 <sl-button variant="default">Default</sl-button>
 <sl-button variant="neutral">Neutral</sl-button>
-<sl-button variant="neutral-soft">Neutral Soft</sl-button>
+<sl-button variant="light">Light</sl-button>
 ```
 
 ```jsx:react
@@ -42,7 +40,7 @@ const App = () => (
     <SlButton variant="danger">Danger</SlButton>
     <SlButton variant="default">Default</SlButton>
     <SlButton variant="neutral">Neutral</SlButton>
-    <SlButton variant="neutral-soft">Neutral Soft</SlButton>
+    <SlButton variant="light">Light</SlButton>
   </>
 );
 ```
@@ -70,6 +68,7 @@ const App = () => (
 Use the `size` attribute to change a button's size.
 
 ```html:preview
+<sl-button size="x-small">X-Small</sl-button>
 <sl-button size="small">Small</sl-button>
 <sl-button size="medium">Medium</sl-button>
 <sl-button size="large">Large</sl-button>
@@ -80,6 +79,7 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
+    <SlButton size="x-small">Small</SlButton>
     <SlButton size="small">Small</SlButton>
     <SlButton size="medium">Medium</SlButton>
     <SlButton size="large">Large</SlButton>
@@ -98,7 +98,7 @@ Use the `outline` attribute to draw outlined buttons with transparent background
 <sl-button variant="danger" outline>Danger</sl-button>
 <sl-button variant="default" outline>Default</sl-button>
 <sl-button variant="neutral" outline>Neutral</sl-button>
-<sl-button variant="neutral-soft" outline>Neutral Soft</sl-button>
+<sl-button variant="light" outline>Light</sl-button>
 ```
 
 ```jsx:react
@@ -124,8 +124,8 @@ const App = () => (
     <SlButton variant="neutral" outline>
       Neutral
     </SlButton>
-    <SlButton variant="neutral-soft" outline>
-      Neutral Soft
+    <SlButton variant="light" outline>
+      Light
     </SlButton>
   </>
 );
@@ -136,6 +136,7 @@ const App = () => (
 Use the `pill` attribute to give buttons rounded edges.
 
 ```html:preview
+<sl-button size="x-small" pill>x-small</sl-button>
 <sl-button size="small" pill>Small</sl-button>
 <sl-button size="medium" pill>Medium</sl-button>
 <sl-button size="large" pill>Large</sl-button>
@@ -146,6 +147,9 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
+  <SlButton size="small" pill>
+      x-small
+    </SlButton>
     <SlButton size="small" pill>
       Small
     </SlButton>
@@ -164,6 +168,10 @@ const App = () => (
 Use the `circle` attribute to create circular icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
 
 ```html:preview
+<sl-button size="x-small" circle>
+  <sl-icon name="gear" label="Settings"></sl-icon>
+</sl-button>
+
 <sl-button size="small" circle>
   <sl-icon name="gear" label="Settings"></sl-icon>
 </sl-button>
@@ -183,6 +191,9 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
   <>
+  <SlButton size="x-small" circle>
+      <SlIcon name="gear" />
+    </SlButton>
     <SlButton size="small" circle>
       <SlIcon name="gear" />
     </SlButton>
@@ -201,6 +212,10 @@ const App = () => (
 Use the `square` attribute to create squared icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
 
 ```html:preview
+<sl-button size="x-small" square>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
+</sl-button>
+
 <sl-button size="small" square>
   <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
 </sl-button>
@@ -220,6 +235,9 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
   <>
+  <SlButton size="x-small" square>
+      <SlIcon name="gear" />
+    </SlButton>
     <SlButton size="small" square>
       <SlIcon name="gear" />
     </SlButton>
@@ -238,6 +256,7 @@ const App = () => (
 Use the `text` variant to create text buttons that share the same size as regular buttons but don't have backgrounds or borders.
 
 ```html:preview
+<sl-button variant="text" size="x-small">Text</sl-button>
 <sl-button variant="text" size="small">Text</sl-button>
 <sl-button variant="text" size="medium">Text</sl-button>
 <sl-button variant="text" size="large">Text</sl-button>
@@ -352,19 +371,38 @@ const App = () => (
 Use the `prefix` and `suffix` slots to add icons.
 
 ```html:preview
+
+<sl-button size="x-small">
+  <sl-icon slot="prefix" name="gear"></sl-icon>
+  Settings
+</sl-button>
+
+<sl-button size="x-small">
+  <sl-icon slot="suffix" name="gear"></sl-icon>
+  Refresh
+</sl-button>
+
+<sl-button size="x-small">
+  <sl-icon slot="prefix" name="gear"></sl-icon>
+  <sl-icon slot="suffix" name="gear"></sl-icon>
+  Open
+</sl-button>
+
+<br /><br />
+
 <sl-button size="small">
   <sl-icon slot="prefix" name="gear"></sl-icon>
   Settings
 </sl-button>
 
 <sl-button size="small">
-  <sl-icon slot="suffix" name="arrow-counterclockwise"></sl-icon>
+  <sl-icon slot="suffix" name="gear"></sl-icon>
   Refresh
 </sl-button>
 
 <sl-button size="small">
-  <sl-icon slot="prefix" name="link-45deg"></sl-icon>
-  <sl-icon slot="suffix" name="box-arrow-up-right"></sl-icon>
+  <sl-icon slot="prefix" name="gear"></sl-icon>
+  <sl-icon slot="suffix" name="gear"></sl-icon>
   Open
 </sl-button>
 
@@ -376,13 +414,13 @@ Use the `prefix` and `suffix` slots to add icons.
 </sl-button>
 
 <sl-button>
-  <sl-icon slot="suffix" name="arrow-counterclockwise"></sl-icon>
+  <sl-icon slot="suffix" name="gear"></sl-icon>
   Refresh
 </sl-button>
 
 <sl-button>
-  <sl-icon slot="prefix" name="link-45deg"></sl-icon>
-  <sl-icon slot="suffix" name="box-arrow-up-right"></sl-icon>
+  <sl-icon slot="prefix" name="gear"></sl-icon>
+  <sl-icon slot="suffix" name="gear"></sl-icon>
   Open
 </sl-button>
 
@@ -394,13 +432,13 @@ Use the `prefix` and `suffix` slots to add icons.
 </sl-button>
 
 <sl-button size="large">
-  <sl-icon slot="suffix" name="arrow-counterclockwise"></sl-icon>
+  <sl-icon slot="suffix" name="gear"></sl-icon>
   Refresh
 </sl-button>
 
 <sl-button size="large">
-  <sl-icon slot="prefix" name="link-45deg"></sl-icon>
-  <sl-icon slot="suffix" name="box-arrow-up-right"></sl-icon>
+  <sl-icon slot="prefix" name="gear"></sl-icon>
+  <sl-icon slot="suffix" name="gear"></sl-icon>
   Open
 </sl-button>
 ```
@@ -411,19 +449,38 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
   <>
+  <SlButton size="x-small">
+      <SlIcon slot="prefix" name="gear"></SlIcon>
+      Settings
+    </SlButton>
+
+    <SlButton size="x-small">
+      <SlIcon slot="suffix" name="gear"></SlIcon>
+      Refresh
+    </SlButton>
+
+    <SlButton size="x-small">
+      <SlIcon slot="prefix" name="gear"></SlIcon>
+      <SlIcon slot="suffix" name="gear"></SlIcon>
+      Open
+    </SlButton>
+
+    <br />
+    <br />
+
     <SlButton size="small">
       <SlIcon slot="prefix" name="gear"></SlIcon>
       Settings
     </SlButton>
 
     <SlButton size="small">
-      <SlIcon slot="suffix" name="arrow-counterclockwise"></SlIcon>
+      <SlIcon slot="suffix" name="gear"></SlIcon>
       Refresh
     </SlButton>
 
     <SlButton size="small">
-      <SlIcon slot="prefix" name="link-45deg"></SlIcon>
-      <SlIcon slot="suffix" name="box-arrow-up-right"></SlIcon>
+      <SlIcon slot="prefix" name="gear"></SlIcon>
+      <SlIcon slot="suffix" name="gear"></SlIcon>
       Open
     </SlButton>
 
@@ -436,13 +493,13 @@ const App = () => (
     </SlButton>
 
     <SlButton>
-      <SlIcon slot="suffix" name="arrow-counterclockwise"></SlIcon>
+      <SlIcon slot="suffix" name="gear"></SlIcon>
       Refresh
     </SlButton>
 
     <SlButton>
-      <SlIcon slot="prefix" name="link-45deg"></SlIcon>
-      <SlIcon slot="suffix" name="box-arrow-up-right"></SlIcon>
+      <SlIcon slot="prefix" name="gear"></SlIcon>
+      <SlIcon slot="suffix" name="gear"></SlIcon>
       Open
     </SlButton>
 
@@ -455,13 +512,13 @@ const App = () => (
     </SlButton>
 
     <SlButton size="large">
-      <SlIcon slot="suffix" name="arrow-counterclockwise"></SlIcon>
+      <SlIcon slot="suffix" name="gear"></SlIcon>
       Refresh
     </SlButton>
 
     <SlButton size="large">
-      <SlIcon slot="prefix" name="link-45deg"></SlIcon>
-      <SlIcon slot="suffix" name="box-arrow-up-right"></SlIcon>
+      <SlIcon slot="prefix" name="gear"></SlIcon>
+      <SlIcon slot="suffix" name="gear"></SlIcon>
       Open
     </SlButton>
   </>
@@ -473,6 +530,7 @@ const App = () => (
 Use the `caret` attribute to add a dropdown indicator when a button will trigger a dropdown, menu, or popover.
 
 ```html:preview
+<sl-button size="x-small" caret>x-small</sl-button>
 <sl-button size="small" caret>Small</sl-button>
 <sl-button size="medium" caret>Medium</sl-button>
 <sl-button size="large" caret>Large</sl-button>
@@ -483,6 +541,9 @@ import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
   <>
+   <SlButton size="x-small" caret>
+      x-small
+    </SlButton>
     <SlButton size="small" caret>
       Small
     </SlButton>
@@ -507,7 +568,7 @@ Use the `loading` attribute to make a button busy. The width will remain the sam
 <sl-button variant="danger" loading>Label</sl-button>
 <sl-button variant="default" loading>Label</sl-button>
 <sl-button variant="neutral" loading>Label</sl-button>
-<sl-button variant="neutral-soft" loading>Label</sl-button>
+<sl-button variant="light" loading>Label</sl-button>
 ```
 
 ```jsx:react
@@ -533,7 +594,7 @@ const App = () => (
     <SlButton variant="neutral" loading>
       Label
     </SlButton>
-     <SlButton variant="neutral-soft" loading>
+     <SlButton variant="light" loading>
       Label
     </SlButton>
   </>
@@ -551,7 +612,7 @@ Use the `disabled` attribute to disable a button.
 <sl-button variant="danger" disabled>Danger</sl-button>
 <sl-button variant="default" disabled>Default</sl-button>
 <sl-button variant="neutral" disabled>Neutral</sl-button>
-<sl-button variant="neutral-soft" disabled>Neutral Soft</sl-button>
+<sl-button variant="light" disabled>Light</sl-button>
 ```
 
 ```jsx:react
@@ -584,8 +645,8 @@ const App = () => (
       Neutral
     </SlButton>
 
-    <SlButton variant="neutral-soft" disabled>
-      Neutral Soft
+    <SlButton variant="light" disabled>
+      Light
     </SlButton>
   </>
 );

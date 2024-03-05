@@ -3,6 +3,7 @@ import { css } from 'lit';
 export default css`
   :host {
     display: inline-flex;
+    height: auto;
   }
 
   .badge {
@@ -10,12 +11,13 @@ export default css`
     justify-content: center;
     font-size: max(12px, 0.75em);
     font-weight: var(--sl-font-weight-semibold);
+    font-family: var(--sl-input-font-family);
     letter-spacing: var(--sl-letter-spacing-normal);
     line-height: 1;
     border-radius: var(--sl-border-radius-small);
     border: solid 1px transparent;
     white-space: nowrap;
-    padding: 0.65em 0.9em;
+    padding: 0.35em 0.6em;
     user-select: none;
     -webkit-user-select: none;
     cursor: inherit;
@@ -70,10 +72,10 @@ export default css`
     color: #282828;
   }
 
-  .badge--neutral-soft {
+  .badge--light {
     background-color: var(--sl-color-bg0);
     color: var(--sl-color-neutral-950);
-    border: var(--sl-border-neutral-soft);
+    border: var(--sl-border-light);
   }
 
   .badge--warning {
@@ -136,7 +138,7 @@ export default css`
     --pulse-color: var(--sl-color-success-600);
   }
 
-  .badge--pulse.badge--neutral-soft {
+  .badge--pulse.badge--light {
     --pulse-color: var(--sl-color-neutral-50);
   }
 

@@ -28,7 +28,7 @@ Set the `variant` attribute to change the badge's variant.
 <sl-badge variant="danger">Danger</sl-badge>
 <sl-badge variant="default">Default</sl-badge>
 <sl-badge variant="neutral">Neutral</sl-badge>
-<sl-badge variant="neutral-soft">Neutral soft</sl-badge>
+<sl-badge variant="light">Light</sl-badge>
 ```
 
 ```jsx:react
@@ -42,7 +42,7 @@ const App = () => (
     <SlBadge variant="danger">Danger</SlBadge>
     <SlBadge variant="default">Default</SlBadge>
     <SlBadge variant="neutral">Neutral</SlBadge>
-    <SlBadge variant="neutral-soft">Neutral soft</SlBadge>
+    <SlBadge variant="light">Light</SlBadge>
   </>
 );
 ```
@@ -58,7 +58,8 @@ Use the `pill` attribute to give badges rounded edges.
 <sl-badge variant="danger" pill>Danger</sl-badge>
 <sl-badge variant="default" pill>Default</sl-badge>
 <sl-badge variant="neutral" pill>Neutral</sl-badge>
-<sl-badge variant="neutral-soft" pill>Neutral soft</sl-badge>
+<sl-badge variant="light" pill>Light</sl-badge>
+
 ```
 
 ```jsx:react
@@ -84,8 +85,8 @@ const App = () => (
      <SlBadge variant="neutral" pill>
       Neutral
     </SlBadge>
-    <SlBadge variant="neutral-soft" pill>
-      Neutral soft
+    <SlBadge variant="light" pill>
+      Light
     </SlBadge>
   </>
 );
@@ -103,7 +104,7 @@ Use the `pulse` attribute to draw attention to the badge with a subtle animation
   <sl-badge variant="danger" pill pulse>1</sl-badge>
 <sl-badge variant="default" pill pulse>1</sl-badge>
 <sl-badge variant="neutral" pill pulse>1</sl-badge>
-  <sl-badge variant="neutral-soft" pill pulse>1</sl-badge>
+  <sl-badge variant="light" pill pulse>1</sl-badge>
 </div>
 
 <style>
@@ -143,7 +144,7 @@ const App = () => (
       <SlBadge variant="neutral" pill pulse>
         1
       </SlBadge>
-      <SlBadge variant="neutral-soft" pill pulse>
+      <SlBadge variant="light" pill pulse>
         1
       </SlBadge>
     </div>
@@ -163,8 +164,8 @@ Use the `soft` attribute to give badges softer colors.
 <sl-badge variant="warning" soft>Warning soft</sl-badge>
 <sl-badge variant="danger" soft>Danger soft</sl-badge>
 <sl-badge variant="default" soft>default soft</sl-badge>
-<sl-badge variant="neutral" soft>neutral soft</sl-badge>
-<sl-badge variant="neutral-soft" soft>Neutral-soft soft</sl-badge>
+<sl-badge variant="neutral" soft>Light</sl-badge>
+<sl-badge variant="light" soft>light soft</sl-badge>
 ```
 
 ```jsx:react
@@ -185,13 +186,13 @@ const App = () => (
       Danger soft
     </SlBadge>
     <SlBadge variant="default" soft>
-      Neutral soft
+      Light
     </SlBadge>
     <SlBadge variant="neutral" soft>
-      Neutral soft
+      Light
     </SlBadge>
-    <SlBadge variant="neutral-soft" soft>
-      Neutral neutral-soft
+    <SlBadge variant="light" soft>
+      Neutral light
     </SlBadge>
   </>
 );
@@ -300,8 +301,8 @@ When including badges in menu items, use the `suffix` slot to make sure they're 
 ```html:preview
 <sl-menu style="max-width: 240px;">
   <sl-menu-label>Messages</sl-menu-label>
-  <sl-menu-item>Comments <sl-badge slot="suffix" variant="neutral-soft" pill>4</sl-badge></sl-menu-item>
-  <sl-menu-item>Replies <sl-badge slot="suffix" variant="neutral-soft" pill>12</sl-badge></sl-menu-item>
+  <sl-menu-item>Comments <sl-badge slot="suffix" variant="light" pill>4</sl-badge></sl-menu-item>
+  <sl-menu-item>Replies <sl-badge slot="suffix" variant="light" pill>12</sl-badge></sl-menu-item>
 </sl-menu>
 ```
 
@@ -325,13 +326,13 @@ const App = () => (
     <SlMenuLabel>Messages</SlMenuLabel>
     <SlMenuItem>
       Comments
-      <SlBadge slot="suffix" variant="neutral-soft" pill>
+      <SlBadge slot="suffix" variant="light" pill>
         4
       </SlBadge>
     </SlMenuItem>
     <SlMenuItem>
       Replies
-      <SlBadge slot="suffix" variant="neutral-soft" pill>
+      <SlBadge slot="suffix" variant="light" pill>
         12
       </SlBadge>
     </SlMenuItem>
