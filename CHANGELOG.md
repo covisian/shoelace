@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.6
+
+### Patch Changes
+
+- edit buttons styles and font family token
+
 ## 2.14.5
 
 ### Patch Changes
