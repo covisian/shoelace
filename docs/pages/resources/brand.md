@@ -65,25 +65,32 @@ In this section you'll find a collection of dark logos available for download in
         </thead>
         <tbody>
         <tr>
-                <th><img src="../../assets/logos/covisian-smart-128x52.png" alt="Covisian Smart" /></th>
+                <th><img src="../../assets/logos/covisian-smart-128x52-dark.png" alt="Covisian Smart" /></th>
+                <th><a href="../../assets/logos/covisian-smart-dark.zip">Download</a></th>
             </tr>
             <tr>
             <th><img src="../../assets/logos/cv-smile-cx-full-yellow-128x128.png" alt="Smile Square" /></th>
+            <th><p>No dark version available</p></th>
             </tr>
             <tr>
             <th><img src="../../assets/logos/cv-smile-cx-128x128.png" alt="Smile CX" /></th>
+            <th><p>No dark version available</p></th>
             </tr>
             <tr>
             <th><img src="../../assets/logos/cv-smile-cx-noborder-128x128.png" alt="Smile CX No Border" /></th>
+            <th><p>No dark version available</p></th>
             </tr>
             <tr>
-            <th><img src="../../assets/logos/sparta-ai-128x33.png" alt="Sparta AI" /></th>
+            <th><img src="../../assets/logos/sparta-ai-128x33-dark.png" alt="Sparta AI" /></th>
+            <th><a href="../../assets/logos/sparta-ai-dark.zip">Download</a></th>
             </tr>
             <tr>
-            <th><img src="../../assets/logos/covisian-tech-ppl-smile-128x40.png" alt="Tech people Smiles" /></th>
+            <th><img src="../../assets/logos/covisian-tech-ppl-smile-128x40-dark.png" alt="Tech people Smiles" /></th>
+            <th><a href="../../assets/logos/covisian-tech-ppl-smile-dark.zip">Download</a></th>
             </tr>
             <tr>
-            <th><img src="../../assets/logos/vivocha-covisian-raster-116x57.png" alt="Vivocha" /></th>
+            <th><img src="../../assets/logos/vivocha-covisian-116x57-dark.png" alt="Vivocha" /></th>
+            <th><a href="../../assets/logos/vivocha-dark.zip">Download</a></th>
             </tr>
         </tbody>
     </table>
