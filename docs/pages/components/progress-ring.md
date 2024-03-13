@@ -17,6 +17,39 @@ const App = () => <SlProgressRing value="25" />;
 
 ## Examples
 
+### Scale
+
+Use the `scale` property to set the value by which to divide the original `value`. Default is set at 100.
+
+```html:preview
+<sl-progress-ring value="1" scale=10> 1/10</sl-progress-ring>
+<sl-progress-ring value="1" scale=50> 1/50</sl-progress-ring>
+<sl-progress-ring value="1" scale=100> 1/100</sl-progress-ring>
+```
+
+{% raw %}
+
+```jsx:react
+import SlProgressRing from '@shoelace-style/shoelace/dist/react/progress-ring';
+
+const App = () => (
+  <SlProgressRing
+    value="1"
+    scale="10"
+  />
+  <SlProgressRing
+    value="1"
+    scale="50"
+  />
+  <SlProgressRing
+    value="1"
+    scale="100"
+  />
+);
+```
+
+{% endraw %}
+
 ### Size
 
 Use the `--size` custom property to set the diameter of the progress ring.

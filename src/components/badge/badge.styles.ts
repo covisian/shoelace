@@ -10,7 +10,7 @@ export default css`
     display: inline-flex;
     justify-content: center;
     font-size: max(12px, 0.75em);
-    font-weight: var(--sl-font-weight-semibold);
+    font-weight: var(--sl-font-weight-normal);
     font-family: var(--sl-input-font-family);
     letter-spacing: var(--sl-letter-spacing-normal);
     line-height: 1;

@@ -8,7 +8,7 @@ meta:
 
 Welcome! This documentation page offers essential resources readily accessible in both light and dark theme options for your individual viewing preferences. Assets are downloadable as .zip archives.
 Please note this section is a work in progress and in constant update. If you cannot find the logo or resource you are looking for in this page, please get in touch with the Design team.
-You can switch to the dark theme version of this page at any time by pressing the `\` key, or by clicking on the <sl-icon name="sun-fill"></sl-icon> / <sl-icon name="moon-fill"></sl-icon> icon in top right corner of the page. 
+You can switch to the dark theme version of this page at any time by pressing the `\` key, or by clicking on the <sl-icon name="sun-fill"></sl-icon> / <sl-icon name="moon-fill"></sl-icon> icon in top right corner of the page.
 
 ## Light logos
 
@@ -65,7 +65,7 @@ In this section you'll find a collection of light logos available for download i
 ## Dark logos
 
 In this section you'll find a collection of dark logos available for download in a ZIP file. This file keeps all the dark mode versions neatly bundled together, making it easy to grab the one you need. Simply download the ZIP and extract the files to access your chosen logos. Each logo comes in various sizes and it is supplied in .png, .svg, and .webp format.
-For an optimal viewing experience, please switch to the dark theme version of this page by pressing the `\` key, or click on the <sl-icon name="sun-fill"></sl-icon> / <sl-icon name="moon-fill"></sl-icon> icon in top right corner of the page. 
+For an optimal viewing experience, please switch to the dark theme version of this page by pressing the `\` key, or click on the <sl-icon name="sun-fill"></sl-icon> / <sl-icon name="moon-fill"></sl-icon> icon in top right corner of the page.
 
 <table border="1">
         <thead>

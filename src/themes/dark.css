@@ -503,7 +503,7 @@
   --sl-font-sans: var(--smart-font-sans);
   --sl-font-serif: var(--smart-font-serif);
 
-  --smart-font-mono: SFMono-Regular, Consolas, 'Roboto Mono', Menlo, monospace;
+  --smart-font-mono: 'Roboto Mono', SFMono-Regular, Consolas, Menlo, monospace;
   --smart-font-sans: 'Roboto', Helvetica, Arial, sans-serif, -apple-system, BlinkMacSystemFont, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
   --smart-font-serif: Georgia, 'Times New Roman', serif;

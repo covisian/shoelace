@@ -33,8 +33,11 @@ export default class SlProgressRing extends ShoelaceElement {
 
   @state() indicatorOffset: string;
 
-  /** The current progress as a percentage, 0 to 100. */
+  /** The current progress as a percentage, 0 to scale. */
   @property({ type: Number, reflect: true }) value = 0;
+
+  /** The value by which to divide the original value */
+  @property({ type: Number, reflect: true }) scale = 100;
 
   /** A custom label for assistive devices. */
   @property() label = '';
@@ -50,7 +53,7 @@ export default class SlProgressRing extends ShoelaceElement {
     if (changedProps.has('value')) {
       const radius = parseFloat(getComputedStyle(this.indicator).getPropertyValue('r'));
       const circumference = 2 * Math.PI * radius;
-      const offset = circumference - (this.value / 100) * circumference;
+      const offset = circumference - (this.value / this.scale) * circumference;
 
       this.indicatorOffset = `${offset}px`;
     }
@@ -65,9 +68,9 @@ export default class SlProgressRing extends ShoelaceElement {
         aria-label=${this.label.length > 0 ? this.label : this.localize.term('progress')}
         aria-describedby="label"
         aria-valuemin="0"
-        aria-valuemax="100"
+        aria-valuemax="${this.scale}"
         aria-valuenow="${this.value}"
-        style="--percentage: ${this.value / 100}"
+        style="--percentage: ${this.value / this.scale}"
       >
         <svg class="progress-ring__image">
           <circle class="progress-ring__track"></circle>

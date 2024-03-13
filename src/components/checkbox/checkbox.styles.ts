@@ -42,7 +42,7 @@ export default css`
     border: solid var(--sl-input-border-width) var(--sl-input-border-color);
     border-radius: 2px;
     background-color: var(--sl-input-background-color);
-    color: var(--sl-color-neutral-0);
+    color: var(--sl-color-neutral-950);
     transition:
       var(--sl-transition-fast) border-color,
       var(--sl-transition-fast) background-color,
