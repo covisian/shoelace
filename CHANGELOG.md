@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.8
+
+### Patch Changes
+
+- add linecap prop and kpi tokens
+
 ## 2.14.7
 
 ### Patch Changes
