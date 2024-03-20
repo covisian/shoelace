@@ -340,6 +340,24 @@
   --smart-border-color-default: #dee2e7;
 
   /*
+  * KPIs
+  */
+
+  /* Performance indicator */
+  --smart-kpi-pi: #05aff2;
+  --smart-track-kpi-pi: rgba(5, 175, 242, 0.3);
+
+  /* Customer experience */
+  --smart-kpi-cx: #ffc000;
+  --smart-track-kpi-cx: rgba(255, 192, 0, 0.3);
+
+  /* Ai percentage */
+  --smart-kpi-ai: #f257a0;
+  --smart-track-kpi-ai: rgba(242, 87, 160, 0.3);
+
+  --smart-track-kpi-base: #ebebeb;
+
+  /*
    * Theme Tokens
    */
 
@@ -699,6 +717,24 @@
   --sl-z-index-dropdown: 900;
   --sl-z-index-toast: 950;
   --sl-z-index-tooltip: 1000;
+
+  /*
+  * KPIs
+  */
+
+  /* Performance indicator */
+  --sl-kpi-pi: var(--smart-kpi-pi);
+  --sl-track-kpi-pi: var(--smart-track-kpi-pi);
+
+  /* Customer experience */
+  --sl-kpi-cx: var(--smart-kpi-cx);
+  --sl-track-kpi-cx: var(--smart-track-kpi-cx);
+
+  /* Ai percentage */
+  --sl-kpi-ai: var(--smart-kpi-ai);
+  --sl-track-kpi-ai: var(--smart-track-kpi-ai);
+
+  --sl-track-kpi-base: var(--smart-track-kpi-base);
 }
 
 /* _utility.css */

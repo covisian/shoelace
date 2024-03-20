@@ -1,3 +1,4 @@
+import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { LocalizeController } from '../../utilities/localize.js';
 import { property, query, state } from 'lit/decorators.js';
@@ -39,6 +40,9 @@ export default class SlProgressRing extends ShoelaceElement {
   /** The value by which to divide the original value */
   @property({ type: Number, reflect: true }) scale = 100;
 
+  /** The stroke linecap. */
+  @property({ type: String, reflect: true }) linecap: 'round' | 'square' = 'round';
+
   /** A custom label for assistive devices. */
   @property() label = '';
 
@@ -74,7 +78,13 @@ export default class SlProgressRing extends ShoelaceElement {
       >
         <svg class="progress-ring__image">
           <circle class="progress-ring__track"></circle>
-          <circle class="progress-ring__indicator" style="stroke-dashoffset: ${this.indicatorOffset}"></circle>
+          <circle
+            class=${classMap({
+              'progress-ring__indicator': true,
+              [this.linecap]: true
+            })}
+            style="stroke-dashoffset: ${this.indicatorOffset}"
+          ></circle>
         </svg>
 
         <slot id="label" part="label" class="progress-ring__label"></slot>

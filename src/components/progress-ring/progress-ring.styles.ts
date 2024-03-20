@@ -45,11 +45,16 @@ export default css`
   .progress-ring__indicator {
     stroke: var(--indicator-color);
     stroke-width: var(--indicator-width);
-    stroke-linecap: round;
     transition-property: stroke-dashoffset;
     transition-duration: var(--indicator-transition-duration);
     stroke-dasharray: var(--circumference) var(--circumference);
     stroke-dashoffset: calc(var(--circumference) - var(--percentage) * var(--circumference));
+    &.round {
+      stroke-linecap: round;
+    }
+    &.square {
+      stroke-linecap: square;
+    }
   }
 
   .progress-ring__label {

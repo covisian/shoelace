@@ -118,6 +118,26 @@ const App = () => (
 
 {% endraw %}
 
+### Linecap
+
+Use the `linecap` attribute to set the linecap.
+
+```html:preview
+<sl-progress-ring value="50" linecap='square' style="--track-width: 6px; --indicator-width: 12px;"></sl-progress-ring>
+<sl-progress-ring value="50" linecap='round' style="--track-width: 6px; --indicator-width: 12px;"></sl-progress-ring>
+```
+
+{% raw %}
+
+```jsx:react
+import SlProgressRing from '@shoelace-style/shoelace/dist/react/progress-ring';
+
+const App = () => <SlProgressRing value="50" linecap='square' style="--track-width: 6px; --indicator-width: 12px;"></SlProgressRing>
+<SlProgressRing value="50" linecap='round' style="--track-width: 6px; --indicator-width: 12px;"></SlProgressRing>;
+```
+
+{% endraw %}
+
 ### Labels
 
 Use the `label` attribute to label the progress ring and tell assistive devices how to announce it.
