@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.10
+
+### Patch Changes
+
+- add segment variants, minor token fix
+
 ## 2.14.9
 
 ### Patch Changes
