@@ -94,7 +94,22 @@ export default css`
     flex: 1 1 auto;
     position: relative;
     flex-direction: row;
+    width:100%;
     border-bottom: solid var(--track-width) var(--track-color);
+  }
+
+  .tab-group.tab-group--segment .tab-group__tabs,
+  .tab-group.tab-group--segment-soft .tab-group__tabs {
+    display: flex;
+    padding: var(--sl-spacing-3x-small);
+    justify-content: center;
+    align-items: center;
+    gap: var(--sl-spacing-2x-small);
+    // flex: 0;
+    background: var(--sl-color-bg0);
+    border:none;
+    border-radius: 6px;
+    width:100%;
   }
 
   .tab-group--top .tab-group__indicator {
@@ -102,10 +117,13 @@ export default css`
     border-bottom: solid var(--track-width) var(--indicator-color);
   }
 
-  .tab-group--wizard .tab-group__indicator  {
-    border:none;
+   .tab-group.tab-group--wizard .tab-group__indicator,
+   .tab-group.tab-group--segment .tab-group__indicator,
+    .tab-group.tab-group--segment-soft .tab-group__indicator {
+      border: none;
   }
-  
+
+
   .tab-group--top .tab-group__body {
     order: 2;
   }

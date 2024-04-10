@@ -51,8 +51,8 @@ export default class SlTab extends ShoelaceElement {
   /** Disables the tab and prevents selection. */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
-  /** Inherits variant=wizard if set on Sl-Tab-Group */
-  @property({ type: String, reflect: true }) variant: 'default' | 'wizard' = 'default';
+  /** Inherits variant property if set on Sl-Tab-Group */
+  @property({ type: String, reflect: true }) variant: 'default' | 'wizard' | 'segment' | 'segment-soft' = 'default';
 
   connectedCallback() {
     super.connectedCallback();
@@ -63,26 +63,31 @@ export default class SlTab extends ShoelaceElement {
   private handleCloseClick(event: Event) {
     event.stopPropagation();
     this.emit('sl-close');
-    this.setVariant();
   }
 
   private setVariant() {
     const wizardTabGroup = this.closest('sl-tab-group[variant="wizard"]');
+    const segmentTabGroup = this.closest('sl-tab-group[variant="segment"]');
+    const segmentSoftTabGroup = this.closest('sl-tab-group[variant="segment-soft"]');
     if (wizardTabGroup) {
       this.variant = 'wizard';
+    }
+    if (segmentTabGroup) {
+      this.variant = 'segment';
+    }
+    if (segmentSoftTabGroup) {
+      this.variant = 'segment-soft';
     }
   }
 
   @watch('active')
   handleActiveChange() {
     this.setAttribute('aria-selected', this.active ? 'true' : 'false');
-    this.setVariant();
   }
 
   @watch('disabled')
   handleDisabledChange() {
     this.setAttribute('aria-disabled', this.disabled ? 'true' : 'false');
-    this.setVariant();
   }
 
   /** Sets focus to the tab. */
@@ -107,7 +112,9 @@ export default class SlTab extends ShoelaceElement {
           'tab--active': this.active,
           'tab--closable': this.closable,
           'tab--disabled': this.disabled,
-          'tab--wizard': this.variant === 'wizard'
+          'tab--wizard': this.variant === 'wizard',
+          'tab--segment': this.variant === 'segment',
+          'tab--segment-soft': this.variant === 'segment-soft'
         })}
         tabindex=${this.disabled ? '-1' : '0'}
       >

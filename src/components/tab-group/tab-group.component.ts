@@ -63,7 +63,7 @@ export default class SlTabGroup extends ShoelaceElement {
   @property() placement: 'top' | 'bottom' | 'start' | 'end' = 'top';
 
   /** An alternative custom design for displaying tabs */
-  @property() variant: 'default' | 'wizard' = 'default';
+  @property() variant: 'default' | 'wizard' | 'segment' | 'segment-soft' = 'default';
 
   /**
    * When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
@@ -381,7 +381,9 @@ export default class SlTabGroup extends ShoelaceElement {
           'tab-group--end': this.placement === 'end',
           'tab-group--rtl': this.localize.dir() === 'rtl',
           'tab-group--has-scroll-controls': this.hasScrollControls,
-          'tab-group--wizard': this.variant === 'wizard'
+          'tab-group--wizard': this.variant === 'wizard',
+          'tab-group--segment': this.variant === 'segment',
+          'tab-group--segment-soft': this.variant === 'segment-soft'
         })}
         @click=${this.handleClick}
         @keydown=${this.handleKeyDown}

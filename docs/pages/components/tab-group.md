@@ -51,7 +51,7 @@ const App = () => (
 
 ## Examples
 
-### Wizard variant
+### Wizard
 
 Tabs are displayed in an alternate style, suitable for step-by-step forms and similar use cases.
 
@@ -86,6 +86,116 @@ import SlTabPanel from '@shoelace-style/shoelace/dist/react/tab-panel';
 
 const App = () => (
   <SlTabGroup variant='wizard'>
+    <SlTab slot="nav" panel="1">
+      <span slot="step">1</span>
+      <span slot='label'>first step</span>
+    </SlTab>
+    <SlTab slot="nav" panel="2">
+      <span slot="step">2</span>
+      <span slot='label'>second step</span>
+    </SlTab>
+    <SlTab slot="nav" panel="3">
+      <span slot="step">3</span>
+    <span slot='label'>third step</span>
+    </SlTab>
+
+    <SlTabPanel name="1">This is the first tab panel.</SlTabPanel>
+    <SlTabPanel name="2">This is the second tab panel.</SlTabPanel>
+    <SlTabPanel name="3">This is the third tab panel.</SlTabPanel>
+  </SlTabGroup>
+);
+```
+
+### Segment
+
+Tabs are displayed in an alternate style, suitable for nested tab-groups and similar use cases.
+
+```html:preview
+<sl-tab-group variant='segment' >
+  <sl-tab slot="nav" panel="1">
+    <span slot="step">1</span>
+      first step
+  </sl-tab>
+  <sl-tab slot="nav" panel="2">
+     <span slot="step">2</span>
+      second step
+  </sl-tab>
+  <sl-tab slot="nav" panel="3">
+     <span slot="step">3</span>
+       third step
+  </sl-tab>
+
+
+
+  <sl-tab-panel name="1">This is the first tab panel.</sl-tab-panel>
+  <sl-tab-panel name="2">This is the second tab panel.</sl-tab-panel>
+  <sl-tab-panel name="3">This is the third tab panel.</sl-tab-panel>
+</sl-tab-group>
+
+```
+
+```jsx:react
+import SlTab from '@shoelace-style/shoelace/dist/react/tab';
+import SlTabGroup from '@shoelace-style/shoelace/dist/react/tab-group';
+import SlTabPanel from '@shoelace-style/shoelace/dist/react/tab-panel';
+
+const App = () => (
+  <SlTabGroup variant='segment'>
+    <SlTab slot="nav" panel="1">
+      <span slot="step">1</span>
+      <span slot='label'>first step</span>
+    </SlTab>
+    <SlTab slot="nav" panel="2">
+      <span slot="step">2</span>
+      <span slot='label'>second step</span>
+    </SlTab>
+    <SlTab slot="nav" panel="3">
+      <span slot="step">3</span>
+    <span slot='label'>third step</span>
+    </SlTab>
+
+    <SlTabPanel name="1">This is the first tab panel.</SlTabPanel>
+    <SlTabPanel name="2">This is the second tab panel.</SlTabPanel>
+    <SlTabPanel name="3">This is the third tab panel.</SlTabPanel>
+  </SlTabGroup>
+);
+```
+
+### Segment Soft
+
+Tabs are displayed in an alternate style, suitable for nested tab-groups and similar use cases.
+
+```html:preview
+<sl-tab-group variant='segment-soft' >
+  <sl-tab slot="nav" panel="1">
+    <span slot="step">1</span>
+      first step
+  </sl-tab>
+  <sl-tab slot="nav" panel="2">
+     <span slot="step">2</span>
+      second step
+  </sl-tab>
+  <sl-tab slot="nav" panel="3">
+     <span slot="step">3</span>
+       third step
+  </sl-tab>
+
+
+
+  <sl-tab-panel name="1">This is the first tab panel.</sl-tab-panel>
+  <sl-tab-panel name="2">This is the second tab panel.</sl-tab-panel>
+  <sl-tab-panel name="3">This is the third tab panel.</sl-tab-panel>
+</sl-tab-group>
+
+```
+
+```jsx:react
+import SlTab from '@shoelace-style/shoelace/dist/react/tab';
+import SlTabGroup from '@shoelace-style/shoelace/dist/react/tab-group';
+import SlTabPanel from '@shoelace-style/shoelace/dist/react/tab-panel';
+
+const App = () => (
+  <SlTabGroup variant='segment-soft'>
     <SlTab slot="nav" panel="1">
       <span slot="step">1</span>
       <span slot='label'>first step</span>

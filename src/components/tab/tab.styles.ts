@@ -4,6 +4,10 @@ export default css`
   :host {
     display: inline-block;
   }
+  :host(sl-tab[variant='segment']),
+  :host(sl-tab[variant='segment-soft']) {
+    display: contents;
+  }
 
   .tab {
     display: inline-flex;
@@ -17,7 +21,9 @@ export default css`
     white-space: nowrap;
     user-select: none;
     -webkit-user-select: none;
+    align-self: stretch;
     cursor: pointer;
+
     transition:
       var(--transition-speed) box-shadow,
       var(--transition-speed) color;
@@ -31,30 +37,73 @@ export default css`
       width: 32px;
       height: 32px;
       margin-right: 8px;
-      color: #282828;
-      background: #f1f3f7;
-      border-radius: 9999px;
+      color: var(--sl-color-neutral-950);
+      background: var(--sl-color-bg0);
+      border-radius: var(--sl-border-radius-circle);
       align-items: center;
       justify-content: center;
       font-size: 14px;
     }
     &:hover {
-      color: #282828;
+      color: var(--sl-color-neutral-950);
     }
   }
 
   .tab.tab--wizard:hover:not(.tab--disabled) {
-    color: #282828;
+    color: var(--sl-color-neutral-950);
   }
 
   .tab.tab--wizard.tab--active {
     .circle {
-      background: #282828;
-      color: white;
+      background: var(--sl-color-neutral-950);
+      color: var(--sl-color-bg1);
     }
     .label {
-      color: #282828;
+      color: var(--sl-color-neutral-950);
     }
+  }
+
+  .tab.tab--segment {
+    display: flex;
+    background: var(--sl-color-bg0);
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
+
+    &:hover {
+      color: var(--sl-color-neutral-950);
+    }
+  }
+
+  .tab.tab--segment:hover:not(.tab--disabled),
+  .tab.tab--segment-soft:hover:not(.tab--disabled) {
+    color: var(--sl-color-neutral-950);
+  }
+
+  .tab.tab--segment.tab--active {
+    background: var(--sl-color-fg0);
+  }
+
+  .tab--segment-soft {
+    display: flex;
+    background: transparent;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
+
+    &:hover {
+      color: var(--sl-color-neutral-950);
+    }
+  }
+
+  .tab.tab--segment-soft:hover:not(.tab--disabled) {
+    color: var(--sl-color-neutral-950);
+  }
+
+  .tab.tab--segment-soft.tab--active {
+    background: var(--sl-color-bg1);
   }
 
   .tab:hover:not(.tab--disabled) {
@@ -77,6 +126,18 @@ export default css`
   .tab.tab--active:not(.tab--disabled) {
     color: var(--sl-color-primary-600);
     border-radius: 9999px;
+  }
+
+  .tab.tab--segment.tab--active:not(.tab--disabled) {
+    color: var(--sl-color-neutral-50);
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .tab.tab--segment-soft.tab--active:not(.tab--disabled) {
+    color: var(--sl-color-neutral-950);
+    border-radius: 4px;
+    width: 100%;
   }
 
   .tab.tab--closable {
