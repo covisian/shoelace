@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.11
+
+### Patch Changes
+
+- align tabs with design
+
 ## 2.14.10
 
 ### Patch Changes
