@@ -42,7 +42,7 @@ export default css`
       border-radius: var(--sl-border-radius-circle);
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: var(--sl-font-size-small);
     }
     &:hover {
       color: var(--sl-color-neutral-950);
@@ -70,7 +70,9 @@ export default css`
     box-sizing: border-box;
     justify-content: center;
     padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
-
+    height:30px;
+    font-size:var(--sl-font-size-x-small);
+ 
     &:hover {
       color: var(--sl-color-neutral-950);
     }
@@ -92,6 +94,8 @@ export default css`
     justify-content: center;
     box-sizing: border-box;
     padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
+        height:30px;
+        font-size:var(--sl-font-size-x-small);
 
     &:hover {
       color: var(--sl-color-neutral-950);

@@ -107,7 +107,7 @@ export default css`
     gap: var(--sl-spacing-2x-small);
     // flex: 0;
     background: var(--sl-color-bg0);
-    border:none;
+    border:var(--sl-border-base);
     border-radius: 6px;
     width:100%;
   }
