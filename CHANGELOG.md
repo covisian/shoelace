@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.12
+
+### Patch Changes
+
+- rerun build due to prettier error
+
 ## 2.14.11
 
 ### Patch Changes
