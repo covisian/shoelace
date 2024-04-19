@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.13
+
+### Patch Changes
+
+- align switch to design
+
 ## 2.14.12
 
 ### Patch Changes
