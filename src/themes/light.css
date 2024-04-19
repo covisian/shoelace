@@ -672,8 +672,8 @@
   --sl-input-help-text-font-size-large: var(--sl-font-size-medium);
   --sl-input-help-text-color: var(--sl-color-neutral-500);
 
-  /* Border */
-  --sl-border-primary: 1px solid #de27 /* Toggles (checkboxes, radios, switches) */ --sl-toggle-size-small: 0.875rem;
+  /* Toggles (checkboxes, radios, switches) */
+  --sl-toggle-size-small: 0.875rem;
   /* 14px */
   --sl-toggle-size-medium: 1.125rem;
   /* 18px */

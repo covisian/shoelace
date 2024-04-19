@@ -58,24 +58,6 @@ export default class SlTab extends ShoelaceElement {
     super.connectedCallback();
     this.setAttribute('role', 'tab');
     this.setVariant();
-    const tabGroup = this.closest('sl-tab-group');
-    if (tabGroup) {
-      tabGroup.addEventListener('sl-tab-group-variant-changed', this.handleTabGroupVariantChanged.bind(this));
-    }
-  }
-
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    const tabGroup = this.closest('sl-tab-group');
-    if (tabGroup) {
-      tabGroup.removeEventListener('sl-tab-group-variant-changed', this.handleTabGroupVariantChanged.bind(this));
-    }
-  }
-
-  private handleTabGroupVariantChanged(
-    event: CustomEvent<{ variant: 'default' | 'wizard' | 'segment' | 'segment-soft' }>
-  ) {
-    this.variant = event.detail.variant;
   }
 
   private handleCloseClick(event: Event) {
@@ -108,15 +90,18 @@ export default class SlTab extends ShoelaceElement {
     this.setAttribute('aria-disabled', this.disabled ? 'true' : 'false');
   }
 
+  /** Sets focus to the tab. */
   focus(options?: FocusOptions) {
     this.tab.focus(options);
   }
 
+  /** Removes focus from the tab. */
   blur() {
     this.tab.blur();
   }
 
   render() {
+    // If the user didn't provide an ID, we'll set one so we can link tabs and tab panels with aria labels
     this.id = this.id.length > 0 ? this.id : this.componentId;
 
     return html`

@@ -6,25 +6,25 @@ export default css`
   }
 
   :host([size='small']) {
-    --height: var(--sl-toggle-size-small);
-    --thumb-size: calc(var(--sl-toggle-size-small) + 4px);
-    --width: calc(var(--height) * 2);
+    --height: calc(var(--sl-toggle-size-small) + 2px);
+    --thumb-size: var(--sl-toggle-size-small);
+    --width: calc(var(--thumb-size) * 2);
 
     font-size: var(--sl-input-font-size-small);
   }
 
   :host([size='medium']) {
-    --height: var(--sl-toggle-size-medium);
-    --thumb-size: calc(var(--sl-toggle-size-medium) + 4px);
-    --width: calc(var(--height) * 2);
+    --height: calc(var(--sl-toggle-size-medium) + 2px);
+    --thumb-size: var(--sl-toggle-size-medium);
+    --width: calc(var(--thumb-size) * 2);
 
     font-size: var(--sl-input-font-size-medium);
   }
 
   :host([size='large']) {
-    --height: var(--sl-toggle-size-large);
-    --thumb-size: calc(var(--sl-toggle-size-large) + 4px);
-    --width: calc(var(--height) * 2);
+    --height: calc(var(--sl-toggle-size-large) + 2px);
+    --thumb-size: var(--sl-toggle-size-large);
+    --width: calc(var(--thumb-size) * 2);
 
     font-size: var(--sl-input-font-size-large);
   }
@@ -49,8 +49,8 @@ export default css`
     justify-content: center;
     width: var(--width);
     height: var(--height);
-    background-color: var(--sl-color-neutral-400);
-    border: solid var(--sl-input-border-width) var(--sl-color-neutral-400);
+    background-color: var(--sl-color-neutral-500);
+    border: solid var(--sl-input-border-width) var(--sl-color-neutral-500);
     border-radius: var(--height);
     transition:
       var(--sl-transition-fast) border-color,
@@ -62,13 +62,13 @@ export default css`
     height: var(--thumb-size);
     background-color: var(--sl-color-neutral-0);
     border-radius: 50%;
-    border: solid var(--sl-input-border-width) var(--sl-color-neutral-400);
+    border: solid var(--sl-input-border-width) var(--sl-color-neutral-500);
     translate: calc((var(--width) - var(--height)) / -2);
     transition:
-      var(--sl-transition-fast) translate ease,
-      var(--sl-transition-fast) background-color,
-      var(--sl-transition-fast) border-color,
-      var(--sl-transition-fast) box-shadow;
+      var(--sl-transition-slow) translate ease,
+      var(--sl-transition-slow) background-color,
+      var(--sl-transition-slow) border-color,
+      var(--sl-transition-slow) box-shadow;
   }
 
   .switch__input {
@@ -81,60 +81,60 @@ export default css`
 
   /* Hover */
   .switch:not(.switch--checked):not(.switch--disabled) .switch__control:hover {
-    background-color: var(--sl-color-neutral-400);
-    border-color: var(--sl-color-neutral-400);
+    background-color: var(--sl-color-neutral-500);
+    border-color: var(--sl-color-neutral-500);
   }
 
   .switch:not(.switch--checked):not(.switch--disabled) .switch__control:hover .switch__thumb {
     background-color: var(--sl-color-neutral-0);
-    border-color: var(--sl-color-neutral-400);
+    border-color: var(--sl-color-neutral-500);
   }
 
   /* Focus */
   .switch:not(.switch--checked):not(.switch--disabled) .switch__input:focus-visible ~ .switch__control {
-    background-color: var(--sl-color-neutral-400);
-    border-color: var(--sl-color-neutral-400);
+    background-color: var(--sl-color-neutral-500);
+    border-color: var(--sl-color-neutral-500);
   }
 
   .switch:not(.switch--checked):not(.switch--disabled) .switch__input:focus-visible ~ .switch__control .switch__thumb {
     background-color: var(--sl-color-neutral-0);
-    border-color: var(--sl-color-primary-600);
+    border-color: var(--sl-color-primary-500);
     outline: var(--sl-focus-ring);
     outline-offset: var(--sl-focus-ring-offset);
   }
 
   /* Checked */
   .switch--checked .switch__control {
-    background-color: var(--sl-color-primary-600);
-    border-color: var(--sl-color-primary-600);
+    background-color: var(--sl-color-primary-500);
+    border-color: var(--sl-color-primary-500);
   }
 
   .switch--checked .switch__control .switch__thumb {
-    background-color: var(--sl-color-neutral-0);
-    border-color: var(--sl-color-primary-600);
+    background-color: #ffffff;
+    border-color: var(--sl-color-primary-500);
     translate: calc((var(--width) - var(--height)) / 2);
   }
 
   /* Checked + hover */
   .switch.switch--checked:not(.switch--disabled) .switch__control:hover {
-    background-color: var(--sl-color-primary-600);
-    border-color: var(--sl-color-primary-600);
+    background-color: var(--sl-color-primary-500);
+    border-color: var(--sl-color-primary-500);
   }
 
   .switch.switch--checked:not(.switch--disabled) .switch__control:hover .switch__thumb {
-    background-color: var(--sl-color-neutral-0);
-    border-color: var(--sl-color-primary-600);
+    background-color: #ffffff;
+    border-color: var(--sl-color-primary-500);
   }
 
   /* Checked + focus */
   .switch.switch--checked:not(.switch--disabled) .switch__input:focus-visible ~ .switch__control {
-    background-color: var(--sl-color-primary-600);
-    border-color: var(--sl-color-primary-600);
+    background-color: var(--sl-color-primary-500);
+    border-color: var(--sl-color-primary-500);
   }
 
   .switch.switch--checked:not(.switch--disabled) .switch__input:focus-visible ~ .switch__control .switch__thumb {
     background-color: var(--sl-color-neutral-0);
-    border-color: var(--sl-color-primary-600);
+    border-color: var(--sl-color-primary-500);
     outline: var(--sl-focus-ring);
     outline-offset: var(--sl-focus-ring-offset);
   }
