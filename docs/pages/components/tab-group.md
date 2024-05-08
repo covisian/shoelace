@@ -114,7 +114,7 @@ Tabs are displayed in an alternate style, suitable for nested tab-groups and sim
 <sl-tab-group variant='segment' >
   <sl-tab slot="nav" panel="1">
     <span slot="step">1</span>
-      first step
+    first step
   </sl-tab>
   <sl-tab slot="nav" panel="2">
      <span slot="step">2</span>

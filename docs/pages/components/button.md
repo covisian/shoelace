@@ -6,7 +6,7 @@ layout: component
 ---
 
 ```html:preview
-<sl-button>Button</sl-button>
+<sl-button fluid>Button</sl-button>
 ```
 
 ```jsx:react
@@ -23,7 +23,7 @@ Use the `variant` attribute to set the button's variant.
 <sl-button variant="primary">Primary</sl-button>
 <sl-button variant="success">Success</sl-button>
 <sl-button variant="warning">Warning</sl-button>
-<sl-button variant="danger">Danger</sl-button>
+<sl-button variant="dang er">Danger</sl-button>
 <sl-button variant="default">Default</sl-button>
 <sl-button variant="neutral">Neutral</sl-button>
 <sl-button variant="light">Light</sl-button>
@@ -41,6 +41,24 @@ const App = () => (
     <SlButton variant="default">Default</SlButton>
     <SlButton variant="neutral">Neutral</SlButton>
     <SlButton variant="light">Light</SlButton>
+  </>
+);
+```
+
+### Fluid
+
+Use the `fluid` attribute to set the button's width to fill its container.
+
+```html:preview
+  <sl-button fluid>Fluid button</sl-button>
+```
+
+```jsx:react
+import SlButton from '@shoelace-style/shoelace/dist/react/button';
+
+const App = () => (
+  <>
+    <SlButton fluid>fluid button</SlButton>
   </>
 );
 ```

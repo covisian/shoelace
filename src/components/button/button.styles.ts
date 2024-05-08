@@ -532,6 +532,26 @@ export default css`
     width: 100%;
   }
 
+  // /*
+  //  * Fluid modifier
+  //  */
+
+  .button--square.button--fluid.button--has-label.button--small,
+  .button--square.button--fluid.button--has-label.button--medium,
+  .button--square.button--fluid.button--has-label.button--large {
+    width: auto;
+  }
+
+  .button--square.button--fluid.button--has-label.button--small {
+    min-width: 5rem;
+  }
+  .button--square.button--fluid.button--has-label.button--medium {
+    min-width: 7rem;
+  }
+  .button--square.button--fluid.button--has-label.button--large {
+    min-width: 8rem;
+  }
+
   /*
    * Caret modifier
    */

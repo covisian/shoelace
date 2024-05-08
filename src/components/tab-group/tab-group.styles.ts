@@ -94,9 +94,10 @@ export default css`
     flex: 1 1 auto;
     position: relative;
     flex-direction: row;
-    width:100%;
+    width:auto;
     border-bottom: solid var(--track-width) var(--track-color);
   }
+
 
   .tab-group.tab-group--segment .tab-group__tabs,
   .tab-group.tab-group--segment-soft .tab-group__tabs {
@@ -105,11 +106,11 @@ export default css`
     justify-content: center;
     align-items: center;
     gap: var(--sl-spacing-2x-small);
-    // flex: 0;
+    flex: 0;
     background: var(--sl-color-bg0);
     border:var(--sl-border-base);
     border-radius: 6px;
-    width:100%;
+    width:auto;
   }
 
   .tab-group--top .tab-group__indicator {

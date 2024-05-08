@@ -66,7 +66,7 @@ export default css`
   .tab.tab--segment {
     display: flex;
     background: var(--sl-color-bg0);
-    width: 100%;
+    width: auto;
     box-sizing: border-box;
     justify-content: center;
     padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
@@ -90,7 +90,7 @@ export default css`
   .tab--segment-soft {
     display: flex;
     background: transparent;
-    width: 100%;
+    width: auto;
     justify-content: center;
     box-sizing: border-box;
     padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
@@ -135,13 +135,13 @@ export default css`
   .tab.tab--segment.tab--active:not(.tab--disabled) {
     color: var(--sl-color-neutral-50);
     border-radius: 4px;
-    width: 100%;
+    width: auto;
   }
 
   .tab.tab--segment-soft.tab--active:not(.tab--disabled) {
     color: var(--sl-color-neutral-950);
     border-radius: 4px;
-    width: 100%;
+    width: auto;
   }
 
   .tab.tab--closable {
