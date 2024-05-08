@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.14.14
+
+### Patch Changes
+
+- edit tab-group segment design
+
 ## 2.14.13
 
 ### Patch Changes
