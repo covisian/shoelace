@@ -229,6 +229,7 @@ export class SubmenuController implements ReactiveController {
   // newly opened menu.
   private enableSubmenu(delay = true) {
     if (delay) {
+      window.clearTimeout(this.enableSubmenuTimer);
       this.enableSubmenuTimer = window.setTimeout(() => {
         this.setSubmenuState(true);
       }, this.submenuOpenDelay);
@@ -238,7 +239,7 @@ export class SubmenuController implements ReactiveController {
   }
 
   private disableSubmenu() {
-    clearTimeout(this.enableSubmenuTimer);
+    window.clearTimeout(this.enableSubmenuTimer);
     this.setSubmenuState(false);
   }
 
@@ -282,6 +283,8 @@ export class SubmenuController implements ReactiveController {
         flip-fallback-strategy="best-fit"
         skidding="${this.skidding}"
         strategy="fixed"
+        auto-size="vertical"
+        auto-size-padding="10"
       >
         <slot name="submenu"></slot>
       </sl-popup>
