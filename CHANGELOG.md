@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.0
+
+### Minor Changes
+
+- sync with shoelace 2.15.1
+
 ## 2.14.14
 
 ### Patch Changes
