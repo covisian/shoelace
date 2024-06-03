@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.1
+
+### Patch Changes
+
+- fix button fluid variant
+
 ## 2.15.0
 
 ### Minor Changes
