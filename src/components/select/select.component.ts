@@ -863,7 +863,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
                 : ''}
 
               <slot name="expand-icon" part="expand-icon" class="select__expand-icon">
-                <sl-icon library="system" name="chevron-down"></sl-icon>
+                <sl-icon library="smart" name="cv-caret-down"></sl-icon>
               </slot>
             </div>
 

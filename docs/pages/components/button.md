@@ -6,7 +6,7 @@ layout: component
 ---
 
 ```html:preview
-<sl-button fluid>Button</sl-button>
+<sl-button>Button</sl-button>
 ```
 
 ```jsx:react
@@ -23,7 +23,7 @@ Use the `variant` attribute to set the button's variant.
 <sl-button variant="primary">Primary</sl-button>
 <sl-button variant="success">Success</sl-button>
 <sl-button variant="warning">Warning</sl-button>
-<sl-button variant="dang er">Danger</sl-button>
+<sl-button variant="danger">Danger</sl-button>
 <sl-button variant="default">Default</sl-button>
 <sl-button variant="neutral">Neutral</sl-button>
 <sl-button variant="light">Light</sl-button>
