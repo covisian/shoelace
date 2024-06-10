@@ -152,6 +152,26 @@ export default css`
   }
 
   /*
+   * Error input
+   */
+
+  .input--error {
+    background-color: var(--sl-input-background-color);
+    border: solid var(--sl-input-border-width) var(--sl-color-danger-400);
+    min-height: 1em;
+  }
+  .input--error:hover:not(.input--disabled) {
+    background-color: var(--sl-input-background-color-hover);
+    border-color: var(--sl-color-danger-600);
+  }
+
+  .input--error.input--focused:not(.input--disabled) {
+    background-color: var(--sl-input-background-color-focus);
+    border-color: var(--sl-color-danger-600);
+    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-color-danger-200);
+  }
+
+  /*
    * Size modifiers
    */
 

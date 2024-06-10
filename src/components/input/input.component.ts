@@ -31,6 +31,7 @@ import type { ShoelaceFormControl } from '../../internal/shoelace-element.js';
  * @slot show-password-icon - An icon to use in lieu of the default show password icon.
  * @slot hide-password-icon - An icon to use in lieu of the default hide password icon.
  * @slot help-text - Text that describes how to use the input. Alternatively, you can use the `help-text` attribute.
+ *  * @slot error-text - Text that describes an error occured. Alternatively, you can use the `error-text` attribute.
  *
  * @event sl-blur - Emitted when the control loses focus.
  * @event sl-change - Emitted when an alteration to the control's value is committed by the user.
@@ -43,6 +44,7 @@ import type { ShoelaceFormControl } from '../../internal/shoelace-element.js';
  * @csspart form-control-label - The label's wrapper.
  * @csspart form-control-input - The input's wrapper.
  * @csspart form-control-help-text - The help text's wrapper.
+ * @csspart form-control-error-text - The error text's wrapper.
  * @csspart base - The component's base wrapper.
  * @csspart input - The internal `<input>` control.
  * @csspart prefix - The container that wraps the prefix.
@@ -108,6 +110,9 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
   /** The input's help text. If you need to display HTML, use the `help-text` slot instead. */
   @property({ attribute: 'help-text' }) helpText = '';
 
+  /** The input's error text. If you need to display HTML, use the `error-text` slot instead. */
+  @property({ attribute: 'error-text' }) errorText = '';
+
   /** Adds a clear button when the input is not empty. */
   @property({ type: Boolean }) clearable = false;
 
@@ -116,6 +121,9 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
 
   /** Placeholder text to show as a hint when the input is empty. */
   @property() placeholder = '';
+
+  /** Add fixed bottom spacing to accommodate help text and/or error text. This prop prevents display transformation of the spacing. */
+  @property({ type: Boolean, reflect: true }) bottomSpacing = false;
 
   /** Makes the input readonly. */
   @property({ type: Boolean, reflect: true }) readonly = false;
@@ -411,8 +419,10 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
   render() {
     const hasLabelSlot = this.hasSlotController.test('label');
     const hasHelpTextSlot = this.hasSlotController.test('help-text');
+    const hasErrorTextSlot = this.hasSlotController.test('error-text');
     const hasLabel = this.label ? true : !!hasLabelSlot;
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
+    const hasErrorText = this.errorText ? true : !!hasErrorTextSlot;
     const hasClearIcon = this.clearable && !this.disabled && !this.readonly;
     const isClearIconVisible = hasClearIcon && (typeof this.value === 'number' || this.value.length > 0);
 
@@ -425,7 +435,9 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
           'form-control--medium': this.size === 'medium',
           'form-control--large': this.size === 'large',
           'form-control--has-label': hasLabel,
-          'form-control--has-help-text': hasHelpText
+          'form-control--has-help-text': hasHelpText,
+          'form-control--has-error-text': hasErrorText,
+          'form-control--has-bottom-spacing': this.bottomSpacing
         })}
       >
         <label
@@ -455,7 +467,8 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
               'input--disabled': this.disabled,
               'input--focused': this.hasFocus,
               'input--empty': !this.value,
-              'input--no-spin-buttons': this.noSpinButtons
+              'input--no-spin-buttons': this.noSpinButtons,
+              'input--error': this.errorText
             })}
           >
             <span part="prefix" class="input__prefix">
@@ -507,7 +520,7 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                     tabindex="-1"
                   >
                     <slot name="clear-icon">
-                      <sl-icon name="x-circle-fill" library="system"></sl-icon>
+                      <sl-icon name="cv-close-tag-fill"></sl-icon>
                     </slot>
                   </button>
                 `
@@ -525,12 +538,12 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                     ${this.passwordVisible
                       ? html`
                           <slot name="show-password-icon">
-                            <sl-icon name="eye-slash" library="system"></sl-icon>
+                            <sl-icon name="cv-eye-show"></sl-icon>
                           </slot>
                         `
                       : html`
                           <slot name="hide-password-icon">
-                            <sl-icon name="eye" library="system"></sl-icon>
+                            <sl-icon name="cv-eye-hidden"></sl-icon>
                           </slot>
                         `}
                   </button>
@@ -547,9 +560,17 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
           part="form-control-help-text"
           id="help-text"
           class="form-control__help-text"
-          aria-hidden=${hasHelpText ? 'false' : 'true'}
+          aria-hidden=${hasHelpText ?? false}
         >
           <slot name="help-text">${this.helpText}</slot>
+        </div>
+        <div
+          part="form-control-error-text"
+          id="error-text"
+          class="form-control__error-text"
+          aria-hidden=${hasErrorTextSlot ?? false}
+        >
+          <slot name="error-text">${this.errorText}</slot>
         </div>
       </div>
     `;

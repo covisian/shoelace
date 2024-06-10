@@ -36,6 +36,20 @@ import SlInput from '@shoelace-style/shoelace/dist/react/input';
 const App = () => <SlInput label="What is your name?" />;
 ```
 
+### Error Text
+
+Add descriptive error text to an input with the `error-text` attribute. For error texts that contain HTML, use the `error-text` slot instead.
+
+```html:preview
+<sl-input label="Error" error-text='Very big error'></sl-input>
+```
+
+```jsx:react
+import SlInput from '@shoelace-style/shoelace/dist/react/input';
+
+const App = () => <SlInput label="Error" error-text='Very big error' />;
+```
+
 ### Help Text
 
 Add descriptive help text to an input with the `help-text` attribute. For help texts that contain HTML, use the `help-text` slot instead.
@@ -45,10 +59,23 @@ Add descriptive help text to an input with the `help-text` attribute. For help t
 ```
 
 ```jsx:react
-import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 import SlInput from '@shoelace-style/shoelace/dist/react/input';
 
 const App = () => <SlInput label="Nickname" help-text="What would you like people to call you?" />;
+```
+
+### Bottom spacing
+
+Add fixed bottom spacing to accommodate help text and/or error text or to space form controls with no further rules. This prop also prevents display transformation of the spacing.
+
+```html:preview
+<sl-input label="Nickname" bottomSpacing></sl-input>
+```
+
+```jsx:react
+import SlInput from '@shoelace-style/shoelace/dist/react/input';
+
+const App = () => <SlInput label="Nickname" bottomSpacing />;
 ```
 
 ### Placeholders

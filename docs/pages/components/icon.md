@@ -905,6 +905,7 @@ If you want to change the icons Shoelace uses internally, you can register an ic
     border: solid 1px var(--sl-panel-border-color);
     border-radius: var(--sl-border-radius-medium);
     padding: var(--sl-spacing-medium);
+    overflow-y:auto;
   }
 
   .icon-search [hidden] {
