@@ -18,6 +18,7 @@ export default css`
     display: inline-block;
     color: var(--sl-input-label-color);
     margin-bottom: var(--sl-spacing-3x-small);
+    font-weight: var(--sl-font-weight-bold);
   }
 
   .form-control--has-label.form-control--small .form-control__label {
@@ -34,8 +35,7 @@ export default css`
 
   :host([required]) .form-control--has-label .form-control__label::after {
     content: var(--sl-input-required-content);
-    margin-inline-start: var(--sl-input-required-content-offset);
-    color: var(--sl-input-required-content-color);
+    color: var(--sl-color-danger-500);
   }
 
   /* Help text */
