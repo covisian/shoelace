@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.2
+
+### Patch Changes
+
+- add error management to forms
+
 ## 2.15.1
 
 ### Patch Changes
