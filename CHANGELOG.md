@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.4
+
+### Patch Changes
+
+- align input and form control styles
+
 ## 2.15.3
 
 ### Patch Changes
