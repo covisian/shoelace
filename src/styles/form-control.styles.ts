@@ -17,44 +17,48 @@ export default css`
   .form-control--has-label .form-control__label {
     display: inline-block;
     color: var(--sl-input-label-color);
-    margin-bottom: var(--sl-spacing-3x-small);
     font-weight: var(--sl-font-weight-bold);
+    height: 24px;
+    line-height: 1.2;
   }
 
   .form-control--has-label.form-control--small .form-control__label {
-    font-size: var(--sl-input-label-font-size-small);
+    font-size: var(--sl-input-label-font-size-x-small);
   }
 
   .form-control--has-label.form-control--medium .form-control__label {
-    font-size: var(--sl-input-label-font-size-medium);
+    font-size: var(--sl-input-label-font-size-x-small);
   }
 
   .form-control--has-label.form-control--large .form-control__label {
-    font-size: var(--sl-input-label-font-size-large);
+    font-size: var(--sl-input-label-font-size-x-small);
   }
 
   :host([required]) .form-control--has-label .form-control__label::after {
     content: var(--sl-input-required-content);
     color: var(--sl-color-danger-500);
+    font-size: 16px;
+    position: relative;
+    top: 3px;
   }
 
   /* Help text */
   .form-control--has-help-text .form-control__help-text {
     display: block;
     color: var(--sl-input-help-text-color);
-    margin-top: var(--sl-spacing-3x-small);
+    height: 16px;
   }
 
   .form-control--has-help-text.form-control--small .form-control__help-text {
-    font-size: var(--sl-input-help-text-font-size-small);
+    font-size: var(--sl-input-help-text-font-size-2x-small);
   }
 
   .form-control--has-help-text.form-control--medium .form-control__help-text {
-    font-size: var(--sl-input-help-text-font-size-medium);
+    font-size: var(--sl-input-help-text-font-size-2x-small);
   }
 
   .form-control--has-help-text.form-control--large .form-control__help-text {
-    font-size: var(--sl-input-help-text-font-size-large);
+    font-size: var(---sl-input-help-text-font-size-2x-small);
   }
 
   .form-control--has-help-text.form-control--radio-group .form-control__help-text {
@@ -64,20 +68,20 @@ export default css`
   /* Error text */
   .form-control--has-error-text .form-control__error-text {
     display: block;
-    color: var(--sl-color-danger-500);
-    margin-top: var(--sl-spacing-2x-small);
+    color: var(--sl-input-error-text-color);
+    height: 16px;
   }
 
   .form-control--has-error-text.form-control--small .form-control__error-text {
-    font-size: var(--sl-input-help-text-font-size-small);
+    font-size: var(--sl-input-error-text-font-size-2x-small);
   }
 
   .form-control--has-error-text.form-control--medium .form-control__error-text {
-    font-size: var(--sl-input-help-text-font-size-medium);
+    font-size: var(--sl-input-error-text-font-size-2x-small);
   }
 
   .form-control--has-error-text.form-control--large .form-control__error-text {
-    font-size: var(--sl-input-help-text-font-size-large);
+    font-size: var(--sl-input-error-text-font-size-2x-small);
   }
 
   .form-control--has-error-text.form-control--radio-group .form-control__error-text {
@@ -87,14 +91,14 @@ export default css`
   /* Bottom spacing */
 
   .form-control--has-bottom-spacing.form-control--small {
-    min-height: 84.781px;
+    min-height: 75px;
   }
 
   .form-control--has-bottom-spacing.form-control--medium {
-    min-height: 99.984px;
+    min-height: 85px;
   }
 
   .form-control--has-bottom-spacing.form-control--large {
-    min-height: 120.797px;
+    min-height: 95px;
   }
 `;

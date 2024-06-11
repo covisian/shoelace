@@ -31,8 +31,7 @@ import type { ShoelaceFormControl } from '../../internal/shoelace-element.js';
  * @slot show-password-icon - An icon to use in lieu of the default show password icon.
  * @slot hide-password-icon - An icon to use in lieu of the default hide password icon.
  * @slot help-text - Text that describes how to use the input. Alternatively, you can use the `help-text` attribute.
- *  * @slot error-text - Text that describes an error occured. Alternatively, you can use the `error-text` attribute.
- *
+ * @slot error-text - Text that describes an error occured. Alternatively, you can use the `error-text` attribute.
  * @event sl-blur - Emitted when the control loses focus.
  * @event sl-change - Emitted when an alteration to the control's value is committed by the user.
  * @event sl-clear - Emitted when the clear button is activated.
