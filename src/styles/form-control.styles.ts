@@ -47,6 +47,7 @@ export default css`
     display: block;
     color: var(--sl-input-help-text-color);
     height: 16px;
+    line-height: 1.8;
   }
 
   .form-control--has-help-text.form-control--small .form-control__help-text {
@@ -70,6 +71,7 @@ export default css`
     display: block;
     color: var(--sl-input-error-text-color);
     height: 16px;
+    line-height: 1.8;
   }
 
   .form-control--has-error-text.form-control--small .form-control__error-text {
