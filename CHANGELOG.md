@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.5
+
+### Patch Changes
+
+- line height input error text
+
 ## 2.15.4
 
 ### Patch Changes
