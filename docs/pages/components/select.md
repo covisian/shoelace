@@ -63,6 +63,47 @@ const App = () => (
 );
 ```
 
+### Error Text
+
+Add descriptive error text to an input with the `error-text` attribute. For error texts that contain HTML, use the `error-text` slot instead.
+
+```html:preview
+<sl-select class="error-select" label="Experience" error-text="Please tell us your skill level." clearable>
+  <sl-option value="1">Novice</sl-option>
+  <sl-option value="2">Intermediate</sl-option>
+  <sl-option value="3">Advanced</sl-option>
+</sl-select>
+
+<script>
+  const select = document.querySelector('.error-select');
+
+  select.addEventListener('sl-change', () => {
+    if (select.value) {
+      select.errorText = '';
+    }
+  });
+  select.addEventListener('sl-clear', () => {
+    if (!select.value) {
+      select.errorText = 'Please tell us your skill level.';
+
+    }
+  });
+</script>
+```
+
+```jsx:react
+import SlOption from '@shoelace-style/shoelace/dist/react/option';
+import SlSelect from '@shoelace-style/shoelace/dist/react/select';
+
+const App = () => (
+  <SlSelect label="Experience" error-text="Please tell us your skill level.">
+    <SlOption value="1">Novice</SlOption>
+    <SlOption value="2">Intermediate</SlOption>
+    <SlOption value="3">Advanced</SlOption>
+  </SlSelect>
+);
+```
+
 ### Help Text
 
 Add descriptive help text to a select with the `help-text` attribute. For help texts that contain HTML, use the `help-text` slot instead.
@@ -86,6 +127,28 @@ const App = () => (
     <SlOption value="3">Advanced</SlOption>
   </SlSelect>
 );
+```
+
+### Bottom spacing
+
+Add fixed bottom spacing to accommodate help text and/or error text or to space form controls with no further rules. This prop also prevents display transformation of the spacing.
+
+```html:preview
+<sl-select label="Experience" bottomSpacing>
+  <sl-option value="1">Novice</sl-option>
+  <sl-option value="2">Intermediate</sl-option>
+  <sl-option value="3">Advanced</sl-option>
+</sl-select>
+```
+
+```jsx:react
+import SlInput from '@shoelace-style/shoelace/dist/react/input';
+
+const App = () => <SlSelect label="Experience" bottomSpacing>
+    <SlOption value="1">Novice</SlOption>
+    <SlOption value="2">Intermediate</SlOption>
+    <SlOption value="3">Advanced</SlOption>
+  </SlSelect>;
 ```
 
 ### Placeholders

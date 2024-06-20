@@ -139,7 +139,14 @@ export default class SlOption extends ShoelaceElement {
         @mouseenter=${this.handleMouseEnter}
         @mouseleave=${this.handleMouseLeave}
       >
-        <sl-icon part="checked-icon" class="option__check" name="check" library="system" aria-hidden="true"></sl-icon>
+        <sl-icon
+          part="checked-icon"
+          class="option__check"
+          name="cv-checkbox-tick"
+          size="medium"
+          library="smart"
+          aria-hidden="true"
+        ></sl-icon>
         <slot part="prefix" name="prefix" class="option__prefix"></slot>
         <slot part="label" class="option__label" @slotchange=${this.handleDefaultSlotChange}></slot>
         <slot part="suffix" name="suffix" class="option__suffix"></slot>

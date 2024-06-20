@@ -40,7 +40,7 @@ export default css`
     width: var(--toggle-size);
     height: var(--toggle-size);
     border: solid var(--sl-input-border-width) var(--sl-input-border-color);
-    border-radius: 2px;
+    border-radius: var(--sl-border-radius-medium);
     background-color: var(--sl-input-background-color);
     color: var(--sl-color-neutral-50);
     transition:

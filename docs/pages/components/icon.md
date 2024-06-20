@@ -24,10 +24,10 @@ All available icons in the `default` icon library are shown below. Click or tap 
     <sl-input placeholder="Search Icons" clearable>
       <sl-icon slot="prefix" name="search"></sl-icon>
     </sl-input>
-    <sl-select value="outline">
+    <sl-select value="all">
+      <sl-option value="all">All icons</sl-option>
       <sl-option value="outline">Outlined</sl-option>
       <sl-option value="fill">Filled</sl-option>
-      <sl-option value="all">All icons</sl-option>
     </sl-select>
   </div>
   <div class="icon-list"></div>

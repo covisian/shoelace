@@ -497,8 +497,10 @@
   /* 28px */
   --sl-spacing-2x-large: 2.25rem;
   /* 36px */
+
   --sl-spacing-2-25x-large: 2.5rem;
   /* 40px */
+
   --sl-spacing-3x-large: 3rem;
   /* 48px */
   --sl-spacing-4x-large: 4.5rem;
@@ -574,7 +576,7 @@
   --sl-line-height-looser: 2.6;
 
   /* Focus rings */
-  --sl-focus-ring-color: var(--sl-color-primary-700);
+  --sl-focus-ring-color: var(--sl-color-primary-600);
   --sl-focus-ring-style: solid;
   --sl-focus-ring-width: 3px;
   --sl-focus-ring: var(--sl-focus-ring-style) var(--sl-focus-ring-width) var(--sl-focus-ring-color);
@@ -679,7 +681,19 @@
   --sl-input-error-text-font-size-large: var(--sl-font-size-large);
   --sl-input-error-text-color: var(--sl-color-danger-500);
 
-  /* Toggles (checkboxes, radios, switches) */
+  /* 
+  * Form control sizes
+  */
+  --sl-form-min-heigth-small: 4.688rem;
+  /* 75px */
+  --sl-form-min-heigth-medium: 5.313rem;
+  /* 85px */
+  --sl-form-min-heigth-large: 5.938rem;
+  /* 95px */
+
+  /* 
+  * Toggles (checkboxes, radios, switches)
+ */
   --sl-toggle-size-small: 0.875rem;
   /* 14px */
   --sl-toggle-size-medium: 1.125rem;
@@ -688,22 +702,22 @@
   /* 22px */
 
   /*
-     * Overlays
-     */
+   * Overlays
+   */
 
   --sl-overlay-background-color: hsl(240 3.8% 46.1% / 33%);
 
   /*
-     * Panels
-     */
+   * Panels
+   */
 
   --sl-panel-background-color: var(--sl-color-neutral-0);
   --sl-panel-border-color: var(--sl-color-neutral-200);
   --sl-panel-border-width: 1px;
 
   /*
-     * Tooltips
-     */
+   * Tooltips
+   */
 
   --sl-tooltip-border-radius: var(--sl-border-radius-medium);
   --sl-tooltip-background-color: var(--sl-color-neutral-800);
@@ -716,8 +730,8 @@
   --sl-tooltip-arrow-size: 6px;
 
   /*
-     * Z-indexes
-     */
+   * Z-indexes
+   */
 
   --sl-z-index-drawer: 700;
   --sl-z-index-dialog: 800;
@@ -726,8 +740,8 @@
   --sl-z-index-tooltip: 1000;
 
   /*
-    * KPIs
-    */
+  * KPIs
+  */
 
   /* Performance indicator */
   --sl-kpi-pi: var(--smart-kpi-pi);

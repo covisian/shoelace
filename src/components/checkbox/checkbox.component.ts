@@ -245,7 +245,12 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
           >
             ${this.checked
               ? html`
-                  <sl-icon part="checked-icon" class="checkbox__checked-icon" library="system" name="check"></sl-icon>
+                  <sl-icon
+                    part="checked-icon"
+                    class="checkbox__checked-icon"
+                    library="smart"
+                    name="cv-checkbox-tick"
+                  ></sl-icon>
                 `
               : ''}
             ${!this.checked && this.indeterminate
@@ -253,8 +258,8 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
                   <sl-icon
                     part="indeterminate-icon"
                     class="checkbox__indeterminate-icon"
-                    library="system"
-                    name="indeterminate"
+                    library="smart"
+                    name="cv-checkbox-indeterminate"
                   ></sl-icon>
                 `
               : ''}

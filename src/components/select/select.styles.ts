@@ -136,6 +136,13 @@ export default css`
     box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-input-focus-ring-color);
   }
 
+  .select--error:not(.select--disabled).select--open .select__combobox,
+  .select--error:not(.select--disabled).select--focused .select__combobox {
+    background-color: var(--sl-input-background-color-focus);
+    border-color: var(--sl-color-danger-600);
+    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-color-danger-200);
+  }
+
   /* Filled selects */
   .select--filled .select__combobox {
     border: none;
@@ -157,6 +164,26 @@ export default css`
   .select--filled:not(.select--disabled).select--focused .select__combobox {
     background-color: var(--sl-input-filled-background-color-focus);
     outline: var(--sl-focus-ring);
+  }
+
+  /*
+   * Error select
+   */
+
+  .select--error .select__combobox {
+    background-color: var(--sl-input-background-color);
+    border: solid var(--sl-input-border-width) var(--sl-color-danger-400);
+    min-height: 1em;
+  }
+  .select--error:hover:not(.select--disabled) .select__combobox {
+    background-color: var(--sl-input-background-color-hover);
+    border-color: var(--sl-color-danger-600);
+  }
+
+  .select--error.select--focused:not(.select--disabled) .select__combobox {
+    background-color: var(--sl-input-background-color-focus);
+    border-color: var(--sl-color-danger-600);
+    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-color-danger-200);
   }
 
   /* Sizes */

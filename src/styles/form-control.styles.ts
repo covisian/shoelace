@@ -19,6 +19,8 @@ export default css`
     color: var(--sl-input-label-color);
     font-weight: var(--sl-font-weight-bold);
     height: 24px;
+
+    /* this is to align line-height with smart*/
     line-height: 1.2;
   }
 
@@ -37,7 +39,7 @@ export default css`
   :host([required]) .form-control--has-label .form-control__label::after {
     content: var(--sl-input-required-content);
     color: var(--sl-color-danger-500);
-    font-size: 16px;
+    font-size: var(--sl-input-font-size-medium);
     position: relative;
     top: 3px;
   }
@@ -47,7 +49,7 @@ export default css`
     display: block;
     color: var(--sl-input-help-text-color);
     height: 16px;
-    line-height: 1.8;
+    line-height: var(--sl-line-height-normal);
   }
 
   .form-control--has-help-text.form-control--small .form-control__help-text {
@@ -71,7 +73,7 @@ export default css`
     display: block;
     color: var(--sl-input-error-text-color);
     height: 16px;
-    line-height: 1.8;
+    line-height: var(--sl-line-height-normal);
   }
 
   .form-control--has-error-text.form-control--small .form-control__error-text {
@@ -93,14 +95,14 @@ export default css`
   /* Bottom spacing */
 
   .form-control--has-bottom-spacing.form-control--small {
-    min-height: 75px;
+    min-height: var(--sl-form-min-heigth-small);
   }
 
   .form-control--has-bottom-spacing.form-control--medium {
-    min-height: 85px;
+    min-height: var(--sl-form-min-heigth-medium);
   }
 
   .form-control--has-bottom-spacing.form-control--large {
-    min-height: 95px;
+    min-height: var(--sl-form-min-heigth-large);
   }
 `;

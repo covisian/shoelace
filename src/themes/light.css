@@ -681,7 +681,19 @@
   --sl-input-error-text-font-size-large: var(--sl-font-size-large);
   --sl-input-error-text-color: var(--sl-color-danger-500);
 
-  /* Toggles (checkboxes, radios, switches) */
+  /* 
+  * Form control sizes
+  */
+  --sl-form-min-heigth-small: 4.688rem;
+  /* 75px */
+  --sl-form-min-heigth-medium: 5.313rem;
+  /* 85px */
+  --sl-form-min-heigth-large: 5.938rem;
+  /* 95px */
+
+  /* 
+  * Toggles (checkboxes, radios, switches)
+ */
   --sl-toggle-size-small: 0.875rem;
   /* 14px */
   --sl-toggle-size-medium: 1.125rem;

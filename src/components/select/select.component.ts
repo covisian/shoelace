@@ -39,6 +39,7 @@ import type SlOption from '../option/option.component.js';
  * @slot clear-icon - An icon to use in lieu of the default clear icon.
  * @slot expand-icon - The icon to show when the control is expanded and collapsed. Rotates on open and close.
  * @slot help-text - Text that describes how to use the input. Alternatively, you can use the `help-text` attribute.
+ * @slot error-text - Text that describes an error occured. Alternatively, you can use the `error-text` attribute.
  *
  * @event sl-change - Emitted when the control's value changes.
  * @event sl-clear - Emitted when the control's value is cleared.
@@ -55,6 +56,7 @@ import type SlOption from '../option/option.component.js';
  * @csspart form-control-label - The label's wrapper.
  * @csspart form-control-input - The select's wrapper.
  * @csspart form-control-help-text - The help text's wrapper.
+ * @csspart form-control-error-text - The error text's wrapper.
  * @csspart combobox - The container the wraps the prefix, combobox, clear icon, and expand button.
  * @csspart prefix - The container that wraps the prefix slot.
  * @csspart display-input - The element that displays the selected option's label, an `<input>` element.
@@ -121,6 +123,9 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   /** Placeholder text to show as a hint when the select is empty. */
   @property() placeholder = '';
 
+  /** Add fixed bottom spacing to accommodate help text and/or error text. This prop prevents display transformation of the spacing. */
+  @property({ type: Boolean, reflect: true }) bottomSpacing = false;
+
   /** Allows more than one option to be selected. */
   @property({ type: Boolean, reflect: true }) multiple = false;
 
@@ -165,6 +170,9 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
 
   /** The select's help text. If you need to display HTML, use the `help-text` slot instead. */
   @property({ attribute: 'help-text' }) helpText = '';
+
+  /** The select's error text. If you need to display HTML, use the `error-text` slot instead. */
+  @property({ attribute: 'error-text' }) errorText = '';
 
   /**
    * By default, form controls are associated with the nearest containing `<form>` element. This attribute allows you
@@ -745,8 +753,11 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   render() {
     const hasLabelSlot = this.hasSlotController.test('label');
     const hasHelpTextSlot = this.hasSlotController.test('help-text');
+    const hasErrorTextSlot = this.hasSlotController.test('error-text');
     const hasLabel = this.label ? true : !!hasLabelSlot;
     const hasHelpText = this.helpText ? true : !!hasHelpTextSlot;
+    const hasErrorText = this.errorText ? true : !!hasErrorTextSlot;
+
     const hasClearIcon = this.clearable && !this.disabled && this.value.length > 0;
     const isPlaceholderVisible = this.placeholder && this.value.length === 0;
 
@@ -759,7 +770,9 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
           'form-control--medium': this.size === 'medium',
           'form-control--large': this.size === 'large',
           'form-control--has-label': hasLabel,
-          'form-control--has-help-text': hasHelpText
+          'form-control--has-help-text': hasHelpText,
+          'form-control--has-error-text': hasErrorText,
+          'form-control--has-bottom-spacing': this.bottomSpacing
         })}
       >
         <label
@@ -788,7 +801,8 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
               'select--bottom': this.placement === 'bottom',
               'select--small': this.size === 'small',
               'select--medium': this.size === 'medium',
-              'select--large': this.size === 'large'
+              'select--large': this.size === 'large',
+              'select--error': this.errorText
             })}
             placement=${this.placement}
             strategy=${this.hoist ? 'fixed' : 'absolute'}
@@ -856,7 +870,7 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
                       tabindex="-1"
                     >
                       <slot name="clear-icon">
-                        <sl-icon name="x-circle-fill" library="system"></sl-icon>
+                        <sl-icon name="cv-close" library="smart"></sl-icon>
                       </slot>
                     </button>
                   `
@@ -891,6 +905,14 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
           aria-hidden=${hasHelpText ? 'false' : 'true'}
         >
           <slot name="help-text">${this.helpText}</slot>
+        </div>
+        <div
+          part="form-control-error-text"
+          id="error-text"
+          class="form-control__error-text"
+          aria-hidden=${hasErrorTextSlot ?? false}
+        >
+          <slot name="error-text">${this.errorText}</slot>
         </div>
       </div>
     `;

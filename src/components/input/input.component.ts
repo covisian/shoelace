@@ -519,7 +519,7 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                     tabindex="-1"
                   >
                     <slot name="clear-icon">
-                      <sl-icon name="cv-close-tag-fill"></sl-icon>
+                      <sl-icon name="cv-close"></sl-icon>
                     </slot>
                   </button>
                 `
