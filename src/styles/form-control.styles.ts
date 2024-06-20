@@ -40,8 +40,9 @@ export default css`
     content: var(--sl-input-required-content);
     color: var(--sl-color-danger-500);
     font-size: var(--sl-input-font-size-medium);
-    position: relative;
+    position: absolute;
     top: 3px;
+    margin-left: 4px;
   }
 
   /* Help text */
