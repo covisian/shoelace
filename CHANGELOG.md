@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.7
+
+### Patch Changes
+
+- fix form control after position
+
 ## 2.15.6
 
 ### Patch Changes
