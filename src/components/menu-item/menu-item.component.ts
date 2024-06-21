@@ -175,7 +175,7 @@ export default class SlMenuItem extends ShoelaceElement {
         ?aria-expanded="${isSubmenuExpanded ? true : false}"
       >
         <span part="checked-icon" class="menu-item__check">
-          <sl-icon name="check" library="system" aria-hidden="true"></sl-icon>
+          <sl-icon library="smart" name="cv-confirm" aria-hidden="true"></sl-icon>
         </span>
 
         <slot name="prefix" part="prefix" class="menu-item__prefix"></slot>

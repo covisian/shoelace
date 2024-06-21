@@ -19,6 +19,7 @@ export default css`
     color: var(--sl-input-label-color);
     font-weight: var(--sl-font-weight-bold);
     height: 24px;
+    position:relative;
 
     /* this is to align line-height with smart*/
     line-height: 1.2;
@@ -41,7 +42,7 @@ export default css`
     color: var(--sl-color-danger-500);
     font-size: var(--sl-input-font-size-medium);
     position: absolute;
-    top: 3px;
+    top: 0;
     margin-left: 4px;
   }
 

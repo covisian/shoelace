@@ -224,7 +224,7 @@ export default class SlCopyButton extends ShoelaceElement {
             <sl-icon library="system" name="copy"></sl-icon>
           </slot>
           <slot part="success-icon" name="success-icon" hidden>
-            <sl-icon library="system" name="check"></sl-icon>
+            <sl-icon library="smart" name="cv-confirm"></sl-icon>
           </slot>
           <slot part="error-icon" name="error-icon" hidden>
             <sl-icon library="system" name="x-lg"></sl-icon>

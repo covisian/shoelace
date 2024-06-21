@@ -142,8 +142,7 @@ export default class SlOption extends ShoelaceElement {
         <sl-icon
           part="checked-icon"
           class="option__check"
-          name="cv-checkbox-tick"
-          size="medium"
+          name="cv-confirm"
           library="smart"
           aria-hidden="true"
         ></sl-icon>

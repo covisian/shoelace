@@ -249,7 +249,7 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
                     part="checked-icon"
                     class="checkbox__checked-icon"
                     library="smart"
-                    name="cv-checkbox-tick"
+                    name="cv-confirm"
                   ></sl-icon>
                 `
               : ''}
