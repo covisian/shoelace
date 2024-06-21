@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.8
+
+### Patch Changes
+
+- fix required form-control
+
 ## 2.15.7
 
 ### Patch Changes
