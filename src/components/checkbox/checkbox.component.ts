@@ -70,6 +70,9 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
   /** Disables the checkbox. */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
+  /** Add fixed bottom spacing to accommodate help text and/or error text. This prop prevents display transformation of the spacing. */
+  @property({ type: Boolean, reflect: true }) bottomSpacing = false;
+
   /** Draws the checkbox in a checked state. */
   @property({ type: Boolean, reflect: true }) checked = false;
 
@@ -202,7 +205,8 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
           'form-control--small': this.size === 'small',
           'form-control--medium': this.size === 'medium',
           'form-control--large': this.size === 'large',
-          'form-control--has-help-text': hasHelpText
+          'form-control--has-help-text': hasHelpText,
+          'form-control--has-bottom-spacing': this.bottomSpacing
         })}
       >
         <label

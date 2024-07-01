@@ -221,13 +221,13 @@ export default class SlCopyButton extends ShoelaceElement {
           @click=${this.handleCopy}
         >
           <slot part="copy-icon" name="copy-icon">
-            <sl-icon library="system" name="copy"></sl-icon>
+            <sl-icon library="smart" name="cv-copy"></sl-icon>
           </slot>
           <slot part="success-icon" name="success-icon" hidden>
             <sl-icon library="smart" name="cv-confirm"></sl-icon>
           </slot>
           <slot part="error-icon" name="error-icon" hidden>
-            <sl-icon library="system" name="x-lg"></sl-icon>
+            <sl-icon library="smart" name="cv-close"></sl-icon>
           </slot>
         </button>
       </sl-tooltip>

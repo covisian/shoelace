@@ -103,6 +103,20 @@ import SlCheckbox from '@shoelace-style/shoelace/dist/react/checkbox';
 const App = () => <SlCheckbox help-text="What should the user know about the switch?">Label</SlCheckbox>;
 ```
 
+### Bottom spacing
+
+Add fixed bottom spacing to accommodate help text and/or error text or to space form controls with no further rules. This prop also prevents display transformation of the spacing.
+
+```html:preview
+<sl-checkbox bottomSpacing>Label</sl-checkbox>
+```
+
+```jsx:react
+import SlInput from '@shoelace-style/shoelace/dist/react/input';
+
+const App = () => <SlCheckbox bottomSpacing>Label</SlCheckbox>;
+```
+
 ### Custom Validity
 
 Use the `setCustomValidity()` method to set a custom validation message. This will prevent the form from submitting and make the browser display the error message you provide. To clear the error, call this function with an empty string.

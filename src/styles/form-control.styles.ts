@@ -37,7 +37,8 @@ export default css`
     font-size: var(--sl-input-label-font-size-x-small);
   }
 
-  :host([required]) .form-control--has-label .form-control__label::after {
+  :host([required]) .form-control--has-label .form-control__label::after,
+  :host([required]) .form-control .checkbox__label::after {
     content: var(--sl-input-required-content);
     color: var(--sl-color-danger-500);
     font-size: var(--sl-input-font-size-medium);
