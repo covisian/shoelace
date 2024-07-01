@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.15.9
+
+### Patch Changes
+
+- align checkbox bottomSpacing and required
+
 ## 2.15.8
 
 ### Patch Changes
