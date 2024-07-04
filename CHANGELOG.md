@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.16.0
+
+### Minor Changes
+
+- checkbox bottomSpacing prop spacings and icon size compact add
+
 ## 2.15.9
 
 ### Patch Changes
