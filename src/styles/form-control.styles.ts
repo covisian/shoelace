@@ -119,7 +119,7 @@ export default css`
     height: var(--sl-form-checkbox-min-heigth-medium);
   }
 
-    .form-control-checkbox--has-bottom-spacing.form-control--large {
+  .form-control-checkbox--has-bottom-spacing.form-control--large {
     height: var(--sl-form-checkbox-min-heigth-large);
   }
 `;
