@@ -205,12 +205,12 @@ const App = () => (
 
 ### Size property
 
-This component can also, in addition to inline sizing, have a presetted `size` property: `custom`, `small`, `medium`, `large`, `extra`.
+This component can also, in addition to inline sizing, have a presetted `size` property: `custom`, `small`,`compact`, `medium`, `large`, `extra`.
 
 ```html:preview
-  <sl-icon name="cv-maximize"></sl-icon>
-  <sl-icon name="cv-maximize" size='custom'></sl-icon>
+  <sl-icon name="cv-maximize" size="custom"></sl-icon>
   <sl-icon name="cv-maximize" size="small"></sl-icon>
+  <sl-icon name="cv-maximize" size="compact"></sl-icon>
   <sl-icon name="cv-maximize" size="medium"></sl-icon>
   <sl-icon name="cv-maximize" size="large"></sl-icon>
   <sl-icon name="cv-maximize" size="extra"></sl-icon>
@@ -247,8 +247,7 @@ Empty states icons, packed with extra default font-size.
   <sl-icon name="cv-es-no-actions" size='extra'></sl-icon>
   <sl-icon name="cv-es-no-fields" size='extra'></sl-icon>
   <sl-icon name="cv-es-no-users-to-show" size='extra'></sl-icon>
-  <sl-icon name="cv-es-no-filter-selected
-" size='extra'></sl-icon>
+  <sl-icon name="cv-es-no-filter-selected" size='extra'></sl-icon>
   <sl-icon name="cv-es-messages" size='extra'></sl-icon>
   <sl-icon name="cv-es-remote" size='extra'></sl-icon>
   <sl-icon name="cv-es-remote-no-agents"size='extra'></sl-icon>

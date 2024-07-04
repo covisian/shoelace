@@ -83,7 +83,7 @@ const App = () => <SlInput label="Nickname" help-text="What would you like peopl
 Add fixed bottom spacing to accommodate help text and/or error text or to space form controls with no further rules. This prop also prevents display transformation of the spacing.
 
 ```html:preview
-<sl-input label="Nickname" bottomSpacing error-text=''></sl-input>
+<sl-input label="Nickname" bottomSpacing></sl-input>
 ```
 
 ```jsx:react
@@ -167,11 +167,11 @@ const App = () => <SlInput placeholder="Disabled" disabled />;
 Use the `size` attribute to change an input's size.
 
 ```html:preview
-<sl-input placeholder="Small" size="small" label='label'></sl-input>
-<br />
-<sl-input placeholder="Medium" size="medium" label='label'></sl-input>
-<br />
-<sl-input placeholder="Large" size="large" label='label'></sl-input>
+<sl-input placeholder="Small" size="small" label='label' bottomSpacing ></sl-input>
+<!-- <br /> -->
+<sl-input placeholder="Medium" size="medium" label='label' bottomSpacing ></sl-input>
+<!-- <br /> -->
+<sl-input placeholder="Large" size="large" label='label' bottomSpacing ></sl-input>
 ```
 
 ```jsx:react

@@ -206,7 +206,7 @@ export default class SlCheckbox extends ShoelaceElement implements ShoelaceFormC
           'form-control--medium': this.size === 'medium',
           'form-control--large': this.size === 'large',
           'form-control--has-help-text': hasHelpText,
-          'form-control--has-bottom-spacing': this.bottomSpacing
+          'form-control-checkbox--has-bottom-spacing': this.bottomSpacing
         })}
       >
         <label

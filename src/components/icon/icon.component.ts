@@ -113,7 +113,7 @@ export default class SlIcon extends ShoelaceElement {
   @property({ reflect: true }) library = 'smart';
 
   /** Size property */
-  @property({ reflect: true }) size?: 'custom' | 'small' | 'medium' | 'large' | 'extra';
+  @property({ reflect: true }) size?: 'custom' | 'small' | 'compact' | 'medium' | 'large' | 'extra';
 
   /** Color property */
   @property({ reflect: true }) color?:
@@ -163,6 +163,9 @@ export default class SlIcon extends ShoelaceElement {
         break;
       case 'small':
         this._size = 'var(--sl-font-size-medium)';
+        break;
+      case 'compact':
+        this._size = '20px';
         break;
       case 'medium':
         this._size = 'var(--sl-font-size-x-large)';

@@ -68,11 +68,11 @@ const App = () => <SlCheckbox disabled>Disabled</SlCheckbox>;
 Use the `size` attribute to change a checkbox's size.
 
 ```html:preview
-<sl-checkbox size="small">Small</sl-checkbox>
+<sl-checkbox size="small" bottomSpacing>Small</sl-checkbox>
 <br />
-<sl-checkbox size="medium">Medium</sl-checkbox>
+<sl-checkbox size="medium" bottomSpacing>Medium</sl-checkbox>
 <br />
-<sl-checkbox size="large">Large</sl-checkbox>
+<sl-checkbox size="large" bottomSpacing>Large</sl-checkbox>
 ```
 
 ```jsx:react
@@ -80,7 +80,7 @@ import SlCheckbox from '@shoelace-style/shoelace/dist/react/checkbox';
 
 const App = () => (
   <>
-    <SlCheckbox size="small">Small</SlCheckbox>
+    <SlCheckbox size="small" >Small</SlCheckbox>
     <br />
     <SlCheckbox size="medium">Medium</SlCheckbox>
     <br />

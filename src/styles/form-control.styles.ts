@@ -64,7 +64,7 @@ export default css`
   }
 
   .form-control--has-help-text.form-control--large .form-control__help-text {
-    font-size: var(---sl-input-help-text-font-size-2x-small);
+    font-size: var(--sl-input-help-text-font-size-2x-small);
   }
 
   .form-control--has-help-text.form-control--radio-group .form-control__help-text {
@@ -98,14 +98,28 @@ export default css`
   /* Bottom spacing */
 
   .form-control--has-bottom-spacing.form-control--small {
-    min-height: var(--sl-form-min-heigth-small);
+    height: var(--sl-form-min-heigth-small);
   }
 
   .form-control--has-bottom-spacing.form-control--medium {
-    min-height: var(--sl-form-min-heigth-medium);
+    height: var(--sl-form-min-heigth-medium);
   }
 
   .form-control--has-bottom-spacing.form-control--large {
-    min-height: var(--sl-form-min-heigth-large);
+    height: var(--sl-form-min-heigth-large);
+  }
+
+  /* Bottom spacing Checkbox */
+
+  .form-control-checkbox--has-bottom-spacing.form-control--small {
+    height: var(--sl-form-checkbox-min-heigth-small);
+  }
+
+  .form-control-checkbox--has-bottom-spacing.form-control--medium {
+    height: var(--sl-form-checkbox-min-heigth-medium);
+  }
+
+    .form-control-checkbox--has-bottom-spacing.form-control--large {
+    height: var(--sl-form-checkbox-min-heigth-large);
   }
 `;
