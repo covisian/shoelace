@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.16.1
+
+### Patch Changes
+
+- fix avatar negative color. Now numbers can be shown as initials or name
+
 ## 2.16.0
 
 ### Minor Changes
