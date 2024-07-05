@@ -55,12 +55,13 @@ const App = () => (
 ### Name
 
 When you don't have an image to use, you can set the `name` attribute to show something more personalized than an icon, the initials will be taken from this name and inserted into the avatar over a random background. <br>
-If you have multiple first or last names, the avatar gets the first and last word.
+If you have multiple first or last names, the avatar gets the first and last word.<br>If a number is passed, it always gets converted to its absolute value.
 
 ```html:preview
 <sl-avatar name='name surname' label="Avatar with name: name surname"></sl-avatar>
 <sl-avatar name='myName' label="Avatar with a single name: myName"></sl-avatar>
 <sl-avatar name='first and last name' label="Avatar with multiple names: first and last name"></sl-avatar>
+<sl-avatar name='95' label="Avatar with multiple names: first and last name"></sl-avatar>
 ```
 
 ```jsx:react
@@ -76,9 +77,10 @@ const App = () => <SlAvatar  name='first and last name' label="Avatar with name:
 When you don't have an image and a name to use, you can set the `initials` attribute to show something more personalized than an icon (1-2 characters max recommended). If both the name and initials are entered, the initials have priority.
 
 ```html:preview
-<sl-avatar initials="a" label="Avatar with initials: sl"></sl-avatar>
-<sl-avatar initials="ab" label="Avatar with initials: sl"></sl-avatar>
+<sl-avatar initials="r" label="Avatar with initials: sl"></sl-avatar>
+<sl-avatar initials="ma" label="Avatar with initials: sl"></sl-avatar>
 <sl-avatar initials="abc" label="Avatar with initials: sl"></sl-avatar>
+<sl-avatar initials="52" label="Avatar with initials: sl"></sl-avatar>
 ```
 
 ```jsx:react

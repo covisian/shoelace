@@ -93,9 +93,10 @@ export default class SlAvatar extends ShoelaceElement {
     this.initials = firstLetter + secondLetter;
     return this.initials;
   }
+
   getStyleForInitials() {
     const charIndex = this.initials.charCodeAt(0) - 65;
-    const colorIndex = charIndex % this.colors.length;
+    const colorIndex = Math.abs(charIndex % this.colors.length);
     return this.colors[colorIndex];
   }
 
