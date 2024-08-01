@@ -46,13 +46,18 @@ export default class SlTab extends ShoelaceElement {
   @property({ type: Boolean, reflect: true }) active = false;
 
   /** Makes the tab closable and shows a close button. */
-  @property({ type: Boolean }) closable = false;
+  @property({ type: Boolean, reflect: true }) closable = false;
 
   /** Disables the tab and prevents selection. */
   @property({ type: Boolean, reflect: true }) disabled = false;
 
   /** Inherits variant property if set on Sl-Tab-Group */
   @property({ type: String, reflect: true }) variant: 'default' | 'wizard' | 'segment' | 'segment-soft' = 'default';
+  /**
+   * @internal
+   * Need to wrap in a `@property()` otherwise CustomElement throws a "The result must not have attributes" runtime error.
+   */
+  @property({ type: Number, reflect: true }) tabIndex = 0;
 
   connectedCallback() {
     super.connectedCallback();
@@ -88,16 +93,12 @@ export default class SlTab extends ShoelaceElement {
   @watch('disabled')
   handleDisabledChange() {
     this.setAttribute('aria-disabled', this.disabled ? 'true' : 'false');
-  }
 
-  /** Sets focus to the tab. */
-  focus(options?: FocusOptions) {
-    this.tab.focus(options);
-  }
-
-  /** Removes focus from the tab. */
-  blur() {
-    this.tab.blur();
+    if (this.disabled && !this.active) {
+      this.tabIndex = -1;
+    } else {
+      this.tabIndex = 0;
+    }
   }
 
   render() {
@@ -116,7 +117,6 @@ export default class SlTab extends ShoelaceElement {
           'tab--segment': this.variant === 'segment',
           'tab--segment-soft': this.variant === 'segment-soft'
         })}
-        tabindex=${this.disabled ? '-1' : '0'}
       >
         ${this.variant !== 'wizard'
           ? html` <slot></slot> `
