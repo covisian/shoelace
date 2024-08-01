@@ -130,7 +130,6 @@ export default class SlAlert extends ShoelaceElement {
       await stopAnimations(this.base);
       this.base.hidden = false;
       const { keyframes, options } = getAnimation(this, `alert.show.${this.position}`, { dir: this.localize.dir() });
-      console.log(`alert.show.${this.position}`);
       await animateTo(this.base, keyframes, options);
       this.emit('sl-after-show');
     } else {
