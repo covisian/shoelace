@@ -102,7 +102,7 @@ export default class SlAvatar extends ShoelaceElement {
     const colorIndex = Math.abs(charIndex % this.colors.length);
     return this.colors[colorIndex];
   }
-  
+
   private handleImageLoadError() {
     this.hasError = true;
     this.emit('sl-error');
