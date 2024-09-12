@@ -473,9 +473,11 @@
 
   --sl-shadow-x-small: 0 1px 2px hsl(240 3.8% 46.1% / 6%);
   --sl-shadow-small: 0 1px 2px hsl(240 3.8% 46.1% / 12%);
-  --sl-shadow-medium: 0 2px 4px hsl(240 3.8% 46.1% / 12 %);
+  --sl-shadow-medium: 0 2px 4px hsl(240 3.8% 46.1% / 12%);
   --sl-shadow-large: 0 2px 8px hsl(240 3.8% 46.1% / 12%);
-  --sl-shadow-x-large: 0 4px 16px hsl(240 3.8% 46.1% / 12%);
+  --sl-shadow-x-large: 0 2px 8px hsl(240 3.8% 46.1% / 20%);
+  --sl-shadow-2x-large: 0 8px 32px hsl(240 3.8% 46.1% / 20%);
+  --sl-shadow-3x-large: 0 16px 24px hsl(0, 0%, 0% / 0.2%);
 
   /*
    * Spacings

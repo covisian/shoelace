@@ -28,6 +28,7 @@
   "files": [
     "dist",
     "cdn"
+    
   ],
   "keywords": [
     "web components",
