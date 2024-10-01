@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.17.1
+
+### Patch Changes
+
+- add align prop to tab-group
+
 ## 2.17.0
 
 ### Minor Changes
