@@ -25,5 +25,4 @@ export default css`
     opacity: 0;
     z-index: -1;
   }
-
 `;
