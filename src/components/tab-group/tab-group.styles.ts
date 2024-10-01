@@ -17,7 +17,17 @@ export default css`
   .tab-group__tabs {
     display: flex;
     position: relative;
+    &.tab-group__tabs--center{
+      justify-content:center;
+    }
+     &.tab-group__tabs--start{
+      justify-content:left;
+    }
+     &.tab-group__tabs--end{
+      justify-content:right;
+    }
   }
+
 
   .tab-group__indicator {
     position: absolute;

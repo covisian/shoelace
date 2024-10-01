@@ -66,6 +66,9 @@ export default class SlTabGroup extends ShoelaceElement {
   /** An alternative custom design for displaying tabs */
   @property() variant: 'default' | 'wizard' | 'segment' | 'segment-soft' = 'default';
 
+  /** The alignment of the tab group */
+  @property() align: 'center' | 'start' | 'end' = 'center';
+
   /**
    * When set to auto, navigating tabs with the arrow keys will instantly show the corresponding tab panel. When set to
    * manual, the tab will receive focus but will not show until the user presses spacebar or enter.
@@ -411,23 +414,23 @@ export default class SlTabGroup extends ShoelaceElement {
       <div
         part="base"
         class=${classMap({
-          'tab-group': true,
-          'tab-group--top': this.placement === 'top',
-          'tab-group--bottom': this.placement === 'bottom',
-          'tab-group--start': this.placement === 'start',
-          'tab-group--end': this.placement === 'end',
-          'tab-group--rtl': this.localize.dir() === 'rtl',
-          'tab-group--has-scroll-controls': this.hasScrollControls,
-          'tab-group--wizard': this.variant === 'wizard',
-          'tab-group--segment': this.variant === 'segment',
-          'tab-group--segment-soft': this.variant === 'segment-soft'
-        })}
+      'tab-group': true,
+      'tab-group--top': this.placement === 'top',
+      'tab-group--bottom': this.placement === 'bottom',
+      'tab-group--start': this.placement === 'start',
+      'tab-group--end': this.placement === 'end',
+      'tab-group--rtl': this.localize.dir() === 'rtl',
+      'tab-group--has-scroll-controls': this.hasScrollControls,
+      'tab-group--wizard': this.variant === 'wizard',
+      'tab-group--segment': this.variant === 'segment',
+      'tab-group--segment-soft': this.variant === 'segment-soft'
+    })}
         @click=${this.handleClick}
         @keydown=${this.handleKeyDown}
       >
         <div class="tab-group__nav-container" part="nav">
           ${this.hasScrollControls
-            ? html`
+        ? html`
                 <sl-icon-button
                   part="scroll-button scroll-button--start"
                   exportparts="base:scroll-button__base"
@@ -438,17 +441,26 @@ export default class SlTabGroup extends ShoelaceElement {
                   @click=${this.handleScrollToStart}
                 ></sl-icon-button>
               `
-            : ''}
+        : ''}
 
           <div class="tab-group__nav">
-            <div part="tabs" class="tab-group__tabs" role="tablist">
+            <div
+              part="tabs"
+              class=${classMap({
+          'tab-group__tabs': true,
+          'tab-group__tabs--center': this.variant === 'wizard' && this.align === 'center',
+          'tab-group__tabs--start': this.variant === 'wizard' && this.align === 'start',
+          'tab-group__tabs--end': this.variant === 'wizard' && this.align === 'end'
+        })}
+              role="tablist"
+            >
               <div part="active-tab-indicator" class="tab-group__indicator"></div>
               <slot name="nav" @slotchange=${this.syncTabsAndPanels}></slot>
             </div>
           </div>
 
           ${this.hasScrollControls
-            ? html`
+        ? html`
                 <sl-icon-button
                   part="scroll-button scroll-button--end"
                   exportparts="base:scroll-button__base"
@@ -459,7 +471,7 @@ export default class SlTabGroup extends ShoelaceElement {
                   @click=${this.handleScrollToEnd}
                 ></sl-icon-button>
               `
-            : ''}
+        : ''}
         </div>
 
         <slot part="body" class="tab-group__body" @slotchange=${this.syncTabsAndPanels}></slot>
