@@ -62,6 +62,9 @@ export default class SlAlert extends ShoelaceElement {
   /** The alert's theme variant. */
   @property({ reflect: true }) variant: 'primary' | 'success' | 'neutral' | 'warning' | 'danger' = 'primary';
 
+  /** The alert's outline variant. */
+  @property({ type: Boolean, reflect: true }) outline = false;
+
   /** The alert's position. */
   @property({ reflect: true }) position:
     | 'relative'
@@ -220,6 +223,7 @@ export default class SlAlert extends ShoelaceElement {
           'alert--open': this.open,
           'alert--closable': this.closable,
           'alert--has-icon': this.hasSlotController.test('icon'),
+          'alert--outline': this.outline,
           'alert--primary': this.variant === 'primary',
           'alert--success': this.variant === 'success',
           'alert--neutral': this.variant === 'neutral',
@@ -245,8 +249,7 @@ export default class SlAlert extends ShoelaceElement {
                 part="close-button"
                 exportparts="base:close-button__base"
                 class="alert__close-button"
-                name="x-lg"
-                library="system"
+                name="cv-close"
                 label=${this.localize.term('close')}
                 @click=${this.handleCloseClick}
               ></sl-icon-button>

@@ -35,7 +35,7 @@ Alerts will not be visible if the `open` attribute is not present.
 Set the `variant` attribute to change the alert's variant.
 
 ```html:preview
-<sl-alert variant="primary" open>
+<sl-alert variant="primary" open closable>
   <sl-icon slot="icon" name="info-circle"></sl-icon>
   <strong>This is super informative</strong><br />
   You can tell by how pretty the alert is.
@@ -43,15 +43,15 @@ Set the `variant` attribute to change the alert's variant.
 
 <br />
 
-<sl-alert variant="success" open>
-  <sl-icon slot="icon" name="check2-circle"></sl-icon>
+<sl-alert variant="success" open closable>
+  <sl-icon slot="icon" name="cv-status-list-check"></sl-icon>
   <strong>Your changes have been saved</strong><br />
   You can safely exit the app now.
 </sl-alert>
 
 <br />
 
-<sl-alert variant="neutral" open>
+<sl-alert variant="neutral" open closable>
   <sl-icon slot="icon" name="gear"></sl-icon>
   <strong>Your settings have been updated</strong><br />
   Settings will take effect on next login.
@@ -59,16 +59,112 @@ Set the `variant` attribute to change the alert's variant.
 
 <br />
 
-<sl-alert variant="warning" open>
-  <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+<sl-alert variant="warning" open closable>
+  <sl-icon slot="icon" name="cv-warning"></sl-icon>
   <strong>Your session has ended</strong><br />
   Please login again to continue.
 </sl-alert>
 
 <br />
 
-<sl-alert variant="danger" open>
-  <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
+<sl-alert variant="danger" open closable>
+  <sl-icon slot="icon" name="cv-error"></sl-icon>
+  <strong>Your account has been deleted</strong><br />
+  We're very sorry to see you go!
+</sl-alert>
+```
+
+```jsx:react
+import SlAlert from '@shoelace-style/shoelace/dist/react/alert';
+import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
+
+const App = () => (
+  <>
+    <SlAlert variant="primary" open>
+      <SlIcon slot="icon" name="info-circle" />
+      <strong>This is super informative</strong>
+      <br />
+      You can tell by how pretty the alert is.
+    </SlAlert>
+
+    <br />
+
+    <SlAlert variant="success" open>
+      <SlIcon slot="icon" name="check2-circle" />
+      <strong>Your changes have been saved</strong>
+      <br />
+      You can safely exit the app now.
+    </SlAlert>
+
+    <br />
+
+    <SlAlert variant="neutral" open>
+      <SlIcon slot="icon" name="gear" />
+      <strong>Your settings have been updated</strong>
+      <br />
+      Settings will take effect on next login.
+    </SlAlert>
+
+    <br />
+
+    <SlAlert variant="warning" open>
+      <SlIcon slot="icon" name="exclamation-triangle" />
+      <strong>Your session has ended</strong>
+      <br />
+      Please login again to continue.
+    </SlAlert>
+
+    <br />
+
+    <SlAlert variant="danger" open>
+      <SlIcon slot="icon" name="exclamation-octagon" />
+      <strong>Your account has been deleted</strong>
+      <br />
+      We're very sorry to see you go!
+    </SlAlert>
+  </>
+);
+```
+
+### Outline
+
+Set the `outline` boolean to change the alert's style.
+
+```html:preview
+<sl-alert variant="primary" open closable outline>
+  <sl-icon slot="icon" name="info-circle"></sl-icon>
+  <strong>This is super informative</strong><br />
+  You can tell by how pretty the alert is.
+</sl-alert>
+
+<br />
+
+<sl-alert variant="success" open closable outline>
+  <sl-icon slot="icon" name="cv-status-list-check"></sl-icon>
+  <strong>Your changes have been saved</strong><br />
+  You can safely exit the app now.
+</sl-alert>
+
+<br />
+
+<sl-alert variant="neutral" open closable outline>
+  <sl-icon slot="icon" name="gear"></sl-icon>
+  <strong>Your settings have been updated</strong><br />
+  Settings will take effect on next login.
+</sl-alert>
+
+<br />
+
+<sl-alert variant="warning" open closable outline>
+  <sl-icon slot="icon" name="cv-warning"></sl-icon>
+  <strong>Your session has ended</strong><br />
+  Please login again to continue.
+</sl-alert>
+
+<br />
+
+<sl-alert variant="danger" open closable outline>
+  <sl-icon slot="icon" name="cv-error"></sl-icon>
   <strong>Your account has been deleted</strong><br />
   We're very sorry to see you go!
 </sl-alert>
