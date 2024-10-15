@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.17.17
+
+### Patch Changes
+
+- trigger release
+
 ## 2.17.16
 
 ### Patch Changes
