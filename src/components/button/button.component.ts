@@ -313,7 +313,7 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
           'button--fluid': this.fluid,
           'button--link': isLink,
           'button--rtl': this.localize.dir() === 'rtl',
-          'button--has-label': this.hasSlotController.test('[default]'),
+          'button--has-label': this.hasSlotController.test('[primary]'),
           'button--has-prefix': this.hasSlotController.test('prefix'),
           'button--has-suffix': this.hasSlotController.test('suffix')
         })}
