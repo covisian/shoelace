@@ -1,7 +1,7 @@
 {
   "name": "@covisian/shoelace",
   "description": "A forward-thinking library of web components.",
-  "version": "2.17.0",
+  "version": "2.17.16",
   "homepage": "https://github.com/covisian/shoelace",
   "author": "Cory LaViska",
   "license": "MIT",
@@ -28,7 +28,6 @@
   "files": [
     "dist",
     "cdn"
-    
   ],
   "keywords": [
     "web components",
