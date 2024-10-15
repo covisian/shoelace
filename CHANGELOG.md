@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.17.4
+
+### Patch Changes
+
+- align to shoelace 2.17.1
+
 ## 2.17.3
 
 ### Patch Changes
