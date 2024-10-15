@@ -481,7 +481,7 @@ export default class SlTabGroup extends ShoelaceElement {
               `
             : ''}
 
-          <div class="tab-group__nav">
+          <div class="tab-group__nav" @scrollend=${this.updateScrollButtons}>
             <div
               part="tabs"
               class=${classMap({
@@ -492,38 +492,34 @@ export default class SlTabGroup extends ShoelaceElement {
               })}
               role="tablist"
             >
-              <div class="tab-group__nav" @scrollend=${this.updateScrollButtons}>
-                <div part="tabs" class="tab-group__tabs" role="tablist">
-                  <div part="active-tab-indicator" class="tab-group__indicator"></div>
-                  <sl-resize-observer @sl-resize=${this.syncIndicator}>
-                    <slot name="nav" @slotchange=${this.syncTabsAndPanels}></slot>
-                  </sl-resize-observer>
-                </div>
-              </div>
-
-              ${this.hasScrollControls
-                ? html`
-                    <sl-icon-button
-                      part="scroll-button scroll-button--end"
-                      exportparts="base:scroll-button__base"
-                      class=${classMap({
-                        'tab-group__scroll-button': true,
-                        'tab-group__scroll-button--end': true,
-                        'tab-group__scroll-button--end--hidden': this.shouldHideScrollEndButton
-                      })}
-                      name=${isRtl ? 'chevron-left' : 'chevron-right'}
-                      library="system"
-                      tabindex="-1"
-                      aria-hidden="true"
-                      label=${this.localize.term('scrollToEnd')}
-                      @click=${this.handleScrollToEnd}
-                    ></sl-icon-button>
-                  `
-                : ''}
+              <div part="active-tab-indicator" class="tab-group__indicator"></div>
+              <sl-resize-observer @sl-resize=${this.syncIndicator}>
+                <slot name="nav" @slotchange=${this.syncTabsAndPanels}></slot>
+              </sl-resize-observer>
             </div>
-
-            <slot part="body" class="tab-group__body" @slotchange=${this.syncTabsAndPanels}></slot>
           </div>
+
+          ${this.hasScrollControls
+            ? html`
+                <sl-icon-button
+                  part="scroll-button scroll-button--end"
+                  exportparts="base:scroll-button__base"
+                  class=${classMap({
+                    'tab-group__scroll-button': true,
+                    'tab-group__scroll-button--end': true,
+                    'tab-group__scroll-button--end--hidden': this.shouldHideScrollEndButton
+                  })}
+                  name=${isRtl ? 'chevron-left' : 'chevron-right'}
+                  library="system"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  label=${this.localize.term('scrollToEnd')}
+                  @click=${this.handleScrollToEnd}
+                ></sl-icon-button>
+              `
+            : ''}
+
+          <slot part="body" class="tab-group__body" @slotchange=${this.syncTabsAndPanels}></slot>
         </div>
       </div>
     `;
