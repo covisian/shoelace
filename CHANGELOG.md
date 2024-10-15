@@ -1,58 +1,10 @@
 # @covisian/shoelace
 
-## 2.17.10
+## 2.17.11
 
 ### Patch Changes
 
-- fix tests
-
-## 2.17.9
-
-### Patch Changes
-
-- trigger release
-
-## 2.17.8
-
-### Patch Changes
-
-- trigger release
-
-## 2.17.7
-
-### Patch Changes
-
-- trigger release
-
-## 2.17.6
-
-### Patch Changes
-
-- trigger release
-
-## 2.17.5
-
-### Patch Changes
-
-- trigger release
-
-## 2.17.4
-
-### Patch Changes
-
-- align to shoelace 2.17.1
-
-## 2.17.3
-
-### Patch Changes
-
-- trigger release
-
-## 2.17.2
-
-### Patch Changes
-
-- align alert to design
+- revert changes to tests
 
 ## 2.17.1
 
