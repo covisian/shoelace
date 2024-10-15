@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.17.15
+
+### Patch Changes
+
+- revert sync
+
 ## 2.17.14
 
 ### Patch Changes
