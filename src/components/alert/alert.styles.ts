@@ -56,7 +56,7 @@ export default css`
   }
 
   .alert--primary.alert--outline .alert__icon {
-    color: inherit;
+    color: var(--sl-color-primary-600);
   }
 
   .alert--primary .alert__close-button {
