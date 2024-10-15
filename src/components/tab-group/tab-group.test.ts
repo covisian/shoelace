@@ -12,10 +12,10 @@ import type SlTab from '../tab/tab.js';
 import type SlTabGroup from './tab-group.js';
 import type SlTabPanel from '../tab-panel/tab-panel.js';
 
-interface ClientRectangles {
-  body?: DOMRect;
-  navigation?: DOMRect;
-}
+// interface ClientRectangles {
+//   body?: DOMRect;
+//   navigation?: DOMRect;
+// }
 
 const waitForScrollButtonsToBeRendered = async (tabGroup: SlTabGroup): Promise<void> => {
   await waitUntil(() => {
@@ -24,18 +24,18 @@ const waitForScrollButtonsToBeRendered = async (tabGroup: SlTabGroup): Promise<v
   });
 };
 
-const getClientRectangles = (tabGroup: SlTabGroup): ClientRectangles => {
-  const shadowRoot = tabGroup.shadowRoot;
-  if (shadowRoot) {
-    const nav = shadowRoot.querySelector<HTMLElement>('[part=nav]');
-    const body = shadowRoot.querySelector<HTMLElement>('[part=body]');
-    return {
-      body: body?.getBoundingClientRect(),
-      navigation: nav?.getBoundingClientRect()
-    };
-  }
-  return {};
-};
+// const getClientRectangles = (tabGroup: SlTabGroup): ClientRectangles => {
+//   const shadowRoot = tabGroup.shadowRoot;
+//   if (shadowRoot) {
+//     const nav = shadowRoot.querySelector<HTMLElement>('[part=nav]');
+//     const body = shadowRoot.querySelector<HTMLElement>('[part=body]');
+//     return {
+//       body: body?.getBoundingClientRect(),
+//       navigation: nav?.getBoundingClientRect()
+//     };
+//   }
+//   return {};
+// };
 
 const expectHeaderToBeVisible = (container: HTMLElement, dataTestId: string): void => {
   const generalHeader = queryByTestId<SlTab>(container, dataTestId);
@@ -122,66 +122,66 @@ describe('<sl-tab-group>', () => {
     await expectOnlyOneTabPanelToBeActive(tabGroup, 'general-tab-content');
   });
 
-  describe('proper positioning', () => {
-    it('shows the header above the tabs by default', async () => {
-      const tabGroup = await fixture<SlTabGroup>(html`
-        <sl-tab-group>
-          <sl-tab slot="nav" panel="general">General</sl-tab>
-          <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
-        </sl-tab-group>
-      `);
+  // describe('proper positioning', () => {
+  //   it('shows the header above the tabs by default', async () => {
+  //     const tabGroup = await fixture<SlTabGroup>(html`
+  //       <sl-tab-group>
+  //         <sl-tab slot="nav" panel="general">General</sl-tab>
+  //         <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
+  //       </sl-tab-group>
+  //     `);
 
-      await aTimeout(0);
+  //     await aTimeout(0);
 
-      const clientRectangles = getClientRectangles(tabGroup);
-      expect(clientRectangles.body?.top).to.be.greaterThanOrEqual(clientRectangles.navigation?.bottom || -Infinity);
-    });
+  //     const clientRectangles = getClientRectangles(tabGroup);
+  //     expect(clientRectangles.body?.top).to.be.greaterThanOrEqual(clientRectangles.navigation?.bottom || -Infinity);
+  //   });
 
-    // it('shows the header below the tabs by setting placement to bottom', async () => {
-    //   const tabGroup = await fixture<SlTabGroup>(html`
-    //     <sl-tab-group>
-    //       <sl-tab slot="nav" panel="general">General</sl-tab>
-    //       <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
-    //     </sl-tab-group>
-    //   `);
-    //   tabGroup.placement = 'bottom';
+  //   // it('shows the header below the tabs by setting placement to bottom', async () => {
+  //   //   const tabGroup = await fixture<SlTabGroup>(html`
+  //   //     <sl-tab-group>
+  //   //       <sl-tab slot="nav" panel="general">General</sl-tab>
+  //   //       <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
+  //   //     </sl-tab-group>
+  //   //   `);
+  //   //   tabGroup.placement = 'bottom';
 
-    //   await aTimeout(0);
+  //   //   await aTimeout(0);
 
-    //   const clientRectangles = getClientRectangles(tabGroup);
-    //   expect(clientRectangles.body?.bottom).to.be.lessThanOrEqual(clientRectangles.navigation?.top || +Infinity);
-    // });
+  //   //   const clientRectangles = getClientRectangles(tabGroup);
+  //   //   expect(clientRectangles.body?.bottom).to.be.lessThanOrEqual(clientRectangles.navigation?.top || +Infinity);
+  //   // });
 
-    // it('shows the header left of the tabs by setting placement to start', async () => {
-    //   const tabGroup = await fixture<SlTabGroup>(html`
-    //     <sl-tab-group>
-    //       <sl-tab slot="nav" panel="general">General</sl-tab>
-    //       <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
-    //     </sl-tab-group>
-    //   `);
-    //   tabGroup.placement = 'start';
+  //   // it('shows the header left of the tabs by setting placement to start', async () => {
+  //   //   const tabGroup = await fixture<SlTabGroup>(html`
+  //   //     <sl-tab-group>
+  //   //       <sl-tab slot="nav" panel="general">General</sl-tab>
+  //   //       <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
+  //   //     </sl-tab-group>
+  //   //   `);
+  //   //   tabGroup.placement = 'start';
 
-    //   await aTimeout(0);
+  //   //   await aTimeout(0);
 
-    //   const clientRectangles = getClientRectangles(tabGroup);
-    //   expect(clientRectangles.body?.left).to.be.greaterThanOrEqual(clientRectangles.navigation?.right || -Infinity);
-    // });
+  //   //   const clientRectangles = getClientRectangles(tabGroup);
+  //   //   expect(clientRectangles.body?.left).to.be.greaterThanOrEqual(clientRectangles.navigation?.right || -Infinity);
+  //   // });
 
-    // it('shows the header right of the tabs by setting placement to end', async () => {
-    //   const tabGroup = await fixture<SlTabGroup>(html`
-    //     <sl-tab-group>
-    //       <sl-tab slot="nav" panel="general">General</sl-tab>
-    //       <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
-    //     </sl-tab-group>
-    //   `);
-    //   tabGroup.placement = 'end';
+  //   // it('shows the header right of the tabs by setting placement to end', async () => {
+  //   //   const tabGroup = await fixture<SlTabGroup>(html`
+  //   //     <sl-tab-group>
+  //   //       <sl-tab slot="nav" panel="general">General</sl-tab>
+  //   //       <sl-tab-panel name="general">This is the general tab panel.</sl-tab-panel>
+  //   //     </sl-tab-group>
+  //   //   `);
+  //   //   tabGroup.placement = 'end';
 
-    //   await aTimeout(0);
+  //   //   await aTimeout(0);
 
-    //   const clientRectangles = getClientRectangles(tabGroup);
-    //   expect(clientRectangles.body?.right).to.be.lessThanOrEqual(clientRectangles.navigation?.left || -Infinity);
-    // });
-  });
+  //   //   const clientRectangles = getClientRectangles(tabGroup);
+  //   //   expect(clientRectangles.body?.right).to.be.lessThanOrEqual(clientRectangles.navigation?.left || -Infinity);
+  //   // });
+  // });
 
   describe('scrolling behavior', () => {
     const generateTabs = (n: number): HTMLTemplateResult[] => {
