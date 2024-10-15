@@ -203,6 +203,10 @@ export default css`
     margin-inline-end: var(--sl-input-spacing-small);
   }
 
+  .select--small.select--multiple .select__prefix::slotted(*) {
+    margin-inline-start: var(--sl-input-spacing-small);
+  }
+
   .select--small.select--multiple:not(.select--placeholder-visible) .select__combobox {
     padding-block: 2px;
     padding-inline-start: 0;
@@ -226,6 +230,10 @@ export default css`
 
   .select--medium .select__prefix::slotted(*) {
     margin-inline-end: var(--sl-input-spacing-medium);
+  }
+
+  .select--medium.select--multiple .select__prefix::slotted(*) {
+    margin-inline-start: var(--sl-input-spacing-medium);
   }
 
   .select--medium.select--multiple:not(.select--placeholder-visible) .select__combobox {
@@ -253,6 +261,10 @@ export default css`
     margin-inline-end: var(--sl-input-spacing-large);
   }
 
+  .select--large.select--multiple .select__prefix::slotted(*) {
+    margin-inline-start: var(--sl-input-spacing-large);
+  }
+
   .select--large.select--multiple:not(.select--placeholder-visible) .select__combobox {
     padding-inline-start: 0;
     padding-block: 4px;
@@ -275,20 +287,17 @@ export default css`
     border-radius: var(--sl-input-height-large);
   }
 
-  /* Prefix */
-  .select__prefix {
+  /* Prefix and Suffix */
+  .select__prefix,
+  .select__suffix {
     flex: 0;
     display: inline-flex;
     align-items: center;
     color: var(--sl-input-placeholder-color);
   }
 
-  /* Suffix */
-  .select__suffix {
-    flex: 0;
-    display: inline-flex;
-    align-items: center;
-    color: var(--sl-input-placeholder-color);
+  .select__suffix::slotted(*) {
+    margin-inline-start: var(--sl-spacing-small);
   }
 
   /* Clear button */
