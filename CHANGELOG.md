@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.17.12
+
+### Patch Changes
+
+- revert release
+
 ## 2.17.1
 
 ### Patch Changes
