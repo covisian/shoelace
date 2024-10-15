@@ -324,18 +324,18 @@ if (serve) {
 }
 
 // Build for production
-if (!serve) {
-  let result;
-
-  await nextTask('Building the docs', async () => {
-    result = await buildTheDocs();
-  });
-
-  // Log deferred output
-  if (result.output.length > 0) {
-    console.log('\n' + result.output.join('\n'));
-  }
-}
+// if (!serve) {
+//   let result;
+//   /*
+//   await nextTask('Building the docs', async () => {
+//     result = await buildTheDocs();
+//   });
+// */
+//   // Log deferred output
+//   // if (result.output.length > 0) {
+//   //   console.log('\n' + result.output.join('\n'));
+//   // }
+// }
 
 // Cleanup on exit
 process.on('SIGINT', handleCleanup);

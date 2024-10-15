@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Run  install 🔧
         run:  npm install
-      - run: npx playwright@1.47.2 install-deps
+      # - run: npx playwright@1.47.2 install-deps
       - name: Build 🏗️
         run: npm run build
       - name: Authenticate with private NPM package
