@@ -126,7 +126,7 @@ export default css`
   }
 
   .alert--neutral.alert--outline .alert__icon {
-    color: var(--sl-color-fg0)!important;
+    color: var(--sl-color-fg0) !important;
   }
 
   .alert--neutral .alert__close-button {
@@ -137,9 +137,9 @@ export default css`
   }
 
   .alert--neutral.alert--outline .alert__close-button {
-    color: var(--sl-color-fg0)!important;
+    color: var(--sl-color-fg0) !important;
     &::part(base):hover {
-      color: var(--sl-color-fg0)!important;
+      color: var(--sl-color-fg0) !important;
     }
   }
 
