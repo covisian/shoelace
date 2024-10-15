@@ -102,7 +102,7 @@ describe('<sl-tab>', () => {
         </sl-tab-group>
       `);
       const closeButton = tabGroup
-        .querySelectorAll('sl-tab')[0]!
+        .querySelectorAll('sl-tab')[0]
         .shadowRoot!.querySelector<SlIconButton>('[part~="close-button"]')!;
 
       const handleClose = sinon.spy();
