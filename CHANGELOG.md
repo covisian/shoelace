@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.17.2
+
+### Patch Changes
+
+- align alert to design
+
 ## 2.17.1
 
 ### Patch Changes
