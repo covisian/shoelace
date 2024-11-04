@@ -7,7 +7,7 @@ layout: component
 
 ```html:preview
 <sl-alert open>
-  <sl-icon slot="icon" name="info-circle"></sl-icon>
+  <sl-icon slot="icon" name="cv-info"></sl-icon>
   This is a standard alert. You can customize its content and even the icon.
 </sl-alert>
 ```
@@ -18,7 +18,7 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 
 const App = () => (
   <SlAlert open>
-    <SlIcon slot="icon" name="info-circle" />
+    <SlIcon slot="icon" name="cv-info" />
     This is a standard alert. You can customize its content and even the icon.
   </SlAlert>
 );
@@ -36,7 +36,7 @@ Set the `variant` attribute to change the alert's variant.
 
 ```html:preview
 <sl-alert variant="primary" open closable>
-  <sl-icon slot="icon" name="info-circle"></sl-icon>
+  <sl-icon slot="icon" name="cv-info"></sl-icon>
   <strong>This is super informative</strong><br />
   You can tell by how pretty the alert is.
 </sl-alert>
@@ -52,7 +52,7 @@ Set the `variant` attribute to change the alert's variant.
 <br />
 
 <sl-alert variant="neutral" open closable>
-  <sl-icon slot="icon" name="gear"></sl-icon>
+  <sl-icon slot="icon" name="cv-gear-fill"></sl-icon>
   <strong>Your settings have been updated</strong><br />
   Settings will take effect on next login.
 </sl-alert>
@@ -81,7 +81,7 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 const App = () => (
   <>
     <SlAlert variant="primary" open>
-      <SlIcon slot="icon" name="info-circle" />
+      <SlIcon slot="icon" name="cv-info" />
       <strong>This is super informative</strong>
       <br />
       You can tell by how pretty the alert is.
@@ -99,7 +99,7 @@ const App = () => (
     <br />
 
     <SlAlert variant="neutral" open>
-      <SlIcon slot="icon" name="gear" />
+      <SlIcon slot="icon" name="cv-gear-fill" />
       <strong>Your settings have been updated</strong>
       <br />
       Settings will take effect on next login.
@@ -132,7 +132,7 @@ Set the `outline` boolean to change the alert's style.
 
 ```html:preview
 <sl-alert variant="primary" open closable outline>
-  <sl-icon slot="icon" name="info-circle"></sl-icon>
+  <sl-icon slot="icon" name="cv-info"></sl-icon>
   <strong>This is super informative</strong><br />
   You can tell by how pretty the alert is.
 </sl-alert>
@@ -148,7 +148,7 @@ Set the `outline` boolean to change the alert's style.
 <br />
 
 <sl-alert variant="neutral" open closable outline>
-  <sl-icon slot="icon" name="gear"></sl-icon>
+  <sl-icon slot="icon" name="cv-gear-fill"></sl-icon>
   <strong>Your settings have been updated</strong><br />
   Settings will take effect on next login.
 </sl-alert>
@@ -177,7 +177,7 @@ import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
 const App = () => (
   <>
     <SlAlert variant="primary" open>
-      <SlIcon slot="icon" name="info-circle" />
+      <SlIcon slot="icon" name="cv-info" />
       <strong>This is super informative</strong>
       <br />
       You can tell by how pretty the alert is.
@@ -195,7 +195,7 @@ const App = () => (
     <br />
 
     <SlAlert variant="neutral" open>
-      <SlIcon slot="icon" name="gear" />
+      <SlIcon slot="icon" name="cv-gear-fill" />
       <strong>Your settings have been updated</strong>
       <br />
       Settings will take effect on next login.
@@ -236,32 +236,32 @@ Set the `position` attribute to change the alert's generated position.
   <sl-button variant="primary">bottom left</sl-button>
 
   <sl-alert variant="primary" duration="3000" closable position='top-right'>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     <strong>top right</strong>
   </sl-alert>
 
    <sl-alert variant="primary" duration="3000" closable position='top-center'>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     <strong>top center</strong>
   </sl-alert>
 
   <sl-alert variant="primary" duration="3000" closable position='top-left'>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     <strong>top left</strong>
   </sl-alert>
 
    <sl-alert variant="primary" duration="3000" closable position='bottom-right'>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     <strong>bottom right</strong>
   </sl-alert>
 
    <sl-alert variant="primary" duration="3000" closable position='bottom-center'>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     <strong>bottom center</strong>
   </sl-alert>
 
   <sl-alert variant="primary" duration="3000" closable position='bottom-left'>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     <strong>bottom left</strong>
   </sl-alert>
 </div>
@@ -284,7 +284,7 @@ Add the `closable` attribute to show a close button that will hide the alert.
 
 ```html:preview
 <sl-alert variant="primary" open closable class="alert-closable">
-  <sl-icon slot="icon" name="info-circle"></sl-icon>
+  <sl-icon slot="icon" name="cv-info"></sl-icon>
   You can close this alert any time!
 </sl-alert>
 
@@ -311,7 +311,7 @@ const App = () => {
 
   return (
     <SlAlert open={open} closable onSlAfterHide={handleHide}>
-      <SlIcon slot="icon" name="info-circle" />
+      <SlIcon slot="icon" name="cv-info" />
       You can close this alert any time!
     </SlAlert>
   );
@@ -345,7 +345,7 @@ Set the `duration` attribute to automatically hide an alert after a period of ti
   <sl-button variant="primary">Show Alert</sl-button>
 
   <sl-alert variant="primary" duration="3000" closable>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     This alert will automatically hide itself after three seconds, unless you interact with it.
   </sl-alert>
 </div>
@@ -388,7 +388,7 @@ const App = () => {
         </SlButton>
 
         <SlAlert variant="primary" duration="3000" open={open} closable onSlAfterHide={() => setOpen(false)}>
-          <SlIcon slot="icon" name="info-circle" />
+          <SlIcon slot="icon" name="cv-info" />
           This alert will automatically hide itself after three seconds, unless you interact with it.
         </SlAlert>
       </div>
@@ -408,7 +408,7 @@ Set the `countdown` attribute to display a loading bar that indicates the alert 
   <sl-button variant="primary">Show Alert</sl-button>
 
   <sl-alert variant="primary" duration="10000" countdown="rtl" closable>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     You're not stuck, the alert will close after a pretty long duration.
   </sl-alert>
 </div>
@@ -451,7 +451,7 @@ const App = () => {
         </SlButton>
 
         <SlAlert variant="primary" duration="3000" countdown="rtl" open={open} closable onSlAfterHide={() => setOpen(false)}>
-          <SlIcon slot="icon" name="info-circle" />
+          <SlIcon slot="icon" name="cv-info" />
           You're not stuck, the alert will close after a pretty long duration.
         </SlAlert>
       </div>
@@ -477,7 +477,7 @@ You should always use the `closable` attribute so users can dismiss the notifica
   <sl-button variant="danger">Danger</sl-button>
 
   <sl-alert variant="primary" duration="3000" closable>
-    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <sl-icon slot="icon" name="cv-info"></sl-icon>
     <strong>This is super informative</strong><br />
     You can tell by how pretty the alert is.
   </sl-alert>
@@ -489,7 +489,7 @@ You should always use the `closable` attribute so users can dismiss the notifica
   </sl-alert>
 
   <sl-alert variant="neutral" duration="3000" closable>
-    <sl-icon slot="icon" name="gear"></sl-icon>
+    <sl-icon slot="icon" name="cv-gear-fill"></sl-icon>
     <strong>Your settings have been updated</strong><br />
     Settings will take effect on next login.
   </sl-alert>
@@ -559,7 +559,7 @@ const App = () => {
       </SlButton>
 
       <SlAlert ref={primary} variant="primary" duration="3000" closable>
-        <SlIcon slot="icon" name="info-circle" />
+        <SlIcon slot="icon" name="cv-info" />
         <strong>This is super informative</strong>
         <br />
         You can tell by how pretty the alert is.
@@ -573,7 +573,7 @@ const App = () => {
       </SlAlert>
 
       <SlAlert ref={neutral} variant="neutral" duration="3000" closable>
-        <SlIcon slot="icon" name="gear" />
+        <SlIcon slot="icon" name="cv-gear-fill" />
         <strong>Your settings have been updated</strong>
         <br />
         Settings will take effect on next login.
