@@ -20,7 +20,7 @@ export default css`
     display: flex;
     align-items: center;
     border-radius: inherit;
-    padding: var(--sl-spacing-medium);
+    padding: var(--sl-spacing-x-small) var(--sl-spacing-medium);
     user-select: none;
     -webkit-user-select: none;
     cursor: pointer;
