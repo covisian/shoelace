@@ -86,6 +86,7 @@ export default class SlAvatar extends ShoelaceElement {
   }
 
   getInitials(fullName: string) {
+    fullName = fullName.replace(/[^a-zA-Z0-9\s]/g, '');
     const chunks = fullName.split(' ');
     const hasFirstLetter = chunks[0];
     const hasSecondLetter = chunks[1];

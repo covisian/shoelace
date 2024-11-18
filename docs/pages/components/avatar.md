@@ -60,6 +60,7 @@ If you have multiple first or last names, the avatar gets the first and last wor
 ```html:preview
 <sl-avatar name='name surname' label="Avatar with name: name surname"></sl-avatar>
 <sl-avatar name='myName' label="Avatar with a single name: myName"></sl-avatar>
+<sl-avatar name='"Special -caracters' label="Avatar ignores special characters"></sl-avatar>
 <sl-avatar name='first and last name' label="Avatar with multiple names: first and last name"></sl-avatar>
 <sl-avatar name='95' label="Avatar with multiple names: first and last name"></sl-avatar>
 ```
