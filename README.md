@@ -9,7 +9,7 @@ A forward-thinking library of web components.
 - Built with accessibility in mind ♿️
 - Open source 😸
 
-Designed in New Hampshire by [Cory LaViska](https://twitter.com/claviska).
+Designed in New Hampshire by [Cory LaViska](https://twitter.com/cory_laviska).
 
 ---
 
@@ -77,7 +77,7 @@ Shoelace is an open source project and contributions are encouraged! If you're i
 
 ## License
 
-Shoelace was created by [Cory LaViska](https://twitter.com/claviska) and is available under the terms of the MIT license.
+Shoelace was created by [Cory LaViska](https://twitter.com/cory_laviska) and is available under the terms of the MIT license.
 
 Whether you're building Shoelace or building something _with_ Shoelace — have fun creating! 🥾
 

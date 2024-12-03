@@ -31,7 +31,7 @@ const App = () => (
 
 ### Sizes
 
-Use the `size` attribute to change a tab's size.
+Use the `size` attribute to change a tag's size.
 
 ```html:preview
 <sl-tag size="small">Small</sl-tag>
@@ -53,7 +53,7 @@ const App = () => (
 
 ### Pill
 
-Use the `pill` attribute to give tabs rounded edges.
+Use the `pill` attribute to give tags rounded edges.
 
 ```html:preview
 <sl-tag size="small" pill>Small</sl-tag>

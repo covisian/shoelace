@@ -1,6 +1,5 @@
 import { animateTo, stopAnimations } from '../../internal/animate.js';
 import { classMap } from 'lit/directives/class-map.js';
-import { defaultValue } from '../../internal/default-value.js';
 import { FormControlController } from '../../internal/form.js';
 import { getAnimation, setDefaultAnimation } from '../../utilities/animation-registry.js';
 import { HasSlotController } from '../../internal/slot.js';
@@ -104,21 +103,35 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   /** The name of the select, submitted as a name/value pair with form data. */
   @property() name = '';
 
+  private _value: string | string[] = '';
+
+  get value() {
+    return this._value;
+  }
+
   /**
    * The current value of the select, submitted as a name/value pair with form data. When `multiple` is enabled, the
    * value attribute will be a space-delimited list of values based on the options selected, and the value property will
    * be an array. **For this reason, values must not contain spaces.**
    */
-  @property({
-    converter: {
-      fromAttribute: (value: string) => value.split(' '),
-      toAttribute: (value: string[]) => value.join(' ')
+  @state()
+  set value(val: string | string[]) {
+    if (this.multiple) {
+      val = Array.isArray(val) ? val : val.split(' ');
+    } else {
+      val = Array.isArray(val) ? val.join(' ') : val;
     }
-  })
-  value: string | string[] = '';
+
+    if (this._value === val) {
+      return;
+    }
+
+    this.valueHasChanged = true;
+    this._value = val;
+  }
 
   /** The default value of the form control. Primarily used for resetting the form control. */
-  @defaultValue() defaultValue: string | string[] = '';
+  @property({ attribute: 'value' }) defaultValue: string | string[] = '';
 
   /** The select's size. */
   @property({ reflect: true }) size: 'small' | 'medium' | 'large' = 'medium';
@@ -459,6 +472,8 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   private handleClearClick(event: MouseEvent) {
     event.stopPropagation();
 
+    this.valueHasChanged = true;
+
     if (this.value !== '') {
       this.setSelectedOptions([]);
       this.displayInput.focus({ preventScroll: true });
@@ -509,9 +524,10 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     }
   }
 
-  private handleDefaultSlotChange() {
-    if (!customElements.get('wa-option')) {
-      customElements.whenDefined('wa-option').then(() => this.handleDefaultSlotChange());
+  /* @internal - used by options to update labels */
+  public handleDefaultSlotChange() {
+    if (!customElements.get('sl-option')) {
+      customElements.whenDefined('sl-option').then(() => this.handleDefaultSlotChange());
     }
 
     const allOptions = this.getAllOptions();
@@ -528,6 +544,8 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
 
   private handleTagRemove(event: SlRemoveEvent, option: SlOption) {
     event.stopPropagation();
+
+    this.valueHasChanged = true;
 
     if (!this.disabled) {
       this.toggleOptionSelection(option, false);
@@ -605,6 +623,9 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     // Update selected options cache
     this.selectedOptions = options.filter(el => el.selected);
 
+    // Keep a reference to the previous `valueHasChanged`. Changes made here don't count has changing the value.
+    const cachedValueHasChanged = this.valueHasChanged;
+
     // Update the value and display label
     if (this.multiple) {
       this.value = this.selectedOptions.map(el => el.value);
@@ -620,12 +641,14 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
       this.value = selectedOption?.value ?? '';
       this.displayLabel = selectedOption?.getTextLabel?.() ?? '';
     }
+    this.valueHasChanged = cachedValueHasChanged;
 
     // Update validity
     this.updateComplete.then(() => {
       this.formControlController.updateValidity();
     });
   }
+
   protected get tags() {
     return this.selectedOptions.map((option, index) => {
       if (index < this.maxOptionsVisible || this.maxOptionsVisible <= 0) {
@@ -656,8 +679,29 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
     }
   }
 
-  @watch('value', { waitUntilFirstUpdate: true })
+  attributeChangedCallback(name: string, oldVal: string | null, newVal: string | null) {
+    super.attributeChangedCallback(name, oldVal, newVal);
+
+    /** This is a backwards compatibility call. In a new major version we should make a clean separation between "value" the attribute mapping to "defaultValue" property and "value" the property not reflecting. */
+    if (name === 'value') {
+      const cachedValueHasChanged = this.valueHasChanged;
+      this.value = this.defaultValue;
+
+      // Set it back to false since this isn't an interaction.
+      this.valueHasChanged = cachedValueHasChanged;
+    }
+  }
+
+  @watch(['defaultValue', 'value'], { waitUntilFirstUpdate: true })
   handleValueChange() {
+    if (!this.valueHasChanged) {
+      const cachedValueHasChanged = this.valueHasChanged;
+      this.value = this.defaultValue;
+
+      // Set it back to false since this isn't an interaction.
+      this.valueHasChanged = cachedValueHasChanged;
+    }
+
     const allOptions = this.getAllOptions();
     const value = Array.isArray(this.value) ? this.value : [this.value];
 
