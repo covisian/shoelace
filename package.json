@@ -65,7 +65,9 @@
     "test:component": "web-test-runner -- --watch --group",
     "test:watch": "web-test-runner --watch --group default",
     "spellcheck": "cspell \"**/*.{js,ts,json,html,css,md}\" --no-progress",
-    "check-updates": "npx npm-check-updates --interactive --format group"
+    "check-updates": "npx npm-check-updates --interactive --format group",
+    "launch-release": "node release.js"
+
   },
   "engines": {
     "node": ">=14.17.0"
