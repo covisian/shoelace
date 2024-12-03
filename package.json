@@ -67,12 +67,12 @@
     "spellcheck": "cspell \"**/*.{js,ts,json,html,css,md}\" --no-progress",
     "check-updates": "npx npm-check-updates --interactive --format group",
     "launch-release": "node release.js"
-
   },
   "engines": {
     "node": ">=14.17.0"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.10",
     "@ctrl/tinycolor": "^4.1.0",
     "@floating-ui/dom": "^1.6.12",
     "@lit/react": "^1.0.6",
