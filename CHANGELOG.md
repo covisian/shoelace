@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.0
+
+### Minor Changes
+
+- sync shoelace to remote minor release
+
 ## 2.18.1
 
 ### Patch Changes
