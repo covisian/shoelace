@@ -102,8 +102,8 @@ Use the `pulse` attribute to draw attention to the badge with a subtle animation
   <sl-badge variant="success" pill pulse>1</sl-badge>
   <sl-badge variant="warning" pill pulse>1</sl-badge>
   <sl-badge variant="danger" pill pulse>1</sl-badge>
-<sl-badge variant="default" pill pulse>1</sl-badge>
-<sl-badge variant="neutral" pill pulse>1</sl-badge>
+  <sl-badge variant="default" pill pulse>1</sl-badge>
+  <sl-badge variant="neutral" pill pulse>1</sl-badge>
   <sl-badge variant="light" pill pulse>1</sl-badge>
 </div>
 
