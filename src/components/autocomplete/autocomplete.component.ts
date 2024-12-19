@@ -184,7 +184,6 @@ export default class SlAutocomplete extends ShoelaceElement {
           @sl-focus=${this.handleSlFocus}
           @sl-input=${this.handleSlInput}
           @keydown=${this.handleKeydown}
-
         >
           <slot name="trigger"></slot>
         </div>
