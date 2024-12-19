@@ -804,8 +804,8 @@ pre:hover .copy-code-button,
   font-size: var(--sl-font-size-x-small);
   color: var(--sl-color-neutral-500);
   text-align: right;
-  margin-top: -0.5rem;
-  margin-right: 1rem;
+  /* margin-top: -0.5rem;
+  margin-right: 1rem; */
   margin-bottom: -0.5rem;
 }
 

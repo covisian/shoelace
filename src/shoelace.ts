@@ -2,6 +2,7 @@
 export { default as SlAlert } from './components/alert/alert.js';
 export { default as SlAnimatedImage } from './components/animated-image/animated-image.js';
 export { default as SlAnimation } from './components/animation/animation.js';
+export { default as SlAutocomplete } from './components/autocomplete/autocomplete.js';
 export { default as SlAvatar } from './components/avatar/avatar.js';
 export { default as SlBadge } from './components/badge/badge.js';
 export { default as SlBreadcrumb } from './components/breadcrumb/breadcrumb.js';
