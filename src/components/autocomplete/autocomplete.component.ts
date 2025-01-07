@@ -46,7 +46,8 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   private readonly hasSlotController = new HasSlotController(this, 'loading-text', 'empty-text');
 
-  @state() private value = '';
+  // @state() private value = '';
+
   @state() private hasFocus = false;
 
   @property({ type: String, reflect: true }) emptyText: string;
@@ -81,7 +82,7 @@ export default class SlAutocomplete extends ShoelaceElement {
     }
 
     this.hasFocus = true;
-    this.value = value;
+    // this.value = value;
   }
 
   handleKeydown(event: KeyboardEvent) {
@@ -118,11 +119,13 @@ export default class SlAutocomplete extends ShoelaceElement {
     }
   }
 
+
+
   handleSlFocus() {
-    if (this.value.length >= this.threshold) {
-      this.hasFocus = true;
-      this.show();
-    }
+    // if (this.value.length >= this.threshold) {
+    this.hasFocus = true;
+    this.show();
+    // }
   }
 
   handleSlAfterHide() {
@@ -138,7 +141,7 @@ export default class SlAutocomplete extends ShoelaceElement {
   }
 
   reset() {
-    this.value = '';
+    // this.value = '';
   }
 
   get options(): SlMenuItem[] {
@@ -156,6 +159,7 @@ export default class SlAutocomplete extends ShoelaceElement {
   get shouldDisplayLoadingText() {
     return this.loading && (this.loadingText || this.hasSlotController.test('loading-text'));
   }
+  
 
   get shouldDisplayEmptyText() {
     return (
@@ -165,13 +169,17 @@ export default class SlAutocomplete extends ShoelaceElement {
     );
   }
 
+  // get shouldDisplayAutoComplete() {
+  //   return (
+  //     this.hasFocus &&
+  //     ((this.value.length >= this.threshold && this.hasResults) ||
+  //       this.shouldDisplayLoadingText ||
+  //       this.shouldDisplayEmptyText)
+  //   );
+  // }
+
   get shouldDisplayAutoComplete() {
-    return (
-      this.hasFocus &&
-      ((this.value.length >= this.threshold && this.hasResults) ||
-        this.shouldDisplayLoadingText ||
-        this.shouldDisplayEmptyText)
-    );
+    return this.hasFocus && (this.hasResults || this.shouldDisplayLoadingText || this.shouldDisplayEmptyText);
   }
 
   render() {
@@ -188,7 +196,11 @@ export default class SlAutocomplete extends ShoelaceElement {
           <slot name="trigger"></slot>
         </div>
 
-        <sl-dropdown ?open=${this.shouldDisplayAutoComplete} @sl-after-hide=${this.handleSlAfterHide}>
+        <sl-dropdown
+          ?open=${this.shouldDisplayAutoComplete}
+          @sl-after-hide=${this.handleSlAfterHide}
+          exportparts="base__popup:custom-popup"
+        >
           <sl-menu>
             <slot
               aria-hidden=${shouldDisplayLoadingText ? 'true' : 'false'}

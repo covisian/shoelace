@@ -26,9 +26,51 @@ layout: component
 </script>
 ```
 
-```jsx react
-// WIP...
+
+
+```jsx:react
+export class Component implements ComponentInterface {
+  @State() selectedValue: string = '';
+
+  private autocompleteRef!: HTMLElement; 
+
+  private options = [
+    { value: 'english', label: 'English' },
+    { value: 'mandarin', label: 'Mandarin' },
+    { value: 'hindi', label: 'Hindi' },
+    { value: 'spanish', label: 'Spanish' },
+    { value: 'french', label: 'French' },
+  ];
+
+  private handleLanguageChange = () => {
+    this.autocompleteRef.addEventListener('sl-select', (event: CustomEvent) => {     
+      this.selectedValue = event.detail.item.value;
+    });
+  };
+
+  render(): any {
+    return (
+      <Host>
+        <sl-autocomplete ref={(el: HTMLElement) => (this.autocompleteRef = el)}>
+          <sl-input
+            on-sl-change={() => this.handleLanguageChange()}
+            slot="trigger"
+            size="medium"
+            label="Autofilter"
+            placeholder="Choose an option"
+            value={this.selectedValue}
+          ></sl-input>
+          {this.options.map(option => (
+            <sl-menu-item value={option.value}>{option.label}</sl-menu-item>
+          ))}
+        </sl-autocomplete>
+      </Host>
+    );
+  }
+}
+
 ```
+
 
 ## Examples
 
@@ -47,7 +89,13 @@ layout: component
     autocomplete.loading = true;
 
     setTimeout(() => {
-      const menuItemTags = ['English', 'Mandarin', 'Spanish']
+      const menuItemTags = ['English', 'Mandarin', 'Spanish',"French", "Italian", "German", "Arabic",
+  "Portuguese", "Russian", "Japanese", "Korean", "Hindi", "Turkish", "Vietnamese",
+  "Greek", "Dutch", "Swedish", "Norwegian", "Danish", "Finnish", "Hebrew",
+  "Polish", "Czech", "Hungarian", "Thai", "Bengali", "Persian", "Swahili",
+  "Zulu", "Xhosa", "Malay", "Filipino", "Tamil", "Urdu", "Punjabi", "Gujarati",
+  "Telugu", "Marathi", "Sinhala", "Burmese", "Lao", "Khmer", "Serbian", "Croatian",
+  "Slovak", "Slovenian", "Romanian", "Bulgarian", "Albanian", "Icelandic" ]
         .filter(option => new RegExp(event.target.value, 'ig').test(option))
         .map(option => `<sl-menu-item value="${option}">${option}</sl-menu-item>`)
         .join('');

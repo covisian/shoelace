@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.2
+
+### Patch Changes
+
+- autocomplete now loads all options on focus
+
 ## 2.19.1
 
 ### Patch Changes
