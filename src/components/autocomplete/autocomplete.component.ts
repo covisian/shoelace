@@ -46,7 +46,9 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   private readonly hasSlotController = new HasSlotController(this, 'loading-text', 'empty-text');
 
-  // @state() private value = '';
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  @state() private value = '';
 
   @state() private hasFocus = false;
 
@@ -82,7 +84,7 @@ export default class SlAutocomplete extends ShoelaceElement {
     }
 
     this.hasFocus = true;
-    // this.value = value;
+    this.value = value;
   }
 
   handleKeydown(event: KeyboardEvent) {
@@ -121,9 +123,11 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   handleSlFocus() {
     // if (this.value.length >= this.threshold) {
+    // this.hasFocus = true;
+    // this.show();
+    // }
     this.hasFocus = true;
     this.show();
-    // }
   }
 
   handleSlAfterHide() {
@@ -139,7 +143,7 @@ export default class SlAutocomplete extends ShoelaceElement {
   }
 
   reset() {
-    // this.value = '';
+    this.value = '';
   }
 
   get options(): SlMenuItem[] {

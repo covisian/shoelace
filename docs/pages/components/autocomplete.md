@@ -22,6 +22,7 @@ layout: component
 
   autocomplete.addEventListener('sl-select', event => {
     input.value = event.detail.item.textContent;
+    console.log(input.value)
   });
 </script>
 ```
