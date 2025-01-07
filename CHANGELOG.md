@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.3
+
+### Patch Changes
+
+- trigger release due to missing commit
+
 ## 2.19.2
 
 ### Patch Changes
