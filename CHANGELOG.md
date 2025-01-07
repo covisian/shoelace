@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.4
+
+### Patch Changes
+
+- fix autocomplete set value
+
 ## 2.19.3
 
 ### Patch Changes
