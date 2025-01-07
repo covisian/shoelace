@@ -26,13 +26,11 @@ layout: component
 </script>
 ```
 
-
-
 ```jsx:react
 export class Component implements ComponentInterface {
   @State() selectedValue: string = '';
 
-  private autocompleteRef!: HTMLElement; 
+  private autocompleteRef!: HTMLElement;
 
   private options = [
     { value: 'english', label: 'English' },
@@ -43,7 +41,7 @@ export class Component implements ComponentInterface {
   ];
 
   private handleLanguageChange = () => {
-    this.autocompleteRef.addEventListener('sl-select', (event: CustomEvent) => {     
+    this.autocompleteRef.addEventListener('sl-select', (event: CustomEvent) => {
       this.selectedValue = event.detail.item.value;
     });
   };
@@ -70,7 +68,6 @@ export class Component implements ComponentInterface {
 }
 
 ```
-
 
 ## Examples
 

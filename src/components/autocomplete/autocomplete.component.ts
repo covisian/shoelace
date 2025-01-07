@@ -119,8 +119,6 @@ export default class SlAutocomplete extends ShoelaceElement {
     }
   }
 
-
-
   handleSlFocus() {
     // if (this.value.length >= this.threshold) {
     this.hasFocus = true;
@@ -159,7 +157,6 @@ export default class SlAutocomplete extends ShoelaceElement {
   get shouldDisplayLoadingText() {
     return this.loading && (this.loadingText || this.hasSlotController.test('loading-text'));
   }
-  
 
   get shouldDisplayEmptyText() {
     return (
