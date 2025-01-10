@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.5
+
+### Patch Changes
+
+- fix autocomplete scroll and select option value error
+
 ## 2.19.4
 
 ### Patch Changes
