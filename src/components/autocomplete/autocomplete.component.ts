@@ -64,6 +64,11 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   @property({ type: Number, reflect: true }) threshold = 1;
 
+  constructor() {
+    super();
+    this.updateAvailableHeight = this.updateAvailableHeight.bind(this); // Bind del metodo
+  }
+
   handleSlInput(event: CustomEvent) {
     const { value } = event.target as SlInput;
 
@@ -85,6 +90,7 @@ export default class SlAutocomplete extends ShoelaceElement {
 
     this.hasFocus = true;
     this.value = value;
+    this.updateAvailableHeight();
   }
 
   handleKeydown(event: KeyboardEvent) {
@@ -136,6 +142,8 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   show() {
     this.dropdown?.show();
+    this.updateAvailableHeight();
+
   }
 
   hide() {
@@ -183,6 +191,27 @@ export default class SlAutocomplete extends ShoelaceElement {
     return this.hasFocus && (this.hasResults || this.shouldDisplayLoadingText || this.shouldDisplayEmptyText);
   }
 
+  updateAvailableHeight() {
+    const rect = this.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const availableHeight = viewportHeight - rect.bottom; // Altezza disponibile sotto l'elemento
+
+    // Imposta la variabile CSS solo se l'altezza disponibile è positiva
+    if (availableHeight > 0) {
+      this.style.setProperty('--auto-size-available-height', `${availableHeight}px`);
+    }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('resize', this.updateAvailableHeight);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('resize', this.updateAvailableHeight);
+  }
+
   render() {
     const { shouldDisplayLoadingText } = this;
 
@@ -200,9 +229,11 @@ export default class SlAutocomplete extends ShoelaceElement {
         <sl-dropdown
           ?open=${this.shouldDisplayAutoComplete}
           @sl-after-hide=${this.handleSlAfterHide}
+          auto-size="vertical"
           exportparts="base__popup:custom-popup"
+          placement
         >
-          <sl-menu>
+          <sl-menu >
             <slot
               aria-hidden=${shouldDisplayLoadingText ? 'true' : 'false'}
               style="${styleMap({ display: shouldDisplayLoadingText ? 'none' : 'block' })}"

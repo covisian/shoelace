@@ -22,7 +22,6 @@ layout: component
 
   autocomplete.addEventListener('sl-select', event => {
     input.value = event.detail.item.textContent;
-    console.log(input.value)
   });
 </script>
 ```
@@ -30,8 +29,7 @@ layout: component
 ```jsx:react
 export class Component implements ComponentInterface {
   @State() selectedValue: string = '';
-
-  private autocompleteRef!: HTMLElement;
+  @State() selectedOption: string = '';
 
   private options = [
     { value: 'english', label: 'English' },
@@ -41,26 +39,25 @@ export class Component implements ComponentInterface {
     { value: 'french', label: 'French' },
   ];
 
-  private handleLanguageChange = () => {
-    this.autocompleteRef.addEventListener('sl-select', (event: CustomEvent) => {
-      this.selectedValue = event.detail.item.value;
-    });
+  private handleOptionChange = (value: string) => {
+    this.selectedValue = value;
+    this.getSelectedOption();
   };
+
+  private getSelectedOption() {
+    this.selectedOption = this.selectedValue ? this.options.filter(opt => opt.value === this.selectedValue)[0]?.label : null;
+  }
 
   render(): any {
     return (
       <Host>
-        <sl-autocomplete ref={(el: HTMLElement) => (this.autocompleteRef = el)}>
-          <sl-input
-            on-sl-change={() => this.handleLanguageChange()}
-            slot="trigger"
-            size="medium"
-            label="Autofilter"
-            placeholder="Choose an option"
-            value={this.selectedValue}
-          ></sl-input>
+        <sl-autocomplete>
+          <sl-input slot="trigger" size="medium" label="Autocomplete" placeholder="Choose an option" value={this.selectedOption}>
+          </sl-input>
           {this.options.map(option => (
-            <sl-menu-item value={option.value}>{option.label}</sl-menu-item>
+            <sl-menu-item onClick={() => this.handleOptionChange(option.value)} value={option.value}>
+              {option.label}
+            </sl-menu-item>
           ))}
         </sl-autocomplete>
       </Host>

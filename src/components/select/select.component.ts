@@ -117,13 +117,14 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   @state()
   set value(val: string | string[]) {
     if (this.multiple) {
-      val = Array.isArray(val) ? val : val.split(' ');
+      // Usa la virgola come separatore anziché lo spazio
+      val = Array.isArray(val) ? val : val.split(',').map(v => v.trim());
     } else {
-      val = Array.isArray(val) ? val.join(' ') : val;
+      val = Array.isArray(val) ? val.join(', ') : val;
     }
 
-    if (this._value === val) {
-      return;
+    if (JSON.stringify(this._value) === JSON.stringify(val)) {
+      return; // Evita di aggiornare se il valore non è cambiato
     }
 
     this.valueHasChanged = true;
