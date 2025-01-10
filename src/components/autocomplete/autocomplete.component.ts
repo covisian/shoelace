@@ -143,7 +143,6 @@ export default class SlAutocomplete extends ShoelaceElement {
   show() {
     this.dropdown?.show();
     this.updateAvailableHeight();
-
   }
 
   hide() {
@@ -233,7 +232,7 @@ export default class SlAutocomplete extends ShoelaceElement {
           exportparts="base__popup:custom-popup"
           placement
         >
-          <sl-menu >
+          <sl-menu>
             <slot
               aria-hidden=${shouldDisplayLoadingText ? 'true' : 'false'}
               style="${styleMap({ display: shouldDisplayLoadingText ? 'none' : 'block' })}"
