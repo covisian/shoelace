@@ -62,11 +62,15 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   @property({ type: Boolean, reflect: true }) highlight = false;
 
+  @property({ type: Number, reflect: true }) bottomSkidding = 10;
+
+  @property({ type: Number, reflect: true }) scrollbarSkidding = 0;
+
   @property({ type: Number, reflect: true }) threshold = 1;
 
   constructor() {
     super();
-    this.updateAvailableHeight = this.updateAvailableHeight.bind(this); // Bind del metodo
+    this.updateAvailableHeight = this.updateAvailableHeight.bind(this);
   }
 
   handleSlInput(event: CustomEvent) {
@@ -193,7 +197,7 @@ export default class SlAutocomplete extends ShoelaceElement {
   updateAvailableHeight() {
     const rect = this.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
-    const availableHeight = viewportHeight - rect.bottom; // Altezza disponibile sotto l'elemento
+    const availableHeight = viewportHeight - rect.bottom - this.bottomSkidding; // Altezza disponibile sotto l'elemento
 
     // Imposta la variabile CSS solo se l'altezza disponibile è positiva
     if (availableHeight > 0) {
@@ -228,7 +232,7 @@ export default class SlAutocomplete extends ShoelaceElement {
         <sl-dropdown
           ?open=${this.shouldDisplayAutoComplete}
           @sl-after-hide=${this.handleSlAfterHide}
-          auto-size="vertical"
+          auto-size="both"
           exportparts="base__popup:custom-popup"
           placement
         >
@@ -259,7 +263,7 @@ export default class SlAutocomplete extends ShoelaceElement {
               <slot name="empty-text">${this.emptyText}</slot>
             </div>
 
-            <div aria-hidden="true" style=${styleMap({ width: `${this.clientWidth}px` })}></div>
+            <div aria-hidden="true" style=${styleMap({ width: `calc(${this.clientWidth}px - ${this.scrollbarSkidding}px)` })}></div>
           </sl-menu>
         </sl-dropdown>
       </div>
