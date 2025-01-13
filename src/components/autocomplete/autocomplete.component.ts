@@ -263,7 +263,10 @@ export default class SlAutocomplete extends ShoelaceElement {
               <slot name="empty-text">${this.emptyText}</slot>
             </div>
 
-            <div aria-hidden="true" style=${styleMap({ width: `calc(${this.clientWidth}px - ${this.scrollbarSkidding}px)` })}></div>
+            <div
+              aria-hidden="true"
+              style=${styleMap({ width: `calc(${this.clientWidth}px - ${this.scrollbarSkidding}px)` })}
+            ></div>
           </sl-menu>
         </sl-dropdown>
       </div>
