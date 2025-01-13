@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.6
+
+### Patch Changes
+
+- fix avatar image background and autocomplete skidding props
+
 ## 2.19.5
 
 ### Patch Changes
