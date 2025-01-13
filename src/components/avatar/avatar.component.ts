@@ -110,16 +110,31 @@ export default class SlAvatar extends ShoelaceElement {
   }
 
   render() {
-    const avatarWithImage = html`
-      <img
-        part="image"
-        class="avatar__image"
-        src="${this.image}"
-        loading="${this.loading}"
-        alt=""
-        @error="${this.handleImageLoadError}"
-      />
-    `;
+    if (this.image && !this.hasError) {
+      return html`
+        <div
+          style="background-color: #A1A1AA"
+          part="base"
+          class=${classMap({
+            avatar: true,
+            [`avatar--${this.shape}`]: true,
+            [`avatar--${this.size}`]: true
+          })}
+          role="img"
+          aria-label=${this.label}
+        >
+          <img
+            part="image"
+            class="avatar__image"
+            src="${this.image}"
+            loading="${this.loading}"
+            alt=""
+            @error="${this.handleImageLoadError}"
+          />
+        </div>
+      `;
+    }
+
     let randomBackgroundColor = 'var(--sl-color-neutral-100)';
     let randomColor = 'color: var(--sl-color-neutral-0)';
     let avatarWithoutImage = html``;
@@ -155,7 +170,7 @@ export default class SlAvatar extends ShoelaceElement {
         role="img"
         aria-label=${this.label}
       >
-        ${this.image && !this.hasError ? avatarWithImage : avatarWithoutImage}
+        ${avatarWithoutImage}
       </div>
     `;
   }
