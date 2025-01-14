@@ -46,8 +46,6 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   private readonly hasSlotController = new HasSlotController(this, 'loading-text', 'empty-text');
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   @state() private value = '';
 
   @state() private hasFocus = false;
@@ -64,13 +62,11 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   @property({ type: Number, reflect: true }) bottomSkidding = 10;
 
-  @property({ type: Number, reflect: true }) scrollbarSkidding = 0;
-
   @property({ type: Number, reflect: true }) threshold = 1;
 
   constructor() {
     super();
-    this.updateAvailableHeight = this.updateAvailableHeight.bind(this);
+    this.updateDropdownSize = this.updateDropdownSize.bind(this);
   }
 
   handleSlInput(event: CustomEvent) {
@@ -94,7 +90,7 @@ export default class SlAutocomplete extends ShoelaceElement {
 
     this.hasFocus = true;
     this.value = value;
-    this.updateAvailableHeight();
+    this.updateDropdownSize();
   }
 
   handleKeydown(event: KeyboardEvent) {
@@ -102,8 +98,7 @@ export default class SlAutocomplete extends ShoelaceElement {
       return;
     }
 
-    const options = this.visibleOptions;
-
+    const options = this.visibleOptions ?? [];
     if (options.length === 0) {
       return;
     }
@@ -132,12 +127,11 @@ export default class SlAutocomplete extends ShoelaceElement {
   }
 
   handleSlFocus() {
-    // if (this.value.length >= this.threshold) {
-    // this.hasFocus = true;
-    // this.show();
-    // }
-    this.hasFocus = true;
-    this.show();
+    // if (this.value && this.value.length >= this.threshold) {
+    if (this.value?.length) {
+      this.hasFocus = true;
+      this.show();
+    }
   }
 
   handleSlAfterHide() {
@@ -146,7 +140,7 @@ export default class SlAutocomplete extends ShoelaceElement {
 
   show() {
     this.dropdown?.show();
-    this.updateAvailableHeight();
+    this.updateDropdownSize();
   }
 
   hide() {
@@ -194,25 +188,26 @@ export default class SlAutocomplete extends ShoelaceElement {
     return this.hasFocus && (this.hasResults || this.shouldDisplayLoadingText || this.shouldDisplayEmptyText);
   }
 
-  updateAvailableHeight() {
+  updateDropdownSize() {
     const rect = this.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
-    const availableHeight = viewportHeight - rect.bottom - this.bottomSkidding; // Altezza disponibile sotto l'elemento
+    const availableHeight = viewportHeight - rect.bottom - this.bottomSkidding;
 
-    // Imposta la variabile CSS solo se l'altezza disponibile è positiva
     if (availableHeight > 0) {
       this.style.setProperty('--auto-size-available-height', `${availableHeight}px`);
     }
+    const triggerWidth = this.clientWidth;
+    this.style.setProperty('--auto-size-available-width', `${triggerWidth}px`);
   }
 
   connectedCallback() {
     super.connectedCallback();
-    window.addEventListener('resize', this.updateAvailableHeight);
+    window.addEventListener('resize', this.updateDropdownSize);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    window.removeEventListener('resize', this.updateAvailableHeight);
+    window.removeEventListener('resize', this.updateDropdownSize);
   }
 
   render() {
@@ -263,10 +258,7 @@ export default class SlAutocomplete extends ShoelaceElement {
               <slot name="empty-text">${this.emptyText}</slot>
             </div>
 
-            <div
-              aria-hidden="true"
-              style=${styleMap({ width: `calc(${this.clientWidth}px - ${this.scrollbarSkidding}px)` })}
-            ></div>
+            <div aria-hidden="true" style=${styleMap({ width: `${this.clientWidth}px` })}></div>
           </sl-menu>
         </sl-dropdown>
       </div>

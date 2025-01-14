@@ -4,6 +4,7 @@ export default css`
   :host {
     display: inline-block;
     width: 100%;
+    position: relative;
   }
 
   sl-dropdown {
@@ -14,5 +15,9 @@ export default css`
   sl-dropdown::part(panel) {
     display: block;
     width: 100%;
+  }
+
+  sl-menu {
+    overflow-x: hidden;
   }
 `;
