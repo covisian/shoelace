@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.7
+
+### Patch Changes
+
+- (autocomplete): fix dropdown width
+
 ## 2.19.6
 
 ### Patch Changes
