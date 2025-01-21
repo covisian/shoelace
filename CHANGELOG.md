@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.9
+
+### Patch Changes
+
+- comment regex replacing spaces in option
+
 ## 2.19.8
 
 ### Patch Changes
