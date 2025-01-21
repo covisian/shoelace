@@ -117,15 +117,14 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
   @state()
   set value(val: string | string[]) {
     if (this.multiple) {
-      // Use space as a separator instead of a comma
-      val = Array.isArray(val) ? val : val.split(' ').map(v => v.trim());  // Split by space
+      // Usa la virgola come separatore, così "New York" rimane intatto
+      val = Array.isArray(val) ? val : val.split(',').map(v => v.trim());
     } else {
-      // Join values by space when there's only one value
-      val = Array.isArray(val) ? val.join(' ') : val;
+      val = Array.isArray(val) ? val.join(', ') : val.trim();
     }
 
     if (JSON.stringify(this._value) === JSON.stringify(val)) {
-      return; // Avoid updating if the value hasn't changed
+      return; // Evita aggiornamenti inutili
     }
 
     this.valueHasChanged = true;
@@ -633,7 +632,6 @@ export default class SlSelect extends ShoelaceElement implements ShoelaceFormCon
       this.value = this.selectedOptions.map(el => el.value);
 
       if (this.placeholder && this.value.length === 0) {
-        // When no items are selected, keep the value empty so the placeholder shows
         this.displayLabel = '';
       } else {
         this.displayLabel = this.localize.term('numOptionsSelected', this.selectedOptions.length);
