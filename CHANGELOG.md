@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.19.8
+
+### Patch Changes
+
+- fix value underscore replacement in select
+
 ## 2.19.7
 
 ### Patch Changes
