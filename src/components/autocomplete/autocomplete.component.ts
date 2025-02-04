@@ -127,11 +127,9 @@ export default class SlAutocomplete extends ShoelaceElement {
   }
 
   handleSlFocus() {
-    // if (this.value && this.value.length >= this.threshold) {
-    if (this.value?.length) {
-      this.hasFocus = true;
-      this.show();
-    }
+    this.hasFocus = true;
+    this.value = this.value || '';
+    this.show();
   }
 
   handleSlAfterHide() {
