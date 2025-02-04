@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.20.0
+
+### Minor Changes
+
+- sync with shoelace latest, minor autocomplete fix
+
 ## 2.19.9
 
 ### Patch Changes
