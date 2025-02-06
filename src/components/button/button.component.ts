@@ -88,26 +88,15 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
   @property({ type: Boolean, reflect: true }) pill = false;
 
   /**
-   * Draws a circular icon button. When this attribute is present, the button expects a single `<sl-icon>` in the
+   * Draws a circled or squared icon button. When this attribute is present, the button expects a single `<sl-icon>` in the
    * default slot.
    */
-  @property({ type: Boolean, reflect: true }) circle = false;
+  @property({ reflect: true }) iconOnly?: 'circle' | 'square';
 
   /**
-   * Draws a squared icon button. When this attribute is present, the button expects a single `<sl-icon>` in the
-   * default slot.
+   * Sets the button's width to fill or fluidly scale its container.
    */
-  @property({ type: Boolean, reflect: true }) square = false;
-
-  /**
-   * Sets the button's width to fill its container.
-   */
-  @property({ type: Boolean, reflect: true }) block = false;
-
-  /**
-   * Sets the button's width to fluidly scale.
-   */
-  @property({ type: Boolean, reflect: true }) fluid = false;
+  @property({ reflect: true }) layout?: 'block' | 'fluid';
 
   /**
    * The type of button. Note that the default value is `button` instead of `submit`, which is opposite of how native
@@ -288,29 +277,20 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
         part="base"
         class=${classMap({
           button: true,
-          'button--default': this.variant === 'default',
-          'button--primary': this.variant === 'primary',
-          'button--success': this.variant === 'success',
-          'button--neutral': this.variant === 'neutral',
-          'button--warning': this.variant === 'warning',
-          'button--danger': this.variant === 'danger',
-          'button--light': this.variant === 'light',
+          [`button--${this.variant}`]: true,
+          [`button--${this.size}`]: true,
           'button--text': this.variant === 'text',
-          'button--x-small': this.size === 'x-small',
-          'button--small': this.size === 'small',
-          'button--medium': this.size === 'medium',
-          'button--large': this.size === 'large',
           'button--caret': this.caret,
-          'button--circle': this.circle,
-          'button--square': this.square,
           'button--disabled': this.disabled,
           'button--focused': this.hasFocus,
           'button--loading': this.loading,
           'button--standard': !this.outline,
           'button--outline': this.outline,
           'button--pill': this.pill,
-          'button--block': this.block,
-          'button--fluid': this.fluid,
+          'button--circle': this.iconOnly === 'circle',
+          'button--square': this.iconOnly === 'square',
+          'button--layout-block': this.layout === 'block',
+          'button--layout-fluid': this.layout === 'fluid',
           'button--link': isLink,
           'button--rtl': this.localize.dir() === 'rtl',
           'button--has-label': this.hasSlotController.test('[default]'),

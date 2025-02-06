@@ -8,7 +8,7 @@ export default css`
     cursor: pointer;
   }
 
-  :host(sl-button[block]) {
+  :host(sl-button[layout='block']) {
     display: block;
   }
 
@@ -320,7 +320,7 @@ export default css`
     color: var(--sl-color-neutral-0);
   }
 
-  /* light */
+  /* Light */
   .button--outline.button--light {
     border: var(--sl-border-base);
     color: var(--sl-color-neutral-950);
@@ -523,32 +523,29 @@ export default css`
   }
 
   /*
-   * Block modifier
+   * Layout modifier
    */
 
-  .button--square.button--block.button--has-label.button--small,
-  .button--square.button--block.button--has-label.button--medium,
-  .button--square.button--block.button--has-label.button--large {
+  /* Block */
+  .button--square.button--layout-block.button--has-label.button--small,
+  .button--square.button--layout-block.button--has-label.button--medium,
+  .button--square.button--layout-block.button--has-label.button--large {
     width: 100%;
   }
-
-  /*
-  * Fluid modifier
- */
-
-  .button--fluid.button--has-label.button--small,
-  .button--fluid.button--has-label.button--medium,
-  .button--fluid.button--has-label.button--large {
+  /* Fluid */
+  .button--layout-fluid.button--has-label.button--small:not(.button--circle),
+  .button--layout-fluid.button--has-label.button--medium:not(.button--circle),
+  .button--layout-fluid.button--has-label.button--large:not(.button--circle) {
     width: auto;
   }
 
-  .button--fluid.button--has-label.button--small {
+  .button--layout-fluid.button--has-label.button--small:not(.button--circle) {
     min-width: 5rem;
   }
-  .button--fluid.button--has-label.button--medium {
+  .button--layout-fluid.button--has-label.button--medium:not(.button--circle) {
     min-width: 7rem;
   }
-  .button--fluid.button--has-label.button--large {
+  .button--layout-fluid.button--has-label.button--large:not(.button--circle) {
     min-width: 8rem;
   }
 

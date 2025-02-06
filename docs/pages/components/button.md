@@ -45,39 +45,31 @@ const App = () => (
 );
 ```
 
-### Fluid
+### Layouts
 
-Use the `fluid` attribute to set the button's width to fill its container.
+Use the `layout` attribute to set the button's width to fluidly scale or fill its container.
 
 ```html:preview
-  <sl-button fluid>Fluid button</sl-button>
+  <div style="margin-bottom: 1rem;">
+    <sl-button layout="fluid">fluid button</sl-button>
+  </div>
+<div style="margin-bottom: 1rem;">
+  <sl-button layout="block">block button</sl-button>
+</div>
 ```
 
 ```jsx:react
 import SlButton from '@shoelace-style/shoelace/dist/react/button';
 
 const App = () => (
-  <>
-    <SlButton fluid>fluid button</SlButton>
-  </>
-);
-```
 
-### Block
+  <div style="margin-bottom: 1rem;">
+    <SlButton layout="fluid">fluid button</SlButton>
+  </div>
+<div style="margin-bottom: 1rem;">
+  <SlButton layout="block">block button</SlButton>
+</div>
 
-Use the `block` attribute to set the button's width to fill its container.
-
-```html:preview
-  <sl-button block >Block button</sl-button>
-```
-
-```jsx:react
-import SlButton from '@shoelace-style/shoelace/dist/react/button';
-
-const App = () => (
-  <>
-    <SlButton block>Block button</SlButton>
-  </>
 );
 ```
 
@@ -155,7 +147,7 @@ Use the `pill` attribute to give buttons rounded edges.
 
 ```html:preview
 <sl-button size="x-small" pill>x-small</sl-button>
-<sl-button size="small" pill>Small</sl-button>
+<sl-button size="small"  pill>Small</sl-button>
 <sl-button size="medium" pill>Medium</sl-button>
 <sl-button size="large" pill>Large</sl-button>
 ```
@@ -181,25 +173,42 @@ const App = () => (
 );
 ```
 
-### Circle Buttons
+### Icon-only buttons
 
-Use the `circle` attribute to create circular icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
-
+Use the `iconOnly` attribute in combination with `circle` or `square` value to create circular or squared icon buttons which expect a single `<sl-icon>` in the default slot.
 ```html:preview
-<sl-button size="x-small" circle>
+<sl-button size="x-small" iconOnly='circle'>
   <sl-icon name="gear" label="Settings"></sl-icon>
 </sl-button>
 
-<sl-button size="small" circle>
+<sl-button size="small" iconOnly='circle'>
   <sl-icon name="gear" label="Settings"></sl-icon>
 </sl-button>
 
-<sl-button size="medium" circle>
+<sl-button size="medium" iconOnly='circle'>
   <sl-icon name="gear" label="Settings"></sl-icon>
 </sl-button>
 
-<sl-button size="large" circle>
+<sl-button size="large" iconOnly='circle'>
   <sl-icon name="gear" label="Settings"></sl-icon>
+</sl-button>
+
+<hr style="visibility: hidden; margin:8px;"/>
+
+<sl-button size="x-small" iconOnly='square'>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
+</sl-button>
+
+<sl-button size="small" iconOnly='square'>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
+</sl-button>
+
+<sl-button size="medium" iconOnly='square'>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
+</sl-button>
+
+<sl-button size="large" iconOnly='square'>
+  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
 </sl-button>
 ```
 
@@ -219,50 +228,6 @@ const App = () => (
       <SlIcon name="gear" />
     </SlButton>
     <SlButton size="large" circle>
-      <SlIcon name="gear" />
-    </SlButton>
-  </>
-);
-```
-
-### Square Buttons
-
-Use the `square` attribute to create squared icon buttons. When this attribute is set, the button expects a single `<sl-icon>` in the default slot.
-
-```html:preview
-<sl-button size="x-small" square>
-  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
-</sl-button>
-
-<sl-button size="small" square>
-  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
-</sl-button>
-
-<sl-button size="medium" square>
-  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
-</sl-button>
-
-<sl-button size="large" square>
-  <sl-icon name="cv-chat-native-stroke" label="Settings"></sl-icon>
-</sl-button>
-```
-
-```jsx:react
-import SlButton from '@shoelace-style/shoelace/dist/react/button';
-import SlIcon from '@shoelace-style/shoelace/dist/react/icon';
-
-const App = () => (
-  <>
-  <SlButton size="x-small" square>
-      <SlIcon name="gear" />
-    </SlButton>
-    <SlButton size="small" square>
-      <SlIcon name="gear" />
-    </SlButton>
-    <SlButton size="medium" square>
-      <SlIcon name="gear" />
-    </SlButton>
-    <SlButton size="large" square>
       <SlIcon name="gear" />
     </SlButton>
   </>
@@ -337,9 +302,9 @@ When a `target` is set, the link will receive `rel="noreferrer noopener"` for [s
 As expected, buttons can be given a custom width by passing inline styles to the component (or using a class). This is useful for making buttons span the full width of their container on smaller screens.
 
 ```html:preview
-<sl-button  size="small" style="width: 100%; margin-bottom: 1rem;">Small</sl-button>
-<sl-button  size="medium" style="width: 100%; margin-bottom: 1rem;">Medium</sl-button>
-<sl-button  size="large" style="width: 100%;">Large</sl-button>
+<sl-button  size="small" style="width: 100%; margin-bottom: 1rem;">Small 100%</sl-button>
+<sl-button  size="medium" style="width: 80%; margin-bottom: 1rem;">Medium 80%</sl-button>
+<sl-button  size="large" style="width: 60%;">Large 60%</sl-button>
 ```
 
 {% raw %}
@@ -363,26 +328,6 @@ const App = () => (
 ```
 
 {% endraw %}
-
-### Block
-
-Alternatively use the `block` attribute to set the button's width to fill its container.
-
-```html:preview
-  <sl-button block size='medium'>
-    Block button
-  </sl-button>
-```
-
-```jsx:react
-import SlButton from '@shoelace-style/shoelace/dist/react/button';
-
-const App = () => (
-  <>
-    <SlButton block>Block button</SlButton>
-  </>
-);
-```
 
 ### Prefix and Suffix Icons
 
