@@ -140,6 +140,27 @@ const App = () => (
 
 {% endraw %}
 
+### No divider
+
+Add the `no-divider` attribute to remove the divider and the second panel.
+
+```html:preview
+<sl-split-panel no-divider>
+  <div
+    slot="start"
+    style="height: 200px; background: var(--sl-color-neutral-50); display: flex; align-items: center; justify-content: center; overflow: hidden;"
+  >
+    Start
+  </div>
+  <div
+    slot="end"
+    style="height: 200px; background: var(--sl-color-neutral-50); display: flex; align-items: center; justify-content: center; overflow: hidden;"
+  >
+    End
+  </div>
+</sl-split-panel>
+```
+
 ### Vertical
 
 Add the `vertical` attribute to render the split panel in a vertical orientation where the start and end panels are stacked. You also need to set a height when using the vertical orientation.

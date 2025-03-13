@@ -70,6 +70,9 @@ export default class SlSplitPanel extends ShoelaceElement {
    */
   @property({ type: Number, reflect: true }) position = 50;
 
+  /** Removes the divider */
+  @property({ type: Boolean, reflect: true, attribute: 'no-divider' }) noDivider? = false;
+
   /** The current position of the divider from the primary panel's edge in pixels. */
   @property({ attribute: 'position-in-pixels', type: Number }) positionInPixels: number;
 
@@ -163,6 +166,11 @@ export default class SlSplitPanel extends ShoelaceElement {
 
     this.detectSize();
     this.cachedPositionInPixels = this.percentageToPixels(this.position);
+
+    if (this.noDivider && this.position === 50) {
+      this.position = 100;
+      this.disabled = true;
+    }
   }
 
   disconnectedCallback() {
@@ -310,7 +318,13 @@ export default class SlSplitPanel extends ShoelaceElement {
     const gridTemplate = this.vertical ? 'gridTemplateRows' : 'gridTemplateColumns';
     const gridTemplateAlt = this.vertical ? 'gridTemplateColumns' : 'gridTemplateRows';
     const isRtl = this.localize.dir() === 'rtl';
-    const primary = `
+
+    // Se no-divider è attivo, il pannello "start" occupa tutto lo spazio e "end" viene nascosto
+    if (this.noDivider) {
+      this.style[gridTemplate] = '100%';
+      this.style[gridTemplateAlt] = '';
+    } else {
+      const primary = `
       clamp(
         0%,
         clamp(
@@ -321,46 +335,54 @@ export default class SlSplitPanel extends ShoelaceElement {
         calc(100% - var(--divider-width))
       )
     `;
-    const secondary = 'auto';
+      const secondary = 'auto';
 
-    if (this.primary === 'end') {
-      if (isRtl && !this.vertical) {
-        this.style[gridTemplate] = `${primary} var(--divider-width) ${secondary}`;
+      if (this.primary === 'end') {
+        if (isRtl && !this.vertical) {
+          this.style[gridTemplate] = `${primary} var(--divider-width) ${secondary}`;
+        } else {
+          this.style[gridTemplate] = `${secondary} var(--divider-width) ${primary}`;
+        }
       } else {
-        this.style[gridTemplate] = `${secondary} var(--divider-width) ${primary}`;
+        if (isRtl && !this.vertical) {
+          this.style[gridTemplate] = `${secondary} var(--divider-width) ${primary}`;
+        } else {
+          this.style[gridTemplate] = `${primary} var(--divider-width) ${secondary}`;
+        }
       }
-    } else {
-      if (isRtl && !this.vertical) {
-        this.style[gridTemplate] = `${secondary} var(--divider-width) ${primary}`;
-      } else {
-        this.style[gridTemplate] = `${primary} var(--divider-width) ${secondary}`;
-      }
+
+      this.style[gridTemplateAlt] = '';
     }
 
-    // Unset the alt grid template property
-    this.style[gridTemplateAlt] = '';
-
     return html`
-      <slot name="start" part="panel start" class="start"></slot>
+    <slot name="start" part="panel start" class="start"></slot>
 
-      <div
-        part="divider"
-        class="divider"
-        tabindex=${ifDefined(this.disabled ? undefined : '0')}
-        role="separator"
-        aria-valuenow=${this.position}
-        aria-valuemin="0"
-        aria-valuemax="100"
-        aria-label=${this.localize.term('resize')}
-        @keydown=${this.handleKeyDown}
-        @mousedown=${this.handleDrag}
-        @touchstart=${this.handleDrag}
-      >
-        <slot name="divider"></slot>
-      </div>
+    ${!this.noDivider
+        ? html`
+          <div
+            part="divider"
+            class="divider"
+            tabindex=${ifDefined(this.disabled ? undefined : '0')}
+            role="separator"
+            aria-valuenow=${this.position}
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-label=${this.localize.term('resize')}
+            @keydown=${this.handleKeyDown}
+            @mousedown=${this.handleDrag}
+            @touchstart=${this.handleDrag}
+          >
+            <slot name="divider"></slot>
+          </div>
+        `
+        : ''
+      }
 
-      <slot name="end" part="panel end" class="end"></slot>
-    `;
+    ${this.noDivider
+        ? ''
+        : html`<slot name="end" part="panel end" class="end"></slot>`
+      }
+  `;
   }
 }
 
