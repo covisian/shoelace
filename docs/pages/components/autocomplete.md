@@ -11,7 +11,7 @@ layout: component
 </sl-autocomplete>
 </sl-autocomplete>
 
-<script>
+<!-- <script>
   const autocomplete = document.querySelector('.language-autocomplete');
 
   autocomplete.options = [
@@ -34,5 +34,5 @@ layout: component
   autocomplete.addEventListener('sl-select', event => {
     console.log(event.target.value);
   });
-</script>
+</script> -->
 ```
