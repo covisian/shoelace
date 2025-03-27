@@ -1,262 +1,206 @@
-/* eslint-disable lit-a11y/no-aria-slot */
-import { HasSlotController } from '../../internal/slot.js';
 import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import { styleMap } from 'lit/directives/style-map.js';
+import { repeat } from 'lit/directives/repeat.js';
 import componentStyles from '../../styles/component.styles.js';
 import ShoelaceElement from '../../internal/shoelace-element.js';
 import SlDropdown from '../dropdown/dropdown.component.js';
+import SlIcon from '../icon/icon.js';
+import SlInput from '../input/input.js';
 import SlMenu from '../menu/menu.component.js';
+import SlMenuItem from '../menu-item/menu-item.js';
 import styles from './autocomplete.styles.js';
 import type { CSSResultGroup } from 'lit';
-import type SlInput from '../input/input.js';
-import type SlMenuItem from '../menu-item/menu-item.js';
 
 const escapeRegExp = (text: string) => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 
-/**
- * @summary Autocompletes displays suggestions as you type.
- * @documentation https://shoelace.style/components/autocomplete
- * @status stable
- * @since 2.19.1
- * @dependency sl-dropdown
- * @dependency sl-menu
- *
- * @slot - The content that includes an input.
- * @slot empty-text - The text or content that is displayed when there is no suggestion based on the input.
- * @slot loading-text - The text or content that is displayed when the `loading` attribute evaluates to true.
- *
- * @csspart base - The component's internal wrapper.
- * @csspart trigger - The wrapper for the trigger slot.
- * @csspart empty-text - The empty text's wrapper.
- * @csspart loading-text - The loading text's wrapper.
- *
- */
+export interface AutocompleteOption {
+  value: string;
+  label?: string;
+  selected?: boolean;
+  [key: string]: unknown;
+}
 
 export default class SlAutocomplete extends ShoelaceElement {
   static styles: CSSResultGroup = [componentStyles, styles];
   static dependencies = {
     'sl-dropdown': SlDropdown,
-    'sl-menu': SlMenu
+    'sl-menu': SlMenu,
+    'sl-menu-item': SlMenuItem,
+    'sl-input': SlInput,
+    'sl-icon': SlIcon
   };
 
   @query('sl-menu') menu: SlMenu;
+  @query('sl-menu') menuItem: SlMenuItem;
   @query('sl-dropdown') dropdown: SlDropdown;
-  @query('slot:not([name])') defaultSlot: HTMLSlotElement;
-
-  private readonly hasSlotController = new HasSlotController(this, 'loading-text', 'empty-text');
-
-  @state() private value = '';
+  @query('sl-input') input: SlInput;
 
   @state() private hasFocus = false;
 
-  @property({ type: String, reflect: true }) emptyText: string;
-
+  @property({ type: String, reflect: true }) emptyText: string = ' We could not find any matches. Please try again.';
   @property({ type: Boolean, reflect: true }) loading = false;
-
   @property({ type: String, reflect: true }) loadingText: string;
-
   @property({ type: Boolean, reflect: true }) autofilter = true;
+  @property({ type: Boolean, reflect: true }) multiSelect = false;
+  @property({ type: Number }) maxDisplayedOptions = 2;
 
-  @property({ type: Boolean, reflect: true }) highlight = false;
+  // Proxy input properties
+  @property({ type: String }) value = '';
+  @property({ type: String }) type = 'text';
+  @property({ type: String }) label = '';
+  @property({ type: String }) help = '';
+  @property({ type: String }) size = 'medium';
+  @property({ type: String }) placeholder = '';
+  @property({ type: Boolean }) clearable = false;
+  @property({ type: Boolean }) disabled = false;
+  @property({ type: Boolean }) readonly = false;
 
-  @property({ type: Number, reflect: true }) bottomSkidding = 10;
+  @property({ type: Boolean }) checked = false;
 
-  @property({ type: Number, reflect: true }) threshold = 1;
+  // New options property
+  @property({ type: Array }) options: AutocompleteOption[] = [];
 
-  constructor() {
-    super();
-    this.updateDropdownSize = this.updateDropdownSize.bind(this);
-  }
-
-  handleSlInput(event: CustomEvent) {
-    const { value } = event.target as SlInput;
-
-    if (this.autofilter) {
-      this.options.forEach(option => {
-        const shouldDisplay = new RegExp(`(${escapeRegExp(value ?? '')})`, 'ig').test(option.getTextLabel());
-
-        if (shouldDisplay) {
-          option.style.display = 'block';
-          option.disabled = false;
-          option.ariaHidden = 'false';
-        } else {
-          option.style.display = 'none';
-          option.disabled = true;
-          option.ariaHidden = 'true';
-        }
-      });
-    }
-
-    this.hasFocus = true;
-    this.value = value;
-    this.updateDropdownSize();
-  }
-
-  handleKeydown(event: KeyboardEvent) {
-    if (!this.shouldDisplayAutoComplete || event.ctrlKey || event.metaKey) {
-      return;
-    }
-
-    const options = this.visibleOptions ?? [];
-    if (options.length === 0) {
-      return;
-    }
-
-    const firstItem = options[0];
-    const lastItem = options[options.length - 1];
-
-    switch (event.key) {
-      case 'Tab':
-      case 'Escape':
-        this.hasFocus = false;
-        break;
-
-      case 'ArrowDown':
-        event.preventDefault();
-        this.menu.setCurrentItem(firstItem);
-        firstItem.focus();
-        break;
-
-      case 'ArrowUp':
-        event.preventDefault();
-        this.menu.setCurrentItem(lastItem);
-        lastItem.focus();
-        break;
-    }
-  }
-
-  handleSlFocus() {
-    this.hasFocus = true;
-    this.value = this.value || '';
-    this.show();
-  }
-
-  handleSlAfterHide() {
-    this.hasFocus = false;
-  }
+  // constructor() {
+  //   super();
+  // }
 
   show() {
+    this.hasFocus = true;
     this.dropdown?.show();
-    this.updateDropdownSize();
   }
 
   hide() {
     this.dropdown?.hide();
   }
 
-  reset() {
-    this.value = '';
+  handleInput(event: CustomEvent) {
+    const { value } = event.target as SlInput;
+    this.filterOptions(value);
+    this.hasFocus = true;
+    this.value = value;
   }
 
-  get options(): SlMenuItem[] {
-    return (this.defaultSlot?.assignedElements() || []) as SlMenuItem[];
+  filterOptions(filterValue: string) {
+    if (!this.autofilter) return;
+
+    const menuItems = this.renderRoot?.querySelectorAll('sl-menu-item');
+    menuItems?.forEach((item: SlMenuItem) => {
+      const option: AutocompleteOption = item.dataset.option
+        ? (JSON.parse(item.dataset.option) as AutocompleteOption)
+        : { value: item.textContent || '' };
+
+      const shouldDisplay = new RegExp(`(${escapeRegExp(filterValue ?? '')})`, 'ig').test(
+        option.value! || option.label!
+      );
+
+      if (shouldDisplay) {
+        item.style.display = 'block';
+        item.disabled = false;
+        item.ariaHidden = 'false';
+      } else {
+        item.style.display = 'none';
+        item.disabled = true;
+        item.ariaHidden = 'true';
+      }
+    });
   }
 
-  get visibleOptions() {
-    return this.options.filter(option => option.style.display !== 'none');
-  }
+  handleSelect(event: CustomEvent) {
+    const selectedItem = event.detail.item as SlMenuItem;
+    const optionData = JSON.parse(selectedItem.dataset.option || '{}');
 
-  get hasResults() {
-    return this.visibleOptions.length > 0;
-  }
+    if (this.multiSelect) {
+      // Toggle selection for multi-select
+      const existingOptionIndex = this.options.findIndex(opt => opt.value === optionData.value);
 
-  get shouldDisplayLoadingText() {
-    return this.loading && (this.loadingText || this.hasSlotController.test('loading-text'));
-  }
+      if (existingOptionIndex !== -1) {
+        this.options[existingOptionIndex].selected = !this.options[existingOptionIndex].selected;
+      }
 
-  get shouldDisplayEmptyText() {
-    return (
-      !this.shouldDisplayLoadingText &&
-      !this.hasResults &&
-      (this.emptyText || this.hasSlotController.test('empty-text'))
-    );
-  }
+      // Update value to show selected options with a limit
+      const selectedOptions = this.options.filter(opt => opt.selected);
+      const displayOptions = selectedOptions.slice(0, this.maxDisplayedOptions);
+      const extraOptionsCount = Math.max(0, selectedOptions.length - this.maxDisplayedOptions);
 
-  // get shouldDisplayAutoComplete() {
-  //   return (
-  //     this.hasFocus &&
-  //     ((this.value.length >= this.threshold && this.hasResults) ||
-  //       this.shouldDisplayLoadingText ||
-  //       this.shouldDisplayEmptyText)
-  //   );
-  // }
-
-  get shouldDisplayAutoComplete() {
-    return this.hasFocus && (this.hasResults || this.shouldDisplayLoadingText || this.shouldDisplayEmptyText);
-  }
-
-  updateDropdownSize() {
-    const rect = this.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const availableHeight = viewportHeight - rect.bottom - this.bottomSkidding;
-
-    if (availableHeight > 0) {
-      this.style.setProperty('--auto-size-available-height', `${availableHeight}px`);
+      this.value =
+        displayOptions.map(opt => opt.label || opt.value).join(', ') +
+        (extraOptionsCount > 0 ? ` +${extraOptionsCount} more` : '');
+    } else {
+      // Single select behavior
+      this.value = optionData.value || optionData.label;
+      this.hide();
     }
-    const triggerWidth = this.clientWidth;
-    this.style.setProperty('--auto-size-available-width', `${triggerWidth}px`);
+
+    // Emit custom event with selection details
+    this.dispatchEvent(
+      new CustomEvent('sl-select', {
+        detail: {
+          value: this.value,
+          options: this.multiSelect ? this.options.filter(opt => opt.selected) : [optionData],
+          item: selectedItem
+        },
+        bubbles: true,
+        composed: true
+      })
+    );
+
+    // Trigger re-render to update selected state
+    this.requestUpdate();
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-    window.addEventListener('resize', this.updateDropdownSize);
+  handleClear() {
+    // Deselect all options when input is cleared
+    if (this.multiSelect) {
+      this.options = this.options.map(option => ({
+        ...option,
+        selected: false
+      }));
+    }
+
+    this.value = '';
+    this.requestUpdate();
+    this.show();
   }
 
-  disconnectedCallback() {
-    super.disconnectedCallback();
-    window.removeEventListener('resize', this.updateDropdownSize);
+  createOptionTemplate(option: AutocompleteOption) {
+    return html`
+      <sl-menu-item data-option=${JSON.stringify(option)} type="checkbox" .checked=${option.selected}>
+        ${option.label || option.value}
+      </sl-menu-item>
+    `;
   }
 
   render() {
-    const { shouldDisplayLoadingText } = this;
-
     return html`
-      <div part="base" treshold=${this.threshold}>
-        <div
-          part="trigger"
-          @sl-focus=${this.handleSlFocus}
-          @sl-input=${this.handleSlInput}
-          @keydown=${this.handleKeydown}
-        >
-          <slot name="trigger"></slot>
-        </div>
+      <div part="base">
+        <sl-input
+          .value=${this.value}
+          .type=${this.type}
+          .label=${this.label}
+          .help=${this.help}
+          .size=${this.size}
+          .placeholder=${this.placeholder}
+          ?clearable=${this.clearable}
+          ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
+          @sl-input=${this.handleInput}
+          @sl-focus=${() => this.show()}
+          @sl-clear=${this.handleClear}
+        ></sl-input>
 
         <sl-dropdown
-          ?open=${this.shouldDisplayAutoComplete}
-          @sl-after-hide=${this.handleSlAfterHide}
+          ?open=${this.hasFocus && this.options.length > 0}
+          @sl-after-hide=${() => (this.hasFocus = false)}
           auto-size="both"
-          exportparts="base__popup:custom-popup"
-          placement
         >
-          <sl-menu>
-            <slot
-              aria-hidden=${shouldDisplayLoadingText ? 'true' : 'false'}
-              style="${styleMap({ display: shouldDisplayLoadingText ? 'none' : 'block' })}"
-            >
-            </slot>
-
-            <div
-              part="loading-text"
-              id="loading-text"
-              class="loading-text"
-              aria-hidden=${shouldDisplayLoadingText ? 'false' : 'true'}
-              style="${styleMap({ display: shouldDisplayLoadingText ? 'block' : 'none' })}"
-            >
-              <slot name="loading-text">${this.loadingText}</slot>
-            </div>
-
-            <div
-              part="empty-text"
-              id="empty-text"
-              class="empty-text"
-              aria-hidden=${this.shouldDisplayEmptyText ? 'false' : 'true'}
-              style="${styleMap({ display: this.shouldDisplayEmptyText ? 'block' : 'none' })}"
-            >
-              <slot name="empty-text">${this.emptyText}</slot>
-            </div>
-
-            <div aria-hidden="true" style=${styleMap({ width: `${this.clientWidth}px` })}></div>
+          <sl-menu @sl-select=${this.handleSelect}>
+            ${this.options.length > 0
+              ? repeat(
+                  this.options,
+                  option => option.value,
+                  option => this.createOptionTemplate(option)
+                )
+              : html` <sl-menu-item part="empty-text">${this.emptyText}</sl-menu-item> `}
           </sl-menu>
         </sl-dropdown>
       </div>
