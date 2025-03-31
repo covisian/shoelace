@@ -516,7 +516,7 @@ export default class SlTabGroup extends ShoelaceElement {
               `
             : ''}
 
-          <div class="tab-group__nav">
+          <div class="tab-group__nav" @scrollend=${this.updateScrollButtons}>
             <div
               part="tabs"
               class=${classMap({
