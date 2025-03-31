@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.20.2
+
+### Patch Changes
+
+- tab-group fix scroll indicators
+
 ## 2.20.1
 
 ### Patch Changes
