@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.20.3
+
+### Patch Changes
+
+- align tag component to design
+
 ## 2.20.2
 
 ### Patch Changes
