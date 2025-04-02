@@ -35,7 +35,7 @@ export default class SlTag extends ShoelaceElement {
   @property({ reflect: true }) variant: 'primary' | 'success' | 'default' | 'warning' | 'danger' | 'light' = 'default';
 
   /** The tag's size. */
-  @property({ reflect: true }) size: 'small' | 'medium' | 'large' = 'medium';
+  @property({ reflect: true }) size: 'x-small' | 'small' | 'medium' | 'large' = 'medium';
 
   /** Draws a pill-style tag with rounded edges. */
   @property({ type: Boolean, reflect: true }) pill = false;
@@ -63,6 +63,7 @@ export default class SlTag extends ShoelaceElement {
           'tag--light': this.variant === 'light',
 
           // Sizes
+          'tag--x-small': this.size === 'x-small',
           'tag--small': this.size === 'small',
           'tag--medium': this.size === 'medium',
           'tag--large': this.size === 'large',

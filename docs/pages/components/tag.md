@@ -36,6 +36,7 @@ const App = () => (
 Use the `size` attribute to change a tag's size.
 
 ```html:preview
+<sl-tag size="x-small">X-Small</sl-tag>
 <sl-tag size="small">Small</sl-tag>
 <sl-tag size="medium">Medium</sl-tag>
 <sl-tag size="large">Large</sl-tag>
@@ -58,6 +59,7 @@ const App = () => (
 Use the `pill` attribute to give tags rounded edges.
 
 ```html:preview
+<sl-tag size="x-small" pill>X-small</sl-tag>
 <sl-tag size="small" pill>Small</sl-tag>
 <sl-tag size="medium" pill>Medium</sl-tag>
 <sl-tag size="large" pill>Large</sl-tag>
@@ -87,6 +89,7 @@ Use the `removable` attribute to add a remove button to the tag.
 
 ```html:preview
 <div class="tags-removable">
+  <sl-tag size="x-small" removable>X-small</sl-tag>
   <sl-tag size="small" removable>Small</sl-tag>
   <sl-tag size="medium" removable>Medium</sl-tag>
   <sl-tag size="large" removable>Large</sl-tag>

@@ -54,7 +54,7 @@ export default css`
     color: var(--sl-color-neutral-600);
   }
 
-    .tag--light {
+  .tag--light {
     background-color: var(--sl-color-bg0);
     border-color: var(--sl-border-color-base);
     color: var(--sl-color-fg0);
@@ -88,8 +88,16 @@ export default css`
    * Size modifiers
    */
 
+  .tag--x-small {
+    font-size: calc(var(--sl-font-size-x-small) - 2px);
+    height: calc(var(--sl-input-height-x-small) * 0.8);
+    line-height: calc(var(--sl-input-height-x-small) - var(--sl-input-border-width) * 2);
+    border-radius: var(--sl-input-border-radius-x-small);
+    padding: 0 var(--sl-spacing-2x-small);
+  }
+
   .tag--small {
-    font-size: var(--sl-button-font-size-small);
+    font-size: calc(var(--sl-font-size-small) - 2px);
     height: calc(var(--sl-input-height-small) * 0.8);
     line-height: calc(var(--sl-input-height-small) - var(--sl-input-border-width) * 2);
     border-radius: var(--sl-input-border-radius-small);
@@ -97,7 +105,7 @@ export default css`
   }
 
   .tag--medium {
-    font-size: var(--sl-button-font-size-medium);
+    font-size: calc(var(--sl-font-size-medium) - 2px);
     height: calc(var(--sl-input-height-medium) * 0.8);
     line-height: calc(var(--sl-input-height-medium) - var(--sl-input-border-width) * 2);
     border-radius: var(--sl-input-border-radius-medium);
@@ -105,7 +113,7 @@ export default css`
   }
 
   .tag--large {
-    font-size: var(--sl-button-font-size-large);
+    font-size: calc(var(--sl-font-size-large) - 2px);
     height: calc(var(--sl-input-height-large) * 0.8);
     line-height: calc(var(--sl-input-height-large) - var(--sl-input-border-width) * 2);
     border-radius: var(--sl-input-border-radius-large);
