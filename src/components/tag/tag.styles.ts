@@ -44,13 +44,23 @@ export default css`
     color: var(--sl-color-success-600);
   }
 
-  .tag--neutral {
-    background-color: var(--sl-color-neutral-50);
-    border-color: var(--sl-color-neutral-200);
-    color: var(--sl-color-neutral-800);
+  .tag--default {
+    background-color: var(--sl-color-bg1);
+    border-color: var(--sl-border-color-base);
+    color: var(--sl-color-fg0);
   }
 
-  .tag--neutral:active > sl-icon-button {
+  .tag--default:active > sl-icon-button {
+    color: var(--sl-color-neutral-600);
+  }
+
+    .tag--light {
+    background-color: var(--sl-color-bg0);
+    border-color: var(--sl-border-color-base);
+    color: var(--sl-color-fg0);
+  }
+
+  .tag--light:active > sl-icon-button {
     color: var(--sl-color-neutral-600);
   }
 

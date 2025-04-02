@@ -8,7 +8,8 @@ layout: component
 ```html:preview
 <sl-tag variant="primary">Primary</sl-tag>
 <sl-tag variant="success">Success</sl-tag>
-<sl-tag variant="neutral">Neutral</sl-tag>
+<sl-tag variant="default">Default</sl-tag>
+<sl-tag variant="light">Light</sl-tag>
 <sl-tag variant="warning">Warning</sl-tag>
 <sl-tag variant="danger">Danger</sl-tag>
 ```
@@ -20,7 +21,8 @@ const App = () => (
   <>
     <SlTag variant="primary">Primary</SlTag>
     <SlTag variant="success">Success</SlTag>
-    <SlTag variant="neutral">Neutral</SlTag>
+    <SlTag variant="default">Default</SlTag>
+      <SlTag variant="light">Light</SlTag>
     <SlTag variant="warning">Warning</SlTag>
     <SlTag variant="danger">Danger</SlTag>
   </>
