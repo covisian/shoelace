@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.21.0
+
+### Minor Changes
+
+- update accent tokens and docs
+
 ## 2.20.3
 
 ### Patch Changes
