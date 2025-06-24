@@ -333,6 +333,34 @@
   --smart-color-fg1: #71717a;
   --smart-color-fg2: #a1a1aa;
 
+  /*
+    * Accents
+    */
+
+  /* Primary */
+  --smart-color-primary-shade: var(--smart-color-blue-600);
+  --smart-color-primary-base: var(--smart-color-blue-500);
+  --smart-color-primary-tint: var(--smart-color-blue-400);
+  --smart-color-primary-soft: var(--smart-color-blue-50);
+
+  /* Success */
+  --smart-color-success-shade: var(--smart-color-green-600);
+  --smart-color-success-base: var(--smart-color-green-500);
+  --smart-color-success-tint: var(--smart-color-green-400);
+  --smart-color-success-soft: var(--smart-color-green-50);
+
+  /* Warning */
+  --smart-color-warning-shade: var(--smart-color-yellow-600);
+  --smart-color-warning-base: var(--smart-color-yellow-500);
+  --smart-color-warning-tint: var(--smart-color-yellow-400);
+  --smart-color-warning-soft: var(--smart-color-yellow-50);
+
+  /* Danger */
+  --smart-color-danger-shade: var(--smart-color-red-600);
+  --smart-color-danger-base: var(--smart-color-red-500);
+  --smart-color-danger-tint: var(--smart-color-red-400);
+  --smart-color-danger-soft: var(--smart-color-red-50);
+
   /* Border color */
   --smart-border-color-base: #404040;
   --smart-border-color-light: #404040;
@@ -430,6 +458,10 @@
   --sl-color-neutral-0: hsl(0, 0%, 0%);
   --sl-color-neutral-1000: hsl(0, 0%, 100%);
 
+  /* Static Colors */
+  --sl-color-static-white: hsl(0, 0%, 100%);
+  --sl-color-static-black: hsl(0, 0%, 0%);
+
   /* Background */
   --sl-color-bg0: var(--smart-color-bg0);
   --sl-color-bg1: var(--smart-color-bg1);
@@ -439,6 +471,38 @@
   --sl-color-fg0: var(--smart-color-fg0);
   --sl-color-fg1: var(--smart-color-fg1);
   --sl-color-fg2: var(--smart-color-fg2);
+
+  /*
+  * Accents
+  */
+
+  /* Primary */
+  --sl-color-primary-shade: var(--smart-color-primary-shade);
+  --sl-color-primary-base: var(--smart-color-primary-base);
+  --sl-color-primary-tint: var(--smart-color-primary-tint);
+  --sl-color-primary-soft: var(--smart-color-primary-soft);
+
+  /* Success */
+  --sl-color-success-shade: var(--smart-color-success-shade);
+  --sl-color-success-base: var(--smart-color-success-base);
+  --sl-color-success-tint: var(--smart-color-success-tint);
+  --sl-color-success-soft: var(--smart-color-success-soft);
+
+  /* Warning */
+  --sl-color-warning-shade: var(--smart-color-warning-shade);
+  --sl-color-warning-base: var(--smart-color-warning-base);
+  --sl-color-warning-tint: var(--smart-color-warning-tint);
+  --sl-color-warning-soft: var(--smart-color-warning-soft);
+
+  /* Danger */
+  --sl-color-danger-shade: var(--smart-color-danger-shade);
+  --sl-color-danger-base: var(--smart-color-danger-base);
+  --sl-color-danger-tint: var(--smart-color-danger-tint);
+  --sl-color-danger-soft: var(--smart-color-danger-soft);
+
+  /*
+   * Borders
+   */
 
   /* Border color */
   --sl-border-color-base: var(--smart-border-color-base);
@@ -635,7 +699,7 @@
   --sl-input-font-size-large: var(--sl-font-size-large);
   --sl-input-letter-spacing: var(--sl-letter-spacing-normal);
 
-  --sl-input-color: var(--sl-color-neutral-700);
+  --sl-input-color: var(--sl-color-neutral-950);
   --sl-input-color-hover: var(--sl-color-neutral-700);
   --sl-input-color-focus: var(--sl-color-neutral-700);
   --sl-input-color-disabled: var(--sl-color-neutral-950);

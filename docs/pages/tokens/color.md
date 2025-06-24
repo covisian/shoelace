@@ -10,9 +10,60 @@ Color tokens help maintain consistent use of color throughout your app. Shoelace
 
 Color tokens are referenced using the `--sl-color-{name}-{n}` CSS custom property, where `{name}` is the name of the palette and `{n}` is the numeric value of the desired swatch.
 
+
+
+
 ## Theme Tokens
 
 Theme tokens give you a semantic way to reference colors in your app. The primary palette is typically based on a brand color, whereas success, neutral, warning, and danger are used to visualize actions that correspond to their respective meanings.
+
+### Accent Tokens
+
+<div class="color-palette accent">
+  <div class="color-palette__name">
+    Primary<br>
+    <code>--sl-color-primary-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-primary-shade);"></div>shade</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-primary-base);"></div>base</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-primary-tint);"></div>tint</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-primary-soft);"></div>soft</div>
+</div>
+
+<div class="color-palette accent">
+  <div class="color-palette__name">
+    Success<br>
+    <code>--sl-color-success-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-success-shade);"></div>shade</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-success-base);"></div>base</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-success-tint);"></div>tint</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-success-soft);"></div>soft</div>
+</div>
+
+<div class="color-palette accent">
+  <div class="color-palette__name">
+    Warning<br>
+    <code>--sl-color-warning-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-warning-shade);"></div>shade</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-warning-base);"></div>base</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-warning-tint);"></div>tint</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-warning-soft);"></div>soft</div>
+</div>
+
+<div class="color-palette accent">
+  <div class="color-palette__name">
+    Danger<br>
+    <code>--sl-color-danger-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-danger-shade);"></div>shade</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-danger-base);"></div>base</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-danger-tint);"></div>tint</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-danger-soft);"></div>soft</div>
+</div>
+
+### Base Tokens
 
 <div class="color-palette">
   <div class="color-palette__name">
@@ -104,16 +155,10 @@ Theme tokens give you a semantic way to reference colors in your app. The primar
   <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-neutral-950);"></div>950</div>
 </div>
 
-<div class="color-palette">
-  <div class="color-palette__name">
-    Black & White<br>
-    <code>--sl-color-neutral-<em>{n}</em></code>
-  </div>
-  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-neutral-0);"></div>0</div>
-  <div class="color-palette__example"><div class="color-palette__swatch " style="background-color: var(--sl-color-neutral-1000);"></div>1000</div>
-</div>
 
-<div class="color-palette">
+### Background
+
+<div class="color-palette bg">
   <div class="color-palette__name">
     Background<br>
     <code>--sl-color-bg<em>{n}</em></code>
@@ -123,7 +168,9 @@ Theme tokens give you a semantic way to reference colors in your app. The primar
     <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-bg2);"></div>2</div>
 </div>
 
-<div class="color-palette">
+### Foreground / Text
+
+<div class="color-palette bg">
   <div class="color-palette__name">
     Foreground<br>
     <code>--sl-color-fg<em>{n}</em></code>
@@ -131,6 +178,26 @@ Theme tokens give you a semantic way to reference colors in your app. The primar
   <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-fg0);"></div>0</div>
   <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-fg1);"></div>1</div>
     <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-fg2);"></div>2</div>
+</div>
+
+### Black & White
+
+<div class="color-palette bw">
+  <div class="color-palette__name">
+    Black & White<br>
+    <code>--sl-color-neutral-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-neutral-0);"></div>0</div>
+  <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-neutral-1000);"></div>1000</div>
+</div>
+
+<div class="color-palette bw">
+  <div class="color-palette__name">
+    Statics<br>
+    <code>--sl-color-static-<em>{n}</em></code>
+  </div>
+  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border" style="background-color: var(--sl-color-static-white);"></div>white</div>
+  <div class="color-palette__example"><div class="color-palette__swatch color-palette__swatch--border " style="background-color: var(--sl-color-static-black);"></div>black</div>
 </div>
 
 :::tip
@@ -249,7 +316,7 @@ Smart color primitives. These are default for theme tokens.
   <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--smart-color-blue-950);"></div>950</div>  
 </div>
 
-## Primitives
+## Shoelace Primitives
 
 Additional palettes are provided in the form of color primitives. Use these when you need arbitrary colors that don't have semantic meaning. Color primitives are derived from the fantastic [Tailwind color palette](https://tailwindcss.com/docs/customizing-colors).
 
