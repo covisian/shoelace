@@ -18,6 +18,7 @@ Color tokens are referenced using the `--sl-color-{name}-{n}` CSS custom propert
 Theme tokens give you a semantic way to reference colors in your app. The primary palette is typically based on a brand color, whereas success, neutral, warning, and danger are used to visualize actions that correspond to their respective meanings.
 
 ### Accent Tokens
+These tokens help ensure consistent color usage and easy theming across your application.
 
 <div class="color-palette accent">
   <div class="color-palette__name">
@@ -63,7 +64,8 @@ Theme tokens give you a semantic way to reference colors in your app. The primar
   <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-danger-soft);"></div>soft</div>
 </div>
 
-### Base Tokens
+### Additional Accent Tokens
+These tokens are currently unused but are available for future use.
 
 <div class="color-palette">
   <div class="color-palette__name">
