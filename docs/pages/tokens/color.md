@@ -10,14 +10,12 @@ Color tokens help maintain consistent use of color throughout your app. Shoelace
 
 Color tokens are referenced using the `--sl-color-{name}-{n}` CSS custom property, where `{name}` is the name of the palette and `{n}` is the numeric value of the desired swatch.
 
-
-
-
 ## Theme Tokens
 
 Theme tokens give you a semantic way to reference colors in your app. The primary palette is typically based on a brand color, whereas success, neutral, warning, and danger are used to visualize actions that correspond to their respective meanings.
 
 ### Accent Tokens
+
 These tokens help ensure consistent color usage and easy theming across your application.
 
 <div class="color-palette accent">
@@ -65,6 +63,7 @@ These tokens help ensure consistent color usage and easy theming across your app
 </div>
 
 ### Additional Accent Tokens
+
 These tokens are currently unused but are available for future use.
 
 <div class="color-palette">
@@ -156,7 +155,6 @@ These tokens are currently unused but are available for future use.
   <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-neutral-900);"></div>900</div>
   <div class="color-palette__example"><div class="color-palette__swatch" style="background-color: var(--sl-color-neutral-950);"></div>950</div>
 </div>
-
 
 ### Background
 
