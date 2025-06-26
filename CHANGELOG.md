@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.21.1
+
+### Patch Changes
+
+- add underline prop to button
+
 ## 2.21.0
 
 ### Minor Changes
