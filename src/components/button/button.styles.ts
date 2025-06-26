@@ -348,25 +348,28 @@ export default css`
   .button--text {
     background-color: transparent;
     border-color: transparent;
-    color: var(--sl-color-primary-500);
+    color: var(--sl-color-fg0);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
 
   .button--text:hover:not(.button--disabled) {
     background-color: transparent;
     border-color: transparent;
-    color: var(--sl-color-primary-400);
+    color: var(--sl-color-neutral-500);
   }
 
   .button--text:focus-visible:not(.button--disabled) {
     background-color: transparent;
     border-color: transparent;
-    color: var(--sl-color-primary-600);
+    ccolor: var(--sl-color-fg0);
   }
 
   .button--text:active:not(.button--disabled) {
     background-color: transparent;
     border-color: transparent;
-    color: var(--sl-color-primary-500);
+    color: var(--sl-color-fg0);
   }
 
   /*
@@ -378,6 +381,8 @@ export default css`
     border-color: transparent;
     color: var(--sl-color-primary-500);
     text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
 
   .button.button--link:hover:not(.button--disabled) {
