@@ -84,6 +84,9 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
   /** Draws an outlined button. */
   @property({ type: Boolean, reflect: true }) outline = false;
 
+  /** Draws an underlined button. */
+  @property({ type: Boolean, reflect: true }) underline = false;
+
   /** Draws a pill-style button with rounded edges. */
   @property({ type: Boolean, reflect: true }) pill = false;
 
@@ -308,6 +311,7 @@ export default class SlButton extends ShoelaceElement implements ShoelaceFormCon
           'button--loading': this.loading,
           'button--standard': !this.outline,
           'button--outline': this.outline,
+          'button--underline': this.underline,
           'button--pill': this.pill,
           'button--block': this.block,
           'button--fluid': this.fluid,

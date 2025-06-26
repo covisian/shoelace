@@ -205,6 +205,109 @@ export default css`
   }
 
   /*
+   * Underline buttons
+   */
+
+  .button--standard.button--underline {
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    color: var(--sl-color-primary-500);
+  }
+
+  /* Default */
+  .button--underline.button--default {
+    color: var(--sl-color-fg0);
+  }
+
+  .button--underline.button--default:hover:not(.button--disabled),
+  .button--underline.button--default.button--checked:not(.button--disabled) {
+    background-color: unset;
+  }
+
+  .button--underline.button--default:active:not(.button--disabled) {
+    background-color: unset;
+  }
+
+  /* Primary */
+  .button--underline.button--primary {
+    background-color: unset;
+    color: var(--sl-color-primary-base);
+  }
+
+  .button--underline.button--primary:hover:not(.button--disabled),
+  .button--underline.button--primary.button--checked:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-primary-tint);
+    border-color: transparent;
+  }
+
+  .button--underline.button--primary:active:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-primary-shade);
+    border-color: transparent;
+  }
+
+  /* Success */
+  .button--underline.button--success {
+    background-color: unset;
+    color: var(--sl-color-success-base);
+  }
+
+  .button--underline.button--success:hover:not(.button--disabled),
+  .button--underline.button--success.button--checked:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-success-tint);
+    border-color: transparent;
+  }
+
+  .button--underline.button--success:active:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-success-shade);
+    border-color: transparent;
+  }
+
+  /* Warning */
+  .button--underline.button--warning {
+    background-color: unset;
+    color: var(--sl-color-warning-base);
+  }
+
+  .button--underline.button--warning:hover:not(.button--disabled),
+  .button--underline.button--warning.button--checked:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-warning-tint);
+    border-color: transparent;
+  }
+
+  .button--underline.button--warning:active:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-warning-shade);
+    border-color: transparent;
+  }
+
+  /* Danger */
+  .button--underline.button--danger {
+    background-color: unset;
+    color: var(--sl-color-danger-base);
+  }
+
+  .button--underline.button--danger:hover:not(.button--disabled),
+  .button--underline.button--danger.button--checked:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-danger-tint);
+    border-color: transparent;
+  }
+
+  .button--underline.button--danger:active:not(.button--disabled) {
+    background-color: unset;
+    color: var(--sl-color-danger-shade);
+    border-color: transparent;
+  }
+
+  /*
    * Outline buttons
    */
 
@@ -348,28 +451,25 @@ export default css`
   .button--text {
     background-color: transparent;
     border-color: transparent;
-    color: var(--sl-color-fg0);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
+    color: var(--sl-color-primary-base);
   }
 
   .button--text:hover:not(.button--disabled) {
     background-color: transparent;
     border-color: transparent;
-    color: var(--sl-color-neutral-500);
+    color: var(--sl-color-primary-tint);
   }
 
   .button--text:focus-visible:not(.button--disabled) {
     background-color: transparent;
     border-color: transparent;
-    ccolor: var(--sl-color-fg0);
+    color: var(--sl-color-primary-shade);
   }
 
   .button--text:active:not(.button--disabled) {
     background-color: transparent;
     border-color: transparent;
-    color: var(--sl-color-fg0);
+    color: var(--sl-color-primary-shade);
   }
 
   /*

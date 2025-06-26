@@ -269,6 +269,19 @@ const App = () => (
 );
 ```
 
+### Underline Buttons
+
+Use the `underline` attribute to create buttons that have an underline instead of a background. This is useful for creating links that look like buttons. It can be combined with the `size` and `variant` attributes to create different styles.
+
+```html:preview
+
+<sl-button underline size="large" variant='primary'><sl-icon slot='prefix' name='cv-plus'></sl-icon>Text</sl-button>
+<sl-button underline size="large" variant='default'><sl-icon slot='prefix' name='cv-plus'></sl-icon>Text</sl-button>
+<sl-button underline size="large" variant='success'><sl-icon slot='prefix' name='cv-plus'></sl-icon>Text</sl-button>
+<sl-button underline size="large" variant='warning'><sl-icon slot='prefix' name='cv-plus'></sl-icon>Text</sl-button>
+<sl-button underline size="large" variant='danger'><sl-icon slot='prefix' name='cv-plus'></sl-icon>Text</sl-button>
+```
+
 ### Text Buttons
 
 Use the `text` variant to create text buttons that share the same size as regular buttons but don't have backgrounds or borders.
