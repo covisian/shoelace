@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.21.4
+
+### Patch Changes
+
+- fix help text duplication bug
+
 ## 2.21.3
 
 ### Patch Changes
