@@ -306,4 +306,8 @@ export default css`
   .input--no-spin-buttons input[type='number'] {
     -moz-appearance: textfield;
   }
+
+  a {
+    color: var(--sl-color-primary-base);
+  }
 `;

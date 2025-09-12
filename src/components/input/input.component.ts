@@ -109,6 +109,12 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
   /** The input's help text. If you need to display HTML, use the `help-text` slot instead. */
   @property({ attribute: 'help-text' }) helpText = '';
 
+  /** The input's help text link. */
+  @property({ attribute: 'help-text-link' }) helpTextLink = '';
+
+  /** The portion of help text to be rendered as a link. */
+  @property({ attribute: 'help-text-link-substring' }) helpTextLinkSubstring = '';
+
   /** The input's error text. If you need to display HTML, use the `error-text` slot instead. */
   @property({ attribute: 'error-text' }) errorText = '';
 
@@ -308,6 +314,30 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
 
   private handlePasswordToggle() {
     this.passwordVisible = !this.passwordVisible;
+  }
+
+  private renderHelpTextContent() {
+    if (this.helpTextLink && this.helpTextLinkSubstring) {
+      const linkTextIndex = this.helpText.indexOf(this.helpTextLinkSubstring);
+      if (linkTextIndex !== -1) {
+        const beforeLink = this.helpText.substring(0, linkTextIndex);
+        const afterLink = this.helpText.substring(linkTextIndex + this.helpTextLinkSubstring.length);
+
+        return html`
+          ${beforeLink}<a href=${this.helpTextLink} target=${'_blank'} rel=${'noreferrer noopener'}
+            >${this.helpTextLinkSubstring}</a
+          >${afterLink}
+        `;
+      }
+    }
+
+    if (this.helpTextLink) {
+      return html`
+        <a href=${this.helpTextLink} target=${'_blank'} rel=${'noreferrer noopener'}> ${this.helpText} </a>
+      `;
+    }
+
+    return html`${this.helpText}`;
   }
 
   @watch('disabled', { waitUntilFirstUpdate: true })
@@ -561,7 +591,7 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
           class="form-control__help-text"
           aria-hidden=${hasHelpText ?? false}
         >
-          <slot name="help-text">${this.helpText}</slot>
+          <slot name="help-text">${this.renderHelpTextContent()}</slot>
         </div>
         <div
           part="form-control-error-text"

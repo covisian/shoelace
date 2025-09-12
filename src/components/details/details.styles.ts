@@ -6,9 +6,9 @@ export default css`
   }
 
   .details {
-    border: solid 1px var(--sl-color-neutral-200);
+    border: var(--sl-border-base)
     border-radius: var(--sl-border-radius-medium);
-    background-color: var(--sl-color-neutral-0);
+    background-color: var(--sl-color-bg1);
     overflow-anchor: none;
   }
 
