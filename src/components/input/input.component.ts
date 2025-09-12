@@ -313,49 +313,39 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
   private renderHelpTextContent() {
     if (!this.helpText) return html`${this.helpText}`;
 
-    // Parse markdown-style links [text](url) and plain URLs
-    const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-
-    const content = this.helpText;
+    const text = this.helpText;
     const parts: (string | { type: 'link'; text: string; url: string })[] = [];
-    let lastIndex = 0;
 
-    // First, handle markdown-style links
-    const markdownMatches: { start: number; end: number; text: string; url: string }[] = [];
+    // Combined regex to match both markdown links and plain URLs
+    const combinedRegex = /(\[([^\]]+)\]\(([^)]+)\))|(https?:\/\/[^\s]+)/g;
+    let lastIndex = 0;
     let match;
 
-    while ((match = markdownLinkRegex.exec(this.helpText)) !== null) {
-      markdownMatches.push({
-        start: match.index,
-        end: match.index + match[0].length,
-        text: match[1],
-        url: match[2]
-      });
-    }
-
-    // Sort matches by position
-    markdownMatches.sort((a, b) => a.start - b.start);
-
-    // Process markdown links and plain URLs
-    for (const mdMatch of markdownMatches) {
-      if (lastIndex < mdMatch.start) {
-        const textBefore = content.substring(lastIndex, mdMatch.start);
-        this.addUrlsFromText(textBefore, parts);
+    while ((match = combinedRegex.exec(text)) !== null) {
+      // Add text before the match
+      if (lastIndex < match.index) {
+        parts.push(text.substring(lastIndex, match.index));
       }
-      parts.push({ type: 'link', text: mdMatch.text, url: mdMatch.url });
-      lastIndex = mdMatch.end;
+
+      if (match[1]) {
+        // Markdown link [text](url)
+        parts.push({ type: 'link', text: match[2], url: match[3] });
+      } else if (match[4]) {
+        // Plain URL
+        parts.push({ type: 'link', text: match[4], url: match[4] });
+      }
+
+      lastIndex = match.index + match[0].length;
     }
 
-    // Process remaining text
-    if (lastIndex < content.length) {
-      const remainingText = content.substring(lastIndex);
-      this.addUrlsFromText(remainingText, parts);
+    // Add remaining text
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
     }
 
-    // If no markdown links found, just process plain URLs
-    if (markdownMatches.length === 0) {
-      parts.length = 0; // Clear array
-      this.addUrlsFromText(content, parts);
+    // If no matches found, return the original text
+    if (parts.length === 0) {
+      return html`${text}`;
     }
 
     // Render the parts
@@ -364,29 +354,6 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
         ? part
         : html`<a href=${part.url} target="_blank" rel="noreferrer noopener">${part.text}</a>`
     )}`;
-  }
-
-  private addUrlsFromText(text: string, parts: (string | { type: 'link'; text: string; url: string })[]) {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    let lastIndex = 0;
-    let match;
-
-    while ((match = urlRegex.exec(text)) !== null) {
-      if (lastIndex < match.index) {
-        parts.push(text.substring(lastIndex, match.index));
-      }
-      parts.push({ type: 'link', text: match[1], url: match[1] });
-      lastIndex = match.index + match[0].length;
-    }
-
-    if (lastIndex < text.length) {
-      parts.push(text.substring(lastIndex));
-    }
-
-    // If no URLs found, add the whole text
-    if (lastIndex === 0) {
-      parts.push(text);
-    }
   }
 
   @watch('disabled', { waitUntilFirstUpdate: true })

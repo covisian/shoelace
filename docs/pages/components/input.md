@@ -72,7 +72,7 @@ It can detect both markdown-style links and plain URLs and converts them to clic
 ```html:preview
 <sl-input label="Nickname" help-text="What would you like people to call you?"></sl-input>
 <sl-input
-  help-text="trovi le icone utilizzabili a [questa pagina](http://www.example.com)">
+  help-text="trovi le icone utilizzabili [questa pagina](http://www.example.com) pippo pluto">
 </sl-input>
 <sl-input
   help-text="trovi le icone utilizzabili a su http://www.example.com">
