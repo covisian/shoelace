@@ -508,15 +508,15 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
       <div
         part="form-control"
         class=${classMap({
-      'form-control': true,
-      'form-control--small': this.size === 'small',
-      'form-control--medium': this.size === 'medium',
-      'form-control--large': this.size === 'large',
-      'form-control--has-label': hasLabel,
-      'form-control--has-help-text': hasHelpText,
-      'form-control--has-error-text': hasErrorText,
-      'form-control--has-bottom-spacing': this.bottomSpacing
-    })}
+          'form-control': true,
+          'form-control--small': this.size === 'small',
+          'form-control--medium': this.size === 'medium',
+          'form-control--large': this.size === 'large',
+          'form-control--has-label': hasLabel,
+          'form-control--has-help-text': hasHelpText,
+          'form-control--has-error-text': hasErrorText,
+          'form-control--has-bottom-spacing': this.bottomSpacing
+        })}
       >
         <label
           part="form-control-label"
@@ -531,23 +531,23 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
           <div
             part="base"
             class=${classMap({
-      input: true,
+              input: true,
 
-      // Sizes
-      'input--small': this.size === 'small',
-      'input--medium': this.size === 'medium',
-      'input--large': this.size === 'large',
+              // Sizes
+              'input--small': this.size === 'small',
+              'input--medium': this.size === 'medium',
+              'input--large': this.size === 'large',
 
-      // States
-      'input--pill': this.pill,
-      'input--standard': !this.filled,
-      'input--filled': this.filled,
-      'input--disabled': this.disabled,
-      'input--focused': this.hasFocus,
-      'input--empty': !this.value,
-      'input--no-spin-buttons': this.noSpinButtons,
-      'input--error': this.errorText
-    })}
+              // States
+              'input--pill': this.pill,
+              'input--standard': !this.filled,
+              'input--filled': this.filled,
+              'input--disabled': this.disabled,
+              'input--focused': this.hasFocus,
+              'input--empty': !this.value,
+              'input--no-spin-buttons': this.noSpinButtons,
+              'input--error': this.errorText
+            })}
           >
             <span part="prefix" class="input__prefix">
               <slot name="prefix"></slot>
@@ -588,7 +588,7 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
             />
 
             ${isClearIconVisible
-        ? html`
+              ? html`
                   <button
                     part="clear-button"
                     class="input__clear"
@@ -602,9 +602,9 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                     </slot>
                   </button>
                 `
-        : ''}
+              : ''}
             ${this.passwordToggle && !this.disabled
-        ? html`
+              ? html`
                   <button
                     part="password-toggle-button"
                     class="input__password-toggle"
@@ -614,19 +614,19 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                     tabindex="-1"
                   >
                     ${this.passwordVisible
-            ? html`
+                      ? html`
                           <slot name="show-password-icon">
                             <sl-icon name="cv-eye-show"></sl-icon>
                           </slot>
                         `
-            : html`
+                      : html`
                           <slot name="hide-password-icon">
                             <sl-icon name="cv-eye-hidden"></sl-icon>
                           </slot>
                         `}
                   </button>
                 `
-        : ''}
+              : ''}
 
             <span part="suffix" class="input__suffix">
               <slot name="suffix"></slot>
