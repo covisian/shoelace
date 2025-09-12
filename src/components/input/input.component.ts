@@ -109,12 +109,6 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
   /** The input's help text. If you need to display HTML, use the `help-text` slot instead. */
   @property({ attribute: 'help-text' }) helpText = '';
 
-  /** The input's help text link. */
-  @property({ attribute: 'help-text-link' }) helpTextLink = '';
-
-  /** The portion of help text to be rendered as a link. */
-  @property({ attribute: 'help-text-link-substring' }) helpTextLinkSubstring = '';
-
   /** The input's error text. If you need to display HTML, use the `error-text` slot instead. */
   @property({ attribute: 'error-text' }) errorText = '';
 
@@ -317,27 +311,82 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
   }
 
   private renderHelpTextContent() {
-    if (this.helpTextLink && this.helpTextLinkSubstring) {
-      const linkTextIndex = this.helpText.indexOf(this.helpTextLinkSubstring);
-      if (linkTextIndex !== -1) {
-        const beforeLink = this.helpText.substring(0, linkTextIndex);
-        const afterLink = this.helpText.substring(linkTextIndex + this.helpTextLinkSubstring.length);
+    if (!this.helpText) return html`${this.helpText}`;
 
-        return html`
-          ${beforeLink}<a href=${this.helpTextLink} target=${'_blank'} rel=${'noreferrer noopener'}
-            >${this.helpTextLinkSubstring}</a
-          >${afterLink}
-        `;
+    // Parse markdown-style links [text](url) and plain URLs
+    const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+    const content = this.helpText;
+    const parts: (string | { type: 'link'; text: string; url: string })[] = [];
+    let lastIndex = 0;
+
+    // First, handle markdown-style links
+    const markdownMatches: { start: number; end: number; text: string; url: string }[] = [];
+    let match;
+
+    while ((match = markdownLinkRegex.exec(this.helpText)) !== null) {
+      markdownMatches.push({
+        start: match.index,
+        end: match.index + match[0].length,
+        text: match[1],
+        url: match[2]
+      });
+    }
+
+    // Sort matches by position
+    markdownMatches.sort((a, b) => a.start - b.start);
+
+    // Process markdown links and plain URLs
+    for (const mdMatch of markdownMatches) {
+      if (lastIndex < mdMatch.start) {
+        const textBefore = content.substring(lastIndex, mdMatch.start);
+        this.addUrlsFromText(textBefore, parts);
       }
+      parts.push({ type: 'link', text: mdMatch.text, url: mdMatch.url });
+      lastIndex = mdMatch.end;
     }
 
-    if (this.helpTextLink) {
-      return html`
-        <a href=${this.helpTextLink} target=${'_blank'} rel=${'noreferrer noopener'}> ${this.helpText} </a>
-      `;
+    // Process remaining text
+    if (lastIndex < content.length) {
+      const remainingText = content.substring(lastIndex);
+      this.addUrlsFromText(remainingText, parts);
     }
 
-    return html`${this.helpText}`;
+    // If no markdown links found, just process plain URLs
+    if (markdownMatches.length === 0) {
+      parts.length = 0; // Clear array
+      this.addUrlsFromText(content, parts);
+    }
+
+    // Render the parts
+    return html`${parts.map(part =>
+      typeof part === 'string'
+        ? part
+        : html`<a href=${part.url} target="_blank" rel="noreferrer noopener">${part.text}</a>`
+    )}`;
+  }
+
+  private addUrlsFromText(text: string, parts: (string | { type: 'link'; text: string; url: string })[]) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    let lastIndex = 0;
+    let match;
+
+    while ((match = urlRegex.exec(text)) !== null) {
+      if (lastIndex < match.index) {
+        parts.push(text.substring(lastIndex, match.index));
+      }
+      parts.push({ type: 'link', text: match[1], url: match[1] });
+      lastIndex = match.index + match[0].length;
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    // If no URLs found, add the whole text
+    if (lastIndex === 0) {
+      parts.push(text);
+    }
   }
 
   @watch('disabled', { waitUntilFirstUpdate: true })
@@ -459,15 +508,15 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
       <div
         part="form-control"
         class=${classMap({
-          'form-control': true,
-          'form-control--small': this.size === 'small',
-          'form-control--medium': this.size === 'medium',
-          'form-control--large': this.size === 'large',
-          'form-control--has-label': hasLabel,
-          'form-control--has-help-text': hasHelpText,
-          'form-control--has-error-text': hasErrorText,
-          'form-control--has-bottom-spacing': this.bottomSpacing
-        })}
+      'form-control': true,
+      'form-control--small': this.size === 'small',
+      'form-control--medium': this.size === 'medium',
+      'form-control--large': this.size === 'large',
+      'form-control--has-label': hasLabel,
+      'form-control--has-help-text': hasHelpText,
+      'form-control--has-error-text': hasErrorText,
+      'form-control--has-bottom-spacing': this.bottomSpacing
+    })}
       >
         <label
           part="form-control-label"
@@ -482,23 +531,23 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
           <div
             part="base"
             class=${classMap({
-              input: true,
+      input: true,
 
-              // Sizes
-              'input--small': this.size === 'small',
-              'input--medium': this.size === 'medium',
-              'input--large': this.size === 'large',
+      // Sizes
+      'input--small': this.size === 'small',
+      'input--medium': this.size === 'medium',
+      'input--large': this.size === 'large',
 
-              // States
-              'input--pill': this.pill,
-              'input--standard': !this.filled,
-              'input--filled': this.filled,
-              'input--disabled': this.disabled,
-              'input--focused': this.hasFocus,
-              'input--empty': !this.value,
-              'input--no-spin-buttons': this.noSpinButtons,
-              'input--error': this.errorText
-            })}
+      // States
+      'input--pill': this.pill,
+      'input--standard': !this.filled,
+      'input--filled': this.filled,
+      'input--disabled': this.disabled,
+      'input--focused': this.hasFocus,
+      'input--empty': !this.value,
+      'input--no-spin-buttons': this.noSpinButtons,
+      'input--error': this.errorText
+    })}
           >
             <span part="prefix" class="input__prefix">
               <slot name="prefix"></slot>
@@ -539,7 +588,7 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
             />
 
             ${isClearIconVisible
-              ? html`
+        ? html`
                   <button
                     part="clear-button"
                     class="input__clear"
@@ -553,9 +602,9 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                     </slot>
                   </button>
                 `
-              : ''}
+        : ''}
             ${this.passwordToggle && !this.disabled
-              ? html`
+        ? html`
                   <button
                     part="password-toggle-button"
                     class="input__password-toggle"
@@ -565,19 +614,19 @@ export default class SlInput extends ShoelaceElement implements ShoelaceFormCont
                     tabindex="-1"
                   >
                     ${this.passwordVisible
-                      ? html`
+            ? html`
                           <slot name="show-password-icon">
                             <sl-icon name="cv-eye-show"></sl-icon>
                           </slot>
                         `
-                      : html`
+            : html`
                           <slot name="hide-password-icon">
                             <sl-icon name="cv-eye-hidden"></sl-icon>
                           </slot>
                         `}
                   </button>
                 `
-              : ''}
+        : ''}
 
             <span part="suffix" class="input__suffix">
               <slot name="suffix"></slot>

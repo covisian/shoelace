@@ -67,14 +67,15 @@ const App = () => <SlInput label="Error" error-text='Very big error' />;
 ### Help Text
 
 Add descriptive help text to an input with the `help-text` attribute. For help texts that contain HTML, use the `help-text` slot instead.
-You can also add a link to the help text using the `help-text-link` and `help-text-link-text` attributes.
+It can detect both markdown-style links and plain URLs and converts them to clickable links.
 
 ```html:preview
 <sl-input label="Nickname" help-text="What would you like people to call you?"></sl-input>
 <sl-input
-  help-text="Vedi la documentazione per maggiori dettagli"
-  help-text-link="https://example.com/docs"
-  help-text-link-substring="documentazione">
+  help-text="trovi le icone utilizzabili a [questa pagina](http://www.example.com)">
+</sl-input>
+<sl-input
+  help-text="trovi le icone utilizzabili a su http://www.example.com">
 </sl-input>
 ```
 
