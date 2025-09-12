@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.21.2
+
+### Patch Changes
+
+- add possibility to display a link in input help-text
+
 ## 2.21.1
 
 ### Patch Changes
