@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.21.3
+
+### Patch Changes
+
+- add md support and autodetect mode for links in help text
+
 ## 2.21.2
 
 ### Patch Changes
