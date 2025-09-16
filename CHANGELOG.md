@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.22.0
+
+### Minor Changes
+
+- textarea bug fix when resizing
+
 ## 2.21.4
 
 ### Patch Changes
