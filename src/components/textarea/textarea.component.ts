@@ -18,7 +18,7 @@ import type { ShoelaceFormControl } from '../../internal/shoelace-element.js';
  * @summary Textareas collect data from the user and allow multiple lines of text.
  * @documentation https://shoelace.style/components/textarea
  * @status stable
- * @since 2.0
+ * @since 2.21.5
  *
  * @slot label - The textarea's label. Alternatively, you can use the `label` attribute.
  * @slot help-text - Text that describes how to use the input. Alternatively, you can use the `help-text` attribute.
@@ -44,6 +44,8 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
   });
   private readonly hasSlotController = new HasSlotController(this, 'help-text', 'label');
   private resizeObserver: ResizeObserver;
+  private isInternalResize = false;
+  private userHasResized = false;
 
   @query('.textarea__control') input: HTMLTextAreaElement;
   @query('.textarea__size-adjuster') sizeAdjuster: HTMLTextAreaElement;
@@ -150,7 +152,17 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
 
   connectedCallback() {
     super.connectedCallback();
-    this.resizeObserver = new ResizeObserver(() => this.setTextareaHeight());
+    this.resizeObserver = new ResizeObserver(entries => {
+      if (!this.isInternalResize) {
+        // Check if the resize was caused by user interaction
+        const entry = entries[0];
+        if (entry && this.resize === 'vertical') {
+          this.userHasResized = true;
+        } else if (this.resize === 'auto' && !this.userHasResized) {
+          this.setTextareaHeight();
+        }
+      }
+    });
 
     this.updateComplete.then(() => {
       this.setTextareaHeight();
@@ -176,7 +188,10 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
 
   private handleChange() {
     this.value = this.input.value;
-    this.setTextareaHeight();
+    // Only auto-resize if user hasn't manually resized
+    if (this.resize === 'auto' && !this.userHasResized) {
+      this.setTextareaHeight();
+    }
     this.emit('sl-change');
   }
 
@@ -187,6 +202,10 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
 
   private handleInput() {
     this.value = this.input.value;
+    // Only auto-resize if user hasn't manually resized
+    if (this.resize === 'auto' && !this.userHasResized) {
+      this.setTextareaHeight();
+    }
     this.emit('sl-input');
   }
 
@@ -196,13 +215,29 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
   }
 
   private setTextareaHeight() {
-    if (this.resize === 'auto') {
-      // This prevents layout shifts. We use `clientHeight` instead of `scrollHeight` to account for if the `<textarea>` has a max-height set on it. In my tests, this has worked fine. Im not aware of any edge cases. [Konnor]
-      this.sizeAdjuster.style.height = `${this.input.clientHeight}px`;
+    if (this.resize === 'auto' && !this.userHasResized) {
+      this.isInternalResize = true;
+
+      // Reset height to measure content
       this.input.style.height = 'auto';
+
+      // Set the adjuster height to prevent layout shift
+      if (this.sizeAdjuster) {
+        this.sizeAdjuster.style.height = `${this.input.scrollHeight}px`;
+      }
+
+      // Set the actual height
       this.input.style.height = `${this.input.scrollHeight}px`;
-    } else {
+
+      // Use requestAnimationFrame to ensure the resize operation is complete
+      requestAnimationFrame(() => {
+        this.isInternalResize = false;
+      });
+    } else if (this.resize !== 'auto') {
       this.input.style.height = '';
+      if (this.sizeAdjuster) {
+        this.sizeAdjuster.style.height = '';
+      }
     }
   }
 
@@ -210,6 +245,13 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
   handleDisabledChange() {
     // Disabled form controls are always valid
     this.formControlController.setValidity(this.disabled);
+  }
+
+  @watch('resize', { waitUntilFirstUpdate: true })
+  handleResizeChange() {
+    // Reset user resize flag when resize mode changes
+    this.userHasResized = false;
+    this.setTextareaHeight();
   }
 
   @watch('rows', { waitUntilFirstUpdate: true })
@@ -221,7 +263,10 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
   async handleValueChange() {
     await this.updateComplete;
     this.formControlController.updateValidity();
-    this.setTextareaHeight();
+    // Only auto-resize if user hasn't manually resized
+    if (this.resize === 'auto' && !this.userHasResized) {
+      this.setTextareaHeight();
+    }
   }
 
   /** Sets focus on the textarea. */
@@ -249,7 +294,7 @@ export default class SlTextarea extends ShoelaceElement implements ShoelaceFormC
 
     return {
       top: this.input.scrollTop,
-      left: this.input.scrollTop
+      left: this.input.scrollLeft
     };
   }
 
