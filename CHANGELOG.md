@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.22.1
+
+### Patch Changes
+
+- (range): add dual-handle mode
+
 ## 2.22.0
 
 ### Minor Changes
