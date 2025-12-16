@@ -171,6 +171,32 @@ const App = () => (
 
 {% endraw %}
 
+### Custom Color
+
+Use the `color` attribute to change the color of the handles and active track. This accepts any valid CSS color value.
+
+```html:preview
+<sl-range label="Red" color="#e74c3c" value="30"></sl-range>
+<br />
+<sl-range label="Green" color="#27ae60" value="50"></sl-range>
+<br />
+<sl-range label="Purple" color="#9b59b6" value="70"></sl-range>
+```
+
+```jsx:react
+import SlRange from '@shoelace-style/shoelace/dist/react/range';
+
+const App = () => (
+  <>
+    <SlRange label="Red" color="#e74c3c" value={30} />
+    <br />
+    <SlRange label="Green" color="#27ae60" value={50} />
+    <br />
+    <SlRange label="Purple" color="#9b59b6" value={70} />
+  </>
+);
+```
+
 ### Custom Tooltip Formatter
 
 You can change the tooltip's content by setting the `tooltipFormatter` property to a function that accepts the range's value as an argument.
@@ -188,4 +214,239 @@ You can change the tooltip's content by setting the `tooltipFormatter` property 
 import SlRange from '@shoelace-style/shoelace/dist/react/range';
 
 const App = () => <SlRange min={0} max={100} step={1} tooltipFormatter={value => `Total - ${value}%`} />;
+```
+
+## Dual-Handle Range
+
+Use the `range` attribute to enable dual-handle mode, which allows selecting a range of values with two handles. In this mode, the `value` property should be an array with two numbers `[min, max]`.
+
+```html:preview
+<sl-range label="Select a price range" min="0" max="1000" step="10" range></sl-range>
+
+<script>
+  const range = document.querySelector('sl-range[range]');
+  range.value = [200, 800];
+
+  range.addEventListener('sl-input', () => {
+    console.log('Range:', range.value);
+  });
+</script>
+```
+
+```jsx:react
+import { useState } from 'react';
+import SlRange from '@shoelace-style/shoelace/dist/react/range';
+
+const App = () => {
+  const [value, setValue] = useState([200, 800]);
+
+  return (
+    <SlRange
+      label="Select a price range"
+      min={0}
+      max={1000}
+      step={10}
+      range
+      value={value}
+      onSlInput={e => setValue(e.target.value)}
+    />
+  );
+};
+```
+
+### Dual Range with Numeric Inputs
+
+Use the `show-inputs` attribute along with `range` to display numeric input fields for direct value entry.
+
+```html:preview
+<sl-range
+  label="Budget range"
+  min="0"
+  max="10000"
+  step="100"
+  range
+  show-inputs
+></sl-range>
+
+<script>
+  const range = document.querySelector('sl-range[show-inputs]');
+  range.value = [2000, 7000];
+</script>
+```
+
+```jsx:react
+import { useState } from 'react';
+import SlRange from '@shoelace-style/shoelace/dist/react/range';
+
+const App = () => {
+  const [value, setValue] = useState([2000, 7000]);
+
+  return (
+    <SlRange
+      label="Budget range"
+      min={0}
+      max={10000}
+      step={100}
+      range
+      showInputs
+      value={value}
+      onSlInput={e => setValue(e.target.value)}
+    />
+  );
+};
+```
+
+### Dual Range with Custom Formatter
+
+You can customize the tooltip formatter for dual-handle ranges as well.
+
+```html:preview
+<sl-range
+  label="Temperature range (°C)"
+  min="-20"
+  max="50"
+  step="1"
+  range
+  class="range-temperature"
+></sl-range>
+
+<script>
+  const range = document.querySelector('.range-temperature');
+  range.value = [10, 30];
+  range.tooltipFormatter = value => `${value}°C`;
+</script>
+```
+
+```jsx:react
+import { useState } from 'react';
+import SlRange from '@shoelace-style/shoelace/dist/react/range';
+
+const App = () => {
+  const [value, setValue] = useState([10, 30]);
+
+  return (
+    <SlRange
+      label="Temperature range (°C)"
+      min={-20}
+      max={50}
+      step={1}
+      range
+      value={value}
+      onSlInput={e => setValue(e.target.value)}
+      tooltipFormatter={value => `${value}°C`}
+    />
+  );
+};
+```
+
+### Dual Range with Custom Color
+
+The `color` attribute works with dual-handle ranges too.
+
+```html:preview
+<sl-range
+  label="Price range"
+  min="0"
+  max="1000"
+  step="10"
+  range
+  show-inputs
+  color="#e67e22"
+></sl-range>
+
+<script>
+  const range = document.querySelector('sl-range[color="#e67e22"]');
+  range.value = [200, 700];
+</script>
+```
+
+```jsx:react
+import { useState } from 'react';
+import SlRange from '@shoelace-style/shoelace/dist/react/range';
+
+const App = () => {
+  const [value, setValue] = useState([200, 700]);
+
+  return (
+    <SlRange
+      label="Price range"
+      min={0}
+      max={1000}
+      step={10}
+      range
+      showInputs
+      color="#e67e22"
+      value={value}
+      onSlInput={e => setValue(e.target.value)}
+    />
+  );
+};
+```
+
+### Dual Range in Forms
+
+When used in a form with the `range` attribute, the value is submitted as a JSON array string.
+
+```html:preview
+<form class="range-form">
+  <sl-range
+    name="price-range"
+    label="Price range"
+    min="0"
+    max="1000"
+    step="50"
+    range
+    show-inputs
+  ></sl-range>
+  <br />
+  <sl-button type="submit" variant="primary">Submit</sl-button>
+</form>
+
+<script>
+  const form = document.querySelector('.range-form');
+  const range = form.querySelector('sl-range');
+  range.value = [100, 500];
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const priceRange = formData.get('price-range');
+    alert(`Selected range: ${priceRange}`);
+  });
+</script>
+```
+
+```jsx:react
+import { useState } from 'react';
+import SlRange from '@shoelace-style/shoelace/dist/react/range';
+import SlButton from '@shoelace-style/shoelace/dist/react/button';
+
+const App = () => {
+  const [value, setValue] = useState([100, 500]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const priceRange = formData.get('price-range');
+    alert(`Selected range: ${priceRange}`);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <SlRange
+        name="price-range"
+        label="Price range"
+        min={0}
+        max={1000}
+        step={50}
+        range
+        showInputs
+        value={value}
+        onSlInput={e => setValue(e.target.value)}
+      />
+      <br />
+      <SlButton type="submit" variant="primary">Submit</SlButton>
+    </form>
+  );
+};
 ```

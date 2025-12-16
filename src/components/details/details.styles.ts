@@ -6,7 +6,7 @@ export default css`
   }
 
   .details {
-    border: var(--sl-border-base)
+    border: var(--sl-border-base);
     border-radius: var(--sl-border-radius-medium);
     background-color: var(--sl-color-bg1);
     overflow-anchor: none;

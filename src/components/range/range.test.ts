@@ -233,4 +233,200 @@ describe('<sl-range>', () => {
   });
 
   runFormControlBaseTests('sl-range');
+
+  describe('dual-handle mode', () => {
+    it('should have default properties for dual mode', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+
+      expect(el.range).to.be.false; // range is false because value is not an array
+      expect(el.showInputs).to.be.false;
+    });
+
+    it('should enable dual mode when range is true and value is an array', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      expect(el.range).to.be.true;
+      expect(Array.isArray(el.value)).to.be.true;
+      expect(el.value).to.deep.equal([20, 80]);
+    });
+
+    it('should have two range inputs in dual mode', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const inputs = el.shadowRoot!.querySelectorAll('input[type="range"]');
+      expect(inputs.length).to.equal(2);
+    });
+
+    it('should show numeric inputs when show-inputs is true', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range show-inputs></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const numericInputs = el.shadowRoot!.querySelectorAll('.range__numeric-input');
+      expect(numericInputs.length).to.equal(2);
+    });
+
+    it('should not show numeric inputs when show-inputs is false', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const numericInputs = el.shadowRoot!.querySelectorAll('.range__numeric-input');
+      expect(numericInputs.length).to.equal(0);
+    });
+
+    it('should emit sl-input when min value changes', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const inputHandler = sinon.spy();
+      el.addEventListener('sl-input', inputHandler);
+
+      const minInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--min')!;
+      minInput.value = '30';
+      minInput.dispatchEvent(new Event('input', { bubbles: true }));
+      await el.updateComplete;
+
+      expect(inputHandler).to.have.been.calledOnce;
+      expect(el.value).to.deep.equal([30, 80]);
+    });
+
+    it('should emit sl-input when max value changes', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const inputHandler = sinon.spy();
+      el.addEventListener('sl-input', inputHandler);
+
+      const maxInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--max')!;
+      maxInput.value = '70';
+      maxInput.dispatchEvent(new Event('input', { bubbles: true }));
+      await el.updateComplete;
+
+      expect(inputHandler).to.have.been.calledOnce;
+      expect(el.value).to.deep.equal([20, 70]);
+    });
+
+    it('should ensure min value does not exceed max value', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const minInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--min')!;
+      minInput.value = '90';
+      minInput.dispatchEvent(new Event('input', { bubbles: true }));
+      await el.updateComplete;
+
+      expect(el.value).to.deep.equal([80, 80]); // min should be clamped to max
+    });
+
+    it('should ensure max value does not go below min value', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const maxInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--max')!;
+      maxInput.value = '10';
+      maxInput.dispatchEvent(new Event('input', { bubbles: true }));
+      await el.updateComplete;
+
+      expect(el.value).to.deep.equal([20, 20]); // max should be clamped to min
+    });
+
+    it('should serialize dual value as JSON array in form data', async () => {
+      const form = await fixture<HTMLFormElement>(html`
+        <form>
+          <sl-range name="price-range" range></sl-range>
+        </form>
+      `);
+      const range = form.querySelector('sl-range')!;
+      range.value = [100, 500];
+      await range.updateComplete;
+
+      const formData = new FormData(form);
+      expect(formData.get('price-range')).to.equal('[100,500]');
+    });
+
+    it('should update numeric inputs when slider values change', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range show-inputs></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const minInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--min')!;
+      minInput.value = '30';
+      minInput.dispatchEvent(new Event('input', { bubbles: true }));
+      await el.updateComplete;
+
+      const numericMinInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__numeric-input--min')!;
+      expect(numericMinInput.value).to.equal('30');
+    });
+
+    it('should update slider when numeric input values change', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range show-inputs></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const numericMinInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__numeric-input--min')!;
+      numericMinInput.value = '40';
+      numericMinInput.dispatchEvent(new Event('input', { bubbles: true }));
+      await el.updateComplete;
+
+      expect(el.value).to.deep.equal([40, 80]);
+    });
+
+    it('should respect min, max, and step in dual mode', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range min="0" max="100" step="10"></sl-range> `);
+      el.value = [25, 75];
+      await el.updateComplete;
+
+      // Values should be adjusted to step
+      const minInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--min')!;
+      const maxInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--max')!;
+
+      expect(minInput.min).to.equal('0');
+      expect(minInput.max).to.equal('100');
+      expect(minInput.step).to.equal('10');
+      expect(maxInput.min).to.equal('0');
+      expect(maxInput.max).to.equal('100');
+      expect(maxInput.step).to.equal('10');
+    });
+
+    it('should have two tooltips in dual mode', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range tooltip="top"></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const tooltips = el.shadowRoot!.querySelectorAll('.range__tooltip');
+      expect(tooltips.length).to.equal(2);
+    });
+
+    it('should disable both inputs when disabled in dual mode', async () => {
+      const el = await fixture<SlRange>(html` <sl-range range disabled></sl-range> `);
+      el.value = [20, 80];
+      await el.updateComplete;
+
+      const minInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--min')!;
+      const maxInput = el.shadowRoot!.querySelector<HTMLInputElement>('.range__control--max')!;
+
+      expect(minInput.disabled).to.be.true;
+      expect(maxInput.disabled).to.be.true;
+    });
+
+    it('should maintain backward compatibility with single mode', async () => {
+      const el = await fixture<SlRange>(html` <sl-range value="50"></sl-range> `);
+      await el.updateComplete;
+
+      expect(el.value).to.equal(50);
+      expect(el.range).to.be.false;
+
+      const inputs = el.shadowRoot!.querySelectorAll('input[type="range"]');
+      expect(inputs.length).to.equal(1);
+    });
+  });
 });
