@@ -820,6 +820,25 @@
   --sl-track-kpi-ai: var(--smart-track-kpi-ai);
 
   --sl-track-kpi-base: var(--smart-track-kpi-base);
+
+  /*
+    * TASKS
+    */
+
+  --sl-task-aio-soft: #fdf2ff;
+  --sl-task-aio-tint-soft: #fae5ff;
+  --sl-task-aio-tint: #e879f9;
+  --sl-task-aio-shade: #c026d3;
+
+  --sl-task-ais-soft: #faf5ff;
+  --sl-task-ais-tint-soft: #f3e8ff;
+  --sl-task-ais-tint: #c084fc;
+  --sl-task-ais-shade: #9334e9;
+
+  --sl-task-hum-soft: #f0fdfa;
+  --sl-task-hum-tint-soft: #ccfbf1;
+  --sl-task-hum-tint: #2dd4bf;
+  --sl-task-hum-shade: #0d9488;
 }
 
 /* _utility.css */
