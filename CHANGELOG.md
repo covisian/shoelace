@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.22.3
+
+### Patch Changes
+
+- add task tokens
+
 ## 2.22.2
 
 ### Patch Changes
