@@ -825,20 +825,20 @@
     * TASKS
     */
 
-  --sl-task-aio-soft: #fdf2ff;
-  --sl-task-aio-tint-soft: #fae5ff;
-  --sl-task-aio-tint: #e879f9;
-  --sl-task-aio-shade: #c026d3;
+  --sl-task-aio-soft: #fde7f1;
+  --sl-task-aio-tint-soft: #fbcfe3;
+  --sl-task-aio-tint: #f257a0;
+  --sl-task-aio-shade: #df1e77;
 
   --sl-task-ais-soft: #faf5ff;
   --sl-task-ais-tint-soft: #f3e8ff;
   --sl-task-ais-tint: #c084fc;
   --sl-task-ais-shade: #9334e9;
 
-  --sl-task-hum-soft: #f0fdfa;
-  --sl-task-hum-tint-soft: #ccfbf1;
-  --sl-task-hum-tint: #2dd4bf;
-  --sl-task-hum-shade: #0d9488;
+  --sl-task-hum-soft: #fff7ed;
+  --sl-task-hum-tint-soft: #ffedd5;
+  --sl-task-hum-tint: #fb923c;
+  --sl-task-hum-shade: #c1410e;
 }
 
 /* _utility.css */
