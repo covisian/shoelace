@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.22.4
+
+### Patch Changes
+
+- update shoelace
+
 ## 2.22.3
 
 ### Patch Changes
