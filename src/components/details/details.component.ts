@@ -215,10 +215,10 @@ export default class SlDetails extends ShoelaceElement {
 
           <span part="summary-icon" class="details__summary-icon">
             <slot name="expand-icon">
-              <sl-icon name=${isRtl ? 'cv-caret-down' : 'cv-caret-left'}></sl-icon>
+              <sl-icon name=${isRtl ? 'cv-caret-down' : 'cv-caret-down'}></sl-icon>
             </slot>
             <slot name="collapse-icon">
-              <sl-icon name=${isRtl ? 'cv-caret-down' : 'cv-caret-left'}></sl-icon>
+              <sl-icon name=${isRtl ? 'cv-caret-left' : 'cv-caret-left'}></sl-icon>
             </slot>
           </span>
         </summary>

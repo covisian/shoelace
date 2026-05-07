@@ -44,6 +44,16 @@ export default css`
     color: var(--sl-color-success-600);
   }
 
+  .tag--neutral {
+    background-color: var(--sl-color-neutral-950);
+    border-color: var(--sl-color-neutral-950);
+    color: var(--sl-color-neutral-50);
+  }
+
+  .tag--neutral:active > sl-icon-button {
+    color: var(--sl-color-neutral-200);
+  }
+
   .tag--default {
     background-color: var(--sl-color-bg1);
     border-color: var(--sl-border-color-base);
