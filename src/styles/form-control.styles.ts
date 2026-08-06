@@ -98,28 +98,28 @@ export default css`
   /* Bottom spacing */
 
   .form-control--has-bottom-spacing.form-control--small {
-    height: var(--sl-form-min-heigth-small);
+    height: var(--sl-form-min-height-small);
   }
 
   .form-control--has-bottom-spacing.form-control--medium {
-    height: var(--sl-form-min-heigth-medium);
+    height: var(--sl-form-min-height-medium);
   }
 
   .form-control--has-bottom-spacing.form-control--large {
-    height: var(--sl-form-min-heigth-large);
+    height: var(--sl-form-min-height-large);
   }
 
   /* Bottom spacing Checkbox */
 
   .form-control-checkbox--has-bottom-spacing.form-control--small {
-    height: var(--sl-form-checkbox-min-heigth-small);
+    height: var(--sl-form-checkbox-min-height-small);
   }
 
   .form-control-checkbox--has-bottom-spacing.form-control--medium {
-    height: var(--sl-form-checkbox-min-heigth-medium);
+    height: var(--sl-form-checkbox-min-height-medium);
   }
 
   .form-control-checkbox--has-bottom-spacing.form-control--large {
-    height: var(--sl-form-checkbox-min-heigth-large);
+    height: var(--sl-form-checkbox-min-height-large);
   }
 `;
