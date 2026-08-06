@@ -1,5 +1,11 @@
 # @covisian/shoelace
 
+## 2.23.0
+
+### Minor Changes
+
+- fix height typo
+
 ## 2.22.4
 
 ### Patch Changes
